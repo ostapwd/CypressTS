@@ -1,0 +1,12 @@
+{
+    "userName": "#userName",
+    "userEmail": "#userEmail",
+    "currentAddress": "#currentAddress",
+    "permanentAddress": "#permanentAddress",
+    "submit": "#submit",
+    "output": "#output",
+    "outputName": "#output p#name",
+    "outputEmail": "#output p#email",
+    "outputCurrentAddress": "#output p#currentAddress",
+    "outputPermanentAddress": "#output p#permanentAddress"
+}
