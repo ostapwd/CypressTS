@@ -1,0 +1,26 @@
+{
+    "addButton": "#addNewRecordButton",
+    "firstName": "#firstName",
+    "lastName": "#lastName",
+    "userEmail": "#userEmail",
+    "age": "#age",
+    "salary": "#salary",
+    "department": "#department",
+    "submit": "#submit",
+    "table": ".ReactTable",
+    "tableFirstRow" : ".rt-tr-group:first-child",
+    "searchBox": "#searchBox",
+    "firstNameColumn": ".rt-td:first-child",
+    "firstNameTableHeader": ".rt-resizable-header-content:contains('First Name')",
+    "lastNameColumn": ".rt-td:nth-child(2)",
+    "lastNameTableHeader": ".rt-resizable-header-content:contains('Last Name')",
+    "ageColumn": ".rt-td:nth-child(3)",
+    "ageTableHeader": ".rt-resizable-header-content:contains('Age')",
+    "emailColumn": ".rt-td:nth-child(4)",
+    "emailTableHeader": ".rt-resizable-header-content:contains('Email')",
+    "salaryColumn": ".rt-td:nth-child(5)",
+    "salaryTableHeader": ".rt-resizable-header-content:contains('Salary')",
+    "departmentColumn": ".rt-td:nth-child(6)",
+    "departmentTableHeader": ".rt-resizable-header-content:contains('Department')"
+    
+}

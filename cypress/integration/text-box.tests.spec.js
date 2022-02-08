@@ -4,7 +4,7 @@ const TEST_DATA = require("./../fixtures/text-box.data.js");
 const SELECTORS = require("./../fixtures/text-box.selectors.json");
 describe("Test form cheking:", function () {
   beforeEach(() => {
-    cy.visit("/");
+    cy.visit("/text-box");
   });
 
   it("Check that user can submit the form with correct data", () => {
