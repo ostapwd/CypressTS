@@ -1,7 +1,5 @@
-// / <reference types="cypress" />
-
 const TEST_DATA = require("./../fixtures/web-tables.data.js");
-const SELECTORS = require("./../fixtures/web-tables.selectors.json");
+const SELECTORS = require("./../page-object/web-tables.selectors.json");
 
 describe("Web tables cheking:", function () {
   beforeEach(() => {
