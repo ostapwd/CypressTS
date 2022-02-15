@@ -64,10 +64,10 @@ describe("Web tables cheking:", function () {
   });
 
   it("Check that is posible to delete an user ", () => {
-    const UserRow = cy.get(SELECTORS.tableFirstRow);
+    const USER_ROW = cy.get(SELECTORS.tableFirstRow);
     cy.get(`${SELECTORS.tableFirstRow} [title="Delete"]`).click();
 
-    UserRow.should("not.exist");
+    USER_ROW.should("not.exist");
   });
 
   it("Check that appropriate user can be searched by each field", () => {
@@ -82,20 +82,20 @@ describe("Web tables cheking:", function () {
 
     cy.get(SELECTORS.submit).click();
 
-    const UserRow = cy.get(SELECTORS.tableFirstRow);
+    const USER_ROW = cy.get(SELECTORS.tableFirstRow);
 
     cy.get(SELECTORS.searchBox).type(TEST_DATA.FIRST_NAME);
-    UserRow.should("exist");
+    USER_ROW.should("exist");
     cy.get(SELECTORS.searchBox).clear().type(TEST_DATA.LAST_NAME);
-    UserRow.should("exist");
+    USER_ROW.should("exist");
     cy.get(SELECTORS.searchBox).clear().type(TEST_DATA.USER_EMAIL);
-    UserRow.should("exist");
+    USER_ROW.should("exist");
     cy.get(SELECTORS.searchBox).clear().type(TEST_DATA.AGE);
-    UserRow.should("exist");
+    USER_ROW.should("exist");
     cy.get(SELECTORS.searchBox).clear().type(TEST_DATA.SALARY);
-    UserRow.should("exist");
+    USER_ROW.should("exist");
     cy.get(SELECTORS.searchBox).clear().type(TEST_DATA.DEPARTMENT);
-    UserRow.should("exist");
+    USER_ROW.should("exist");
   });
 
   it("Check that table was sorted by each column", () => {
@@ -111,13 +111,13 @@ describe("Web tables cheking:", function () {
     }
 
     cy.log("Check the sort by First Name: ");
-    const firstNameColumn = getArrayOfColumnContent(SELECTORS.firstNameColumn);
+    const FIRST_NAME_COLUMN = getArrayOfColumnContent(SELECTORS.firstNameColumn);
     cy.get(SELECTORS.firstNameTableHeader)
       .click()
       .then(() => {
         cy.wrap(getArrayOfColumnContent(SELECTORS.firstNameColumn)).should(
           "deep.equal",
-          firstNameColumn.sort()
+          FIRST_NAME_COLUMN.sort()
         );
       });
     cy.get(SELECTORS.firstNameTableHeader)
@@ -125,18 +125,18 @@ describe("Web tables cheking:", function () {
       .then(() => {
         cy.wrap(getArrayOfColumnContent(SELECTORS.firstNameColumn)).should(
           "deep.equal",
-          firstNameColumn.sort().reverse()
+          FIRST_NAME_COLUMN.sort().reverse()
         );
       });
 
     cy.log("Check the sort by Last Name: ");
-    const lastNameColumn = getArrayOfColumnContent(SELECTORS.lastNameColumn);
+    const LAST_NAME_COLUMN = getArrayOfColumnContent(SELECTORS.lastNameColumn);
     cy.get(SELECTORS.lastNameTableHeader)
       .click()
       .then(() => {
         cy.wrap(getArrayOfColumnContent(SELECTORS.lastNameColumn)).should(
           "deep.equal",
-          lastNameColumn.sort()
+          LAST_NAME_COLUMN.sort()
         );
       });
     cy.get(SELECTORS.lastNameTableHeader)
@@ -144,18 +144,18 @@ describe("Web tables cheking:", function () {
       .then(() => {
         cy.wrap(getArrayOfColumnContent(SELECTORS.lastNameColumn)).should(
           "deep.equal",
-          lastNameColumn.sort().reverse()
+          LAST_NAME_COLUMN.sort().reverse()
         );
       });
 
     cy.log("Check the sort by Age: ");
-    const ageColumn = getArrayOfColumnContent(SELECTORS.ageColumn);
+    const AGE_COLUMN = getArrayOfColumnContent(SELECTORS.ageColumn);
     cy.get(SELECTORS.ageTableHeader)
       .click()
       .then(() => {
         cy.wrap(getArrayOfColumnContent(SELECTORS.ageColumn)).should(
           "deep.equal",
-          ageColumn.sort((a, b) => a - b)
+          AGE_COLUMN.sort((a, b) => a - b)
         );
       });
     cy.get(SELECTORS.ageTableHeader)
@@ -163,18 +163,18 @@ describe("Web tables cheking:", function () {
       .then(() => {
         cy.wrap(getArrayOfColumnContent(SELECTORS.ageColumn)).should(
           "deep.equal",
-          ageColumn.sort((a, b) => a - b).reverse()
+          AGE_COLUMN.sort((a, b) => a - b).reverse()
         );
       });
 
     cy.log("Check the sort by Email: ");
-    const emailColumn = getArrayOfColumnContent(SELECTORS.emailColumn);
+    const EMAIL_COLUMN = getArrayOfColumnContent(SELECTORS.emailColumn);
     cy.get(SELECTORS.emailTableHeader)
       .click()
       .then(() => {
         cy.wrap(getArrayOfColumnContent(SELECTORS.emailColumn)).should(
           "deep.equal",
-          emailColumn.sort()
+          EMAIL_COLUMN.sort()
         );
       });
     cy.get(SELECTORS.emailTableHeader)
@@ -182,18 +182,18 @@ describe("Web tables cheking:", function () {
       .then(() => {
         cy.wrap(getArrayOfColumnContent(SELECTORS.emailColumn)).should(
           "deep.equal",
-          emailColumn.sort().reverse()
+          EMAIL_COLUMN.sort().reverse()
         );
       });
 
     cy.log("Check the sort by Salary: ");
-    const salaryColumn = getArrayOfColumnContent(SELECTORS.salaryColumn);
+    const SALARY_COLUMN = getArrayOfColumnContent(SELECTORS.salaryColumn);
     cy.get(SELECTORS.salaryTableHeader)
       .click()
       .then(() => {
         cy.wrap(getArrayOfColumnContent(SELECTORS.salaryColumn)).should(
           "deep.equal",
-          salaryColumn.sort((a, b) => a - b)
+          SALARY_COLUMN.sort((a, b) => a - b)
         );
       });
     cy.get(SELECTORS.salaryTableHeader)
@@ -201,12 +201,12 @@ describe("Web tables cheking:", function () {
       .then(() => {
         cy.wrap(getArrayOfColumnContent(SELECTORS.salaryColumn)).should(
           "deep.equal",
-          salaryColumn.sort((a, b) => a - b).reverse()
+          SALARY_COLUMN.sort((a, b) => a - b).reverse()
         );
       });
 
     cy.log("Check the sort by Department: ");
-    const departmentColumn = getArrayOfColumnContent(
+    const DEPARTMENT_COLUMN = getArrayOfColumnContent(
       SELECTORS.departmentColumn
     );
     cy.get(SELECTORS.departmentTableHeader)
@@ -214,7 +214,7 @@ describe("Web tables cheking:", function () {
       .then(() => {
         cy.wrap(getArrayOfColumnContent(SELECTORS.departmentColumn)).should(
           "deep.equal",
-          departmentColumn.sort()
+          DEPARTMENT_COLUMN.sort()
         );
       });
     cy.get(SELECTORS.departmentTableHeader)
@@ -222,7 +222,7 @@ describe("Web tables cheking:", function () {
       .then(() => {
         cy.wrap(getArrayOfColumnContent(SELECTORS.departmentColumn)).should(
           "deep.equal",
-          departmentColumn.sort().reverse()
+          DEPARTMENT_COLUMN.sort().reverse()
         );
       });
   });
