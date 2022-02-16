@@ -151,5 +151,4 @@ describe("Student Registration form cheking:", function () {
       }
     }
   });
-
 });
