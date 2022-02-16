@@ -65,6 +65,13 @@ function selectStateAndCity(StatesAndCities) {
   return location;
 }
 
+function selectLocation(state, city) {
+  cy.get(SELECTORS.stateInput).click({force: true});
+  cy.get(SELECTORS.statesContainer).contains(state).click();
+  cy.get(SELECTORS.cityInput).click({force: true});
+  cy.get(SELECTORS.citiesContainer).contains(city).click();
+}
+
 function getRandProperty(obj) {
   let keys = Object.keys(obj);
   return keys[(keys.length * Math.random()) << 0];
@@ -77,3 +84,4 @@ function getRandIndex(length) {
 
 module.exports.selectDateFromCalendar = selectDateFromCalendar;
 module.exports.selectStateAndCity = selectStateAndCity;
+module.exports.selectLocation = selectLocation;

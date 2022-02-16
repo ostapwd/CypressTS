@@ -22,5 +22,7 @@
     "state": "#state",
     "city": "#city",
     "submitButton": "#submit",
-    "modalBody": ".modal-body"
+    "modalBody": ".modal-body",
+    "statesContainer": ".css-11unzgr",
+    "citiesContainer": ".css-11unzgr"
 }

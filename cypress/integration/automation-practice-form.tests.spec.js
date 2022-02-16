@@ -120,4 +120,36 @@ describe("Student Registration form cheking:", function () {
       .should("have.css", "border-color", TEST_DATA.ERROR_BORDER_COLOR_REQUIRE)
       .and("have.css", "background-image", TEST_DATA.ERROR_IMAGE_REQUIRE);
   });
+
+  it("Check that all options are displayed in the Select State drop-down menu:", () => {
+
+    cy.get(SELECTORS.stateInput).click({force:true});
+    for (let state in  TEST_DATA.STATES_AND_CITIES) {
+      cy.get('.css-11unzgr').should('contain', state);  
+    }
+  });
+  
+  it("Check that all options are displayed in the Select City drop-down menu:", () => {
+
+    for (let state in  TEST_DATA.STATES_AND_CITIES) {
+      cy.get(SELECTORS.stateInput).click({force:true});
+      cy.get(SELECTORS.statesContainer).contains(`${state}`).click();
+      for (let city of TEST_DATA.STATES_AND_CITIES[state]) {
+        cy.get(SELECTORS.cityInput).click({force:true});
+        cy.get(SELECTORS.citiesContainer).should('contain', city);
+      }
+    }
+    
+  });
+
+  it("Check that user can choose all posible states and cities:", () => {
+    for (let state in  TEST_DATA.STATES_AND_CITIES) {
+      for (let city of TEST_DATA.STATES_AND_CITIES[state]) {
+        ACTION.selectLocation(state, city);
+        cy.get(SELECTORS.state).should("have.text", state);
+        cy.get(SELECTORS.city).should("contain", city);
+      }
+    }
+  });
+
 });
