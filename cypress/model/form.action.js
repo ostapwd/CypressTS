@@ -66,9 +66,9 @@ function selectStateAndCity(StatesAndCities) {
 }
 
 function selectLocation(state, city) {
-  cy.get(SELECTORS.stateInput).click({force: true});
+  cy.get(SELECTORS.stateInput).click({ force: true });
   cy.get(SELECTORS.statesContainer).contains(state).click();
-  cy.get(SELECTORS.cityInput).click({force: true});
+  cy.get(SELECTORS.cityInput).click({ force: true });
   cy.get(SELECTORS.citiesContainer).contains(city).click();
 }
 

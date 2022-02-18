@@ -1,5 +1,6 @@
 const TEST_DATA = require("./../fixtures/web-tables.data.js");
 const SELECTORS = require("./../page-object/web-tables.selectors.json");
+const ACTION = require("../model/web-tables.action.js");
 
 describe("Web tables cheking:", function () {
   beforeEach(() => {
@@ -99,131 +100,28 @@ describe("Web tables cheking:", function () {
   });
 
   it("Check that table was sorted by each column", () => {
-    function getArrayOfColumnContent(selector) {
-      const arrayOfColumnElements = Cypress.$(selector);
-      const arrayOfColumnContent = [];
-      for (let i = 0; i < arrayOfColumnElements.length; i++) {
-        if (arrayOfColumnElements[i].textContent !== " ") {
-          arrayOfColumnContent.push(arrayOfColumnElements[i].textContent);
-        }
-      }
-      return arrayOfColumnContent;
-    }
-
-    cy.log("Check the sort by First Name: ");
-    const FIRST_NAME_COLUMN = getArrayOfColumnContent(SELECTORS.firstNameColumn);
-    cy.get(SELECTORS.firstNameTableHeader)
-      .click()
-      .then(() => {
-        cy.wrap(getArrayOfColumnContent(SELECTORS.firstNameColumn)).should(
-          "deep.equal",
-          FIRST_NAME_COLUMN.sort()
-        );
-      });
-    cy.get(SELECTORS.firstNameTableHeader)
-      .click()
-      .then(() => {
-        cy.wrap(getArrayOfColumnContent(SELECTORS.firstNameColumn)).should(
-          "deep.equal",
-          FIRST_NAME_COLUMN.sort().reverse()
-        );
-      });
-
-    cy.log("Check the sort by Last Name: ");
-    const LAST_NAME_COLUMN = getArrayOfColumnContent(SELECTORS.lastNameColumn);
-    cy.get(SELECTORS.lastNameTableHeader)
-      .click()
-      .then(() => {
-        cy.wrap(getArrayOfColumnContent(SELECTORS.lastNameColumn)).should(
-          "deep.equal",
-          LAST_NAME_COLUMN.sort()
-        );
-      });
-    cy.get(SELECTORS.lastNameTableHeader)
-      .click()
-      .then(() => {
-        cy.wrap(getArrayOfColumnContent(SELECTORS.lastNameColumn)).should(
-          "deep.equal",
-          LAST_NAME_COLUMN.sort().reverse()
-        );
-      });
-
-    cy.log("Check the sort by Age: ");
-    const AGE_COLUMN = getArrayOfColumnContent(SELECTORS.ageColumn);
-    cy.get(SELECTORS.ageTableHeader)
-      .click()
-      .then(() => {
-        cy.wrap(getArrayOfColumnContent(SELECTORS.ageColumn)).should(
-          "deep.equal",
-          AGE_COLUMN.sort((a, b) => a - b)
-        );
-      });
-    cy.get(SELECTORS.ageTableHeader)
-      .click()
-      .then(() => {
-        cy.wrap(getArrayOfColumnContent(SELECTORS.ageColumn)).should(
-          "deep.equal",
-          AGE_COLUMN.sort((a, b) => a - b).reverse()
-        );
-      });
-
-    cy.log("Check the sort by Email: ");
-    const EMAIL_COLUMN = getArrayOfColumnContent(SELECTORS.emailColumn);
-    cy.get(SELECTORS.emailTableHeader)
-      .click()
-      .then(() => {
-        cy.wrap(getArrayOfColumnContent(SELECTORS.emailColumn)).should(
-          "deep.equal",
-          EMAIL_COLUMN.sort()
-        );
-      });
-    cy.get(SELECTORS.emailTableHeader)
-      .click()
-      .then(() => {
-        cy.wrap(getArrayOfColumnContent(SELECTORS.emailColumn)).should(
-          "deep.equal",
-          EMAIL_COLUMN.sort().reverse()
-        );
-      });
-
-    cy.log("Check the sort by Salary: ");
-    const SALARY_COLUMN = getArrayOfColumnContent(SELECTORS.salaryColumn);
-    cy.get(SELECTORS.salaryTableHeader)
-      .click()
-      .then(() => {
-        cy.wrap(getArrayOfColumnContent(SELECTORS.salaryColumn)).should(
-          "deep.equal",
-          SALARY_COLUMN.sort((a, b) => a - b)
-        );
-      });
-    cy.get(SELECTORS.salaryTableHeader)
-      .click()
-      .then(() => {
-        cy.wrap(getArrayOfColumnContent(SELECTORS.salaryColumn)).should(
-          "deep.equal",
-          SALARY_COLUMN.sort((a, b) => a - b).reverse()
-        );
-      });
-
-    cy.log("Check the sort by Department: ");
-    const DEPARTMENT_COLUMN = getArrayOfColumnContent(
-      SELECTORS.departmentColumn
+    ACTION.checkTableSorting(
+      SELECTORS.firstNameColumn,
+      SELECTORS.firstNameTableHeader
     );
-    cy.get(SELECTORS.departmentTableHeader)
-      .click()
-      .then(() => {
-        cy.wrap(getArrayOfColumnContent(SELECTORS.departmentColumn)).should(
-          "deep.equal",
-          DEPARTMENT_COLUMN.sort()
-        );
-      });
-    cy.get(SELECTORS.departmentTableHeader)
-      .click()
-      .then(() => {
-        cy.wrap(getArrayOfColumnContent(SELECTORS.departmentColumn)).should(
-          "deep.equal",
-          DEPARTMENT_COLUMN.sort().reverse()
-        );
-      });
+    ACTION.checkTableSorting(
+      SELECTORS.lastNameColumn,
+      SELECTORS.lastNameTableHeader
+    );
+    ACTION.checkTableSorting(
+      SELECTORS.ageColumn,
+      SELECTORS.ageTableHeader,
+      true
+    );
+    ACTION.checkTableSorting(SELECTORS.emailColumn, SELECTORS.emailTableHeader);
+    ACTION.checkTableSorting(
+      SELECTORS.salaryColumn,
+      SELECTORS.salaryTableHeader,
+      true
+    );
+    ACTION.checkTableSorting(
+      SELECTORS.departmentColumn,
+      SELECTORS.departmentTableHeader
+    );
   });
 });
