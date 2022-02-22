@@ -1,6 +1,7 @@
-const TEST_DATA = require("./../fixtures/web-tables.data.js");
-const SELECTORS = require("./../page-object/web-tables.selectors.json");
-const ACTION = require("../model/web-tables.action.js");
+import { USER_DATA } from "./../fixtures/web-tables.data.js";
+import * as SELECTORS from "./../page-object/web-tables.selectors.json";
+import { WebTablesPage } from "../models/web-tables.page.js";
+const webTablesPage = new WebTablesPage();
 
 describe("Web tables cheking:", function () {
   beforeEach(() => {
@@ -10,58 +11,34 @@ describe("Web tables cheking:", function () {
   it("Check that is posible to add a new user ", () => {
     cy.get(SELECTORS.addButton).click();
 
-    cy.get(SELECTORS.firstName).type(TEST_DATA.FIRST_NAME);
-    cy.get(SELECTORS.firstName).should("have.value", TEST_DATA.FIRST_NAME);
-
-    cy.get(SELECTORS.lastName).type(TEST_DATA.LAST_NAME);
-    cy.get(SELECTORS.lastName).should("have.value", TEST_DATA.LAST_NAME);
-
-    cy.get(SELECTORS.userEmail).type(TEST_DATA.USER_EMAIL);
-    cy.get(SELECTORS.userEmail).should("have.value", TEST_DATA.USER_EMAIL);
-
-    cy.get(SELECTORS.age).type(TEST_DATA.AGE);
-    cy.get(SELECTORS.age).should("have.value", TEST_DATA.AGE);
-
-    cy.get(SELECTORS.salary).type(TEST_DATA.SALARY);
-    cy.get(SELECTORS.salary).should("have.value", TEST_DATA.SALARY);
-
-    cy.get(SELECTORS.department).type(TEST_DATA.DEPARTMENT);
-    cy.get(SELECTORS.department).should("have.value", TEST_DATA.DEPARTMENT);
-
-    cy.get(SELECTORS.submit).click();
-
-    cy.get(SELECTORS.table).contains(TEST_DATA.USER_EMAIL).should("be.visible");
+    webTablesPage.typeUserData(USER_DATA);
+    webTablesPage.submitForm();
 
     cy.get(SELECTORS.table)
-      .contains(TEST_DATA.USER_EMAIL)
+      .contains(USER_DATA.userEmail)
       .parent()
       .then((row) => {
         cy.get(row)
-          .should("contain", TEST_DATA.FIRST_NAME)
-          .and("contain", TEST_DATA.LAST_NAME)
-          .and("contain", TEST_DATA.AGE)
-          .and("contain", TEST_DATA.SALARY)
-          .and("contain", TEST_DATA.DEPARTMENT);
+          .should("contain", USER_DATA.firstName)
+          .and("contain", USER_DATA.lastName)
+          .and("contain", USER_DATA.age)
+          .and("contain", USER_DATA.salary)
+          .and("contain", USER_DATA.department);
       });
   });
 
   it("Check that is posible to adit an user ", () => {
     cy.get(`${SELECTORS.tableFirstRow} [title = "Edit"]`).click();
-    cy.get(SELECTORS.firstName).clear().type(TEST_DATA.FIRST_NAME);
-    cy.get(SELECTORS.lastName).clear().type(TEST_DATA.LAST_NAME);
-    cy.get(SELECTORS.userEmail).clear().type(TEST_DATA.USER_EMAIL);
-    cy.get(SELECTORS.age).clear().type(TEST_DATA.AGE);
-    cy.get(SELECTORS.salary).clear().type(TEST_DATA.SALARY);
-    cy.get(SELECTORS.department).clear().type(TEST_DATA.DEPARTMENT);
 
-    cy.get(SELECTORS.submit).click();
+    webTablesPage.typeUserData(USER_DATA);
+    webTablesPage.submitForm();
 
     cy.get(SELECTORS.tableFirstRow)
-      .should("contain", TEST_DATA.FIRST_NAME)
-      .and("contain", TEST_DATA.LAST_NAME)
-      .and("contain", TEST_DATA.AGE)
-      .and("contain", TEST_DATA.SALARY)
-      .and("contain", TEST_DATA.DEPARTMENT);
+      .should("contain", USER_DATA.firstName)
+      .and("contain", USER_DATA.lastName)
+      .and("contain", USER_DATA.age)
+      .and("contain", USER_DATA.salary)
+      .and("contain", USER_DATA.department);
   });
 
   it("Check that is posible to delete an user ", () => {
@@ -74,52 +51,49 @@ describe("Web tables cheking:", function () {
   it("Check that appropriate user can be searched by each field", () => {
     cy.get(SELECTORS.addButton).click();
 
-    cy.get(SELECTORS.firstName).type(TEST_DATA.FIRST_NAME);
-    cy.get(SELECTORS.lastName).type(TEST_DATA.LAST_NAME);
-    cy.get(SELECTORS.userEmail).type(TEST_DATA.USER_EMAIL);
-    cy.get(SELECTORS.age).type(TEST_DATA.AGE);
-    cy.get(SELECTORS.salary).type(TEST_DATA.SALARY);
-    cy.get(SELECTORS.department).type(TEST_DATA.DEPARTMENT);
-
-    cy.get(SELECTORS.submit).click();
+    webTablesPage.typeUserData(USER_DATA);
+    webTablesPage.submitForm();
 
     const USER_ROW = cy.get(SELECTORS.tableFirstRow);
 
-    cy.get(SELECTORS.searchBox).type(TEST_DATA.FIRST_NAME);
+    cy.get(SELECTORS.searchBox).type(USER_DATA.firstName);
     USER_ROW.should("exist");
-    cy.get(SELECTORS.searchBox).clear().type(TEST_DATA.LAST_NAME);
+    cy.get(SELECTORS.searchBox).clear().type(USER_DATA.lastName);
     USER_ROW.should("exist");
-    cy.get(SELECTORS.searchBox).clear().type(TEST_DATA.USER_EMAIL);
+    cy.get(SELECTORS.searchBox).clear().type(USER_DATA.userEmail);
     USER_ROW.should("exist");
-    cy.get(SELECTORS.searchBox).clear().type(TEST_DATA.AGE);
+    cy.get(SELECTORS.searchBox).clear().type(USER_DATA.age);
     USER_ROW.should("exist");
-    cy.get(SELECTORS.searchBox).clear().type(TEST_DATA.SALARY);
+    cy.get(SELECTORS.searchBox).clear().type(USER_DATA.salary);
     USER_ROW.should("exist");
-    cy.get(SELECTORS.searchBox).clear().type(TEST_DATA.DEPARTMENT);
+    cy.get(SELECTORS.searchBox).clear().type(USER_DATA.department);
     USER_ROW.should("exist");
   });
 
   it("Check that table was sorted by each column", () => {
-    ACTION.checkTableSorting(
+    webTablesPage.checkTableSorting(
       SELECTORS.firstNameColumn,
       SELECTORS.firstNameTableHeader
     );
-    ACTION.checkTableSorting(
+    webTablesPage.checkTableSorting(
       SELECTORS.lastNameColumn,
       SELECTORS.lastNameTableHeader
     );
-    ACTION.checkTableSorting(
+    webTablesPage.checkTableSorting(
       SELECTORS.ageColumn,
       SELECTORS.ageTableHeader,
       true
     );
-    ACTION.checkTableSorting(SELECTORS.emailColumn, SELECTORS.emailTableHeader);
-    ACTION.checkTableSorting(
+    webTablesPage.checkTableSorting(
+      SELECTORS.emailColumn,
+      SELECTORS.emailTableHeader
+    );
+    webTablesPage.checkTableSorting(
       SELECTORS.salaryColumn,
       SELECTORS.salaryTableHeader,
       true
     );
-    ACTION.checkTableSorting(
+    webTablesPage.checkTableSorting(
       SELECTORS.departmentColumn,
       SELECTORS.departmentTableHeader
     );

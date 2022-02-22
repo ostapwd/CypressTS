@@ -6,7 +6,7 @@
     "genderRadioFemale": "#gender-radio-2",
     "genderRadioOther": "#gender-radio-3",
     "genderLabels": "label[for=gender-radio-",
-    "userNumber": "#userNumber",
+    "phoneNumber": "#userNumber",
     "dateOfBirthInput": "#dateOfBirthInput",
     "datepickerYear": ".react-datepicker__year-select",
     "datepickerMonth": ".react-datepicker__month-select",
