@@ -8,6 +8,10 @@ describe('Test suite Swaglabs', () => {
         cy.get("input[id='password']").type('secret_sauce');
         cy.wait(500);
         cy.get("input[id='login-button']").click();
+    });
+
+    it("I do something", () => {
+        cy.wait(2000);
         cy.get("#header_container .title").then(element => 
             cy.log(element.text()));
         cy.contains("Add to cart").should("be.visible");
