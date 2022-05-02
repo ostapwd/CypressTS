@@ -4,7 +4,8 @@
   "description": "test_1",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "on-chrome": "npx cypress run --browser chrome --headed",
+    "test": "npm install && npm-run-all on-chrome --continue-on-error"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,8 @@
   },
   "homepage": "https://github.com/ostapwd/CypressTS#readme",
   "devDependencies": {
-    "cypress": "^9.6.0"
+    "cypress": "^9.6.0",
+    "npm-run-all": "^4.1.5",
+    "cypress-xpath": "^1.6.2"
   }
 }
