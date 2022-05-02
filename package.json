@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ostapwd/CypressTS/issues"
   },
-  "homepage": "https://github.com/ostapwd/CypressTS#readme"
+  "homepage": "https://github.com/ostapwd/CypressTS#readme",
+  "devDependencies": {
+    "cypress": "^9.6.0"
+  }
 }
