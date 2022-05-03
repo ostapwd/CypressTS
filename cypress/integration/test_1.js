@@ -25,7 +25,7 @@ describe('Test suite Swaglabs', () => {
     //         cy.log(element.text()));
     // });
 
-    it("Remove products from the shopping cart", () => {
+    it("Remove some products from the shopping cart", () => {
         cy.wait(1000);
         cy.get("[id*='add-to-cart']").should('be.visible').each( item => {
             item.click();
