@@ -7,6 +7,7 @@ describe('Test suite Swaglabs', () => {
         cy.get("input[id='password']").type('secret_sauce');
         cy.wait(500);
         cy.get("input[id='login-button']").click();
+        cy.url().should('eq', 'https://www.saucedemo.com/inventory.html')
     });
 
     // it("The burger menu is displayed on the screen", () => {
@@ -25,23 +26,23 @@ describe('Test suite Swaglabs', () => {
     //         cy.log(element.text()));
     // });
 
-    it("Remove some products from the shopping cart", () => {
-        cy.wait(1000);
-        cy.get("[id*='add-to-cart']").should('be.visible').each( item => {
-            item.click();
-        });
-        cy.get("#shopping_cart_container .shopping_cart_badge").should('be.visible').then(element => 
-            cy.log(element.text())).click();
-        cy.wait(1000);
-        cy.url().should('eq', 'https://www.saucedemo.com/cart.html')
-        cy.wait(1000);
-        cy.xpath("//*[@id='item_2_title_link']").get("#remove-sauce-labs-onesie").click();
-        cy.wait(1000);
-        cy.xpath("//*[@id='item_4_title_link']").get("#remove-sauce-labs-backpack").click();
-        cy.get("#shopping_cart_container .shopping_cart_badge").should('be.visible').then(element => 
-            cy.log(element.text())).click();
-    });
-
+    // it("Remove some products from the shopping cart", () => {
+    //     cy.wait(1000);
+    //     cy.get("[id*='add-to-cart']").should('be.visible').each( item => {
+    //         item.click();
+    //     });
+    //     cy.get("#shopping_cart_container .shopping_cart_badge").should('be.visible').then(element => 
+    //         cy.log(element.text())).click();
+    //     cy.wait(1000);
+    //     cy.url().should('eq', 'https://www.saucedemo.com/cart.html')
+    //     cy.wait(1000);
+    //     cy.xpath("//*[@id='item_2_title_link']").get("#remove-sauce-labs-onesie").click();
+    //     cy.wait(1000);
+    //     cy.xpath("//*[@id='item_4_title_link']").get("#remove-sauce-labs-backpack").click();
+    //     cy.get("#shopping_cart_container .shopping_cart_badge").should('be.visible').then(element => 
+    //         cy.log(element.text())).click();
+    // });
+   
 
     // it("I do something", () => {
     //     cy.wait(2000);
