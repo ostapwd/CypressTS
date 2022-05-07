@@ -68,7 +68,7 @@ describe ("First test", function () {
    });
 
 
-   it.only('Test 5 "Adding/deleting 4 items to/from the Shopping cart"', function () {
+   it('Test 5 "Adding/deleting 4 items to/from the Shopping cart"', function () {
 
        cy.get("input[name='password']").type("secret_sauce");
        cy.get("input[data-test='login-button']");
@@ -94,6 +94,37 @@ describe ("First test", function () {
        cy.xpath("//button[@id='continue-shopping']").click();
       });
    });
+   })
+   it.only('Test 6 "Sampling testing"', function () {
 
+      cy.get("input[name='password']").type("secret_sauce");
+      cy.get("input[data-test='login-button']");
+      cy.contains('Login')
+      .click();
+      
+      cy.xpath("//span[@class='select_container']").click()
+      
+
+       
+   });
 })
-})
+   it('Test 7 "Testing Pseudo CSS selector "::after" ', function () {
+
+      cy.get("input[name='password']").type("secret_sauce");
+      cy.get("input[data-test='login-button']");
+      cy.contains('Login')
+      .click();
+
+   cy.get(".select_container")
+   .then($els => {
+     const win = $els[0].ownerDocument.defaultView;
+     const after = win.getComputedStyle($els[0], 'after');
+     const contentValue = after.getPropertyValue('content');
+     expect(contentValue).to.eq('""');
+
+   
+
+
+   });
+   
+   });

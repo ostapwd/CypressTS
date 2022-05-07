@@ -1,4 +1,12 @@
 {
+<<<<<<< HEAD
     "chromeWebSecurity": false,
     "watchForFileChanges": false
+=======
+	"chromeWebSecurity": false,
+	"watchForFileChanges": false,
+	"pageLoadTimeout": 60000,
+	"defaultCommandTimeout": 10000
+	
+>>>>>>> f974c883123dba7c0a5b46256875f02c6556585d
 }
