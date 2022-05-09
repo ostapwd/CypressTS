@@ -1,3 +1,5 @@
+/// <reference types="Cypress" />
+
 describe ("First test", function () {
 
    beforeEach(function () {
@@ -95,36 +97,46 @@ describe ("First test", function () {
       });
    });
    })
-   it.only('Test 6 "Sampling testing"', function () {
+
+
+   it('Test 6 "Sampling testing"', function () {
 
       cy.get("input[name='password']").type("secret_sauce");
       cy.get("input[data-test='login-button']");
       cy.contains('Login')
       .click();
-      
-      cy.xpath("//span[@class='select_container']").click()
-      
 
-       
-   });
+      cy.xpath("//select[@class='product_sort_container']").then( listValues => {
+         expect(listValues[0]).to.contain('Name (A to Z)');
+         expect(listValues[0]).to.contain('Name (Z to A)');
+         expect(listValues[0]).to.contain('Price (low to high)');
+         expect(listValues[0]).to.contain('Price (high to low)');
+   })
 })
-   it('Test 7 "Testing Pseudo CSS selector "::after" ', function () {
+      
+
+   it.only('Test 7 "Testing Pseudo CSS selector "::after" ', function () {
 
       cy.get("input[name='password']").type("secret_sauce");
-      cy.get("input[data-test='login-button']");
       cy.contains('Login')
       .click();
 
-   cy.get(".select_container")
-   .then($els => {
-     const win = $els[0].ownerDocument.defaultView;
-     const after = win.getComputedStyle($els[0], 'after');
-     const contentValue = after.getPropertyValue('content');
-     expect(contentValue).to.eq('""');
-
-   
+      cy.get(".select_container")
+      .then($els => {
+      const win = $els[0].ownerDocument.defaultView;
+      const after = win.getComputedStyle($els[0], 'after');
+      const contentValue = after.getPropertyValue('content');
+      expect(contentValue).to.eq('""');
 
 
+     
+    
    });
-   
-   });
+
+   //cy.get('.select_container').shadow().find('#root').find('.header_secondary_container').find('.select_container').click()
+   cy.xpath('//span[@class="active_option"]').should('contain', 'Name (A to Z)').click({force: true})
+   cy.get('select[class="product_sort_container"]').find('[value="az"]').should('contain', 'Name (A to Z)').click({force: true})
+   cy.contains('Name (Z to A)').click({force: true})
+   //.trigger("mouseover").get('.product_sort_container').should('be.visible', ({force: true})) 
+})
+})
