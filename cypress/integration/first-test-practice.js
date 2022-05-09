@@ -17,8 +17,7 @@ describe ("First test", function () {
       .click();
 
       cy.get("#header_container .title").then(element => 
-      cy.log(element.text() )
-       );
+      cy.log(element.text() ));
        
    });
 
@@ -63,9 +62,9 @@ describe ("First test", function () {
        cy.get("button[data-test='add-to-cart-sauce-labs-backpack']").click();
        cy.xpath("//span[@class='shopping_cart_badge']").click();
        cy.xpath("//div[@class='header_secondary_container']").then( label => {
-       expect(label.text()).to.equal('Your Cart');
-       cy.get("button[name='remove-sauce-labs-backpack']").click();
-       cy.xpath("//button[@id='continue-shopping']").click();
+         expect(label.text()).to.equal('Your Cart');
+         cy.get("button[name='remove-sauce-labs-backpack']").click();
+         cy.xpath("//button[@id='continue-shopping']").click();
       });
    });
 
@@ -88,14 +87,14 @@ describe ("First test", function () {
        
        cy.xpath("//div[@class='cart_list']");
        cy.xpath("//a[@id='item_1_title_link']").then( label => {
-         expect(label.text()).to.equal('Sauce Labs Bolt T-Shirt');
-       
-       cy.wait(500)
-       
-       cy.get("button[name='remove-sauce-labs-backpack']").click();
-       cy.xpath("//button[@id='continue-shopping']").click();
+            expect(label.text()).to.equal('Sauce Labs Bolt T-Shirt');
+         
+            cy.wait(500)
+            
+            cy.get("button[name='remove-sauce-labs-backpack']").click();
+            cy.xpath("//button[@id='continue-shopping']").click();
+         });
       });
-   });
    })
 
 
@@ -110,33 +109,33 @@ describe ("First test", function () {
          expect(listValues[0]).to.contain('Name (A to Z)');
          expect(listValues[0]).to.contain('Name (Z to A)');
          expect(listValues[0]).to.contain('Price (low to high)');
-         expect(listValues[0]).to.contain('Price (high to low)');
-   })
-})
-      
+         expect(listValues[0]).to.contain('Price (high to low)')
+         cy.xpath('//span[@class="active_option"]').then( label => {
+            expect(label.text()).to.equal('Name (A to Z)')
 
-   it.only('Test 7 "Testing Pseudo CSS selector "::after" ', function () {
+         })
+            cy.get('.active_option').click(({force:true}))
+
+      })
+      
+   })
+   it('Test 7 "Testing Pseudo CSS selector "::after" ', function () {
 
       cy.get("input[name='password']").type("secret_sauce");
       cy.contains('Login')
       .click();
-
+      
       cy.get(".select_container")
       .then($els => {
-      const win = $els[0].ownerDocument.defaultView;
-      const after = win.getComputedStyle($els[0], 'after');
-      const contentValue = after.getPropertyValue('content');
-      expect(contentValue).to.eq('""');
+         const win = $els[0].ownerDocument.defaultView;
+         const after = win.getComputedStyle($els[0], 'after');
+         const contentValue = after.getPropertyValue('content');
+         expect(contentValue).to.eq('""');
+      });
+ 
+      cy.xpath('//span[@class="active_option"]').should('contain', 'Name (A to Z)').click({force: true})
+      cy.get('span[class="select_container"]').find('[value="az"]').should('contain', 'Name (A to Z)').click({force: true})
+      cy.contains('Name (Z to A)').click({force: true});
+   })
 
-
-     
-    
-   });
-
-   //cy.get('.select_container').shadow().find('#root').find('.header_secondary_container').find('.select_container').click()
-   cy.xpath('//span[@class="active_option"]').should('contain', 'Name (A to Z)').click({force: true})
-   cy.get('select[class="product_sort_container"]').find('[value="az"]').should('contain', 'Name (A to Z)').click({force: true})
-   cy.contains('Name (Z to A)').click({force: true})
-   //.trigger("mouseover").get('.product_sort_container').should('be.visible', ({force: true})) 
-})
 })
