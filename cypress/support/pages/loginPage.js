@@ -5,9 +5,9 @@ class LoginPage {
     get passwordInput() { return cy.get("#password"); }
     get loginButton() { return cy.get("#login-button"); }
 
-    loginToTheApp(name, password) {
-        this.usernameInput.type(name);
-        this.passwordInput.type(password);
+    loginToTheApp(user) {
+        this.usernameInput.type(user.username);
+        this.passwordInput.type(user.password);
         cy.wait(2000);
         this.loginButton.click();
 
