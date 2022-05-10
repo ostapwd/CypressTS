@@ -4,6 +4,7 @@ class LoginPage {
     get usernameInput() { return cy.get("#user-name"); }
     get passwordInput() { return cy.get("#password"); }
     get loginButton() { return cy.get("#login-button"); }
+    get loginPageLogoLabel() { return cy.get(".login_logo"); }
 
     loginToTheApp(user) {
         this.usernameInput.type(user.username);
@@ -19,6 +20,8 @@ class LoginPage {
         
         return this
     }
+
+   
 }
 
 export default new LoginPage()
