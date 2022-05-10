@@ -4,5 +4,5 @@ package-lock.json
 cypress/reports/**/*.*
 cypress/screenshots/**/*.*
 **/videos/*
-./build/*
+/build/*
 
