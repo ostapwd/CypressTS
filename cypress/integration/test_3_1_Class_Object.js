@@ -8,9 +8,9 @@ describe('Test suite', () => {
             .loginToTheApp(users.standardUser)
             .addToCartAllproducts()
             .logAllProducts()
-        cartPage.openShoppingCart()
-        cartPage.logAllProductsInCart()
-        cartPage.quantityOfSelectedProductsInCart()
-        cartPage.verifyUrlCart()
+            .openShoppingCart()
+            .logAllProductsInCart()
+            .quantityOfSelectedProductsInCart()
+            .verifyUrlCart();
     });
 });

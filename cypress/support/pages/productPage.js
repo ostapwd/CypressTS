@@ -1,3 +1,5 @@
+import cartPage from "./cartPage";
+
 class ProductPage {
     get addToCartButtons() { return cy.get("[id*='add-to-cart']"); }
     get inventoryItemsNames() { return cy.get(".inventory_item_name"); }
@@ -5,7 +7,12 @@ class ProductPage {
     get menu() { return cy.get("#react-burger-menu-btn"); }
     get logoutButton() { return cy.get("#logout_sidebar_link"); }
     get productsLabel() { return cy.get("#header_container .title"); }
+    get linkInCart() { return cy.get(".shopping_cart_link"); }
     
+    openShoppingCart(){
+        this.linkInCart.click();
+        return cartPage
+    }
 
     logAllProducts(){
         this.inventoryItemsNames.each(item => {
@@ -42,13 +49,11 @@ class ProductPage {
         return this
     } 
 
-    
     waitTime() {
         let waitTime;
         waitTime = cy.wait(2000)
         return this
     }
-
 }
 
 export default new ProductPage()

@@ -19,9 +19,7 @@ class LoginPage {
         cy.visit('https://www.saucedemo.com');
         
         return this
-    }
-
-   
+    }   
 }
 
 export default new LoginPage()

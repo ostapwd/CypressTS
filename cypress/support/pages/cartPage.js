@@ -1,12 +1,8 @@
 class CartPage {
-    get linkInCart() { return cy.get(".shopping_cart_link"); }
+
     get inventoryItemsNamesInCart() { return cy.get(".inventory_item_name"); }
     get selectedProductQuantityInCart() { return cy.get(".cart_quantity"); }
     get urlCart() { return cy.url(); }
-
-    openShoppingCart(){
-        this.linkInCart.click();
-    }
 
     logAllProductsInCart() {
         this.inventoryItemsNamesInCart.each(item => {
