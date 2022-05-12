@@ -1,3 +1,5 @@
+import { ProductPageTS } from "./productPageTS";
+
 export class LoginPageTS {
 
     private usernameInput() { return cy.get("#user-name"); }
@@ -7,8 +9,10 @@ export class LoginPageTS {
     public loginToTheApp(user) {
         this.usernameInput().type(user.username);
         this.passwordInput().type(user.password);
-
         this.loginButton().click();
+
+        return new ProductPageTS()
+       
     }
 
     public open() {
