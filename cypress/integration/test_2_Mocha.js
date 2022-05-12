@@ -1,3 +1,4 @@
+import users from "../data/users";
 import loginPage from "../support/pages/loginPage";
 
 describe('Test suite for login', () => {
@@ -35,13 +36,12 @@ describe('Test suite for login', () => {
 
     describe('Test suite for login', () => {
         it('Test 2 (negative login)', () => {
-            loginPage.loginToTheApp("standard_user", "secret_sauce1111");
+            loginPage.loginToTheApp(users.notRegisterUser)
             cy.xpath("//*[@data-test='error']").should('be.visible');
             cy.get("h3[data-test='error']").should('contain', 'Epic sadface: Username and password do not match any user in this service');
         })
         it('Test 2 (negative login)', () => {
-            loginPage.usernameInput.type("standard_user");
-            loginPage.loginButton.click();
+            loginPage.loginToTheApp(users.notPasswordUser)
             cy.xpath("//*[@data-test='error']").should('be.visible');
             cy.get("h3[data-test='error']").should('contain', 'Epic sadface: Password is required');
         })

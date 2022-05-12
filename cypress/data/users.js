@@ -20,6 +20,16 @@ class Users {
         password: "secret_sauce"
     };
 
+    notPasswordUser = {
+        username: "standard_user",
+        password: " "
+    };
+
+    notRegisterUser = {
+        username: "standard",
+        password: "secret"
+    };
+
 }
 
 export default new Users();
