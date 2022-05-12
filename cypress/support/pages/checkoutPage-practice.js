@@ -10,10 +10,12 @@ class CheckoutPage {
     get checkoutOverview() { return  cy.xpath("//span[@class='title']"); }
     get buttonFinish() { return cy.xpath("//button[@class='btn btn_action btn_medium cart_button']")}
     get checkoutComplete() { return  cy.xpath("//span[@class='title']"); }
-    get buttonBackHome() { return cy.xpath('//button[@name="back-to-products"]');
+    get buttonBackHome() { return cy.xpath('//button[@name="back-to-products"]') };
+    get buttonCancel() { return cy.get("button[class='btn btn_secondary back btn_medium cart_cancel_link']"); }
+    
     
 
-    }
+    
     
 
     inputInformationAboutBuyer(firstname, lastname, zip) {
@@ -25,7 +27,7 @@ class CheckoutPage {
     }
 
 
-    }
+}
 
 
 
