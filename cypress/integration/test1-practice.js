@@ -1,6 +1,7 @@
 import loginPage from "../support/pages/loginPage-practice";
+import users from "../data/users";
 
-describe ("Test suite for login", function () {
+describe ("Test suite 1", function () {
 
     before(function () {
     cy.log("Main before");
@@ -23,14 +24,14 @@ describe ("Test suite for login (possitive)", function () {
     })
 
     it("Test 1 (possitive)", function () {
-        loginPage.loginToTheApp('standard_user', 'secret_sauce')
+        loginPage.loginToTheApp(users.standardUser);
         cy.get("div .title").should("contain", "Products");
     });
 
 
 
     it("Test 2 (possitive)", function () {
-        loginPage.loginToTheApp('standard_user', 'secret_sauce')
+        loginPage.loginToTheApp(users.standardUser);
         cy.get("div .title").should("contain", "Products");
     });
 
@@ -50,15 +51,16 @@ describe ("Test suite for login (negative)", function () {
 
     it("Test 3 (negative)", function () {
   
-        loginPage.loginToTheApp('standard_user', "secret_sauce111");
+        loginPage.loginToTheApp(users.wrongPasswordUser);
         cy.get("h3[data-test='error']").should("contain", "Epic sadface: Username and password do not match any user in this service");
     });
 
 
     it("Test 4 (negative without password)", function () {
 
-        loginPage.loginToTheApp('standard_user', " ");
-        cy.get("h3[data-test='error']").should("contain", "Epic sadface: Username and password do not match any user in this service");
+        loginPage.usernameInput.type('standard_user');
+        loginPage.loginButton.click();
+        cy.get("h3[data-test='error']").should("contain", "Epic sadface: Password is required");
     });
     afterEach(function () {
         cy.log("after Each");

@@ -20,6 +20,10 @@ class Users {
         password: "secret_sauce"
     };
 
+    wrongPasswordUser = {
+        username: 'standard_user',
+        password: "secret_sauce111"
+    };
 }
 
 export default new Users();
