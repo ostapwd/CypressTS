@@ -1,3 +1,5 @@
+import { CartPageTS } from "./cartPageTS";
+
 export class ProductPageTS {
     private addToCartButtons() { return cy.get("[id*='add-to-cart']"); }
     private inventoryItemsNames() { return cy.get(".inventory_item_name"); }
@@ -7,10 +9,10 @@ export class ProductPageTS {
     public productsLabel() { return cy.get("#header_container .title"); }
     public linkInCart() { return cy.get(".shopping_cart_link"); }
     
-    // openShoppingCart(){
-    //     this.linkInCart.click();
-    //     return cartPage
-    // }
+    public openShoppingCart(){
+        this.linkInCart().click();
+        return new CartPageTS()
+    }
 
     public logAllProducts(){
         this.inventoryItemsNames().each(item => {
