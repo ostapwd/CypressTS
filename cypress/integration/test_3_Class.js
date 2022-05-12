@@ -1,28 +1,28 @@
 import users from "../data/users";
-import loginPage from "../support/pages/loginPage";
-import productPage from "../support/pages/productPage";
+import LoginPageTS from "../support/pages/loginPage";
+import ProductPageTS from "../support/pages/productPage";
 
-describe('Test suite', function () {
+describe('Test suite', () => {
    
     beforeEach(() => {
-       loginPage.open().loginToTheApp(users.standardUser);
+       LoginPageTS.open().loginToTheApp(users.standardUser);
     });
 
     it('Verify a user can login to the aplication', () => {
-        productPage.productsLabel.then((element) => {
+        ProductPageTS.productsLabel.then((element) => {
             expect(element.text()).to.equal('Products')
         })
     });
 
     it('Verify a user can add all products to the cart', () => {
-        productPage.addToCartAllproducts().selectedProductsNumber.then((element) => {
+        ProductPageTS.addToCartAllproducts().selectedProductsNumber.then((element) => {
             expect(element.text()).to.equal('6')
         })
     });
 
     it('Verify a user can logout form the app', () => {
-        productPage.openMenu().waitTime().logoutApp();
-        loginPage.loginPageLogoLabel.should("be.visible");
+        ProductPageTS.openMenu().waitTime().logoutApp();
+        LoginPageTS.loginPageLogoLabel.should("be.visible");
     });
 });
 

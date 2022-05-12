@@ -36,12 +36,12 @@ describe('Test suite for login', () => {
 
     describe('Test suite for login', () => {
         it('Test 2 (negative login)', () => {
-            loginPage.loginToTheApp(users.notRegisterUser)
+            loginPage.loginToTheApp(users.notRegisterUser);
             cy.xpath("//*[@data-test='error']").should('be.visible');
             cy.get("h3[data-test='error']").should('contain', 'Epic sadface: Username and password do not match any user in this service');
         })
         it('Test 2 (negative login)', () => {
-            loginPage.loginToTheApp(users.notPasswordUser)
+            loginPage.loginToTheApp(users.notPasswordUser);
             cy.xpath("//*[@data-test='error']").should('be.visible');
             cy.get("h3[data-test='error']").should('contain', 'Epic sadface: Password is required');
         })
