@@ -1,6 +1,7 @@
+import BasePage from "./BasePage";
 import { CartPageTS } from "./cartPageTS";
 
-export class ProductPageTS {
+export class ProductPageTS extends BasePage {
     private addToCartButtons() { return cy.get("[id*='add-to-cart']"); }
     private inventoryItemsNames() { return cy.get(".inventory_item_name"); }
     private selectedProductsNumber() { return cy.get("#shopping_cart_container .shopping_cart_badge"); }
@@ -19,6 +20,8 @@ export class ProductPageTS {
             cy.log(item.text())
         });
 
+        super.waitForSeconds(1)
+       
         return this
     }
 
@@ -26,6 +29,7 @@ export class ProductPageTS {
         this.addToCartButtons().each(item => {
             item.click()
         });
+        this.waitForSeconds(2)
 
         return this
     }
@@ -40,7 +44,10 @@ export class ProductPageTS {
 
     public openMenu() {
         this.menu().then(item => {
-            item.click()})
+            item.click()
+            this.waitForSeconds(1)
+        })
+
         return this
     };
 

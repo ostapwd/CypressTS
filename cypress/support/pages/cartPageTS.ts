@@ -1,4 +1,6 @@
-export class CartPageTS {
+import BasePage from "./BasePage";
+
+export class CartPageTS extends BasePage {
 
     private inventoryItemsNamesInCart() { return cy.get(".inventory_item_name"); }
     private selectedProductQuantityInCart() { return cy.get(".cart_quantity"); }
@@ -9,6 +11,8 @@ export class CartPageTS {
             cy.log(item.text())
         });
 
+        super.waitForSeconds(2)
+
         return this
     }
 
@@ -17,6 +21,7 @@ export class CartPageTS {
             expect(element.text()).to.be.equal("1");
         });
 
+        super.waitForSeconds(2)
         return this
     }
 

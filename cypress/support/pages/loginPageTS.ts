@@ -1,6 +1,7 @@
+import BasePage from "./BasePage";
 import { ProductPageTS } from "./productPageTS";
 
-export class LoginPageTS {
+export class LoginPageTS extends BasePage {
 
     private usernameInput() { return cy.get("#user-name"); }
     private passwordInput() { return cy.get("#password"); }
