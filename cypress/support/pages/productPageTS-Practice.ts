@@ -1,5 +1,5 @@
-import BasePage from "./BasePage";
-import { CartPageTS } from "./cartPageTS";
+import BasePage from "./basePageTS-Practice";
+import { CartPageTS } from "./cartPageTS-Practice";
 
 export class ProductPageTS extends BasePage {
     private addToCartButtons() { return cy.get("[id*='add-to-cart']"); }

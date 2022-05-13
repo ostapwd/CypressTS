@@ -1,4 +1,4 @@
-import BasePage from "./BasePage";
+import BasePage from "./basePageTS-Practice";
 
 export class CartPageTS extends BasePage {
 

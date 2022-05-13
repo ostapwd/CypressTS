@@ -1,4 +1,4 @@
-import cartPage from "./cartPage";
+import cartPage from "./cartPage-Practice";
 
 class ProductPage {
     get addToCartButtons() { return cy.get("[id*='add-to-cart']"); }

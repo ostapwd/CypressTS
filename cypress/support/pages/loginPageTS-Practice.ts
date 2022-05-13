@@ -1,5 +1,5 @@
-import BasePage from "./BasePage";
-import { ProductPageTS } from "./productPageTS";
+import BasePage from "./basePageTS-Practice";
+import { ProductPageTS } from "./productPageTS-Practice";
 
 export class LoginPageTS extends BasePage {
 
