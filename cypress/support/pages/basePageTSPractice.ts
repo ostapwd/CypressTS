@@ -1,4 +1,4 @@
-export default abstract class BasePage {
+export default abstract class basePageTS {
 
     protected waitForSeconds(secondsToWait :number) {
         cy.wait(secondsToWait * 1000);

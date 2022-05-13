@@ -1,4 +1,4 @@
-import productPage from "./productPage-Practice";
+import productPage from "./productPagePractice";
 
 class LoginPage {
     get usernameInput() { return cy.get("#user-name"); }

@@ -1,7 +1,7 @@
-import BasePage from "./basePageTS-Practice";
-import { CartPageTS } from "./cartPageTS-Practice";
+import basePageTS from "./basePageTSPractice";
+import { CartPageTS } from "./cartPageTSPractice";
 
-export class ProductPageTS extends BasePage {
+export class ProductPageTS extends basePageTS {
     private addToCartButtons() { return cy.get("[id*='add-to-cart']"); }
     private inventoryItemsNames() { return cy.get(".inventory_item_name"); }
     private selectedProductsNumber() { return cy.get("#shopping_cart_container .shopping_cart_badge"); }

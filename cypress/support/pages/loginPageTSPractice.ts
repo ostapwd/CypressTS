@@ -1,7 +1,7 @@
-import BasePage from "./basePageTS-Practice";
-import { ProductPageTS } from "./productPageTS-Practice";
+import basePageTS from "./basePageTSPractice";
+import { ProductPageTS } from "./productPageTSPractice";
 
-export class LoginPageTS extends BasePage {
+export class LoginPageTS extends basePageTS {
 
     private usernameInput() { return cy.get("#user-name"); }
     private passwordInput() { return cy.get("#password"); }
