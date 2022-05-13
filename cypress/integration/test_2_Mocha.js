@@ -1,9 +1,9 @@
 import users from "../data/users";
-import loginPage from "../support/pages/loginPage";
+import loginPagePractice from "../support/pages/loginPagePractice";
 
 describe('Test suite for login', () => {
     beforeEach(function() { 
-        loginPage.open()
+        loginPagePractice.open()
     });
     before(function() { 
         cy.log('Main before');
@@ -14,7 +14,7 @@ describe('Test suite for login', () => {
         });
 
         beforeEach(function() {  
-            loginPage.loginToTheApp("standard_user", "secret_sauce");
+            loginPagePractice.loginToTheApp("standard_user", "secret_sauce");
         });
         
         it('Test 1 (positive login)', () => {
@@ -36,12 +36,12 @@ describe('Test suite for login', () => {
 
     describe('Test suite for login', () => {
         it('Test 2 (negative login)', () => {
-            loginPage.loginToTheApp(users.notRegisterUser);
+            loginPagePractice.loginToTheApp(users.notRegisterUser);
             cy.xpath("//*[@data-test='error']").should('be.visible');
             cy.get("h3[data-test='error']").should('contain', 'Epic sadface: Username and password do not match any user in this service');
         })
         it('Test 2 (negative login)', () => {
-            loginPage.loginToTheApp(users.notPasswordUser);
+            loginPagePractice.loginToTheApp(users.notPasswordUser);
             cy.xpath("//*[@data-test='error']").should('be.visible');
             cy.get("h3[data-test='error']").should('contain', 'Epic sadface: Password is required');
         })
