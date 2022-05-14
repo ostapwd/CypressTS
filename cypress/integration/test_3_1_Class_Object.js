@@ -1,5 +1,6 @@
 import users from "../data/users";
-import loginPagePractice from "../support/pages/loginPagePractice";
+import loginPagePractice from "../support/pagesMyPractice/loginPagePractice";
+
 
 describe('Test suite', () => {
     it('Checking the quantity of products in the cart', () => {

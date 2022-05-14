@@ -1,6 +1,7 @@
 import users from "../data/users";
-import loginPagePractice from "../support/pages/loginPagePractice";
-import productPagePractice from "../support/pages/productPagePractice";
+import loginPagePractice from "../support/pagesMyPractice/loginPagePractice";
+import productPagePractice from "../support/pagesMyPractice/productPagePractice";
+
 
 describe('Test suite', () => {
    

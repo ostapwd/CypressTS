@@ -1,20 +1,21 @@
 import users from "../data/users";
-import loginPagePractice from "../support/pages/loginPagePractice";
+import loginPagePractice from "../support/pagesMyPractice/loginPagePractice";
+
 
 describe('Test suite for login', () => {
     beforeEach(function() { 
-        loginPagePractice.open()
+       loginPagePractice.open()
     });
     before(function() { 
         cy.log('Main before');
     });
-    describe.skip('Test suite for login', () => {
+    describe('Test suite for login', () => {
         before(function() { 
             cy.log('Internal before');
         });
 
         beforeEach(function() {  
-            loginPagePractice.loginToTheApp("standard_user", "secret_sauce");
+            loginPagePractice.loginToTheApp(users.standardUser);
         });
         
         it('Test 1 (positive login)', () => {
