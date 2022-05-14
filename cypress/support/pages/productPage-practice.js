@@ -54,7 +54,7 @@ class ProductPage {
                 this.CualityOfItemsInTheCart.then(element => {expect(element.text()).to.be.equal (number) })
             }
           
-
+            
     }
 
 

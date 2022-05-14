@@ -11,53 +11,49 @@ export class ProductPageTs extends BasePage {
     private get shoppingCardLable() { return cy.get("div .header_secondary_container"); }
     private get addToCardAll() { return cy.xpath("//button[@class='btn btn_primary btn_small btn_inventory']"); }
     private get remoutProductFromTheContainer() { return cy.get("button[name='remove-sauce-labs-backpack']"); }
-    private get buttonContinueShopping () { return cy.xpath("//button[@id='continue-shopping']"); }
-    private get allProdactsInThePage () {return cy.get(".inventory_item_name"); }
+    private get buttonContinueShopping() { return cy.xpath("//button[@id='continue-shopping']"); }
+    private get allProdactsInThePage() {return cy.get(".inventory_item_name"); }
     private get productsInCartList() { return cy.get('.cart_item'); }
     private get allChosedProducts() { return cy.get('.cart_quantity'); }
-    private get removeAllProductsFromTheCart () { return cy.xpath('//button[@class="btn btn_secondary btn_small cart_button"]'); }
+    private get removeAllProductsFromTheCart() { return cy.xpath('//button[@class="btn btn_secondary btn_small cart_button"]'); }
     private get CualityOfItemsInTheCart() { return cy.xpath('//span[@class="shopping_cart_badge"]'); }
     
   
-
-
-    public logAllProducts() {
-        this.allProdactsInThePage().each(item => {
-        cy.log(item.text())
-    });
-        super.waitForSeconds(1);
-        return this;
-}
-    public loginToTheApp(username, password) {
-        this.usernameInput().type(username);
-        this.passwordInput().type(password);
-        this.loginButton().click();
-    }
-
     public addToCartAllProducts() {
-        this.addToCardAll().each(item =>{
+        this.addToCardAll.each(item => {
              item.click();
             });
             super.waitForSeconds(1);
             return this;
-            }
+    }
     
-
-        public removeFromCardAllProducts () {
-        this.removeAllProductsFromTheCart().each(item =>{ 
+    public removeOneProductFromTheCard() {
+        this.removeFromTheCard.each(item => {
+                item.click();
+               });
+            return this;
+    }
+    public removeFromCardAllProducts() {
+        this.removeAllProductsFromTheCart.each(item => { 
             item.click();
             });
         
             return this;
-            }
-
-        public verifyThatNumbersOfSelectedProductsEquals(number) {
-                this.CualityOfItemsInTheCart().then(element => {expect(element.text()).to.be.equal (number) })
-            }
-          
-
     }
 
+    public verifyThatNumbersOfSelectedProductsEquals(number) {
+                this.CualityOfItemsInTheCart.then(element => {
+                expect(element.text()).to.be.equal (number) 
+            });
+    }
 
+    public logAllProducts() {
+        this.allProdactsInThePage.each(item => {
+        cy.log(item.text());
+    });
+        return this;
+    }    
+
+    }
 
 export default new ProductPageTs()

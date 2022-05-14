@@ -16,7 +16,7 @@ describe('Test suite 3', function () {
         cy.log(r1);
 
 
-        let dd = new BasePage();
+       // let dd = new BasePage();
         //loginPageTypeScript.waitForSeconds(5);
 
         //loginPageTypeScript.open();

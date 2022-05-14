@@ -51,7 +51,7 @@ describe ("Test suite 2", function () {
         productPagePractice.allChosedProducts.should("contain", "1");
         productPagePractice.CualityOfItemsInTheCart.then(element => {
             expect(element.text()).to.be.equal('6');
-        })
+        });
         productPagePractice.removeFromCardAllProducts();
         productPagePractice.buttonContinueShopping.click();
         productPagePractice.productsLabel.should("contain", "Products");
@@ -64,16 +64,16 @@ describe ("Test suite 2", function () {
  
         loginPage.open()
         .loginToTheApp(users.standardUser)
-        .addToCartAllProducts()
-        productPagePractice.shoppingCartContainer.click()
+        .addToCartAllProducts();
+        productPagePractice.shoppingCartContainer.click();
         productPagePractice.logAllProducts()
-        .verifyThatNumbersOfSelectedProductsEquals('6')
+        .verifyThatNumbersOfSelectedProductsEquals('6');
         productPagePractice.removeFromCardAllProducts();
         productPagePractice.buttonContinueShopping.click();
 
        });
  
- })
+ });
  
 
 

@@ -63,7 +63,7 @@ describe ("Test suite for login", function () {
     });
 
 
-    it("Test 4 (negative without password)", function () {
+    it.only("Test 4 (negative without password)", function () {
  
         
         cy.get("input[data-test='login-button']");
