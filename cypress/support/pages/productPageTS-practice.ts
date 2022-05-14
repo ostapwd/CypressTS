@@ -1,4 +1,6 @@
-export class ProductPageTs {
+import BasePage from "./basePage-practice";
+
+export class ProductPageTs extends BasePage {
 
     private get productsLabel() { return  cy.get("div .title"); }
     private get addToCard() { return cy.get("#add-to-cart-sauce-labs-backpack"); }
@@ -23,6 +25,7 @@ export class ProductPageTs {
         this.allProdactsInThePage().each(item => {
         cy.log(item.text())
     });
+        super.waitForSeconds(1);
         return this;
 }
     public loginToTheApp(username, password) {
@@ -35,7 +38,7 @@ export class ProductPageTs {
         this.addToCardAll().each(item =>{
              item.click();
             });
-        
+            super.waitForSeconds(1);
             return this;
             }
     

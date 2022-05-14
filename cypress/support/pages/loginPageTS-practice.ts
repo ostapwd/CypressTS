@@ -1,6 +1,8 @@
 import { ProductPageTs } from "./productPageTS-practice";
+import BasePage from "./basePage-practice";
 
-export class LoginPageTs {
+
+export class LoginPageTs extends BasePage {
   
     private usernameInput() { return cy.xpath('//*[@id="user-name"]'); }
     private passwordInput() { return cy.get("input[name='password']"); }
@@ -12,6 +14,9 @@ export class LoginPageTs {
     public loginToTheApp(user) {
         this.usernameInput().type(user.username);
         this.passwordInput().type(user.password);
+
+        super.waitForSeconds(1);
+
         this.loginButton().click();
 
      return new ProductPageTs;
@@ -19,7 +24,7 @@ export class LoginPageTs {
     }
 
     public open() {
-        cy.visit("https://www.saucedemo.com/");
+        super.goto("https://www.saucedemo.com/");
 
         return this;
     }

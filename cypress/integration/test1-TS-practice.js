@@ -40,8 +40,8 @@ describe ("Test suite for login (negative)", function () {
 
         new LoginPageTs().open()
        .usernameInput().type('standard_user')
-       new LoginPageTs().loginButton().click()
-       new LoginPageTs().wrongPassword().should("contain", "Epic sadface: Password is required");
+        new LoginPageTs().loginButton().click()
+        new LoginPageTs().wrongPassword().should("contain", "Epic sadface: Password is required");
     });
    
 
