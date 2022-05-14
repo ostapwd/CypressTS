@@ -1,9 +1,11 @@
+import { ProductPageTs } from "./productPageTS-practice";
 
 export class LoginPageTs {
   
     private usernameInput() { return cy.xpath('//*[@id="user-name"]'); }
     private passwordInput() { return cy.get("input[name='password']"); }
     private loginButton() { return cy.get("input[data-test='login-button']"); }
+    private wrongPassword() { return cy.get("h3[data-test='error']"); }
 
   
 
@@ -12,7 +14,7 @@ export class LoginPageTs {
         this.passwordInput().type(user.password);
         this.loginButton().click();
 
-     
+     return new ProductPageTs;
       
     }
 

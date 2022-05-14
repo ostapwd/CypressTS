@@ -29,6 +29,8 @@ class ProductPage {
         this.usernameInput.type(username);
         this.passwordInput.type(password);
         this.loginButton.click();
+
+        
     }
 
     addToCartAllProducts() {

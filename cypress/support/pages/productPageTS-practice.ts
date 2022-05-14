@@ -1,4 +1,4 @@
-class ProductPageTs {
+export class ProductPageTs {
 
     private get productsLabel() { return  cy.get("div .title"); }
     private get addToCard() { return cy.get("#add-to-cart-sauce-labs-backpack"); }
@@ -57,4 +57,4 @@ class ProductPageTs {
 
 
 
-//export default new ProductPageTSPractice()
+export default new ProductPageTs()

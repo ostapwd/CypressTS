@@ -24,6 +24,11 @@ class Users {
         username: 'standard_user',
         password: "secret_sauce111"
     };
+
+    withoutPasswordUser = {
+        username: 'standard_user',
+        password: ' '
+    }
 }
 
 export default new Users();
