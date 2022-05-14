@@ -1,9 +1,9 @@
 import users from "../data/users";
-import {LoginPageTS} from "../support/pages/loginPageTS";
+import loginPagePractice from "../support/pages/loginPagePractice";
 
 describe('Test suite', () => {
     it('Checking the quantity of products in the cart', () => {
-        new LoginPageTS().open()
+        loginPagePractice.open()
             .loginToTheApp(users.standardUser)
             .addToCartAllproducts()
             .logAllProducts()

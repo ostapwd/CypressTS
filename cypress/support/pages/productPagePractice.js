@@ -1,4 +1,4 @@
-import cartPage from "./cartPagePractice";
+import cartPagePractice from "./cartPagePractice";
 
 class ProductPage {
     get addToCartButtons() { return cy.get("[id*='add-to-cart']"); }
@@ -11,7 +11,7 @@ class ProductPage {
     
     openShoppingCart(){
         this.linkInCart.click();
-        return cartPage
+        return cartPagePractice
     }
 
     logAllProducts(){

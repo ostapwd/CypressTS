@@ -1,4 +1,4 @@
-import productPage from "./productPagePractice";
+import productPagePractice from "./productPagePractice";
 
 class LoginPage {
     get usernameInput() { return cy.get("#user-name"); }
@@ -12,7 +12,7 @@ class LoginPage {
         cy.wait(2000);
         this.loginButton.click();
 
-        return productPage
+        return productPagePractice
     }
 
     open() {

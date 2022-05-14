@@ -1,28 +1,32 @@
+// import users from "../data/users";
+// import LoginPageTS from "../support/pages/loginPage";
+// import ProductPageTS from "../support/pages/productPage";
+
 import users from "../data/users";
-import LoginPageTS from "../support/pages/loginPage";
-import ProductPageTS from "../support/pages/productPage";
+import loginPagePractice from "../support/pages/loginPagePractice";
+import productPagePractice from "../support/pages/productPagePractice";
 
 describe('Test suite', () => {
    
     beforeEach(() => {
-       LoginPageTS.open().loginToTheApp(users.standardUser);
+        loginPagePractice.open().loginToTheApp(users.standardUser)
     });
 
     it('Verify a user can login to the aplication', () => {
-        ProductPageTS.productsLabel.then((element) => {
+        productPagePractice.productsLabel.then((element) => {
             expect(element.text()).to.equal('Products')
         })
     });
 
     it('Verify a user can add all products to the cart', () => {
-        ProductPageTS.addToCartAllproducts().selectedProductsNumber.then((element) => {
+        productPagePractice.addToCartAllproducts().selectedProductsNumber.then((element) => {
             expect(element.text()).to.equal('6')
         })
     });
 
     it('Verify a user can logout form the app', () => {
-        ProductPageTS.openMenu().waitTime().logoutApp();
-        LoginPageTS.loginPageLogoLabel.should("be.visible");
+        productPagePractice.openMenu().waitTime().logoutApp();
+        loginPagePractice.loginPageLogoLabel.should("be.visible")
     });
 });
 
