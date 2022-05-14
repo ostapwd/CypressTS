@@ -25,7 +25,7 @@ describe ("Test suite 3", function () {
         productPagePractice.productsLabel.should("contain", "Products");
     
     })
-    it.only('Test 2 "Adding to the cart one prodact, checout it and then cancel"', function () {
+    it('Test 2 "Adding to the cart one prodact, checout it and then cancel"', function () {
  
         loginPage.open().
         loginToTheApp(users.standardUser);

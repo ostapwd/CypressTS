@@ -1,6 +1,6 @@
 import productPage from "./productPage";
 
-class LoginPage {
+export class LoginPage {
 
     get usernameInput() { return cy.get("#user-name"); }
     get passwordInput() { return cy.get("#password"); }
@@ -24,4 +24,4 @@ class LoginPage {
 
 }
 
-export default new LoginPage()
+//export default new LoginPage()

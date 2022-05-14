@@ -7,6 +7,7 @@ class LoginPage {
     get usernameInput() { return cy.xpath('//*[@id="user-name"]'); }
     get passwordInput() { return cy.get("input[name='password']"); }
     get loginButton() { return cy.get("input[data-test='login-button']"); }
+    get wrongPassword() { return cy.get("h3[data-test='error']"); }
 
     loginToTheApp(user) {
         this.usernameInput.type(user.username);
@@ -25,4 +26,4 @@ class LoginPage {
 
 }
 
-export default new LoginPage()
+export default new LoginPage();

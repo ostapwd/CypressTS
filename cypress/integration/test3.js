@@ -1,14 +1,71 @@
-import loginPage from "../support/pages/loginPage";
-
 import users from "../data/users";
+import {Dog} from "../support/pages/dog";
+import {LoginPage} from "../support/pages/loginPage";
+import {LoginPageTS} from "../support/pages/loginPageTS";
+import {ProductPageTS} from "../support/pages/productPageTS";
+import {BasePage} from "../support/pages/BasePage";
+
+const lp =  new LoginPage();
 
 describe('Test suite 3', function () {
     it.only('Verify a user can add all products to the chart', function () {
-        loginPage.open()
+
+        const loginPageTypeScript = new LoginPageTS();
+
+        const r1 = loginPageTypeScript.DoSomething(7, 4);
+        cy.log(r1);
+
+
+        let dd = new BasePage();
+        //loginPageTypeScript.waitForSeconds(5);
+
+        //loginPageTypeScript.open();
+
+        //.loginToTheApp(users.standardUser);
+
+        //new LoginPage().loginToTheApp("standard_user", "secret_sauce")
+
+        let m = 1;
+        m = "hello";
+        m = {};
+        m = function() {}
+
+        const dog1 = new Dog("brovko", 5);
+        const dog2 = new Dog("brovko2", 7);
+
+        dog1.printMyName();
+        dog2.printMyName();
+
+        const result = dog2.transfer(15);
+
+        cy.log(result);
+
+        new LoginPage().open()
             .loginToTheApp(users.standardUser)
             .addToChartAllProducts()
             .verifyThatNumberOfSelectedProductsEqualsTo('6');
+
+
+        let loginPage =  new LoginPage();
+        loginPage.tttrtrt = function(){
+            cy.log("I'm a new function added on the fly");
+        }
+
+        loginPage.tttrtrt.color = "red";
+
+        loginPage.tttrtrt();
+
+        cy.log(loginPage.tttrtrt.color)
     });
+
+    it('Verify a user can add all products to the chart 1111', function () {
+        new LoginPageTS().open("https://www.saucedemo.com/")
+            .loginToTheApp(users.standardUser)
+            .addToChartAllProducts()
+            .verifyThatNumberOfSelectedProductsEqualsTo('6');
+
+    });
+
 });
 
 describe('Test suite for login', function () {
@@ -20,7 +77,7 @@ describe('Test suite for login', function () {
     beforeEach(function() {
         cy.log("main before each");
 
-        loginPage.open();
+
     });
 
     describe('Test suite for login (positive)', function () {
@@ -34,13 +91,12 @@ describe('Test suite for login', function () {
         });
 
         it('Test 1 (positive login)', function () {
-            loginPage.loginToTheApp("standard_user", "secret_sauce")
 
             cy.get("span.title").should("contain", "Products");
         });
 
         it('Test 2 (positive login)', function () {
-            loginPage.loginToTheApp("standard_user", "secret_sauce")
+            new LoginPage().loginToTheApp("standard_user", "secret_sauce")
 
             cy.get("span.title").should("contain", "Products");
         });
