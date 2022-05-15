@@ -1,4 +1,4 @@
-export default abstract class basePageTS {
+export default abstract class basePageTSPractice {
 
     protected waitForSeconds(secondsToWait :number) {
         cy.wait(secondsToWait * 1000);
@@ -10,7 +10,5 @@ export default abstract class basePageTS {
         cy.visit(url, {failOnStatusCode: false});
 
         return this
-
     }
-
 }

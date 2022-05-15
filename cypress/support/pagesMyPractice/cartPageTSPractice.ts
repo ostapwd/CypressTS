@@ -1,6 +1,6 @@
-import basePageTS from "./basePageTSPractice";
+import basePageTSPractice from "./basePageTSPractice";
 
-export class CartPageTS extends basePageTS {
+export class CartPageTSPractice extends basePageTSPractice {
 
     private inventoryItemsNamesInCart() { return cy.get(".inventory_item_name"); }
     private selectedProductQuantityInCart() { return cy.get(".cart_quantity"); }
@@ -31,5 +31,3 @@ export class CartPageTS extends basePageTS {
         return this
     }
 }
-
-

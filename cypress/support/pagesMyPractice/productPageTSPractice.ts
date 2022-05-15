@@ -1,8 +1,7 @@
-import basePageTS from "./basePageTSPractice";
-import { CartPageTS } from "./cartPageTSPractice";
+import basePageTSPractice from "./basePageTSPractice";
+import { CartPageTSPractice } from "./cartPageTSPractice";
 
-
-export class ProductPageTS extends basePageTS {
+export class ProductPageTSPractice extends basePageTSPractice {
     private addToCartButtons() { return cy.get("[id*='add-to-cart']"); }
     private inventoryItemsNames() { return cy.get(".inventory_item_name"); }
     private selectedProductsNumber() { return cy.get("#shopping_cart_container .shopping_cart_badge"); }
@@ -13,7 +12,7 @@ export class ProductPageTS extends basePageTS {
     
     public openShoppingCart(){
         this.linkInCart().click();
-        return new CartPageTS()
+            return new CartPageTSPractice()
     }
 
     public logAllProducts(){
@@ -22,8 +21,7 @@ export class ProductPageTS extends basePageTS {
         });
 
         super.waitForSeconds(1)
-       
-        return this
+            return this
     }
 
     public addToCartAllproducts(){
@@ -31,15 +29,13 @@ export class ProductPageTS extends basePageTS {
             item.click()
         });
         this.waitForSeconds(2)
-
-        return this
+            return this
     }
 
     public verifyThatNumberSelectedProductsEquals(number){
         this.selectedProductsNumber().then( element => {
             expect(element.text()).to.be.equal("6");
         }); 
-
         return this
     }
 
@@ -48,13 +44,12 @@ export class ProductPageTS extends basePageTS {
             item.click()
             this.waitForSeconds(1)
         })
-
         return this
     };
 
     public logoutApp() {
         this.logoutButton().click();
-        return this
+            return this
     } 
 
     // public waitTime() {
