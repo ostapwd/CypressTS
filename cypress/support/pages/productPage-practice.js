@@ -16,13 +16,24 @@ class ProductPage {
     get allChosedProducts() { return cy.get('.cart_quantity'); }
     get removeAllProductsFromTheCart () { return cy.xpath('//button[@class="btn btn_secondary btn_small cart_button"]'); }
     get CualityOfItemsInTheCart() { return cy.xpath('//span[@class="shopping_cart_badge"]'); }
-    
+    get propertyValueOfContent() { return cy.get(".select_container"); }
 
+
+    propertyValue() { 
+        this.propertyValueOfContent.then($els => {
+            let win = $els[0].ownerDocument.defaultView;
+            const after = win.getComputedStyle($els[0], 'after');
+            const contentValue = after.getPropertyValue('content');
+            expect(contentValue).to.eq('""');
+            
+         }); 
+         return this;
+    }
 
     logAllProducts() {this.allProdactsInThePage.each(item =>
         cy.log(item.text()) );
         return this;
-}
+    }
 
 
     loginToTheApp(username, password) {
@@ -54,7 +65,7 @@ class ProductPage {
                 this.CualityOfItemsInTheCart.then(element => {expect(element.text()).to.be.equal (number) })
             }
           
-            
+
     }
 
 
