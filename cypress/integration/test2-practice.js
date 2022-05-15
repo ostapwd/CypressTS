@@ -72,9 +72,31 @@ describe ("Test suite 2", function () {
         productPagePractice.buttonContinueShopping.click();
 
        });
+
+       it.only('Test 5 "Testing Pseudo CSS selector "::after" ', function () {
+
+        loginPage.open()
+        .loginToTheApp(users.standardUser)
+        .propertyValue();
+
+        cy.xpath("//span[@class='select_container']")
+        .debug().invoke('show').click();
+        cy.get(".select_container").should("be.visible").click();
+        cy.get("span[class='active_option']").should("be.visible").should('have.length', 1).contains('Name (A to Z)').click({force: true})
+        cy.get(".product_sort_container option").not(':visible').should('have.length', 4);
+        cy.get("span[class='active_option']").should('not.have.css', 'content', '""');
+        cy.get(".select_container")
+             .should($priceEl => {    
+              expect(Cypress.dom.isVisible($priceEl)).to.eq(true);
+            });
+        cy.get("span[class='active_option']").contains('Name (A to Z)').click({force: true}); 
+        cy.xpath('//span[@class="active_option"]').should('contain', 'Name (A to Z)').click({force: true});
+        cy.get('span[class="select_container"]').find('[value="az"]')
+        .should('contain', 'Name (A to Z)').click({force: true});
+        cy.contains('Name (Z to A)').click({force: true});
  
  });
  
 
-
+});
     
