@@ -9,14 +9,13 @@ export class LoginPageTSPractice extends basePageTSPractice {
     private loginButton() { return cy.get("input[data-test='login-button']"); }
     public  urlLoginPage() { return cy.url(); }
     public  logoApp() {return cy.get(".login_logo");}
-    public  errorMessageNegativeLoginPassword() {return cy.xpath("//*[@data-test='error']");}
-    public  errorMessageLockedOutUser() {return cy.xpath("//*[@data-test='error']");}
+    public  errorMessageLoginToTheApp() {return cy.xpath("//*[@data-test='error']");}
+    public  errorMessageColor() {return cy.get(".error-message-container.error");}
     
-
     public loginToTheApp(user) {
-        this.usernameInput().type(user.username);
+        this.usernameInput().clear().type(user.username);
         this.waitForSeconds(1);
-        this.passwordInput().type(user.password);
+        this.passwordInput().clear().type(user.password);
         this.waitForSeconds(1);
         this.loginButton().click(); 
             return new ProductPageTSPractice()
@@ -68,18 +67,39 @@ export class LoginPageTSPractice extends basePageTSPractice {
         return this
     }
 
-    public verifyErrorMessageNegativeLoginPassword(){
-        this.errorMessageNegativeLoginPassword().should('be.visible').then((element) => {
-            expect(element.text()).to.be.equal('Epic sadface: Username and password do not match any user in this service')
-        });
-        this.errorMessageNegativeLoginPassword().contains('Epic sadface: Username and password do not match any user in this service');
-        return this
+    public emptyPasswordToTheApp(user) {
+        this.usernameInput().clear().type(user.username);
+        this.waitForSeconds(1);
+        this.passwordInput().clear()
+        this.waitForSeconds(1);
+        this.loginButton().click(); 
+            return this
     }
 
-    public verifyErrorMessageLockedOutUser(){
-        this.errorMessageLockedOutUser().should('be.visible').then((element) => {
-            expect(element.text()).to.be.equal('Epic sadface: Sorry, this user has been locked out.')
+    public emptyUsernameToTheApp(user) {
+        this.usernameInput().clear();
+        this.waitForSeconds(1);
+        this.passwordInput().clear().type(user.password);
+        this.waitForSeconds(1);
+        this.loginButton().click(); 
+            return this
+    }
+
+    public emptyFieldsToTheApp() {
+        this.usernameInput().clear();
+        this.waitForSeconds(1);
+        this.passwordInput().clear();
+        this.waitForSeconds(1);
+        this.loginButton().click(); 
+            return this
+    }
+
+
+    public verifyErrorMessage(error){
+        this.errorMessageLoginToTheApp().should('be.visible').then((element) => {
+            expect(element.text()).to.be.equal(error.message);
+        this.errorMessageColor().should('have.css', 'background-color', 'rgb(226, 35, 26)')
         });
-        return this
+            return this
     }
 }

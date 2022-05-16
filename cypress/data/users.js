@@ -20,14 +20,19 @@ class Users {
         password: "secret_sauce"
     };
 
-    noPasswordUser = {
-        username: "standard_user",
-        password: " "
-    };
-
     noRegisterUser = {
         username: "standard",
         password: "secret"
+    };
+
+    wrongUsernameUser = {
+        username: "standard",
+        password: "secret_sauce"
+    };
+
+    wrongPasswordUser = {
+        username: "standard_user",
+        password: "secret_sauce123456"
     };
 
 }
