@@ -10,6 +10,8 @@ export class LoginPageTSPractice extends basePageTSPractice {
     public  urlLoginPage() { return cy.url(); }
     public  logoApp() {return cy.get(".login_logo");}
     public  errorMessageNegativeLoginPassword() {return cy.xpath("//*[@data-test='error']");}
+    public  errorMessageLockedOutUser() {return cy.xpath("//*[@data-test='error']");}
+    
 
     public loginToTheApp(user) {
         this.usernameInput().type(user.username);
@@ -66,11 +68,18 @@ export class LoginPageTSPractice extends basePageTSPractice {
         return this
     }
 
-    public verifyErrorMessageNegativeLoginPassword() {
+    public verifyErrorMessageNegativeLoginPassword(){
         this.errorMessageNegativeLoginPassword().should('be.visible').then((element) => {
             expect(element.text()).to.be.equal('Epic sadface: Username and password do not match any user in this service')
         });
-        // this.errorMessageNegativeLoginPassword().contains('Epic sadface: Username and password do not match any user in this service');
+        this.errorMessageNegativeLoginPassword().contains('Epic sadface: Username and password do not match any user in this service');
+        return this
+    }
+
+    public verifyErrorMessageLockedOutUser(){
+        this.errorMessageLockedOutUser().should('be.visible').then((element) => {
+            expect(element.text()).to.be.equal('Epic sadface: Sorry, this user has been locked out.')
+        });
         return this
     }
 }

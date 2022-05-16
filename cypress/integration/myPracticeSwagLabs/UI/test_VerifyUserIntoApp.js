@@ -16,10 +16,20 @@ describe('Test suite verified a user login into the application', () => {
             .verifyProductsLabel()
     });
 
+    it('Verify a user can login into the application (negative login)', () => {
+        new LoginPageTSPractice()
+            .verifyUrlLoginPage()
+            .verifyUsernameInput()
+            .loginToTheApp(users.noRegisterUser)
+        new LoginPageTSPractice().verifyErrorMessageNegativeLoginPassword()
+    })
+
     it.only('Verify a user can login into the application (negative login)', () => {
         new LoginPageTSPractice()
             .verifyUrlLoginPage()
             .verifyUsernameInput()
-            .loginToTheApp(users.noRegisterUser).
-    });
+            .loginToTheApp(users.lockedOutUser)
+        new LoginPageTSPractice()
+            .verifyErrorMessageLockedOutUser()
+    })
 });
