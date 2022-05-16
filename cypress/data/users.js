@@ -20,12 +20,12 @@ class Users {
         password: "secret_sauce"
     };
 
-    notPasswordUser = {
+    noPasswordUser = {
         username: "standard_user",
         password: " "
     };
 
-    notRegisterUser = {
+    noRegisterUser = {
         username: "standard",
         password: "secret"
     };

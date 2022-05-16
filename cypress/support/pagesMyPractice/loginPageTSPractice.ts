@@ -6,13 +6,16 @@ export class LoginPageTSPractice extends basePageTSPractice {
 
     private usernameInput() { return cy.get("#user-name"); }
     private passwordInput() { return cy.get("#password"); }
-    private loginButton() { return cy.get("#login-button"); }
+    private loginButton() { return cy.get("input[data-test='login-button']"); }
     public  urlLoginPage() { return cy.url(); }
     public  logoApp() {return cy.get(".login_logo");}
+    public  errorMessageNegativeLoginPassword() {return cy.xpath("//*[@data-test='error']");}
 
     public loginToTheApp(user) {
         this.usernameInput().type(user.username);
+        this.waitForSeconds(1);
         this.passwordInput().type(user.password);
+        this.waitForSeconds(1);
         this.loginButton().click(); 
             return new ProductPageTSPractice()
     }
@@ -60,6 +63,14 @@ export class LoginPageTSPractice extends basePageTSPractice {
 
     public verifyColorLoginButton(){
         this.loginButton().should('have.css', 'background-color', 'rgb(226, 35, 26)');
+        return this
+    }
+
+    public verifyErrorMessageNegativeLoginPassword() {
+        this.errorMessageNegativeLoginPassword().should('be.visible').then((element) => {
+            expect(element.text()).to.be.equal('Epic sadface: Username and password do not match any user in this service')
+        });
+        // this.errorMessageNegativeLoginPassword().contains('Epic sadface: Username and password do not match any user in this service');
         return this
     }
 }

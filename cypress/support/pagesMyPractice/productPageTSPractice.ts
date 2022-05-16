@@ -9,6 +9,7 @@ export class ProductPageTSPractice extends basePageTSPractice {
     private logoutButton() { return cy.get("#logout_sidebar_link"); }
     public productsLabel() { return cy.get("#header_container .title"); }
     public linkInCart() { return cy.get(".shopping_cart_link"); }
+    public urlProductsPage() { return cy.url(); }
     
     public openShoppingCart(){
         this.linkInCart().click();
@@ -32,7 +33,7 @@ export class ProductPageTSPractice extends basePageTSPractice {
             return this
     }
 
-    public verifyThatNumberSelectedProductsEquals(number){
+    public verifyNumberSelectedProducts(number){
         this.selectedProductsNumber().then( element => {
             expect(element.text()).to.be.equal("6");
         }); 
@@ -51,6 +52,18 @@ export class ProductPageTSPractice extends basePageTSPractice {
         this.logoutButton().click();
             return this
     } 
+
+    public verifyUrlProductsPage(){
+        this.urlProductsPage().should('eq', 'https://www.saucedemo.com/inventory.html');
+        return this
+    }
+
+    public verifyProductsLabel(){
+        this.productsLabel().should('be.visible').then((element) => {
+            expect(element.text()).to.be.equal('Products')
+        })
+        return this
+    }
 
     // public waitTime() {
     //     let waitTime :number;
