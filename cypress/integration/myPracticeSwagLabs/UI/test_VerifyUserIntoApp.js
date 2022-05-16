@@ -4,6 +4,7 @@ import { ProductPageTSPractice } from "../../../support/pagesMyPractice/productP
 
 describe('Test suite verified a user login into the application', () => {
     beforeEach('Opened the application', () => {
+        cy.log('Start')
         new LoginPageTSPractice().open()
     });
     it('Verify a user can login into the application (positive login)', () => {
@@ -32,4 +33,7 @@ describe('Test suite verified a user login into the application', () => {
         new LoginPageTSPractice()
             .verifyErrorMessageLockedOutUser()
     })
+    afterEach(() => {
+        cy.log('Finish')
+    });
 });

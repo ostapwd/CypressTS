@@ -2,6 +2,7 @@ import { LoginPageTSPractice } from "../../../support/pagesMyPractice/loginPageT
 
 describe('Test suite to test web elements on the login page', () => {
     beforeEach(() => {
+        cy.log('Start')
         new LoginPageTSPractice().open();
     });
         it('Verify the URL of the login page is displayed in the browser address bar', () => {
@@ -21,6 +22,9 @@ describe('Test suite to test web elements on the login page', () => {
                 .verifyLoginButton()
                 .verifyColorLoginButton()
         });
+    afterEach(() => {
+        cy.log('Finish')
+    });
 
     // it('Verify a user can login to the aplication', () => {
     //     productPagePractice.productsLabel.then((element) => {
