@@ -3,18 +3,18 @@ import { CartPageTSPractice } from "./cartPageTSPractice";
 
 export class ProductPageTSPractice extends basePageTSPractice {
     private addToCartButtons() { return cy.get("[id*='add-to-cart']"); }
+    private deleteFromCartButtons() { return cy.get("[id*='remove']"); }
     private inventoryItemsNames() { return cy.get(".inventory_item_name"); }
-    private inventoryItemsPrice() { return cy.get(".inventory_item_price"); }
     private selectedProductsNumber() { return cy.get("#shopping_cart_container .shopping_cart_badge"); }
     private menu() { return cy.get("#react-burger-menu-btn"); }
     private logoutButton() { return cy.get("#logout_sidebar_link"); }
     public productsLabel() { return cy.get("#header_container .title"); }
-    public shoppingLinkCart() { return cy.get(".shopping_cart_link"); }
+    public shoppingCartLink() { return cy.get(".shopping_cart_link"); }
     public urlProductsPage() { return cy.url(); }   
     public selectSortProductsLabel() {return cy.xpath("//select[@data-test='product_sort_container']")}
     
     public openShoppingCart(){
-        this.shoppingLinkCart().click();
+        this.shoppingCartLink().click();
             return new CartPageTSPractice()
     }
 
@@ -31,13 +31,28 @@ export class ProductPageTSPractice extends basePageTSPractice {
         this.addToCartButtons().each(item => {
             item.click()
         });
-        this.waitForSeconds(2)
+        this.waitForSeconds(1)
             return this
     }
 
-    public verifyNumberSelectedProducts(number){
-        this.selectedProductsNumber().then( element => {
-            expect(element.text()).to.be.equal("6");
+    public deleteFromCartAllproducts(){
+        this.deleteFromCartButtons().each(item => {
+            item.click()
+        });
+        this.waitForSeconds(1)
+            return this
+    }
+
+    public verifySelectedProductsNumber(number){
+        this.selectedProductsNumber().should('be.visible').then( element => {
+            expect(element.text()).to.be.equal('6');
+        }); 
+        return this
+    }
+
+    public verifySelectedProductsNumberHidden(number){
+        this.shoppingCartLink().then( element => {
+            expect(element.text()).to.be.equal('');
         }); 
         return this
     }
@@ -68,7 +83,7 @@ export class ProductPageTSPractice extends basePageTSPractice {
     }
 
     public verifyShoppingCartLabel(){
-        this.shoppingLinkCart().should('be.visible');
+        this.shoppingCartLink().should('be.visible');
         return this
     }
 
