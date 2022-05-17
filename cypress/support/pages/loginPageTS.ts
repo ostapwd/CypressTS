@@ -7,10 +7,10 @@ export class LoginPageTS {
   private passwordInput() {
     return cy.get('#password')
   }
-  public loginButton() {
+  private loginButton() {
     return cy.get('#login-button')
   }
-  public wrongPassVerify() {
+  private wrongPassVerify() {
     return cy.get('[data-test ="error"]')
   }
 
