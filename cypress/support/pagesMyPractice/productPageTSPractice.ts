@@ -4,13 +4,14 @@ import { CartPageTSPractice } from "./cartPageTSPractice";
 export class ProductPageTSPractice extends basePageTSPractice {
     private addToCartButtons() { return cy.get("[id*='add-to-cart']"); }
     private inventoryItemsNames() { return cy.get(".inventory_item_name"); }
+    private inventoryItemsPrice() { return cy.get(".inventory_item_price"); }
     private selectedProductsNumber() { return cy.get("#shopping_cart_container .shopping_cart_badge"); }
     private menu() { return cy.get("#react-burger-menu-btn"); }
     private logoutButton() { return cy.get("#logout_sidebar_link"); }
     public productsLabel() { return cy.get("#header_container .title"); }
     public shoppingLinkCart() { return cy.get(".shopping_cart_link"); }
-    public urlProductsPage() { return cy.url(); }
-    public selectSortProductsLabel() {return cy.xpath("//*[@class='product_sort_container']")}
+    public urlProductsPage() { return cy.url(); }   
+    public selectSortProductsLabel() {return cy.xpath("//select[@data-test='product_sort_container']")}
     
     public openShoppingCart(){
         this.shoppingLinkCart().click();
@@ -72,14 +73,9 @@ export class ProductPageTSPractice extends basePageTSPractice {
     }
 
     public verifySelectSortLabel(){
-        this.selectSortProductsLabel().should('be.visible');
+        this.selectSortProductsLabel().should('be.visible')
+        this.selectSortProductsLabel().select('Price (low to high)')
         return this
     }
-
-    // public waitTime() {
-    //     let waitTime :number;
-    //     waitTime = cy.wait( 2000)
-    //     return this
-    // }
 }
 
