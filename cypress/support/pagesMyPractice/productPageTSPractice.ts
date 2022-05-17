@@ -8,11 +8,12 @@ export class ProductPageTSPractice extends basePageTSPractice {
     private menu() { return cy.get("#react-burger-menu-btn"); }
     private logoutButton() { return cy.get("#logout_sidebar_link"); }
     public productsLabel() { return cy.get("#header_container .title"); }
-    public linkInCart() { return cy.get(".shopping_cart_link"); }
+    public shoppingLinkCart() { return cy.get(".shopping_cart_link"); }
     public urlProductsPage() { return cy.url(); }
+    public selectSortProductsLabel() {return cy.xpath("//*[@class='product_sort_container']")}
     
     public openShoppingCart(){
-        this.linkInCart().click();
+        this.shoppingLinkCart().click();
             return new CartPageTSPractice()
     }
 
@@ -62,6 +63,16 @@ export class ProductPageTSPractice extends basePageTSPractice {
         this.productsLabel().should('be.visible').then((element) => {
             expect(element.text()).to.be.equal('Products')
         })
+        return this
+    }
+
+    public verifyShoppingCartLabel(){
+        this.shoppingLinkCart().should('be.visible');
+        return this
+    }
+
+    public verifySelectSortLabel(){
+        this.selectSortProductsLabel().should('be.visible');
         return this
     }
 
