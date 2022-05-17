@@ -1,4 +1,4 @@
-import { LoginPageTSPractice } from "../../../support/pagesMyPractice/loginPageTSPractice";
+import { LoginPageTSPractice } from "../../support/pagesMyPractice/loginPageTSPractice";
 
 describe('Test suite to test web elements on the login page', () => {
     beforeEach(() => {

@@ -1,7 +1,7 @@
-import errorsLoginMessage from "../../../data/errorsLoginMessage";
-import users from "../../../data/users";
-import { LoginPageTSPractice } from "../../../support/pagesMyPractice/loginPageTSPractice";
-import { ProductPageTSPractice } from "../../../support/pagesMyPractice/productPageTSPractice";
+import errorsLoginMessage from "../../data/errorsLoginMessage";
+import users from "../../data/users";
+import { LoginPageTSPractice } from "../../support/pagesMyPractice/loginPageTSPractice";
+import { ProductPageTSPractice } from "../../support/pagesMyPractice/productPageTSPractice";
 
 describe('Test suite verified a user login into the application', () => {
     beforeEach('Opened the application', () => {
