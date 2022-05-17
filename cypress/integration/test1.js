@@ -1,15 +1,18 @@
+import users from "../data/users";
 import loginPage from "../support/pages/loginPage";
+import { LoginPageTS } from "../support/pages/loginPageTS"
 
 describe('SwagLabs test suite', function() {
 
+    const loginPageTS = new LoginPageTS();
     beforeEach(function() {
-        loginPage.open();
+        loginPageTS.open();
     });
 
     it('problem user login ', function() {
 
-        loginPage
-            .loginToTheApp('problem_user', 'secret_sauce')
+        loginPageTS
+            .loginToTheApp(users.problemUser)
             .productNameVerification();
 
     });
@@ -17,17 +20,17 @@ describe('SwagLabs test suite', function() {
 
     it('wrong pass login ', function() {
 
-        loginPage
-            .loginToTheApp('standard_user', 'ayay');
-        loginPage
+        loginPageTS
+            .loginToTheApp(users.wrongPassUser);
+        loginPageTS
             .wrongPassValidate();
     });
 
 
     it('should buy items', function() {
 
-        loginPage
-            .loginToTheApp('standard_user', 'secret_sauce')
+        loginPageTS
+            .loginToTheApp(users.standardUser)
             .productsLabelVerification()
             .addToCart()
             .cartOpen()

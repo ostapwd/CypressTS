@@ -8,9 +8,9 @@ class LoginPage {
     get wrongPassVerify() { return cy.get('[data-test ="error"]'); }
 
 
-    loginToTheApp(username, password) {
-        this.usernameInput.type(username);
-        this.passwordInput.type(password);
+    loginToTheApp(user) {
+        this.usernameInput.type(user.username);
+        this.passwordInput.type(user.password);
 
         this.loginButton.click();
 
