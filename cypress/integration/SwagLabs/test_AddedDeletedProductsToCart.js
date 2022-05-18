@@ -25,6 +25,8 @@ describe('Test suite added and deleted products to shopping cart', () => {
                 .verifySelectedProductsNumber()
                 .deleteFromCartAllproducts()
                 .verifySelectedProductsNumberHidden()
+                .openShoppingCart()
+                .shoppingCartLabel()
         });
     afterEach(() => {
         cy.log('Finish')

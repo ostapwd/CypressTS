@@ -1,37 +1,35 @@
 
-import users from '../../data/users.js';
-import { CartPageTSPractice } from '../../support/pagesMyPractice/cartPageTSPractice.js';
-import { LoginPageTSPractice } from '../../support/pagesMyPractice/loginPageTSPractice.js';
-import { ProductPageTSPractice } from '../../support/pagesMyPractice/productPageTSPractice.js';
+// let loginPage = new LoginPageTSPractice()
+// let productsPage = new ProductPageTSPractice()
+// let cartPage = new CartPageTSPractice()
 
+import users from "../../data/users.js";
+import { LoginPageTSPractice } from "../../support/pagesMyPractice/loginPageTSPractice.js";
 
-let loginPage = new LoginPageTSPractice()
-let productsPage = new ProductPageTSPractice()
-let cartPage = new CartPageTSPractice()
 
 describe('Test suite to test web elements on the cart page', () => {
     before('Opened the Products page', () => {
         cy.log('Start')
-        loginPage.open().loginToTheApp(users.standardUser);
+        new LoginPageTSPractice().open().loginToTheApp(users.standardUser)
     });
         it('Verify a user can open to the cart page', () => {
-            productsPage
+            new ProductPageTSPractice()
                 .logAllProducts()
                 .addToCartAllproducts()
                 .verifySelectedProductsNumber()
                 .openShoppingCart()
         });
         it('Verify products are displayed on the shopping cart page', () => {
-            productsPage
-                .logAllProducts()
-                .addToCartAllproducts()
-                .verifySelectedProductsNumber()
-                .openShoppingCart()
-            cartPage
-                .verifyUrlCart()
-                .quantityOfSelectedProductsInCart()
-                .logAllProductsInCart()
-                .verifyShoppingCartLabel()
+            // productsPage
+            //     .logAllProducts()
+            //     .addToCartAllproducts()
+            //     .verifySelectedProductsNumber()
+            //     .openShoppingCart()
+            // cartPage
+            //     .verifyUrlCart()
+            //     .quantityOfSelectedProductsInCart()
+            //     .logAllProductsInCart()
+            //     .verifyShoppingCartLabel()
 
                 
         });
@@ -49,3 +47,4 @@ describe('Test suite to test web elements on the cart page', () => {
         cy.log('Finish')
     });
 });
+new LoginPageTSPractice()
