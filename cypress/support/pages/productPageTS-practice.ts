@@ -17,8 +17,8 @@ export class ProductPageTs extends BasePage {
     private get allChosedProducts() { return cy.get('.cart_quantity'); }
     private get removeAllProductsFromTheCart() { return cy.xpath('//button[@class="btn btn_secondary btn_small cart_button"]'); }
     private get CualityOfItemsInTheCart() { return cy.xpath('//span[@class="shopping_cart_badge"]'); }
-    
-  
+
+
     public addToCartAllProducts() {
         this.addToCardAll.each(item => {
              item.click();
