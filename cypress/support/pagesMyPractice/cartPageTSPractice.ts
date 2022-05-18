@@ -5,6 +5,7 @@ export class CartPageTSPractice extends basePageTSPractice {
     private inventoryItemsNamesInCart() { return cy.get(".inventory_item_name"); }
     private selectedProductQuantityInCart() { return cy.get(".cart_quantity"); }
     private urlCart() { return cy.url(); }
+    public shoppingCartLabel() { return cy.get("#header_container .title"); }
 
     public logAllProductsInCart() {
         this.inventoryItemsNamesInCart().each(item => {
@@ -12,8 +13,7 @@ export class CartPageTSPractice extends basePageTSPractice {
         });
 
         super.waitForSeconds(2)
-
-        return this
+            return this
     }
 
     public quantityOfSelectedProductsInCart() {
@@ -22,12 +22,18 @@ export class CartPageTSPractice extends basePageTSPractice {
         });
 
         super.waitForSeconds(2)
-        return this
+         return this
     }
 
     public verifyUrlCart() {
         this.urlCart().should('eq', 'https://www.saucedemo.com/cart.html')
-        
+            return this
+    }
+
+    public verifyShoppingCartLabel(){
+        this.shoppingCartLabel().should('be.visible').then((element) => {
+            expect(element.text()).to.be.equal('Your cart')
+        })
         return this
     }
 }

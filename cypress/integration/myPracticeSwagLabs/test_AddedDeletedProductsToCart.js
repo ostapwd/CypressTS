@@ -1,7 +1,7 @@
 
 import users from "../../data/users.js";
-import { ProductPageTSPractice } from './../../support/pagesMyPractice/productPageTSPractice';
-import { LoginPageTSPractice } from './../../support/pagesMyPractice/loginPageTSPractice';
+import { ProductPageTSPractice } from '../../support/pagesMyPractice/productPageTSPractice';
+import { LoginPageTSPractice } from '../../support/pagesMyPractice/loginPageTSPractice';
 
 const loginPage = new LoginPageTSPractice();
 const productsPage = new ProductPageTSPractice();
@@ -18,7 +18,7 @@ describe('Test suite added and deleted products to shopping cart', () => {
                 .addToCartAllproducts()
                 .verifySelectedProductsNumber()
         });
-        it.only('Verify a user deleted products from shopping cart', () => {
+        it('Verify a user deleted products from shopping cart', () => {
             productsPage
                 .logAllProducts()
                 .addToCartAllproducts()

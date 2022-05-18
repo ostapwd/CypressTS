@@ -94,7 +94,6 @@ export class LoginPageTSPractice extends basePageTSPractice {
             return this
     }
 
-
     public verifyErrorMessage(error){
         this.errorMessageLoginToTheApp().should('be.visible').then((element) => {
             expect(element.text()).to.be.equal(error.message);

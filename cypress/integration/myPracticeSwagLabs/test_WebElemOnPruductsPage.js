@@ -1,6 +1,6 @@
 
-import { ProductPageTSPractice } from './../../support/pagesMyPractice/productPageTSPractice';
-import { LoginPageTSPractice } from './../../support/pagesMyPractice/loginPageTSPractice';
+import { ProductPageTSPractice } from '../../support/pagesMyPractice/productPageTSPractice';
+import { LoginPageTSPractice } from '../../support/pagesMyPractice/loginPageTSPractice';
 import users from '../../data/users.js';
 
 const loginPage = new LoginPageTSPractice();
@@ -23,10 +23,7 @@ describe('Test suite to test web elements on the products page', () => {
         it('Verify the select is displayed on the products page', () => {
             productsPage.verifySelectSortLabel()
         });
-        it('Verify the selection products is displayed on the products page', () => {
-            productsPage.verifySelectSortLabel()
-        });
-
+    
     afterEach(() => {
         cy.log('Finish')
     });
