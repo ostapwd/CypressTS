@@ -1,5 +1,4 @@
 
-import usersParabank from "../../data/usersParabank";
 import {MainParabankPageLoginRegister} from "../../support/pages/parabank-pages/parabankLoginPage";
 import { MainParabankPageLeftMenu } from "../../support/pages/parabank-pages/mainParabankPageLeftMenu";
 
@@ -12,7 +11,7 @@ describe ("Third test suite for Parabank", function () {
     })
 
     it("Test 1 Checking css property 'Solutions' link (positive)", () => {
-        m.leftMenuSolutionsElementCheckingVrongCssProperty() 
+        m.leftMenuSolutionsElementCheckingWrongCssProperty() 
     })
 
     it("Test 2 Checking css property 'Solutions' link (negative)", () => {

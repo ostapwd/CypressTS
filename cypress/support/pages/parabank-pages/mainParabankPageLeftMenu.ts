@@ -1,3 +1,6 @@
+import { should } from "chai";
+
+
 export class MainParabankPageLeftMenu  {
     private leftMenuSolutions() { return cy.contains('#headerPanel ul.leftmenu li[class="Solutions"]','Solutions'); }
     private leftMenuAboutUs() { return cy.contains('#headerPanel ul.leftmenu li > a','About Us'); }
@@ -11,8 +14,16 @@ export class MainParabankPageLeftMenu  {
     private menuServicesUrl() { return cy.url().should('eq','https://parabank.parasoft.com/parabank/services.htm'); }
     private menuAdminUrl() { return cy.url().should('eq', 'https://parabank.parasoft.com/parabank/admin.htm' ); }
     private solutionsUrl() { return cy.url().should('eq', 'https://parabank.parasoft.com/parabank/solutions.htm' ); }
+    private cursorPointer() { return cy.get('a').should('have.css', 'cursor').and('include', 'pointer'); }
 
-    public leftMenuSolutionsElementCheckingVrongCssProperty() {
+
+    public AllItemsWithTheCursorPointer() {
+    this.cursorPointer()
+    }
+
+
+
+    public leftMenuSolutionsElementCheckingWrongCssProperty() {
         this.leftMenuSolutions()
         .should('have.css', 'background')
         .and('include', 'rgb(255, 255, 255) url("https://parabank.parasoft.com/parabank/images/bullet-hover.gif")')
@@ -73,7 +84,9 @@ export class MainParabankPageLeftMenu  {
 
     public leftMenuEboutUsGoToAnotherPageClick() {
         this.leftMenuAboutUs().click();
-        this.aboutUsUrl();
+        this.aboutUsUrl()
+        .should("contain", "ParaSoft Demo Website")
+
         return this
     };
 
@@ -81,24 +94,28 @@ export class MainParabankPageLeftMenu  {
             this.leftMenuServices().click();
             //this.menuServicesUrl();
             cy.url().should('eq', 'https://parabank.parasoft.com/parabank/services.htm;jsessionid=21F6CF6116621DA7310ABE0301EBDB85')
+            .should("contain", "Available Bookstore SOAP services:oft Demo Website")         
         return this
     };
 
     public leftMenuAdminGoToAnotherPageClick() {
             this.leftMenuAdminPage().click();
             this.menuAdminUrl()
+            .should("contain", "Administration")
                 return this;    
         };
         
         public leftMenuProductsGoToAnotherPageClick() {
             this.leftMenuProducts().click({force: true})
             this.productUrl()
+           // .should("contain", " ")
                 return this;    
         };
 
         public leftMenuLocationsGoToAnotherPageClick() {
             this.leftMenuLocations().click()
             this.locationUrl()
+            //.should("contain", " ")
                 return this;    
         };
 
