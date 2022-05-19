@@ -1,10 +1,9 @@
-
 import users from "../../data/users.js";
-import { ProductPageTSPractice } from '../../support/pagesMyPractice/productPageTSPractice';
-import { LoginPageTSPractice } from '../../support/pagesMyPractice/loginPageTSPractice';
+import { LoginPageSwagLabsTS } from '../../support/pagesSwagLabs/loginPageSwagLabsTS';
+import { ProductPageSwagLabsTS } from "../../support/pagesSwagLabs/productPageSwagLabsTS";
 
-const loginPage = new LoginPageTSPractice();
-const productsPage = new ProductPageTSPractice();
+const loginPage = new LoginPageSwagLabsTS()
+const productsPage = new ProductPageSwagLabsTS();
 
 describe('Test suite added and deleted products to shopping cart', () => {
   
@@ -12,12 +11,14 @@ describe('Test suite added and deleted products to shopping cart', () => {
         cy.log('Start')
         loginPage.open().loginToTheApp(users.standardUser)
     });
+
         it('Verify a user added products to shopping cart', () => {
             productsPage
                 .logAllProducts()
                 .addToCartAllproducts()
                 .verifySelectedProductsNumber()
         });
+
         it('Verify a user deleted products from shopping cart', () => {
             productsPage
                 .logAllProducts()
@@ -25,9 +26,8 @@ describe('Test suite added and deleted products to shopping cart', () => {
                 .verifySelectedProductsNumber()
                 .deleteFromCartAllproducts()
                 .verifySelectedProductsNumberHidden()
-                .openShoppingCart()
-                .shoppingCartLabel()
         });
+        
     afterEach(() => {
         cy.log('Finish')
     });

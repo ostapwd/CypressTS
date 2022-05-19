@@ -1,50 +1,41 @@
-
-// let loginPage = new LoginPageTSPractice()
-// let productsPage = new ProductPageTSPractice()
-// let cartPage = new CartPageTSPractice()
-
 import users from "../../data/users.js";
-import { LoginPageTSPractice } from "../../support/pagesMyPractice/loginPageTSPractice.js";
+import { LoginPageSwagLabsTS } from '../../support/pagesSwagLabs/loginPageSwagLabsTS';
+import { ProductPageSwagLabsTS } from "../../support/pagesSwagLabs/productPageSwagLabsTS";
+import { shoppingCartSwagLabs } from "../../support/pagesSwagLabs/shoppingCartSwagLabsTS";
 
+const loginPage = new LoginPageSwagLabsTS();
+const productsPage = new ProductPageSwagLabsTS();
+const shoppingCartPage = new shoppingCartSwagLabs();
 
 describe('Test suite to test web elements on the cart page', () => {
-    before('Opened the Products page', () => {
+    beforeEach('Opened the Products page', () => {
         cy.log('Start')
-        new LoginPageTSPractice().open().loginToTheApp(users.standardUser)
+        loginPage.open().loginToTheApp(users.standardUser)
     });
         it('Verify a user can open to the cart page', () => {
-            new ProductPageTSPractice()
+            productsPage
                 .logAllProducts()
                 .addToCartAllproducts()
                 .verifySelectedProductsNumber()
                 .openShoppingCart()
+                .verifyUrlCart()
         });
         it('Verify products are displayed on the shopping cart page', () => {
-            // productsPage
-            //     .logAllProducts()
-            //     .addToCartAllproducts()
-            //     .verifySelectedProductsNumber()
-            //     .openShoppingCart()
-            // cartPage
-            //     .verifyUrlCart()
-            //     .quantityOfSelectedProductsInCart()
-            //     .logAllProductsInCart()
-            //     .verifyShoppingCartLabel()
-
-                
+            productsPage
+                .addToCartAllproducts()
+                .logAllProducts()
+                .verifySelectedProductsNumber()
+                .openShoppingCart()
+            shoppingCartPage
+                .verifyUrlCart()
+                .quantityOfSelectedProductsInCart()
+                .logAllProductsInCart()
+                .verifyShoppingCartLabel()
+                .inventoryItemsPriceInCart()
+                .verifyCheckoutButton()
         });
-        // it('Verify the cart is displayed on the products page', () => {
-        //     productsPage.verifyShoppingCartLabel()
-        // });
-        // it('Verify the select is displayed on the products page', () => {
-        //     productsPage.verifySelectSortLabel()
-        // });
-        // it('Verify the selection products is displayed on the products page', () => {
-        //     productsPage.verifySelectSortLabel()
-        // });
-
+        
     afterEach(() => {
         cy.log('Finish')
     });
 });
-new LoginPageTSPractice()

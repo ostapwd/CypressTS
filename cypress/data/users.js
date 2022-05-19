@@ -2,7 +2,10 @@ class Users {
 
     standardUser = {
         username: "standard_user",
-        password: "secret_sauce"
+        password: "secret_sauce",
+        firstName: "Vitalik",
+        lastName: "Vitalik",
+        postalCode: "12345"
     };
 
     lockedOutUser = {

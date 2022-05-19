@@ -1,43 +1,43 @@
-import errorsLoginMessage from "../../data/errorsLoginMessage";
 import users from "../../data/users";
-import { LoginPageTSPractice } from "../../support/pagesMyPractice/loginPageTSPractice";
-import { ProductPageTSPractice } from "../../support/pagesMyPractice/productPageTSPractice";
+import errorsLoginMessage from "../../data/errorsLoginMessage";
+import { LoginPageSwagLabsTS } from "../../support/pagesSwagLabs/loginPageSwagLabsTS";
+import { ProductPageSwagLabsTS } from "../../support/pagesSwagLabs/productPageSwagLabsTS";
 
 describe('Test suite verified a user login into the application', () => {
     beforeEach('Opened the application', () => {
         cy.log('Start')
-        new LoginPageTSPractice().open()
+        new LoginPageSwagLabsTS().open()
     });
         it('Verify a user can login into the application (positive login)', () => {
-            new LoginPageTSPractice()
+            new LoginPageSwagLabsTS()
                 .verifyUrlLoginPage()
                 .verifyUsernameInput()
                 .loginToTheApp(users.standardUser)
                 .verifyUrlProductsPage()
-            new ProductPageTSPractice()
+            new ProductPageSwagLabsTS()
                 .verifyProductsLabel()
         });
 
         it('Verify a user can login into the application (negative credentials)', () => {
-            new LoginPageTSPractice()
+            new LoginPageSwagLabsTS()
                 .verifyUrlLoginPage()
                 .verifyUsernameInput()
                 .loginToTheApp(users.noRegisterUser)
-            new LoginPageTSPractice()
+            new LoginPageSwagLabsTS()
                 .verifyErrorMessage(errorsLoginMessage.nagativeCredentialsUser)
         })
 
         it('Verify a user can login into the application (locked Out User)', () => {
-            new LoginPageTSPractice()
+            new LoginPageSwagLabsTS()
                 .verifyUrlLoginPage()
                 .verifyUsernameInput()
                 .loginToTheApp(users.lockedOutUser)
-            new LoginPageTSPractice()
+                new LoginPageSwagLabsTS()
                 .verifyErrorMessage(errorsLoginMessage.lockedOutUser)
         })
 
         it('Verify a user can login into the application (empty Password field)', () => {
-            new LoginPageTSPractice()
+            new LoginPageSwagLabsTS()
                 .verifyUrlLoginPage()
                 .verifyUsernameInput()
                 .emptyPasswordToTheApp(users.standardUser)
@@ -45,7 +45,7 @@ describe('Test suite verified a user login into the application', () => {
         })
 
         it('Verify a user can login into the application (empty Username field)', () => {
-            new LoginPageTSPractice()
+            new LoginPageSwagLabsTS()
                 .verifyUrlLoginPage()
                 .verifyUsernameInput()
                 .emptyUsernameToTheApp(users.standardUser)
@@ -53,7 +53,7 @@ describe('Test suite verified a user login into the application', () => {
         })
 
         it('Verify a user can login into the application (empty field)', () => {
-            new LoginPageTSPractice()
+            new LoginPageSwagLabsTS()
                 .verifyUrlLoginPage()
                 .verifyUsernameInput()
                 .emptyFieldsToTheApp()
@@ -61,20 +61,20 @@ describe('Test suite verified a user login into the application', () => {
         })
 
         it('Verify a user can login into the application (wrong username user)', () => {
-            new LoginPageTSPractice()
+            new LoginPageSwagLabsTS()
                 .verifyUrlLoginPage()
                 .verifyUsernameInput()
                 .loginToTheApp(users.wrongUsernameUser)
-            new LoginPageTSPractice() 
+            new LoginPageSwagLabsTS()
                 .verifyErrorMessage(errorsLoginMessage.nagativeCredentialsUser)
         })
 
         it('Verify a user can login into the application (wrong password user)', () => {
-            new LoginPageTSPractice()
+            new LoginPageSwagLabsTS()
                 .verifyUrlLoginPage()
                 .verifyUsernameInput()
                 .loginToTheApp(users.wrongPasswordUser)
-            new LoginPageTSPractice() 
+            new LoginPageSwagLabsTS()
                 .verifyErrorMessage(errorsLoginMessage.nagativeCredentialsUser)
         })
 
