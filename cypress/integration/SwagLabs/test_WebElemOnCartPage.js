@@ -1,4 +1,5 @@
 import users from "../../data/users.js";
+import urlsPages from "../../data/urlsPages.js";
 import { LoginPageSwagLabsTS } from '../../support/pagesSwagLabs/loginPageSwagLabsTS';
 import { ProductPageSwagLabsTS } from "../../support/pagesSwagLabs/productPageSwagLabsTS";
 import { shoppingCartSwagLabs } from "../../support/pagesSwagLabs/shoppingCartSwagLabsTS";
@@ -18,7 +19,7 @@ describe('Test suite to test web elements on the cart page', () => {
                 .addToCartAllproducts()
                 .verifySelectedProductsNumber()
                 .openShoppingCart()
-                .verifyUrlCart()
+                .verifyUrlPage(urlsPages.shoppingPageUrl)
         });
         it('Verify products are displayed on the shopping cart page', () => {
             productsPage
@@ -27,7 +28,7 @@ describe('Test suite to test web elements on the cart page', () => {
                 .verifySelectedProductsNumber()
                 .openShoppingCart()
             shoppingCartPage
-                .verifyUrlCart()
+                .verifyUrlPage(urlsPages.shoppingPageUrl)
                 .quantityOfSelectedProductsInCart()
                 .logAllProductsInCart()
                 .verifyShoppingCartLabel()

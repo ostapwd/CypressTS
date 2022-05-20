@@ -1,3 +1,4 @@
+import urlsPages from "../../data/urlsPages.js";
 import users from "../../data/users.js";
 import { LoginPageSwagLabsTS } from "../../support/pagesSwagLabs/loginPageSwagLabsTS";
 import { ProductPageSwagLabsTS } from "../../support/pagesSwagLabs/productPageSwagLabsTS";
@@ -18,5 +19,9 @@ describe('Test suite buying the products', () => {
             .openCheckoutStepTwoPage(users.standardUser)
             .openCheckoutCompletePage()
             .returnToProductsPage()
+        productsPage
+            .verifyUrlPage(urlsPages.productsPageUrl)
+            .verifyProductsLabel()
+            .verifySelectedProductsNumberHidden('')
     });
 });

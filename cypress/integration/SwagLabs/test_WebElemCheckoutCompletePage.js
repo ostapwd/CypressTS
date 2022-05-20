@@ -1,4 +1,5 @@
 import users from "../../data/users.js";
+import urlsPages from "../../data/urlsPages.js";
 import { LoginPageSwagLabsTS } from "../../support/pagesSwagLabs/loginPageSwagLabsTS";
 import { ProductPageSwagLabsTS } from "../../support/pagesSwagLabs/productPageSwagLabsTS";
 
@@ -18,16 +19,16 @@ describe('Test suite to test web elements on the checkout complete page', () => 
             .openCheckoutStepOnePage()
             .openCheckoutStepTwoPage(users.standardUser)
             .openCheckoutCompletePage()
+            .verifyUrlPage(urlsPages.checkoutCompletePageUrl)
     });
 
-    it.only('Verify the elements is displayed on the Checkout Complete page', () => {
+    it('Verify the elements is displayed on the Checkout Complete page', () => {
         productsPage
             .addToCartAllproducts()
             .openShoppingCart()
             .openCheckoutStepOnePage()
             .openCheckoutStepTwoPage(users.standardUser)
             .openCheckoutCompletePage()
-            .verifyUrlCheckTwoStepPage()
             .verifyInfoCheckoutCompletePageLabel()
             .verifyImageCompletePage()
     });

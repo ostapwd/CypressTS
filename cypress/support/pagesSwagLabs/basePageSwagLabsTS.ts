@@ -11,4 +11,10 @@ export default abstract class basePageSwagLabsTS{
 
         return this
     }
+
+    // protected urlPage(urls){
+    //     cy.url().should('eq', urls);
+        
+    //     return this
+    // }
 }

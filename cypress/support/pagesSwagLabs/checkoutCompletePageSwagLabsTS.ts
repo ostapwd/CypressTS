@@ -6,9 +6,9 @@ export class checkoutCompletePageSwagLabsTS{
     public backHomeButton() { return cy.get("#back-to-products"); }
     
 
-    public verifyUrlCheckTwoStepPage(){
-        this.urlCheckCompletePage().should('eq','https://www.saucedemo.com/checkout-complete.html')
-        return this
+    public verifyUrlPage(link) {
+        this.urlCheckCompletePage().should('eq', link.url)
+            return this
     }
 
     public verifyInfoCheckoutCompletePageLabel(){

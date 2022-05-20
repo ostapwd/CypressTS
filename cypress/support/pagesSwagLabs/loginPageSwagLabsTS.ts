@@ -5,7 +5,7 @@ export class LoginPageSwagLabsTS extends basePageSwagLabsTS {
     private usernameInput() { return cy.get("#user-name"); }
     private passwordInput() { return cy.get("#password"); }
     private loginButton() { return cy.get("input[data-test='login-button']"); }
-    public  urlLoginPage() { return cy.url(); }
+    public  urlPage() { return cy.url(); }
     public  logoApp() {return cy.get(".login_logo");}
     public  errorMessageLoginToTheApp() {return cy.xpath("//*[@data-test='error']");}
     public  errorMessageColor() {return cy.get(".error-message-container.error");}
@@ -25,8 +25,14 @@ export class LoginPageSwagLabsTS extends basePageSwagLabsTS {
             return this;
     }
 
-    public verifyUrlLoginPage(){
-        this.urlLoginPage().should('eq', 'https://www.saucedemo.com/')
+    // public verifyUrlPage(url){
+    //     super.urlPage(url.url)
+    //         return this
+    // }
+
+
+    public verifyUrlPage(link){
+        this.urlPage().should('eq', link.url)
             return this
     }
 

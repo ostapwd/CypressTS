@@ -1,5 +1,6 @@
 import basePageSwagLabsTS from "./basePageSwagLabsTS";
 import { shoppingCartSwagLabs } from "./shoppingCartSwagLabsTS";
+
 export class ProductPageSwagLabsTS extends basePageSwagLabsTS {
     private addToCartButtons() { return cy.get("[id*='add-to-cart']"); }
     private deleteFromCartButtons() { return cy.get("[id*='remove']"); }
@@ -69,8 +70,8 @@ export class ProductPageSwagLabsTS extends basePageSwagLabsTS {
             return this
     } 
 
-    public verifyUrlProductsPage(){
-        this.urlProductsPage().should('eq', 'https://www.saucedemo.com/inventory.html');
+    public verifyUrlPage(link){
+        this.urlProductsPage().should('eq', link.url);
         return this
     }
 

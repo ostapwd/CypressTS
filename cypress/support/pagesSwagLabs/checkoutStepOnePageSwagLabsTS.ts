@@ -11,9 +11,9 @@ export class checkoutStepOnePageSwagLabsTS extends basePageSwagLabsTS{
     public continueButton() { return cy.get("#continue"); }
     public cancelButton() { return cy.get("#cancel"); }
 
-    public verifyUrlCheckOneStepPage(){
-        this.urlCheckOneStepPage().should('eq','https://www.saucedemo.com/checkout-step-one.html')
-        return this
+    public verifyUrlPage(link) {
+        this.urlCheckOneStepPage().should('eq', link.url)
+            return this
     }
 
     public verifyCheckOneStepPageLabel(){

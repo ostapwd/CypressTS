@@ -7,9 +7,9 @@ export class checkoutStepTwoPageSwagLabsTS{
     public finishButton() { return cy.get("#finish"); }
     public cancelButton() { return cy.get("#cancel"); }
 
-    public verifyUrlCheckTwoStepPage(){
-        this.urlCheckTwoStepPage().should('eq','https://www.saucedemo.com/checkout-step-two.html')
-        return this
+    public verifyUrlPage(link) {
+        this.urlCheckTwoStepPage().should('eq', link.url)
+            return this
     }
 
     public verifyCheckTwoStepPageLabel(){

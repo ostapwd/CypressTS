@@ -28,8 +28,8 @@ export class shoppingCartSwagLabs extends basePageSwagLabsTS{
          return this
     }
 
-    public verifyUrlCart() {
-        this.urlCart().should('eq', 'https://www.saucedemo.com/cart.html')
+    public verifyUrlPage(link) {
+        this.urlCart().should('eq', link.url)
             return this
     }
 

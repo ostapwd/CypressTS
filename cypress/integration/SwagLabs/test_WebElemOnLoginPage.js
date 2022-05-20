@@ -1,3 +1,4 @@
+import urlsPages from "../../data/urlsPages.js";
 import { LoginPageSwagLabsTS } from "../../support/pagesSwagLabs/loginPageSwagLabsTS";
 
 describe('Test suite to test web elements on the login page', () => {
@@ -7,7 +8,7 @@ describe('Test suite to test web elements on the login page', () => {
     });
     
         it('Verify the URL of the login page is displayed in the browser address bar', () => {
-            new LoginPageSwagLabsTS().verifyUrlLoginPage();
+            new LoginPageSwagLabsTS().verifyUrlPage(urlsPages.loginPageUrl);
         });
 
         it('Verify the program logo is displayed on the main page', () => {

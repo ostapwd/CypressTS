@@ -1,3 +1,4 @@
+import urlsPages from '../../data/urlsPages.js';
 import users from '../../data/users.js';
 import { LoginPageSwagLabsTS } from '../../support/pagesSwagLabs/loginPageSwagLabsTS';
 import { ProductPageSwagLabsTS } from '../../support/pagesSwagLabs/productPageSwagLabsTS';
@@ -11,7 +12,7 @@ describe('Test suite to test web elements on the products page', () => {
         loginPage.open().loginToTheApp(users.standardUser);
     });
         it('Verify the URL of the products page is displayed in the browser address bar', () => {
-            productsPage.verifyUrlProductsPage();
+            productsPage.verifyUrlPage(urlsPages.productsPageUrl)
         });
         
         it('Verify a user can login to the aplication', () => {
