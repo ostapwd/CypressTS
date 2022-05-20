@@ -22,4 +22,8 @@ export class checkoutCompletePageSwagLabsTS{
         this.imageCompletePage().should('be.visible')
         return this
     }
+
+    public returnToProductsPage(){
+        this.backHomeButton().should('be.visible').click()
+    }
 }

@@ -5,7 +5,7 @@ import { ProductPageSwagLabsTS } from "../../support/pagesSwagLabs/productPageSw
 const loginPage = new LoginPageSwagLabsTS()
 const productsPage = new ProductPageSwagLabsTS()
 
-describe('', () => {
+describe('Test suite to test web elements on the checkout complete page', () => {
     beforeEach('Opened the Products page', () => {
         loginPage.open().loginToTheApp(users.standardUser)
     });
