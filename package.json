@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ostapwd/CypressTS#readme",
   "devDependencies": {
-    "cypress": "^9.6.0"
+    "cypress": "^9.6.1",
+    "typescript": "^4.6.4"
   }
 }
