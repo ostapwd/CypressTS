@@ -14,7 +14,6 @@ describe ("Test for Parabank, Accounts Overview", function () {
 
     it("Test 1 to Accounts Overview in Parabank", () => {
 
-
     na.clickLinkAccountOverview()
     .weMustCheckIfWeAreInTheCorrectPage()
     .enterToAccountToSeeMoreDetails()

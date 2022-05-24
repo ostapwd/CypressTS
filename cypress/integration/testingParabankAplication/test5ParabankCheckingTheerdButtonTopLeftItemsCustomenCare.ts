@@ -5,7 +5,6 @@ import {MainParabankPageContact} from "../../support/pages/parabankPages/mainPar
 
 
 const l = new MainParabankPageLoginRegister();
-const m = new MainParabankPageLeftMenu();
 const c = new MainParabankPageContact();
 
 
@@ -18,16 +17,19 @@ describe ("Fifth test suite for Parabank", function () {
     c.customerCare(contactUsers.standardUser)
     })
 
-    it("Test 1 Send message to the customer care without all requirements", () => {
+    it("Test 2 Send message to the customer care without all requirements", () => {
         c.forgotInputAllFillsCustomerCare(contactUsers.forgotUser)
-        })
+    })
 
 
-        it("Test 1 Check data entry requirements if all inputs are empty", () => {
-            c.forgotInputAllFillsCustomerCare(contactUsers.forgotUser)
-            .responseInTheTableWhenTheAllInputsAreNotFilledInCustomerCare() 
+    it("Test 3 Check data entry requirements if all inputs are empty", () => {
+        c.forgotInputAllFillsCustomerCare(contactUsers.forgotUser)
+        .responseInTheTableWhenTheAllInputsAreNotFilledInCustomerCare() 
 
-            })
+     })
 
+     afterEach(function () {
+        cy.log("after Each");
+    });
 
 })

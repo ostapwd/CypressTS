@@ -4,7 +4,7 @@ import { MainParabankPageLoginRegister } from "../../support/pages/parabankPages
 const l = new MainParabankPageLoginRegister();
 const m = new MainParabankPageLeftMenu();
 
-describe ("Ninth test suite for Parabank", function () {
+describe ("Simple test suite for Parabank (cursor pointer)", function () {
 
     it("Test 1 If the all needed items have cursor pointer", () => {
         l.open()

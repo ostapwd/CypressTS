@@ -51,7 +51,7 @@ class UsersParabank {
         addressZipCode: 'street',
         phoneNumber: 'street',
         ssn: 'street',
-        username: 'citlyellssllhkulkjk',
+        username: 'citlyelcssllhkulkjk',
         password: 'city',
         repeatedPassword: 'city'
     };
@@ -65,7 +65,7 @@ class UsersParabank {
         addressZipCode: 'vM',
         phoneNumber: 'vM',
         ssn: 'vM',
-        username: 'vM',
+        username: 'ggvgfffvggfdgff',
         password: 'vM',
         repeatedPassword: 'vM'
     };

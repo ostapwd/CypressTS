@@ -4,16 +4,13 @@ import {MainParabankPageAboutUs} from "../../support/pages/parabankPages/mainPar
 
 const l = new MainParabankPageLoginRegister();
 const a = new MainParabankPageAboutUs() 
-describe ("Sixth test suite for Parabank", function () {
-    beforeEach('login to the app', () => {
-        l.open()
-    })
+
+describe ("Simply test for Parabank button 'About Us'", function () {
 
     it("Test 1 Checking the button 'About Us' if it has a correct page title after click on it", () => {
-    a.aboutUsTopLeftMenuHeaderPanel()
+        l.open()
+        a.aboutUsTopLeftMenuHeaderPanel()
     })
-
-    
 
 
 })

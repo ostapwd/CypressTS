@@ -16,7 +16,7 @@ export class MainParabankPageOpenNewAccount  {
     private chooseMonth() { return cy.xpath('//select[@id="month"]'); }
     private chooseTypeOfActivity() { return cy.xpath('//select[@id="transactionType"]'); }
     public buttonGoFromAccountActivity() { return cy.get('[type="submit"]')
-    .get('input', { includeShadowDom: true }).type(' ', {force: true}); }
+            .get('input', { includeShadowDom: true }).type(' ', {force: true}); }
     private resultOfClickingOnTheButtonGo() { return cy.xpath('//p[@ng-if="transactions.length <= 0"]'); }
 
 
@@ -25,30 +25,30 @@ export class MainParabankPageOpenNewAccount  {
         this.resultOfClickingOnTheButtonGo()
         .each(item => {
             cy.log(item.text());;
-        })
+        });
         return this;
 
-    }
+    };
 
     public clickOnChooseTypeOfActivity(option: string){
         this.chooseTypeOfActivity().select(option);
         return this;
-    }
+    };
 
     public actuallyPeriodChooseMonth(option: string) {
         this.chooseMonth().select(option);
         return this;
-    }
+    };
 
     public showAccountActivity() {
         this.accountActivity().should('contain', 'Activity Period:');
         return this;
-    }
+    };
 
     public clickOnNewAccountNumber() {
         this.newAccountNumberClick().click()
         return this;
-    }
+    };
     public watchResultsOfOpeningTheAccount() {
         this.resultsOfOpeningTheAccount().should('contain', 'Account Opened!');
         return this;

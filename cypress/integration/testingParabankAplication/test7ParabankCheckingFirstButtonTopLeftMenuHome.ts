@@ -4,17 +4,14 @@ import usersParabank from "../../data/usersParabank";
 
 const l = new MainParabankPageLoginRegister();
 const h = new MainParabankPageHome() 
-describe ("Seventh test suite for Parabank", function () {
-    beforeEach('login to the app', () => {
+
+describe ("Simply test for Parabank button 'Home'", function () {
+   
+    it("Test 1 Checking the button 'Home' after user has registered", () => {
         l.open()
         .registerToTheApp(usersParabank.secondUser)
+        h.homeTopLeftMenuHeaderPanel()
     })
-
-    it("Test 1 Checking the button 'Home' after user has registered", () => {
-    h.homeTopLeftMenuHeaderPanel()
-    })
-
-    
 
 
 })

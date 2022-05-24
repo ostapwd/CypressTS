@@ -9,7 +9,6 @@ describe ("First test suite for Parabank ", function () {
     it("Test 1 'Register to the app'", function () {
         l.registerToTheApp(usersParabank.secondUser)
         .welcomeForMessage() 
-
         .checkingIfThereAreEnoughtInputs()
         .buttonRegister()
     })
@@ -23,14 +22,14 @@ describe ("First test suite for Parabank ", function () {
         l.forgotInfo()
         .checkCustomerLookup()
         l.forgotSomeLoginInformation(usersParabank.forgotInformation)   
-          })
+    })
     
     it("Test 4 'Forgot all login info and need to check data entry requirements'", function () {
         l.forgotInfo()
         .checkCustomerLookup()
         l.forgotFillAllInputs(usersParabank.forgotAllInformation)
         .responsWhenTheAllInputsAreNotFilled() 
-        })
+    })
 
         afterEach(function () {
             cy.log("after Each");

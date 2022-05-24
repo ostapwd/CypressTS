@@ -2,10 +2,10 @@ import { MainParabankPageOpenNewAccount } from "../../support/pages/parabankPage
 import usersParabank from "../../data/usersParabank";
 import {MainParabankPageLoginRegister} from "../../support/pages/parabankPages/mainParabankPageLoginRegister";
 
-const o = new MainParabankPageOpenNewAccount;
+const o = new MainParabankPageOpenNewAccount();
 const l = new MainParabankPageLoginRegister();
 
-describe ("Third test suite for Parabank", function () {
+describe ("Test for Parabank, how to Open New Account", function () {
     beforeEach('login to the app', () => {
         l.open()
         .registerToTheApp(usersParabank.thirdUser)

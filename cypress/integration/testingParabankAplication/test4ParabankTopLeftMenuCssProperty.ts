@@ -38,4 +38,7 @@ describe ("Fourth test suite for Parabank", function () {
         m.leftMenuAdminsElementCheckingCssProperty()
     })
     
+    afterEach(function () {
+        cy.log("after Each");
+    });
 })

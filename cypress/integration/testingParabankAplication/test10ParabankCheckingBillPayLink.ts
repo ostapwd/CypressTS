@@ -6,12 +6,12 @@ import  payeeInformationUsers  from "../../data/payeeInformationUsers";
 const l = new MainParabankPageLoginRegister();
 const b = new MainParabankPageBillPay();
 
-describe ("Tenth test suite for Parabank", function () {
+describe ("Test for Parabank to check Bill Pey Service", function () {
     beforeEach('login to the app', () => {
         l.open()
     })
 
-    it("Test 1 Checking the link 'Solutions' if it go to to the correct link ", () => {
+    it("Test 1 Checking Bill Pey Service", () => {
         l.registerToTheApp(usersParabank.someUser)
         .buttonRegister()
         b.clickOnTheLinkBillPay()

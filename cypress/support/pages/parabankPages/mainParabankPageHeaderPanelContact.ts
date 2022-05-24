@@ -14,7 +14,16 @@ export class MainParabankPageContact  {
     private areNotFiledCustomerCareEmail() { return cy.xpath('//span[@id="email.errors"]'); }
     private areNotFiledCustomerCarePhone() { return cy.xpath('//span[@id="phone.errors"]'); }
     private areNotFiledCustomerCareMessage() { return cy.xpath('//span[@id="message.errors"]'); }
+    private titleOfThePageWhenItIsClicked() { return cy.xpath('//h1[@class="title"]'); }
 
+
+    public customerCareClick() {     
+        this.buttonContactLeftMenu().click();
+        this.titleOfThePageWhenItIsClicked()
+        .should ('contain', 'Customer Care');
+        return this;
+
+    }
 
     public customerCare(user) {     
         this.buttonContactLeftMenu().click();
