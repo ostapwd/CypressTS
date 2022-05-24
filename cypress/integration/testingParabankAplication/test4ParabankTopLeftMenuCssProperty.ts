@@ -1,11 +1,11 @@
 
-import {MainParabankPageLoginRegister} from "../../support/pages/parabank-pages/parabankLoginPage";
-import { MainParabankPageLeftMenu } from "../../support/pages/parabank-pages/mainParabankPageLeftMenu";
+import {MainParabankPageLoginRegister} from "../../support/pages/parabankPages/mainParabankPageLoginRegister";
+import { MainParabankPageLeftMenu } from "../../support/pages/parabankPages/mainParabankPageHeaderPanelTopLeftMenu";
 
 const l = new MainParabankPageLoginRegister();
 const m = new MainParabankPageLeftMenu();
 
-describe ("Third test suite for Parabank", function () {
+describe ("Fourth test suite for Parabank", function () {
     beforeEach('login to the app', () => {
         l.open()
     })
@@ -37,8 +37,5 @@ describe ("Third test suite for Parabank", function () {
     it("Test 7 Checking css property 'Services' link ", () => {
         m.leftMenuAdminsElementCheckingCssProperty()
     })
-    afterEach(function () {
-        cy.log("after Each");
-    });
     
 })
