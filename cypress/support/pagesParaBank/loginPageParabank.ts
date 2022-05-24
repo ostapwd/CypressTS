@@ -1,4 +1,4 @@
-import AccountServicesPageParabank from "./accountServicesPageParabank";
+import AccountServicesPageParabank from "./mainAccountServicesPageParabank";
 import BasePageParabank from "./basePageParabank";
 import ForgotLoginPageParabank from "./forgotLoginPageParabank";
 import RegisterPageParabank from './registerPageParabank';

@@ -9,7 +9,7 @@ describe('Test suite a user can login/register/forgot login on the main page', (
     before('Opened the Main page', () => {
         loginPageParabank.open();
     });
-    it('Test register new user', () => {
+    it.only('Test register new user', () => {
         loginPageParabank
             .urlPageVerify(urlsPagesParabank.loginPageUrl)
             .logo()
@@ -28,7 +28,7 @@ describe('Test suite a user can login/register/forgot login on the main page', (
     it('Test login to the App', () => {
         loginPageParabank
             .loginToTheApp(usersParabank.newUser)
-            .AccountServicesLabelVerify()
+            .accountServicesLabelVerify()
     });
 
     it('Test forgot login info to the App', () => {
