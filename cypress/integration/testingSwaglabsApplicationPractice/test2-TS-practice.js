@@ -1,8 +1,8 @@
 //import loginPage from "../support/pages/loginPage-practice";
 //import productPagePractice from "../support/pages/productPage-practice";
 import users from "../../data/users";
-import {LoginPageTs} from "../../support/pages/loginPageTS-practice";
-import { ProductPageTs } from "../../support/pages/productPageTS-practice";
+import {LoginPageTs} from "../../support/pages/swaglabsPages/loginPageTS-practice";
+import { ProductPageTs } from "../../support/pages/swaglabsPages/productPageTS-practice";
 
 const p = new ProductPageTs();
 const l = new LoginPageTs();
@@ -46,12 +46,12 @@ describe ("Test suite 2", function () {
     
  
  
-    it('Test 3 "Verify that a user can add/delete all products to/from the Shopping cart"', function () {
+    it.only('Test 3 "Verify that a user can add/delete all products to/from the Shopping cart"', function () {
  
         p.addToCartAllProducts()
         .shoppingCartContainer.click();
         p.shoppingCardLable.should("contain", "Your Cart");
-        p.allChosedProducts.should("contain", "1");
+        p.allSelectedProducts.should("contain", "1");
         p.verifyThatNumbersOfSelectedProductsEquals('6');
         p.removeFromCardAllProducts()
         .buttonContinueShopping.click();

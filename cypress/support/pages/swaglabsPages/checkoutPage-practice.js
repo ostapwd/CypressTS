@@ -8,9 +8,9 @@ class CheckoutPage {
     get shopperZipInput() { return cy.xpath('//input[@id="postal-code"]'); }
     get buttonContinue() { return cy.xpath('//input[@type="submit"]'); }
     get checkoutOverview() { return  cy.xpath("//span[@class='title']"); }
-    get buttonFinish() { return cy.xpath("//button[@class='btn btn_action btn_medium cart_button']")}
+    get buttonFinish() { return cy.xpath("//button[@class='btn btn_action btn_medium cart_button']"); }
     get checkoutComplete() { return  cy.xpath("//span[@class='title']"); }
-    get buttonBackHome() { return cy.xpath('//button[@name="back-to-products"]') };
+    get buttonBackHome() { return cy.xpath('//button[@name="back-to-products"]'); }
     get buttonCancel() { return cy.get("button[class='btn btn_secondary back btn_medium cart_cancel_link']"); }
     
     
@@ -31,4 +31,4 @@ class CheckoutPage {
 
 
 
-export default new CheckoutPage()
+export default new CheckoutPage();

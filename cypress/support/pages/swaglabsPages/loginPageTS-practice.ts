@@ -4,10 +4,10 @@ import BasePage from "./basePage-practice";
 
 export class LoginPageTs extends BasePage {
   
-    private usernameInput() { return cy.xpath('//*[@id="user-name"]'); }
+    public usernameInput() { return cy.xpath('//*[@id="user-name"]'); }
     private passwordInput() { return cy.get("input[name='password']"); }
-    private loginButton() { return cy.get("input[data-test='login-button']"); }
-    private wrongPassword() { return cy.get("h3[data-test='error']"); }
+    public loginButton() { return cy.get("input[data-test='login-button']"); }
+    public wrongPassword() { return cy.get("h3[data-test='error']"); }
 
   
 

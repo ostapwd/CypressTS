@@ -1,11 +1,12 @@
 
 import users from "../../data/users";
 
-import {LoginPageTs} from "../../support/pages/loginPageTS-practice";
+import {LoginPageTs} from "../../support/pages/swaglabsPages/loginPageTS-practice";
+import { ProductPageTs } from "../../support/pages/swaglabsPages/productPageTS-practice";
 
 
 const l = new LoginPageTs();
-
+const p = new ProductPageTs()
 describe ("Test suite 1 for login (possitive)", function () {
 
     it("Test 1 (possitive)", function () {
@@ -14,7 +15,7 @@ describe ("Test suite 1 for login (possitive)", function () {
 
         new LoginPageTs().open()
         .loginToTheApp(users.standardUser)
-       .productsLabel.should("contain", "Products");
+       p.productsLabel.should("contain", "Products");
         
     });
 
@@ -22,7 +23,7 @@ describe ("Test suite 1 for login (possitive)", function () {
     it("Test 2 (possitive)", function () {
         new LoginPageTs().open()
         .loginToTheApp(users.standardUser)
-        .productsLabel.should("contain", "Products");
+        p.productsLabel.should("contain", "Products");
     });
 
 

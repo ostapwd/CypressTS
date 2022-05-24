@@ -59,7 +59,8 @@ describe ("Test suite for login", function () {
        cy.contains('Login')
        .click();
  
-       cy.get("h3[data-test='error']").should("contain", "Epic sadface: Username and password do not match any user in this service");
+       cy.get("h3[data-test='error']")
+       .should("contain", "Epic sadface: Username and password do not match any user in this service");
     });
 
 

@@ -1,4 +1,4 @@
-import loginPage from "../../support/pages/loginPage-practice";
+import loginPage from "../../support/pages/swaglabsPages/loginPage-practice";
 import users from "../../data/users";
 
 describe ("Test suite 1", function () {
@@ -21,7 +21,7 @@ describe ("Test suite for login (possitive)", function () {
 
     beforeEach(function () {
         cy.log("before each");
-    })
+    });
 
     it("Test 1 (possitive)", function () {
         loginPage.loginToTheApp(users.standardUser);
@@ -46,13 +46,15 @@ describe ("Test suite for login (possitive)", function () {
     });
 
 
-    })
+    });
+
 describe ("Test suite for login (negative)", function () {
 
     it("Test 3 (negative)", function () {
   
         loginPage.loginToTheApp(users.wrongPasswordUser);
-        cy.get("h3[data-test='error']").should("contain", "Epic sadface: Username and password do not match any user in this service");
+        cy.get("h3[data-test='error']")
+        .should("contain", "Epic sadface: Username and password do not match any user in this service");
     });
 
 
@@ -68,8 +70,8 @@ describe ("Test suite for login (negative)", function () {
 
     after(function () {
         cy.log("Main after");
-    })
+    });
 
-    })
-})
+    });
+});
 

@@ -1,5 +1,5 @@
-import loginPage from "../../support/pages/loginPage-practice";
-import productPagePractice from "../../support/pages/productPage-practice";
+import loginPage from "../../support/pages/swaglabsPages/loginPage-practice";
+import productPagePractice from "../../support/pages/swaglabsPages/productPage-practice";
 import users from "../../data/users";
 
 describe ("Test suite 2", function () {
@@ -49,7 +49,7 @@ describe ("Test suite 2", function () {
         productPagePractice.shoppingCartContainer.click();
         productPagePractice.shoppingCardLable.should("contain", "Your Cart");
         productPagePractice.allChosedProducts.should("contain", "1");
-        productPagePractice.CualityOfItemsInTheCart.then(element => {
+        productPagePractice.quantityOfItemsInTheCart.then(element => {
             expect(element.text()).to.be.equal('6');
         });
         productPagePractice.removeFromCardAllProducts();
@@ -82,7 +82,8 @@ describe ("Test suite 2", function () {
         cy.xpath("//span[@class='select_container']")
         .debug().invoke('show').click();
         cy.get(".select_container").should("be.visible").click();
-        cy.get("span[class='active_option']").should("be.visible").should('have.length', 1).contains('Name (A to Z)').click({force: true})
+        cy.get("span[class='active_option']")
+        .should("be.visible").should('have.length', 1).contains('Name (A to Z)').click({force: true});
         cy.get(".product_sort_container option").not(':visible').should('have.length', 4);
         cy.get("span[class='active_option']").should('not.have.css', 'content', '""');
         cy.get(".select_container")
@@ -90,7 +91,8 @@ describe ("Test suite 2", function () {
               expect(Cypress.dom.isVisible($priceEl)).to.eq(true);
             });
         cy.get("span[class='active_option']").contains('Name (A to Z)').click({force: true}); 
-        cy.xpath('//span[@class="active_option"]').should('contain', 'Name (A to Z)').should('be.visible').click({force: true});
+        cy.xpath('//span[@class="active_option"]')
+        .should('contain', 'Name (A to Z)').should('be.visible').click({force: true});
         cy.get('span[class="select_container"]').find('[value="az"]')
         .should('contain', 'Name (A to Z)').click({force: true});
         cy.contains('Name (Z to A)').click({force: true});
