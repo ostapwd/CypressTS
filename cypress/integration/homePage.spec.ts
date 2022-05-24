@@ -8,10 +8,16 @@ describe ('Test Home Page', () => {
             .visit()
             .checkPageUrl();
     });
+    
     it('Test User Login', function () {
         homePage
+            .checkContainer()
             .loginInput()
             .passwordInput()
-            .loginButtonClick()
+            .loginButtonClick();
+    });
+
+    it('should ', function () {
+        
     });
 });

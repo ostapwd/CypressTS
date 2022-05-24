@@ -1,5 +1,4 @@
 import {BasePage} from "./base/basePage";
-import {timeout} from "rxjs";
 
 export class HomePage extends BasePage {
     constructor() {
@@ -29,6 +28,6 @@ export class HomePage extends BasePage {
     }
 
     public loginButtonClick(): void{
-        this.loginButton.click()
+        this.loginButton.click();
     }
 }
