@@ -8,18 +8,20 @@ export class MainParabankPageLeftMenu  {
     private leftMenuProducts() { return  cy.contains('#headerPanel ul.leftmenu li > a','Products'); }
     private leftMenuLocations() { return  cy.contains('#headerPanel ul.leftmenu li > a','Locations'); }
     private leftMenuAdminPage() { return  cy.contains('#headerPanel ul.leftmenu li > a','Admin Page'); }
-    private locationUrl() { return cy.url().should('eq', 'href="http://www.parasoft.com/jsp/pr/contacts.jsp'); }
-    private productUrl() { return cy.url().should('eq', 'href="http://www.parasoft.com/jsp/pr/contacts.jsp'); }
-    private aboutUsUrl() { return cy.url().should('eq','https://parabank.parasoft.com/parabank/about.htm'); }
-    private menuServicesUrl() { return cy.url().should('eq','https://parabank.parasoft.com/parabank/services.htm'); }
-    private menuAdminUrl() { return cy.url().should('eq', 'https://parabank.parasoft.com/parabank/admin.htm' ); }
-    private solutionsUrl() { return cy.url().should('eq', 'https://parabank.parasoft.com/parabank/solutions.htm' ); }
+    private locationUrl() { return cy.url().should('include', 'contacts.jsp'); }
+    private productsUrl() { return cy.url().should('include', 'products.jsp'); }
+    private aboutUsUrl() { return cy.url().should('include', 'about.htm'); }
+    private menuServicesUrl() { return cy.url().should('include', 'services.htm'); }
+    private menuAdminUrl() { return cy.url().should('include', 'admin.htm'); }
+    private solutionsUrl() { return  cy.url().should('include', ' solutions.htm'); }
     private cursorPointer() { return cy.get('a').should('have.css', 'cursor').and('include', 'pointer'); }
 
 
     public AllItemsWithTheCursorPointer() {
     this.cursorPointer()
-    }
+    
+    return this;
+}
 
 
 
@@ -75,47 +77,43 @@ export class MainParabankPageLeftMenu  {
 
     public leftMenuElementSolutionGoToAnotherPageClick() {
         this.leftMenuSolutions().click();
-        this.solutionsUrl();
-        cy.location().then((loc) => {
-        console.log(loc)})
-        //cy.url().should('eq', 'https://parabank.parasoft.com/parabank/about.htm' );
+        this.solutionsUrl()
+        
         return this
     };
 
     public leftMenuEboutUsGoToAnotherPageClick() {
         this.leftMenuAboutUs().click();
         this.aboutUsUrl()
-        .should("contain", "ParaSoft Demo Website")
+
 
         return this
     };
 
     public leftMenuServicesGoToAnotherPageClick() {
             this.leftMenuServices().click();
-            //this.menuServicesUrl();
-            cy.url().should('eq', 'https://parabank.parasoft.com/parabank/services.htm;jsessionid=21F6CF6116621DA7310ABE0301EBDB85')
-            .should("contain", "Available Bookstore SOAP services:oft Demo Website")         
+            this.menuServicesUrl()
+              
         return this
     };
 
     public leftMenuAdminGoToAnotherPageClick() {
             this.leftMenuAdminPage().click();
-            this.menuAdminUrl()
-            .should("contain", "Administration")
+            this.menuAdminUrl() 
                 return this;    
         };
         
         public leftMenuProductsGoToAnotherPageClick() {
             this.leftMenuProducts().click({force: true})
-            this.productUrl()
-           // .should("contain", " ")
+            this.productsUrl()
+            
+           
                 return this;    
         };
 
         public leftMenuLocationsGoToAnotherPageClick() {
             this.leftMenuLocations().click()
             this.locationUrl()
-            //.should("contain", " ")
                 return this;    
         };
 

@@ -1,12 +1,16 @@
+export {MainParabankPageContact} from "./mainParabankPageHeaderPanelContact";
+import usersParabank from "../../../data/usersParabank";
+import BasePageParabank from "./BasePageParabank";
 
-export class MainParabankPageLoginRegister  {
+ 
+export class MainParabankPageLoginRegister extends BasePageParabank {
   
     private usernameInput() { return cy.xpath('//input[@name="username"]'); }
     private passwordInput() { return cy.get("input[name='password']"); }
     private loginButton() { return cy.get("input[class='button']"); }
     private wrongPassword() { return cy.get("h3[data-test='error']"); }
     private clickRegister() { return cy.contains('Register'); }
-    private checkingChusedclickRegister() { return cy.get('div[id="rightPanel"] h1'); }
+    private checkingSelectedClickRegister() { return cy.get('div[id="rightPanel"] h1'); }
     private fillInputsToRegisterUser() { return cy.get('tbody').find('td'); }
     private checkingIfTheInputsOfRegisterHaveEnoughtInputs() { return  cy.get('tbody > tr'); }
     private clickButtonRegister() { return  cy.get('input[class="button"]').contains('Register'); }
@@ -14,16 +18,17 @@ export class MainParabankPageLoginRegister  {
     private loginButtonForgot(){ return cy.contains('Log In'); }
     private forgotLoginInfo() { return cy.contains('Forgot login info?'); }
     private checkIfItIsCustomerLookup() { return cy.get('h1[class="title"]'); } 
-    private inputForgotPassword() { return cy.get('tbody').find('td'); }
+    public inputForgotPassword() { return cy.get('tbody').find('td'); }
     private inputForgotPasswordFillAllInputs() { return cy.get('tbody').find('td'); }
     private responseWhenTheAllInputsAreNotFilled() { return cy.get('tbody') }
     private usernameInputForgot() { return cy.get("input[name='username']"); }
     private passwordInputForgot() { return cy.get("input[name='password']"); }
+    private welcomeForMessageCustomerCareLogin() { return cy.xpath('//div[@id="rightPanel"] [p]'); }
 
 
          public registerToTheApp(user) {
             this.clickRegister().click();
-            this.checkingChusedclickRegister().should("contain", "Signing up is easy!");
+            this.checkingSelectedClickRegister().should("contain", "Signing up is easy!");
             this.fillInputsToRegisterUser().then(tableRow => {
                 cy.wrap(tableRow).find('input[id="customer.firstName"]').type(user.firstName)
                 cy.wrap(tableRow).find('input[id="customer.lastName"]').type(user.lastName)
@@ -51,6 +56,12 @@ export class MainParabankPageLoginRegister  {
             this.clickButtonRegister().click();
             return this;
         };
+        
+       public welcomeForMessage() {
+        this.welcomeForMessageCustomerCareLogin().should('contain', `Welcome ${usersParabank.secondUser.firstName}`); 
+        return this;
+       }
+
 
         public loginToTheApp(user) {     
             this.usernameInput().type(user.username);
@@ -60,13 +71,15 @@ export class MainParabankPageLoginRegister  {
 
         public forgotInfo() {
             this.forgotLoginInfo().click()
+            return this;
         };
 
         public checkCustomerLookup() {
         this.checkIfItIsCustomerLookup()
-        .should("contain", "Customer Lookup"); }
+        .should("contain", "Customer Lookup")
+    }
 
-        public forgotLoginInformation(user) {
+        public forgotSomeLoginInformation(user) {
             this.inputForgotPassword().then(tableRow => {
                 cy.wrap(tableRow).find('input[name="firstName"]').type(user.firstName)
                 cy.wrap(tableRow).find('input[name="lastName"]').type(' ')
@@ -77,14 +90,16 @@ export class MainParabankPageLoginRegister  {
                 cy.wrap(tableRow).find('input[name="ssn"]').type(user.ssn)
                 cy.wrap(tableRow).find('.button').click()   
             })
+            return this;
         };
 
         public forgotFillAllInputs(user) {
             this.inputForgotPasswordFillAllInputs().then(tableRow => {
-                cy.wrap(tableRow).find('input[name="firstName"]').type(user.firstName)
-                cy.wrap(tableRow).find('input[name="ssn"]').type(user.ssn)
+                cy.wrap(tableRow).find('input[name="firstName"]')
+                cy.wrap(tableRow).find('input[name="ssn"]')
                 cy.wrap(tableRow).find('.button').click()
             }) 
+            return this;
         };
         public responsWhenTheAllInputsAreNotFilled() {
             this.responseWhenTheAllInputsAreNotFilled().then(tableRowAll => {
@@ -109,15 +124,16 @@ export class MainParabankPageLoginRegister  {
                 cy.get('tbody').first().find('tr').then(tableColums => {
                     cy.wrap(tableColums).eq(6).should('contain', ' ')
                 })
-            
+        
             });
-        };
-
-        public open() {
-            cy.visit("https://parabank.parasoft.com/parabank/index.htm");
             return this;
         };
 
+        public open() {
+            super.goto("https://parabank.parasoft.com/parabank/index.htm");
+            return this;
+        };
 }
 
 export default new MainParabankPageLoginRegister()
+
