@@ -26,7 +26,7 @@ describe('Test suite', function () {
         cy.wait(2000);
 
         cy.get(".inventory_item_name").each(item => {
-            cy.log(item.text())
+            cy.log(item.text());
         });
 
         cy.get("[id*='add-to-cart']").each(item => {

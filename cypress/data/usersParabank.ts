@@ -14,6 +14,62 @@ class UsersParabank {
         repeatedPassword: 'Mariia'
     };
 
+    secondUser = {
+        firstName: 'M',
+        lastName: 'M',
+        addressStreet: 'M',
+        addressCity: 'M',
+        addressState: 'M',
+        addressZipCode: 'M',
+        phoneNumber: 'M',
+        ssn: 'M',
+        username: 'M',
+        password: 'M',
+        repeatedPassword: 'M'
+    };
+
+    onlyUser = {
+        firstName: 'street',
+        lastName: 'street',
+        addressStreet: 'street',
+        addressCity: 'street',
+        addressState: 'street',
+        addressZipCode: 'street',
+        phoneNumber: 'street',
+        ssn: 'street',
+        username: 'street',
+        password: 'street',
+        repeatedPassword: 'street'
+    };
+
+    someUser = {
+        firstName: 'city',
+        lastName: 'street',
+        addressStreet: 'street',
+        addressCity: 'street',
+        addressState: 'street',
+        addressZipCode: 'street',
+        phoneNumber: 'street',
+        ssn: 'street',
+        username: 'citlyellssllhkulkjk',
+        password: 'city',
+        repeatedPassword: 'city'
+    };
+
+    thirdUser = {
+        firstName: 'vM',
+        lastName: 'vM',
+        addressStreet: 'vM',
+        addressCity: 'vM',
+        addressState: 'vM',
+        addressZipCode: 'vM',
+        phoneNumber: 'vM',
+        ssn: 'vM',
+        username: 'vM',
+        password: 'vM',
+        repeatedPassword: 'vM'
+    };
+
     login = {
         username: 'Mariia',
         password: 'Mariia'
