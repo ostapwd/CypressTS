@@ -43,18 +43,18 @@ export class ProductPageSwagLabsTS extends basePageSwagLabsTS {
             return this
     }
 
-    public verifySelectedProductsNumber(number){
-        this.selectedProductsNumber().should('be.visible').then( element => {
-            expect(element.text()).to.be.equal('6');
+    public selectedProductsNumberVerify(number){
+        this.selectedProductsNumber().then( element => {
+            expect(element.text()).to.be.equal(number);
         }); 
-        return this
+            return this
     }
 
-    public verifySelectedProductsNumberHidden(number){
+    public selectedProductsNumberHiddenVerify(number){
         this.shoppingCartLink().then( element => {
-            expect(element.text()).to.be.equal('');
+            expect(element.text()).to.be.equal(number);
         }); 
-        return this
+            return this
     }
 
     public openMenu() {
@@ -62,7 +62,7 @@ export class ProductPageSwagLabsTS extends basePageSwagLabsTS {
             item.click()
             this.waitForSeconds(1)
         })
-        return this
+            return this
     };
 
     public logoutApp() {
@@ -70,27 +70,27 @@ export class ProductPageSwagLabsTS extends basePageSwagLabsTS {
             return this
     } 
 
-    public verifyUrlPage(link){
+    public urlPageVerify(link){
         this.urlProductsPage().should('eq', link.url);
-        return this
+            return this
     }
 
-    public verifyProductsLabel(){
+    public productsLabelVerify(){
         this.productsLabel().should('be.visible').then((element) => {
             expect(element.text()).to.be.equal('Products')
         })
-        return this
+            return this
     }
 
-    public verifyShoppingCartLabel(){
+    public shoppingCartLabelVerify(){
         this.shoppingCartLink().should('be.visible');
-        return this
+            return this
     }
 
-    public verifySelectSortLabel(){
+    public selectSortLabelVerify(){
         this.selectSortProductsLabel().should('be.visible')
         this.selectSortProductsLabel().select('Price (low to high)')
-        return this
+            return this
     }
 }
 

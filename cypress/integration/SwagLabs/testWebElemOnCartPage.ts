@@ -1,5 +1,5 @@
-import users from "../../data/users.js";
-import urlsPages from "../../data/urlsPages.js";
+import urlsPagesSwagLabs from "../../data/SwagLabs/urlsPagesSwagLabs";
+import users from "../../data/SwagLabs/users";
 import { LoginPageSwagLabsTS } from '../../support/pagesSwagLabs/loginPageSwagLabsTS';
 import { ProductPageSwagLabsTS } from "../../support/pagesSwagLabs/productPageSwagLabsTS";
 import { shoppingCartSwagLabs } from "../../support/pagesSwagLabs/shoppingCartSwagLabsTS";
@@ -17,23 +17,23 @@ describe('Test suite to test web elements on the cart page', () => {
             productsPage
                 .logAllProducts()
                 .addToCartAllproducts()
-                .verifySelectedProductsNumber()
+                .selectedProductsNumberVerify('6')
                 .openShoppingCart()
-                .verifyUrlPage(urlsPages.shoppingPageUrl)
+                .urlPageVerify(urlsPagesSwagLabs.shoppingPageUrl)
         });
         it('Verify products are displayed on the shopping cart page', () => {
             productsPage
                 .addToCartAllproducts()
                 .logAllProducts()
-                .verifySelectedProductsNumber()
+                .selectedProductsNumberVerify('6')
                 .openShoppingCart()
             shoppingCartPage
-                .verifyUrlPage(urlsPages.shoppingPageUrl)
+            .urlPageVerify(urlsPagesSwagLabs.shoppingPageUrl)
                 .quantityOfSelectedProductsInCart()
                 .logAllProductsInCart()
-                .verifyShoppingCartLabel()
+                .shoppingCartLabelVerify()
                 .inventoryItemsPriceInCart()
-                .verifyCheckoutButton()
+                .checkoutButtonVerify()
         });
         
     afterEach(() => {

@@ -1,5 +1,5 @@
-import urlsPages from "../../data/urlsPages.js";
-import users from "../../data/users.js";
+import urlsPagesSwagLabs from "../../data/SwagLabs/urlsPagesSwagLabs";
+import users from "../../data/SwagLabs/users";
 import { LoginPageSwagLabsTS } from "../../support/pagesSwagLabs/loginPageSwagLabsTS";
 import { ProductPageSwagLabsTS } from "../../support/pagesSwagLabs/productPageSwagLabsTS";
 
@@ -20,8 +20,8 @@ describe('Test suite buying the products', () => {
             .openCheckoutCompletePage()
             .returnToProductsPage()
         productsPage
-            .verifyUrlPage(urlsPages.productsPageUrl)
-            .verifyProductsLabel()
-            .verifySelectedProductsNumberHidden('')
+            .urlPageVerify(urlsPagesSwagLabs.productsPageUrl)
+            .productsLabelVerify()
+            .selectedProductsNumberHiddenVerify('')
     });
 });

@@ -25,35 +25,35 @@ export class shoppingCartSwagLabs extends basePageSwagLabsTS{
         });
 
         super.waitForSeconds(1)
-         return this
+            return this
     }
 
-    public verifyUrlPage(link) {
+    public urlPageVerify(link) {
         this.urlCart().should('eq', link.url)
             return this
     }
 
-    public verifyShoppingCartLabel(){
+    public shoppingCartLabelVerify(){
         this.shoppingCartLabel().should('be.visible').then((element) => {
             expect(element.text()).to.be.equal('Your Cart')
         })
-        return this
+          return this
     }
 
     public inventoryItemsPriceInCart(){
         this.inventoryItemsPrice().each(item => {
             expect(item.text()).contains('$')
         })
-        return this
+         return this
     }
 
-    public verifyCheckoutButton(){
+    public checkoutButtonVerify(){
         this.checkoutButton().should('be.visible').should('contain', 'Checkout')
-        return this
+            return this
     }
 
     public openCheckoutStepOnePage(){
         this.checkoutButton().click()
-        return new checkoutStepOnePageSwagLabsTS()
+            return new checkoutStepOnePageSwagLabsTS()
     }
 }

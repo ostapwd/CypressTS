@@ -1,5 +1,5 @@
-import urlsPagesParabank from "../../../data/urlsPagesParabank";
-import usersParabank from "../../../data/usersParabank";
+import urlsPagesParabank from "../../../data/ParaBank/urlsPagesParabank";
+import usersParabank from "../../../data/ParaBank/usersParabank";
 import { LoginPageParabank } from "../../../support/pagesParaBank/loginPageParabank";
 
 const loginPageParabank = new LoginPageParabank();

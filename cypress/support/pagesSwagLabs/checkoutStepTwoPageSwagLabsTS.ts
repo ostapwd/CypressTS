@@ -7,39 +7,39 @@ export class checkoutStepTwoPageSwagLabsTS{
     public finishButton() { return cy.get("#finish"); }
     public cancelButton() { return cy.get("#cancel"); }
 
-    public verifyUrlPage(link) {
+    public urlPageVerify(link) {
         this.urlCheckTwoStepPage().should('eq', link.url)
             return this
     }
 
-    public verifyCheckTwoStepPageLabel(){
+    public checkTwoStepPageLabelVerify(){
         this.checkTwoStepPageLabel().should('be.visible').then((element) => {
             expect(element.text()).to.be.equal('Checkout: Overview')
         })
-        return this
+            return this
     }
 
-    public verifySummaryTotalLabel(){
+    public summaryTotalLabelVerify(){
         this.summaryTotalLabel().should('be.visible').then((element) => {
             expect(element.text()).to.be.equal('Total: $140.34')
         })
-        return this
+            return this
     }
 
-    public verifyFinishButton(){
+    public finishButtonVerify(){
         this.finishButton().should('be.visible').should('contain', 'Finish')
-        return this
+            return this
     }
 
-    public verifyCancelButton(){
+    public cancelButtonVerify(){
         this.cancelButton().should('be.visible').then((element) => {
             expect(element.text()).to.be.equal('Cancel')
         })
-        return this
+            return this
     }
 
     public openCheckoutCompletePage(){
-        this.finishButton().click()
-        return new checkoutCompletePageSwagLabsTS()
+        this.finishButton().should('be.visible').click()
+            return new checkoutCompletePageSwagLabsTS()
    }
 }

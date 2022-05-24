@@ -1,4 +1,4 @@
-class UrlsPages {
+class UrlsPagesSwagLabs {
     loginPageUrl = {
        url: 'https://www.saucedemo.com/'
     };
@@ -23,4 +23,4 @@ class UrlsPages {
         url: 'https://www.saucedemo.com/checkout-complete.html'
     };
 }
-export default new UrlsPages();
+export default new UrlsPagesSwagLabs()

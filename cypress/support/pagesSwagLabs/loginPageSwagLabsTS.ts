@@ -31,44 +31,44 @@ export class LoginPageSwagLabsTS extends basePageSwagLabsTS {
     // }
 
 
-    public verifyUrlPage(link){
+    public urlPageVerify(link){
         this.urlPage().should('eq', link.url)
             return this
     }
 
-    public verifyLogoApp(){
+    public logoAppVerify(){
         this.logoApp().should('be.visible')
             return this
     }
 
-    public verifyUsernameInput(){
+    public usernameInputVerify(){
         this.usernameInput().should('be.visible');
-        return this
+            return this
     }
 
-    public verifyPlaceholderUsernameInput(){
-        this.usernameInput().should('be.visible').invoke('attr', 'placeholder').should('contain', 'Username');
-        return this
+    public placeholderUsernameInputVerify(){
+        this.usernameInput().invoke('attr', 'placeholder').should('contain', 'Username');
+            return this
     }
 
-    public verifyPasswordInput(){
+    public passwordInputVerify(){
         this.passwordInput().should('be.visible');
-        return this
+            return this
     }
 
-    public verifyPlaceholderPasswordInput(){
-        this.passwordInput().should('be.visible').invoke('attr', 'placeholder').should('contain', 'Password');
-        return this
+    public placeholderPasswordInputVerify(){
+        this.passwordInput().invoke('attr', 'placeholder').should('contain', 'Password');
+            return this
     }
 
-    public verifyLoginButton(){
-        this.loginButton().should('be.visible').invoke('attr', 'value').should('contain', 'Login');
-        return this
+    public loginButtonVerify(){
+        this.loginButton().invoke('attr', 'value').should('contain', 'Login');
+            return this
     }
 
-    public verifyColorLoginButton(){
+    public colorLoginButtonVerify(){
         this.loginButton().should('have.css', 'background-color', 'rgb(226, 35, 26)');
-        return this
+            return this
     }
 
     public emptyPasswordToTheApp(user) {
@@ -98,7 +98,7 @@ export class LoginPageSwagLabsTS extends basePageSwagLabsTS {
             return this
     }
 
-    public verifyErrorMessage(error){
+    public errorMessageVerify(error){
         this.errorMessageLoginToTheApp().should('be.visible').then((element) => {
             expect(element.text()).to.be.equal(error.message);
         this.errorMessageColor().should('have.css', 'background-color', 'rgb(226, 35, 26)')

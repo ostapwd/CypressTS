@@ -6,19 +6,19 @@ export class checkoutCompletePageSwagLabsTS{
     public backHomeButton() { return cy.get("#back-to-products"); }
     
 
-    public verifyUrlPage(link) {
+    public urlPageVerify(link) {
         this.urlCheckCompletePage().should('eq', link.url)
             return this
     }
 
-    public verifyInfoCheckoutCompletePageLabel(){
+    public infoCheckoutCompletePageLabelVerify(){
         this.checkCompletePageLabel().should('be.visible').then((element) => {
             expect(element.text()).to.be.equal('Checkout: Complete!')
         })
         return this
     }
 
-    public verifyImageCompletePage(){
+    public imageCompletePageVerify(){
         this.imageCompletePage().should('be.visible')
         return this
     }

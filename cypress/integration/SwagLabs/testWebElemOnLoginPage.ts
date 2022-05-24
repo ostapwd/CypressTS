@@ -1,4 +1,4 @@
-import urlsPages from "../../data/urlsPages.js";
+import urlsPagesSwagLabs from "../../data/SwagLabs/urlsPagesSwagLabs";
 import { LoginPageSwagLabsTS } from "../../support/pagesSwagLabs/loginPageSwagLabsTS";
 
 describe('Test suite to test web elements on the login page', () => {
@@ -8,21 +8,21 @@ describe('Test suite to test web elements on the login page', () => {
     });
     
         it('Verify the URL of the login page is displayed in the browser address bar', () => {
-            new LoginPageSwagLabsTS().verifyUrlPage(urlsPages.loginPageUrl);
+            new LoginPageSwagLabsTS().urlPageVerify(urlsPagesSwagLabs.loginPageUrl);
         });
 
         it('Verify the program logo is displayed on the main page', () => {
-            new LoginPageSwagLabsTS().verifyLogoApp();
+            new LoginPageSwagLabsTS().logoAppVerify();
         });
 
         it('Verify the login form elements is displayed on the main page', () => {
             new LoginPageSwagLabsTS()
-                .verifyUsernameInput()
-                .verifyPlaceholderUsernameInput()
-                .verifyPasswordInput()
-                .verifyPlaceholderPasswordInput()
-                .verifyLoginButton()
-                .verifyColorLoginButton()
+                .usernameInputVerify()
+                .placeholderUsernameInputVerify()
+                .passwordInputVerify()
+                .placeholderPasswordInputVerify()
+                .loginButtonVerify()
+                .colorLoginButtonVerify()
         });
     
     afterEach(() => {

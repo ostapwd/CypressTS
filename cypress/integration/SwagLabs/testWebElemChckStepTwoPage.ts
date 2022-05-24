@@ -1,5 +1,5 @@
-import urlsPages from '../../data/urlsPages.js';
-import users from '../../data/users.js';
+import urlsPagesSwagLabs from "../../data/SwagLabs/urlsPagesSwagLabs";
+import users from "../../data/SwagLabs/users";
 import { LoginPageSwagLabsTS } from '../../support/pagesSwagLabs/loginPageSwagLabsTS';
 import { ProductPageSwagLabsTS } from "../../support/pagesSwagLabs/productPageSwagLabsTS";
 
@@ -16,9 +16,9 @@ describe('Test suite to test web elements on the checkout two step page', () => 
             .openShoppingCart()
             .openCheckoutStepOnePage()
             .openCheckoutStepTwoPage(users.standardUser)
-            .verifyUrlPage(urlsPages.checkoutStepTwoPageUrl)
-            .verifyCheckTwoStepPageLabel()
-            .verifySummaryTotalLabel()
-            .verifyFinishButton()
+            .urlPageVerify(urlsPagesSwagLabs.checkoutStepTwoPageUrl)
+            .checkTwoStepPageLabelVerify()
+            .summaryTotalLabelVerify()
+            .finishButtonVerify()
     });
 });

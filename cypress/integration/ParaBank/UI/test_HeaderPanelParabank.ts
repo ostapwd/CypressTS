@@ -1,4 +1,4 @@
-import urlsPagesParabank from "../../../data/urlsPagesParabank";
+import urlsPagesParabank from "../../../data/ParaBank/urlsPagesParabank";
 import { LoginPageParabank } from "../../../support/pagesParaBank/loginPageParabank";
 
 const loginPageParabank = new LoginPageParabank();

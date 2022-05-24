@@ -1,4 +1,4 @@
-import users from "../../data/users.js";
+import users from "../../data/SwagLabs/users";
 import { LoginPageSwagLabsTS } from '../../support/pagesSwagLabs/loginPageSwagLabsTS';
 import { ProductPageSwagLabsTS } from "../../support/pagesSwagLabs/productPageSwagLabsTS";
 
@@ -16,16 +16,16 @@ describe('Test suite added and deleted products to shopping cart', () => {
             productsPage
                 .logAllProducts()
                 .addToCartAllproducts()
-                .verifySelectedProductsNumber()
+                .selectedProductsNumberVerify('6')
         });
 
         it('Verify a user deleted products from shopping cart', () => {
             productsPage
                 .logAllProducts()
                 .addToCartAllproducts()
-                .verifySelectedProductsNumber()
+                .selectedProductsNumberVerify('6')
                 .deleteFromCartAllproducts()
-                .verifySelectedProductsNumberHidden()
+                .selectedProductsNumberHiddenVerify('')
         });
         
     afterEach(() => {

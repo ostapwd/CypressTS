@@ -11,33 +11,33 @@ export class checkoutStepOnePageSwagLabsTS extends basePageSwagLabsTS{
     public continueButton() { return cy.get("#continue"); }
     public cancelButton() { return cy.get("#cancel"); }
 
-    public verifyUrlPage(link) {
+    public urlPageVerify(link) {
         this.urlCheckOneStepPage().should('eq', link.url)
             return this
     }
 
-    public verifyCheckOneStepPageLabel(){
+    public checkOneStepPageLabelVerify(){
         this.checkOneStepPageLabel().should('be.visible').then((element) => {
             expect(element.text()).to.be.equal('Checkout: Your Information')
         })
-        return this
+            return this
     }
 
-    public verifyFormCheckOneStepPage(){
+    public formCheckOneStepPageVerify(){
         this.formCheckOneStepPage().should('be.visible')
-        return this
+            return this
     }
 
-    public verifyContinueButton(){
+    public continueButtonVerify(){
         this.continueButton().should('be.visible').should('have.attr', 'type').and('eq','submit')
-        return this
+            return this
     }
 
-    public verifyCancelButton(){
+    public cancelButtonVerify(){
         this.cancelButton().should('be.visible').then((element) => {
             expect(element.text()).to.be.equal('Cancel')
         })
-        return this
+            return this
     }
 
     public fillFormCheckoutStepOnePage(user){
