@@ -12,6 +12,8 @@ export class ProductPageSwagLabsTS extends basePageSwagLabsTS {
     public shoppingCartLink() { return cy.get(".shopping_cart_link"); }
     public urlProductsPage() { return cy.url(); }   
     public selectSortProductsLabel() {return cy.xpath("//select[@data-test='product_sort_container']")}
+    public nameOfFirstProductOnProductsPage() {return cy.xpath("(//*[@class='inventory_item_name'])[1]")}
+    public priceOfFirstProductOnProductsPage() {return cy.xpath("(//*[@class='inventory_item_price'])[1]")}
     
     public openShoppingCart(){
         this.shoppingCartLink().click();
@@ -86,10 +88,37 @@ export class ProductPageSwagLabsTS extends basePageSwagLabsTS {
             return this
     }
 
+    public selectSortVerify(){
+        this.selectSortProductsLabel().should('be.visible');
+        this.selectSortProductsLabel().select('Name (A to Z)').should('have.value', 'az')
+            return this
+    }
+
     public selectSortLabelVerify(){
-        this.selectSortProductsLabel().should('be.visible')
-        this.selectSortProductsLabel().select('Price (low to high)')
+        super.waitForSeconds(2);
+        this.selectSortProductsLabel().should('be.visible');
+        this.nameOfFirstProductOnProductsPage().should('be.visible').then(element => 
+            cy.log(element.text()));
+        this.priceOfFirstProductOnProductsPage().should('be.visible').then(element => 
+            cy.log(element.text()));
+        this.selectSortProductsLabel().select('Price (low to high)');
+        this.nameOfFirstProductOnProductsPage().should('be.visible').then(element => 
+            cy.log(element.text()));
+        this.priceOfFirstProductOnProductsPage().should('be.visible').then(element => 
+            cy.log(element.text()));
+        super.waitForSeconds(5);
+        this.selectSortProductsLabel().select('Name (A to Z)');
+        this.nameOfFirstProductOnProductsPage().should('be.visible').then(element => 
+            cy.log(element.text()));
+        this.priceOfFirstProductOnProductsPage().should('be.visible').then(element => 
+            cy.log(element.text()));
+        super.waitForSeconds(5);
+        this.selectSortProductsLabel().select('Price (high to low)');
+        this.nameOfFirstProductOnProductsPage().should('be.visible').then(element => 
+            cy.log(element.text()));
+        this.priceOfFirstProductOnProductsPage().should('be.visible').then(element => 
+            cy.log(element.text()));
+        super.waitForSeconds(5);
             return this
     }
 }
-

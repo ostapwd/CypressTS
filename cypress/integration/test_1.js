@@ -104,21 +104,4 @@ describe('Test suite Swaglabs', () => {
         cy.url().should('eq', 'https://www.saucedemo.com/inventory.html');
         cy.xpath("//*[@id='inventory_container']").should('be.visible');
     });
-    
-    // it("I do something", () => {
-    //     cy.wait(2000);
-    //     cy.get("#header_container .title").then(element => 
-    //         cy.log(element.text()));
-    //     cy.contains("Add to cart").should("be.visible");
-    //     cy.get("#header_container .title").should('contain', "Products");
-    //     cy.xpath("//*[@id='react-burger-menu-btn']").click();
-    //     cy.get("#header_container .title").then((element) => {
-    //         expect(element.text()).to.equal('Products')
-    //     })
-    //     cy.wait(1000);
-    //     cy.get("#react-burger-cross-btn").click();
-    //     cy.xpath("//*[@class='inventory_item_name']").each( item => {
-    //         cy.log(item.text())
-    //     })
-    // });
 })

@@ -1,4 +1,4 @@
-import usersParabank from "../../../data/usersParabank";
+import usersParabank from "../../../data/ParaBank/usersParabank";
 import AccountServicesPageParabank from "../../../support/pagesParaBank/accountServicesPageParabank";
 import { LoginPageParabank } from "../../../support/pagesParaBank/loginPageParabank";
 
