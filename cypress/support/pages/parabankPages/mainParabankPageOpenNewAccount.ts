@@ -18,7 +18,25 @@ export class MainParabankPageOpenNewAccount  {
     public buttonGoFromAccountActivity() { return cy.get('[type="submit"]')
             .get('input', { includeShadowDom: true }).type(' ', {force: true}); }
     private resultOfClickingOnTheButtonGo() { return cy.xpath('//p[@ng-if="transactions.length <= 0"]'); }
+    private openNewAccountAndSelectAllMonthAndTransaction() { return cy.get('[class="ng-binding"]'); }
+    private fundsTransferReceived() { return cy.get('a[class="ng-binding"]'); }
+    private ifWeAreInTheCorrectPage() { return cy.get('[class="title"]'); }
 
+    public checkifWeAreInTheCorrectPage() {
+        this.ifWeAreInTheCorrectPage().should('contain', 'Transaction Details');
+        return this;
+    }
+
+
+    public fundsTransferReceivedClick() {
+        this.fundsTransferReceived().click();
+        return this;
+    }
+
+    public openNewAccountAndSelectAllMonthAndTransactions() {
+        this.openNewAccountAndSelectAllMonthAndTransaction().should('contain', 'Funds Transfer Received');
+        return this;
+    }
 
 
     public theResultOfClickingOnTheButtonGo() {
@@ -66,7 +84,6 @@ export class MainParabankPageOpenNewAccount  {
         return this;
     };
 
-
     public filterByTextTypeOfAccount(option: string){
         this.typeOfAccount().select(option);
         return this;
@@ -82,9 +99,6 @@ export class MainParabankPageOpenNewAccount  {
         return this;
     }
 }
-
-    
-
 
 export default new MainParabankPageOpenNewAccount()
 

@@ -2,13 +2,15 @@ import {MainParabankPageAccountOverview} from "../../support/pages/parabankPages
 import usersParabank from "../../data/usersParabank";
 import {MainParabankPageLoginRegister} from "../../support/pages/parabankPages/mainParabankPageLoginRegister";
 
+
 const l = new MainParabankPageLoginRegister();
 const na = new MainParabankPageAccountOverview();
+
 
 describe ("Test for Parabank, Accounts Overview", function () {
     beforeEach('login to the app', () => {
         l.open()
-        .registerToTheApp(usersParabank.thirdUser)
+        .registerToTheApp(usersParabank.fourthUser)
         .buttonRegister();
     });
 
@@ -21,7 +23,8 @@ describe ("Test for Parabank, Accounts Overview", function () {
     .chooseTransactionTypeClick('All')
     .buttonGoFromAccountActivity()
     na.checkingIfThereAreEnoughtInputsInTransactionsTable()
-    //.checkingThatTheFillsTransactionsTableAreNotEmpty()
+    .responseOfThePageAboutAccountActivity()
+    
 
 })
 

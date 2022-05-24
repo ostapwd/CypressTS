@@ -12,12 +12,10 @@ export class MainParabankPageAboutUs  {
         this.buttonContactLeftAboutUs().click()
         this.clickingOnTheButtonAboutUsGoToTheTabAboutUs()
        .should('contain', 'ParaSoft Demo Website');
-       this.aboutUsUrlButtonSecondButtonSituatedOnTheRight()
+        this.aboutUsUrlButtonSecondButtonSituatedOnTheRight()
         return this;
     };
 
-        
-    
 }
 
 export default new MainParabankPageAboutUs()

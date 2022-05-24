@@ -10,22 +10,17 @@ export class MainParabankPageAccountOverview  {
             .get('input', { includeShadowDom: true }).type(' ', {force: true}); }
     private transactionsTable() { return cy.get('tbody').find('td'); }
     private checkingTransactionsTableRows() { return  cy.get('tbody > tr'); }
+    private responseOfThePageAccountActivity() { return cy.xpath('//p[@ng-if="transactions.length <= 0"]')}
    
-    
+
+    public responseOfThePageAboutAccountActivity() {
+        this.responseOfThePageAccountActivity().should('contain', 'No transactions found.');
+        return this;
+    }
+
    public checkingThatTheFillsTransactionsTableAreNotEmpty(text) {
         this.transactionsTable().then(tableRow => {
             cy.wrap(tableRow).find('[class="ng-binding"]').type(text)
-
-            /*cy.wrap(tableRow).find('input[id="customer.lastName"]').type(user.lastName)
-            cy.wrap(tableRow).find('input[id="customer.address.street"]').type(user.addressStreet)
-            cy.wrap(tableRow).find('input[id="customer.address.city"]').type(user.addressCity)
-            cy.wrap(tableRow).find('input[id="customer.address.state"]').type(user.addressState)
-            cy.wrap(tableRow).find('input[id="customer.address.zipCode"]').type(user.addressZipCode)
-            cy.wrap(tableRow).find('input[id="customer.phoneNumber"]').type(user.phoneNumber)
-            cy.wrap(tableRow).find('input[id="customer.ssn"]').type(user.ssn)
-            cy.wrap(tableRow).find('input[id="customer.username"]').type(user.username)
-            cy.wrap(tableRow).find('input[id="customer.password"]').type(user.password)
-            cy.wrap(tableRow).find('input[id="repeatedPassword"]').type(user.repeatedPassword)*/
           })
             return this;    
     };
@@ -46,43 +41,20 @@ export class MainParabankPageAccountOverview  {
 
     public checkingIfThereAreEnoughtInputsInTransactionsTable() {
         this.checkingTransactionsTableRows().then(($lis) => {
-            expect($lis, '5 items').to.have.length(7)
+            expect($lis, '2 items').to.have.length(7)
       })
             return this;
     };
 
-/*public filterByIndex(index: number){
-    this.filterSelect().select(index);
-
-    return this;
-}*/
-
-
     public  enterToAccountToSeeMoreDetails() {
         this. enterToAccount().click();
         return this;
-
     }
 
     public clickLinkAccountOverview() {
         this.linkAccountOverview().click();
         return this;
     }
-
-    /*public filterByTextTypeOfAccount(option: string){
-        this.typeOfAccount().select(option);
-        return this;
-    };
-
-    public filterByIndexNumberOfAccount(index: number){
-        this.numberOfAccount().select(index);
-        return this;
-    };
-
-    public openNewAccountClick(option: string){
-        this.typeOfAccount().select(option);
-        return this;
-    }*/
     
 }
 

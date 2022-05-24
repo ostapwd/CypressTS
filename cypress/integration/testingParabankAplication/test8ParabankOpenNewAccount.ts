@@ -5,14 +5,12 @@ import {MainParabankPageLoginRegister} from "../../support/pages/parabankPages/m
 const o = new MainParabankPageOpenNewAccount();
 const l = new MainParabankPageLoginRegister();
 
-describe ("Test for Parabank, how to Open New Account", function () {
-    beforeEach('login to the app', () => {
+describe ("Test suite for Parabank, how to Open New Account", function () {
+    
+    it("Test 1 to Open New Account in Parabank selected month April and Debt transaction", () => {
         l.open()
         .registerToTheApp(usersParabank.thirdUser)
         .buttonRegister();
-    });
-
-    it("Test 1 to Open New Account in Parabank", () => {
         o.clickOnTheLinkOpenNewAccount()
         .whatTypeOfAccountWeWantToOpen()
         .filterByTextTypeOfAccount("SAVINGS")
@@ -25,12 +23,27 @@ describe ("Test for Parabank, how to Open New Account", function () {
         .clickOnChooseTypeOfActivity('Debit')
         .buttonGoFromAccountActivity()
         o.theResultOfClickingOnTheButtonGo()
-    
     })
 
-    afterEach(function () {
-        cy.log("after Each");
-    });
+    it("Test 2 to Open New Account in Parabank selected All month and All transaction", () => {
+        l.open()
+        .registerToTheApp(usersParabank.onlyUser)
+        .buttonRegister();
+        o.clickOnTheLinkOpenNewAccount()
+        .whatTypeOfAccountWeWantToOpen()
+        .filterByTextTypeOfAccount("SAVINGS")
+        .filterByIndexNumberOfAccount(0)
+        .shadowInputButtonOpenNewAccount()
+        o.watchResultsOfOpeningTheAccount()
+        .clickOnNewAccountNumber()
+        .showAccountActivity()
+        .actuallyPeriodChooseMonth('All')
+        .clickOnChooseTypeOfActivity('All')
+        .buttonGoFromAccountActivity()
+        o.openNewAccountAndSelectAllMonthAndTransactions()
+        .fundsTransferReceivedClick()
+        .checkifWeAreInTheCorrectPage()
+    })
 
 
 })

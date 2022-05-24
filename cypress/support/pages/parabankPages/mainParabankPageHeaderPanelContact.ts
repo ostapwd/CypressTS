@@ -1,4 +1,4 @@
-import parabankLoginPage, { MainParabankPageLoginRegister } from "./mainParabankPageLoginRegister";
+
 
 export class MainParabankPageContact  {
   
@@ -23,7 +23,7 @@ export class MainParabankPageContact  {
         .should ('contain', 'Customer Care');
         return this;
 
-    }
+    };
 
     public customerCare(user) {     
         this.buttonContactLeftMenu().click();
@@ -44,10 +44,10 @@ export class MainParabankPageContact  {
 
     public responseInTheTableWhenTheAllInputsAreNotFilledInCustomerCare() {
         this.responseWhenTheAllInputsAreNotFilledInCustomerCare()
-        this.areNotFiledCustomerCareName().should('contain', 'Name is required.')
-        this.areNotFiledCustomerCareEmail().should('contain', 'Email is required.')
-        this.areNotFiledCustomerCarePhone().should('contain', 'Phone is required.')
-        this.areNotFiledCustomerCareMessage().should('contain', 'Message is required.')  
+        this.areNotFiledCustomerCareName().should('contain', 'Name is required.');
+        this.areNotFiledCustomerCareEmail().should('contain', 'Email is required.');
+        this.areNotFiledCustomerCarePhone().should('contain', 'Phone is required.');
+        this.areNotFiledCustomerCareMessage().should('contain', 'Message is required.') ; 
         return this;
         };
     

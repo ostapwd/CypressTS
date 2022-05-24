@@ -22,8 +22,9 @@ describe ("Test for Parabank, Transfer Funds", function () {
         tf.clickLinkTransferFunds()
         .resultOfTransferFundsOpeningWhenWeClickedOnIt()
         .sendTransfer(transfer.transferOne)
-        //.filterByIndexNumberOfAccount(5)
-        //.buttonOpenNewAccount()
+        .clickButtonSubmitOnTheTransferFunds()
+        .transferCompleteСonfirmation()
+        
 })
 
     afterEach(function () {

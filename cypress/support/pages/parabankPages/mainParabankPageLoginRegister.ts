@@ -49,25 +49,24 @@ export class MainParabankPageLoginRegister extends BasePageParabank {
             this.checkingIfTheInputsOfRegisterHaveEnoughtInputs().then(($lis) => {
                 expect($lis, '3 items').to.have.length(13)
           })
-                return this;
+            return this;
         };
        
         public buttonRegister() {
             this.clickButtonRegister().click();
             return this;
         };
-        
+
        public welcomeForMessage() {
         this.welcomeForMessageCustomerCareLogin().should('contain', `Welcome ${usersParabank.secondUser.firstName}`); 
         return this;
-       }
-
+       };
 
         public loginToTheApp(user) {     
             this.usernameInput().type(user.username);
             this.passwordInput().type(user.password);
             this.loginButton().click();
-        } ;
+        };
 
         public forgotInfo() {
             this.forgotLoginInfo().click()
@@ -75,9 +74,9 @@ export class MainParabankPageLoginRegister extends BasePageParabank {
         };
 
         public checkCustomerLookup() {
-        this.checkIfItIsCustomerLookup()
-        .should("contain", "Customer Lookup")
-    }
+            this.checkIfItIsCustomerLookup()
+            .should("contain", "Customer Lookup")
+        }
 
         public forgotSomeLoginInformation(user) {
             this.inputForgotPassword().then(tableRow => {
@@ -101,6 +100,7 @@ export class MainParabankPageLoginRegister extends BasePageParabank {
             }) 
             return this;
         };
+
         public responsWhenTheAllInputsAreNotFilled() {
             this.responseWhenTheAllInputsAreNotFilled().then(tableRowAll => {
                 cy.get('tbody').first().find('tr').then(tableColums => {
@@ -124,7 +124,6 @@ export class MainParabankPageLoginRegister extends BasePageParabank {
                 cy.get('tbody').first().find('tr').then(tableColums => {
                     cy.wrap(tableColums).eq(6).should('contain', ' ')
                 })
-        
             });
             return this;
         };

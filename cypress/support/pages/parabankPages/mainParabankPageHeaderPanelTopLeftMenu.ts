@@ -1,7 +1,7 @@
-import { should } from "chai";
 
 
 export class MainParabankPageLeftMenu  {
+
     private leftMenuSolutions() { return cy.contains('#headerPanel ul.leftmenu li[class="Solutions"]','Solutions'); }
     private leftMenuAboutUs() { return cy.contains('#headerPanel ul.leftmenu li > a','About Us'); }
     private leftMenuServices() { return cy.contains('#headerPanel ul.leftmenu li > a','Services'); }
@@ -18,18 +18,15 @@ export class MainParabankPageLeftMenu  {
 
 
     public AllItemsWithTheCursorPointer() {
-    this.cursorPointer()
-    
-    return this;
-}
-
-
+        this.cursorPointer()
+        return this;
+    }
 
     public leftMenuSolutionsElementCheckingWrongCssProperty() {
         this.leftMenuSolutions()
         .should('have.css', 'background')
         .and('include', 'rgb(255, 255, 255) url("https://parabank.parasoft.com/parabank/images/bullet-hover.gif")')
-        return this
+         return this
     };
     
     public leftMenuSolutionsElementCheckingCssProperty() {
@@ -74,53 +71,41 @@ export class MainParabankPageLeftMenu  {
         return this
     };
 
-
     public leftMenuElementSolutionGoToAnotherPageClick() {
         this.leftMenuSolutions().click();
         this.solutionsUrl()
-        
         return this
     };
 
     public leftMenuEboutUsGoToAnotherPageClick() {
         this.leftMenuAboutUs().click();
         this.aboutUsUrl()
-
-
         return this
     };
 
     public leftMenuServicesGoToAnotherPageClick() {
-            this.leftMenuServices().click();
-            this.menuServicesUrl()
-              
+        this.leftMenuServices().click();
+        this.menuServicesUrl()    
         return this
     };
 
     public leftMenuAdminGoToAnotherPageClick() {
-            this.leftMenuAdminPage().click();
-            this.menuAdminUrl() 
-                return this;    
-        };
+        this.leftMenuAdminPage().click();
+        this.menuAdminUrl() 
+        return this;    
+    };
         
-        public leftMenuProductsGoToAnotherPageClick() {
-            this.leftMenuProducts().click({force: true})
-            this.productsUrl()
-            
-           
-                return this;    
-        };
+    public leftMenuProductsGoToAnotherPageClick() {
+        this.leftMenuProducts().click({force: true})
+        this.productsUrl()
+        return this;    
+    };
 
-        public leftMenuLocationsGoToAnotherPageClick() {
-            this.leftMenuLocations().click()
-            this.locationUrl()
-                return this;    
-        };
-
-        public open() {
-            cy.visit("https://parabank.parasoft.com/parabank/index.htm");
-            return this;
-        };
+    public leftMenuLocationsGoToAnotherPageClick() {
+        this.leftMenuLocations().click()
+        this.locationUrl()
+        return this;    
+    };
 
 }
 

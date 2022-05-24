@@ -7,5 +7,5 @@
 	"watchForFileChanges": false,
 	"pageLoadTimeout": 60000,
 	"defaultCommandTimeout": 10000
-	
+
 }

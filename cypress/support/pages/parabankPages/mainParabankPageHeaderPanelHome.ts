@@ -9,17 +9,11 @@ export class MainParabankPageHome  {
     public homeTopLeftMenuHeaderPanel() {     
         this.buttonContactLeftHome().click()
         this.clickingOnTheButtonAboutUsGoToTheTabHome()
-
-
-
-       //.should('contain', 'ParaSoft Demo Website');
-       this.aboutUsUrlButtonButtonSituatedOnTheRight()
-       this.ifWeAreInTheCorrectPage()
-       .should('contain', 'ATM Services')
+        this.aboutUsUrlButtonButtonSituatedOnTheRight()
+        this.ifWeAreInTheCorrectPage()
+        .should('contain', 'ATM Services')
         return this;
     };
-
- 
     
 }
 

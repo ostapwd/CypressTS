@@ -8,9 +8,10 @@ describe ("First test suite for Parabank ", function () {
     })
     it("Test 1 'Register to the app'", function () {
         l.registerToTheApp(usersParabank.secondUser)
+        .buttonRegister() 
         .welcomeForMessage() 
-        .checkingIfThereAreEnoughtInputs()
-        .buttonRegister()
+        //.checkingIfThereAreEnoughtInputs()
+        //.buttonRegister()
     })
 
     it("Test 2 'Login to the app'", function () {

@@ -23,9 +23,37 @@ class UsersParabank {
         addressZipCode: 'M',
         phoneNumber: 'M',
         ssn: 'M',
-        username: 'M',
+        username: 'Maxi',
         password: 'M',
         repeatedPassword: 'M'
+    };
+
+    thirdUser = {
+        firstName: 'vM',
+        lastName: 'vM',
+        addressStreet: 'vM',
+        addressCity: 'vM',
+        addressState: 'vM',
+        addressZipCode: 'vM',
+        phoneNumber: 'vM',
+        ssn: 'vM',
+        username: 'gfsddsfi',
+        password: 'vM',
+        repeatedPassword: 'vM'
+    };
+
+    fourthUser = {
+        firstName: 'vM',
+        lastName: 'vM',
+        addressStreet: 'vM',
+        addressCity: 'vM',
+        addressState: 'vM',
+        addressZipCode: 'vM',
+        phoneNumber: 'vM',
+        ssn: 'vM',
+        username: 'dfl',
+        password: 'vM',
+        repeatedPassword: 'vM'
     };
 
     onlyUser = {
@@ -37,7 +65,7 @@ class UsersParabank {
         addressZipCode: 'street',
         phoneNumber: 'street',
         ssn: 'street',
-        username: 'street',
+        username: 'strdeedt',
         password: 'street',
         repeatedPassword: 'street'
     };
@@ -51,24 +79,11 @@ class UsersParabank {
         addressZipCode: 'street',
         phoneNumber: 'street',
         ssn: 'street',
-        username: 'citlyelcssllhkulkjk',
+        username: 'citlyddekulkjk',
         password: 'city',
         repeatedPassword: 'city'
     };
 
-    thirdUser = {
-        firstName: 'vM',
-        lastName: 'vM',
-        addressStreet: 'vM',
-        addressCity: 'vM',
-        addressState: 'vM',
-        addressZipCode: 'vM',
-        phoneNumber: 'vM',
-        ssn: 'vM',
-        username: 'ggvgfffvggfdgff',
-        password: 'vM',
-        repeatedPassword: 'vM'
-    };
 
     login = {
         username: 'Mariia',
