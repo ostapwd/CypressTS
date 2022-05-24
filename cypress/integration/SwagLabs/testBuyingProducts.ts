@@ -8,20 +8,24 @@ const loginPage = new LoginPageSwagLabsTS();
 const productsPage = new ProductPageSwagLabsTS();
 
 describe('Test suite buying the products', () => {
-    beforeEach('Opened the Products page', () => {
+    beforeEach('Login to the App', () => {
         loginPage.open().loginToTheApp(users.standardUser)
     });
-    it('Verify a user can buy the products', () => {
+        it('Verify a user can buy the products', () => {
+            productsPage
+                .addToCartAllproducts()
+                .openShoppingCart()
+                .openCheckoutStepOnePage()
+                .openCheckoutStepTwoPage(users.standardUser)
+                .openCheckoutCompletePage()
+                .returnToProductsPage()
+            productsPage
+                .urlPageVerify(urlsPagesSwagLabs.productsPageUrl)
+                .productsLabelVerify()
+                .selectedProductsNumberHiddenVerify('')
+        });
+    afterEach('Logout of the App', () => {
         productsPage
-            .addToCartAllproducts()
-            .openShoppingCart()
-            .openCheckoutStepOnePage()
-            .openCheckoutStepTwoPage(users.standardUser)
-            .openCheckoutCompletePage()
-            .returnToProductsPage()
-        productsPage
-            .urlPageVerify(urlsPagesSwagLabs.productsPageUrl)
-            .productsLabelVerify()
-            .selectedProductsNumberHiddenVerify('')
-    });
+            .logoutOfTheApp()
+    })
 });

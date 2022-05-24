@@ -5,7 +5,7 @@ import { LoginPageSwagLabsTS } from "../../support/pagesSwagLabs/loginPageSwagLa
 import { ProductPageSwagLabsTS } from "../../support/pagesSwagLabs/productPageSwagLabsTS";
 
 describe('Test suite verified a user login into the application', () => {
-    beforeEach('Opened the application', () => {
+    beforeEach('Login to the App', () => {
         cy.log('Start')
         new LoginPageSwagLabsTS().open()
     });
@@ -13,7 +13,7 @@ describe('Test suite verified a user login into the application', () => {
             new LoginPageSwagLabsTS()
                 .urlPageVerify(urlsPagesSwagLabs.loginPageUrl)
                 .usernameInputVerify()
-                .loginToTheApp(userss.standardUser)
+                .loginToTheApp(users.standardUser)
             new ProductPageSwagLabsTS()
                 .urlPageVerify(urlsPagesSwagLabs.productsPageUrl)
                 .productsLabelVerify()
@@ -23,7 +23,7 @@ describe('Test suite verified a user login into the application', () => {
             new LoginPageSwagLabsTS()
                 .loginToTheApp(users.noRegisterUser)
             new LoginPageSwagLabsTS()
-                .errorMessageVerify(errorsLoginMessageoginMessage.nagativeCredentialsUser)
+                .errorMessageVerify(errorsLoginMessage.nagativeCredentialsUser)
         })
 
         it('Verify a user can login into the application (locked Out User)', () => {

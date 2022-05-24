@@ -27,7 +27,8 @@ describe('Test suite to test web elements on the products page', () => {
             productsPage.selectSortLabelVerify()
         });
     
-    afterEach(() => {
-        cy.log('Finish')
-    });
+    after('Logout of the App', () => {
+        productsPage
+            .logoutOfTheApp()
+    })
 });

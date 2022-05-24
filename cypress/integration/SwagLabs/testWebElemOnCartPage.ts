@@ -9,7 +9,7 @@ const productsPage = new ProductPageSwagLabsTS();
 const shoppingCartPage = new shoppingCartSwagLabs();
 
 describe('Test suite to test web elements on the cart page', () => {
-    beforeEach('Opened the Products page', () => {
+    beforeEach('Login to the App', () => {
         cy.log('Start')
         loginPage.open().loginToTheApp(users.standardUser)
     });
@@ -36,7 +36,8 @@ describe('Test suite to test web elements on the cart page', () => {
                 .checkoutButtonVerify()
         });
         
-    afterEach(() => {
-        cy.log('Finish')
-    });
+    afterEach('Logout of the App', () => {
+        productsPage
+            .logoutOfTheApp()
+    })
 });

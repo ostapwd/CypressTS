@@ -7,7 +7,7 @@ const productsPage = new ProductPageSwagLabsTS();
 
 describe('Test suite added and deleted products to shopping cart', () => {
   
-    beforeEach('Opened the application', () => {
+    beforeEach('Login to the App', () => {
         cy.log('Start')
         loginPage.open().loginToTheApp(users.standardUser)
     });
@@ -28,7 +28,8 @@ describe('Test suite added and deleted products to shopping cart', () => {
                 .selectedProductsNumberHiddenVerify('')
         });
         
-    afterEach(() => {
-        cy.log('Finish')
-    });
+    afterEach('Logout of the App', () => {
+        productsPage
+            .logoutOfTheApp()
+    })
 });

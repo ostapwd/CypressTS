@@ -7,18 +7,24 @@ const loginPage = new LoginPageSwagLabsTS();
 const productsPage = new ProductPageSwagLabsTS();
 
 describe('Test suite to test web elements on the checkout two step page', () => {
-    beforeEach('Opened the Products page', () => {
+    beforeEach('Login to the App', () => {
         loginPage.open().loginToTheApp(users.standardUser)
     });
-    it('Verify the elements is displayed on the checkout two step page', () => {
+
+        it('Verify the elements is displayed on the checkout two step page', () => {
+            productsPage
+                .addToCartAllproducts()
+                .openShoppingCart()
+                .openCheckoutStepOnePage()
+                .openCheckoutStepTwoPage(users.standardUser)
+                .urlPageVerify(urlsPagesSwagLabs.checkoutStepTwoPageUrl)
+                .checkTwoStepPageLabelVerify()
+                .summaryTotalLabelVerify()
+                .finishButtonVerify()
+        });
+        
+    afterEach('Logout of the App', () => {
         productsPage
-            .addToCartAllproducts()
-            .openShoppingCart()
-            .openCheckoutStepOnePage()
-            .openCheckoutStepTwoPage(users.standardUser)
-            .urlPageVerify(urlsPagesSwagLabs.checkoutStepTwoPageUrl)
-            .checkTwoStepPageLabelVerify()
-            .summaryTotalLabelVerify()
-            .finishButtonVerify()
-    });
+            .logoutOfTheApp()
+    })
 });

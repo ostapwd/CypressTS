@@ -57,16 +57,15 @@ export class ProductPageSwagLabsTS extends basePageSwagLabsTS {
             return this
     }
 
-    public openMenu() {
-        this.menu().then(item => {
-            item.click()
-            this.waitForSeconds(1)
-        })
+    public openBurgerMenu() {
+        this.menu().should('be.visible').click()
+        this.waitForSeconds(1)
             return this
     };
 
-    public logoutApp() {
-        this.logoutButton().click();
+    public logoutOfTheApp() {
+        this.openBurgerMenu();
+        this.logoutButton().should('be.visible').click();
             return this
     } 
 
