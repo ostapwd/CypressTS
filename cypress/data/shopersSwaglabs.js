@@ -1,4 +1,4 @@
-class Shopers {
+class ShopersForSwaglabs {
 
     standartShoper = {
         shopperName: "Mariia",
@@ -9,4 +9,4 @@ class Shopers {
    
 }
 
-export default new Shopers();
+export default new ShopersForSwaglabs();
