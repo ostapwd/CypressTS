@@ -1,14 +1,17 @@
 export default abstract class BasePage {
 
-    public waitForSeconds(secondsToWait :number) {
-        cy.wait(secondsToWait * 1000);
+  protected constructor() {
+  }
 
-        return this;
-    }
+  protected waitForPageToBeLoaded() {
+    cy.wait(1000);
 
-    protected goto(url) {
-        cy.visit(url, { failOnStatusCode: false });
+    return this;
+  }
 
-        return this;
-    }
+  protected goto(url) {
+    cy.visit(url, { failOnStatusCode: false });
+
+    return this;
+  }
 }
