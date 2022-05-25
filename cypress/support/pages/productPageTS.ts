@@ -1,6 +1,5 @@
-import BasePage from "./BasePage";
 
-export class ProductPageTS extends BasePage{
+export class ProductPageTS{
 
     private addToChartButtons() { return cy.get("[id*='add-to-cart']"); }
     private inventoryItemNames() { return cy.get(".inventory_item_name"); }
@@ -12,7 +11,6 @@ export class ProductPageTS extends BasePage{
             cy.log(item.text())
         });
 
-        super.waitForSeconds(1);
 
         return this;
     }
@@ -20,7 +18,6 @@ export class ProductPageTS extends BasePage{
     public addToChartAllProducts() {
         this.addToChartButtons().each(item => {
             item.click();
-            super.waitForSeconds(1);
         });
 
         return this;
