@@ -1,6 +1,6 @@
 
 import { should } from "chai";
-import usersParabank from "../../data/usersParabank";
+import usersParabank from "../../data/registrationUsersParabank";
 import {MainParabankPageLoginRegister} from "../../support/pages/parabankPages/mainParabankPageLoginRegister";
 
 const l = new MainParabankPageLoginRegister();

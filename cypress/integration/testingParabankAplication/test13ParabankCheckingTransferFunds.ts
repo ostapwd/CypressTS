@@ -1,8 +1,8 @@
-import usersParabank from "../../data/usersParabank";
+import usersParabank from "../../data/registrationUsersParabank";
 import {MainParabankPageLoginRegister} from "../../support/pages/parabankPages/mainParabankPageLoginRegister";
 import {MainParabankPageTransferFunds} from "../../support/pages/parabankPages/mainParabankPageTransferFunds";
 import { MainParabankPageOpenNewAccount } from "../../support/pages/parabankPages/mainParabankPageOpenNewAccount";
-import transfer from "../../data/transfer";
+import transfer from "../../data/transferParabank";
 
 const o = new MainParabankPageOpenNewAccount();
 const l = new MainParabankPageLoginRegister();

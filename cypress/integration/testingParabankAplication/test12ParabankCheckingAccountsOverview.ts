@@ -1,5 +1,5 @@
 import {MainParabankPageAccountOverview} from "../../support/pages/parabankPages/mainParabankPageAccountsOverview"
-import usersParabank from "../../data/usersParabank";
+import usersParabank from "../../data/registrationUsersParabank";
 import {MainParabankPageLoginRegister} from "../../support/pages/parabankPages/mainParabankPageLoginRegister";
 
 

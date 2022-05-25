@@ -1,8 +1,8 @@
 import {MainParabankPageLoginRegister} from "../../support/pages/parabankPages/mainParabankPageLoginRegister";
 import {MainParabankPageHome} from "../../support/pages/parabankPages/mainParabankPageHeaderPanelHome"
-import usersParabank from "../../data/usersParabank";
+import usersParabank from "../../data/registrationUsersParabank";
 import {MainParabankPageAboutUs} from "../../support/pages/parabankPages/mainParabankPageHeaderPanelAboutUs"
-import contactUsers from "../../data/contactUsers";
+import contactUsers from "../../data/contactUsersParabank";
 import {MainParabankPageContact} from "../../support/pages/parabankPages/mainParabankPageHeaderPanelContact"
 
 

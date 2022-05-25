@@ -1,5 +1,6 @@
-import usersParabank from "../../data/usersParabank";
+import usersParabank from "../../data/registrationUsersParabank";
 import {MainParabankPageLoginRegister} from "../../support/pages/parabankPages/mainParabankPageLoginRegister";
+import loginUsersParabank from "../../data/loginUsersParabank";
 
 const l = new MainParabankPageLoginRegister();
 describe ("First test suite for Parabank ", function () {
@@ -15,7 +16,7 @@ describe ("First test suite for Parabank ", function () {
     })
 
     it("Test 2 'Login to the app'", function () {
-        l.loginToTheApp(usersParabank.login);
+        l.loginToTheApp(loginUsersParabank.login);
     })
 
    

@@ -1,5 +1,5 @@
 export {MainParabankPageContact} from "./mainParabankPageHeaderPanelContact";
-import usersParabank from "../../../data/usersParabank";
+import usersParabank from "../../../data/registrationUsersParabank";
 import BasePageParabank from "./BasePageParabank";
 
  

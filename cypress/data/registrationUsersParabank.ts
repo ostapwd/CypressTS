@@ -86,7 +86,7 @@ class UsersParabank {
 
 
     login = {
-        username: 'Mariia',
+        username: 'Maria',
         password: 'Mariia'
     };
 

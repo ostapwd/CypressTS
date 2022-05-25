@@ -1,4 +1,4 @@
-import contactUsers from "../../data/contactUsers";
+import contactUsers from "../../data/contactUsersParabank";
 import {MainParabankPageLoginRegister} from "../../support/pages/parabankPages/mainParabankPageLoginRegister";
 import { MainParabankPageLeftMenu } from "../../support/pages/parabankPages/mainParabankPageHeaderPanelTopLeftMenu";
 import {MainParabankPageContact} from "../../support/pages/parabankPages/mainParabankPageHeaderPanelContact"

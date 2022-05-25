@@ -1,7 +1,7 @@
-import usersParabank from "../../data/usersParabank";
+import usersParabank from "../../data/registrationUsersParabank";
 import {MainParabankPageLoginRegister} from "../../support/pages/parabankPages/mainParabankPageLoginRegister";
 import { MainParabankPageBillPay } from "../../support/pages/parabankPages/mainParabankPageBillPay";
-import  payeeInformationUsers  from "../../data/payeeInformationUsers";
+import  payeeInformationUsers  from "../../data/payeeInformationUsersParabank";
 
 const l = new MainParabankPageLoginRegister();
 const b = new MainParabankPageBillPay();
