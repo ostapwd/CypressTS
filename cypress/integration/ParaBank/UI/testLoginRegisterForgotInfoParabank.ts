@@ -9,7 +9,7 @@ describe('Test suite a user can login/register/forgot login on the main page', (
     before('Opened the Main page', () => {
         loginPageParabank.open();
     });
-    it.only('Test register new user', () => {
+    it('Test register new user', () => {
         loginPageParabank
             .urlPageVerify(urlsPagesParabank.loginPageUrl)
             .logo()

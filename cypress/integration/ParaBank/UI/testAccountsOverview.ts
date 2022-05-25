@@ -3,18 +3,16 @@ import { LoginPageParabank } from "../../../support/pagesParaBank/loginPageParab
 
 const loginPageParabank = new LoginPageParabank();
 
-describe('Test suite to open new account', () => {
+describe('Test suite to open account overview', () => {
     before('Opened the Main page', () => {
         loginPageParabank.open();
     });
-        it('Test a user can open new account ', () => {
+        it('Test a user can open the Account overview page ', () => {
             loginPageParabank
                 .loginToTheApp(usersParabank.newUser)
-                .openNewAccountLinkPage()
-                .pageTitleLabel()
-                .selectTypeAccount()
-                .selectNumberAccount()
-                .openNewAccount()
-                .confirmCreattedAccount()
+                .openaAccountsOverviewPage()
+                .tableAccountsOverview()
+                .numbersAccountLog()
+                .totalAmountAccountsOverview()
         });
 });

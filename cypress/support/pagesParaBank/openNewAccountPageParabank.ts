@@ -6,7 +6,8 @@ export default class OpenNewAccountsParabank extends BasePageParabank{
     public typeAccount() { return cy.get("#type"); }
     public numberNewAccount() { return cy.get("#newAccountId"); }
     private newAccountForm() { return cy.get("form[ng-submit='submit()']")}
-    public resultCreattedAccount() { return cy.get("div[ng-if='showResult'] h1.title"); }
+    public createdAccountLabel() { return cy.get("div[ng-if='showResult'] h1.title"); }
+    public accountDetailsLabel() { return cy.get("div[ng-if='showResult'] h1.title"); }
 
     public pageTitleLabel(){
         this.pageTitle().should('contain','Open New Account');
@@ -28,12 +29,17 @@ export default class OpenNewAccountsParabank extends BasePageParabank{
             return this
     }
 
-    public VerifyResultCreattedAccount(){
-        this.resultCreattedAccount().should('contain','Account Opened!')
+    public confirmCreattedAccount(){
+        this.createdAccountLabel().should('contain','Account Opened!')
         this.numberNewAccount().then(item => {
             cy.log(item.text())
         });
         return this
+    }
+
+    public confirmAcountsDetails(){
+        this.accountDetailsLabel().should('contain','Account Details');
+            return this
     }
 
 }

@@ -1,7 +1,7 @@
-import AccountServicesPageParabank from "./mainAccountServicesPageParabank";
 import BasePageParabank from "./basePageParabank";
 import ForgotLoginPageParabank from "./forgotLoginPageParabank";
 import RegisterPageParabank from './registerPageParabank';
+import MainAccountServicesPageParabank from "./mainAccountServicesPageParabank";
 
 export class LoginPageParabank extends BasePageParabank  {
     public logoPageLabel() {return cy.get(".logo")}
@@ -11,13 +11,7 @@ export class LoginPageParabank extends BasePageParabank  {
     public forgotLoginLink() { return cy.get("a[href*='lookup.htm']"); }
     public registerUserLink() { return cy.get("a[href*='register.htm']"); }
     public logOutrUserLink() { return cy.get("a[href*='logout.htm']"); }
-    public firstInput() { return cy.get("a[href='logout.htm']"); }
-    public leftMenu() { return cy.get(".leftmenu"); }
-    public aboutUsLink() { return cy.get(".leftmenu a[href*='about.htm']"); }
-    public servicesLink() { return cy.get(".leftmenu a[href*='services.htm']"); }
-    public productsLink() { return cy.get(".leftmenu a[href*='products']"); }
-    public locationsLink() { return cy.get(".leftmenu a[href*='contacts']"); }
-    public adminPageLink() { return cy.get(".leftmenu a[href*='admin']"); }
+    
 
     public open(){
         super.goto('https://parabank.parasoft.com/parabank/index.htm')
@@ -47,7 +41,7 @@ export class LoginPageParabank extends BasePageParabank  {
         this.usernameInput().clear().type(user.userName)
         this.passwordInput().clear().type(user.password)
         this.loginButton().should('be.visible').click()
-        return new AccountServicesPageParabank()
+        return new MainAccountServicesPageParabank()
     }
     
     public checkLoginButton(){
@@ -67,35 +61,5 @@ export class LoginPageParabank extends BasePageParabank  {
             expect(element.text()).to.be.contains('Forgot login info?')
         }).click()
         return new ForgotLoginPageParabank()
-    }
-
-    public leftMenuVerify(){
-        this.leftMenu().find('li').should('have.length', 6)
-        return this
-    }
-
-    public openAboutUsLinkMenu(){
-        this.aboutUsLink().should('contain', 'About Us').click()
-        return this
-    }
-
-    public openServicesLinkMenu(){
-        this.servicesLink().should('contain', 'Services').click()
-        return this
-    }
-
-    public openProductsLinkMenu(){
-        this.productsLink().should('contain', 'Products').click()
-        return this
-    }
-
-    public openLocationsLinkMenu(){
-        this.locationsLink().should('contain', 'Locations').click()
-        return this
-    }
-
-    public openAdminPageLinkMenu(){
-        this.adminPageLink().should('contain', 'Admin Page').click()
-        return this
     }
 }
