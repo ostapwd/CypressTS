@@ -94,31 +94,29 @@ export class ProductPageSwagLabsTS extends basePageSwagLabsTS {
             return this
     }
 
-    public selectSortLabelVerify(option: string){
-        super.waitForSeconds(2);
+    public selectSortByIndex(index: number){
+        this.selectSortProductsLabel().select(index)
+            return this
+    }
+
+    public selectSortLabelVerify(){
         this.selectSortProductsLabel().should('be.visible');
         this.nameOfFirstProductOnProductsPage().should('be.visible').then(element => 
             cy.log(element.text()));
         this.priceOfFirstProductOnProductsPage().should('be.visible').then(element => 
             cy.log(element.text()));
-        this.selectSortProductsLabel().select('Price (low to high)');
         this.nameOfFirstProductOnProductsPage().should('be.visible').then(element => 
             cy.log(element.text()));
         this.priceOfFirstProductOnProductsPage().should('be.visible').then(element => 
             cy.log(element.text()));
-        super.waitForSeconds(5);
-        this.selectSortProductsLabel().select(option);
         this.nameOfFirstProductOnProductsPage().should('be.visible').then(element => 
             cy.log(element.text()));
         this.priceOfFirstProductOnProductsPage().should('be.visible').then(element => 
             cy.log(element.text()));
-        super.waitForSeconds(5);
-        this.selectSortProductsLabel().select('Price (high to low)');
         this.nameOfFirstProductOnProductsPage().should('be.visible').then(element => 
             cy.log(element.text()));
         this.priceOfFirstProductOnProductsPage().should('be.visible').then(element => 
             cy.log(element.text()));
-        super.waitForSeconds(5);
             return this
     }
 }

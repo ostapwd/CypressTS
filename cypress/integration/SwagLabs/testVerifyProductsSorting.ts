@@ -6,7 +6,7 @@ const loginPage = new LoginPageSwagLabsTS();
 const productsPage = new ProductPageSwagLabsTS();
 
 describe('Verify the sort drop-down list on the product page', () => {
-    before('Login to the App', () => {
+    beforeEach('Login to the App', () => {
         cy.log('Start')
         loginPage.open().loginToTheApp(users.standardUser);
     });
@@ -17,10 +17,17 @@ describe('Verify the sort drop-down list on the product page', () => {
 
         it('Verify the sort drop-down list', () => {
             productsPage
-                .selectSortLabelVerify('Name (A to Z)')
+                .selectSortByIndex(3)
+                .selectSortLabelVerify()
+                .waitForSeconds(2)
+                .selectSortVerify('Name (A to Z)')
+                .selectSortLabelVerify()
+                .waitForSeconds(2)
+                .selectSortByIndex(2)
+                .waitForSeconds(2)
         });
             
-    after('Logout of the App', () => {
+    afterEach('Logout of the App', () => {
         productsPage
             .logoutOfTheApp()
     })
