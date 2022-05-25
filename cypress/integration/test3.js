@@ -4,11 +4,12 @@ import {LoginPage} from "../support/pages/loginPage";
 import {LoginPageTS} from "../support/pages/loginPageTS";
 import {ProductPageTS} from "../support/pages/productPageTS";
 import {BasePage} from "../support/pages/BasePage";
+import urls from "../data/urls";
 
 const lp =  new LoginPage();
 
 describe('Test suite 3', function () {
-    it.only('Verify a user can add all products to the chart', function () {
+    it.skip('Verify a user can add all products to the chart', function () {
 
         const loginPageTypeScript = new LoginPageTS();
 
@@ -59,13 +60,19 @@ describe('Test suite 3', function () {
     });
 
     it('Verify a user can add all products to the chart 1111', function () {
-        new LoginPageTS().open("https://www.saucedemo.com/")
+        new LoginPageTS().open(urls.getAppUrl())
             .loginToTheApp(users.standardUser)
             .addToChartAllProducts()
             .verifyThatNumberOfSelectedProductsEqualsTo('6');
-
     });
 
+    it.only('Select (dropdown)', function () {
+        new LoginPageTS().open(urls.getAppUrl())
+            .loginToTheApp(users.standardUser)
+            .filterByText("Price (high to low)")
+            .waitForSeconds(3)
+            .filterByIndex(1);
+    });
 });
 
 describe('Test suite for login', function () {

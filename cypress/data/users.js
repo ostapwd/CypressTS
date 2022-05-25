@@ -1,10 +1,25 @@
 class Users {
 
     standardUser = {
-        username: "testqatest001001@gmail.com",
-        password: "test1112"
+        username: "standard_user",
+        password: "secret_sauce"
     };
-    
+
+    lockedOutUser = {
+        username: "locked_out_user",
+        password: "secret_sauce"
+    };
+
+    problemUser = {
+        username: "problem_user",
+        password: "secret_sauce"
+    };
+
+    performanceGlitchUser = {
+        username: "performance_glitch_user",
+        password: "secret_sauce"
+    };
+
 }
 
 export default new Users();

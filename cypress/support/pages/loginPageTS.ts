@@ -1,6 +1,7 @@
 import {ProductPageTS} from "./productPageTS";
+import BasePage from "./BasePage";
 
-export class LoginPageTS {
+export class LoginPageTS extends BasePage{
 
     private usernameInput() { return cy.get("#user-name"); }
     private passwordInput() { return cy.get("#password"); }
@@ -17,6 +18,7 @@ export class LoginPageTS {
         this.usernameInput().type(user.username);
         this.passwordInput().type(user.password);
 
+        super.waitForSeconds(3);
 
         this.loginButton().click();
 
@@ -24,6 +26,7 @@ export class LoginPageTS {
     }
 
     public open() {
+        super.goto("https://www.saucedemo.com/");
 
         return this;
     }
