@@ -88,13 +88,13 @@ export class ProductPageSwagLabsTS extends basePageSwagLabsTS {
             return this
     }
 
-    public selectSortVerify(){
+    public selectSortVerify(option: string){
         this.selectSortProductsLabel().should('be.visible');
-        this.selectSortProductsLabel().select('Name (A to Z)').should('have.value', 'az')
+        this.selectSortProductsLabel().select(option)
             return this
     }
 
-    public selectSortLabelVerify(){
+    public selectSortLabelVerify(option: string){
         super.waitForSeconds(2);
         this.selectSortProductsLabel().should('be.visible');
         this.nameOfFirstProductOnProductsPage().should('be.visible').then(element => 
@@ -107,7 +107,7 @@ export class ProductPageSwagLabsTS extends basePageSwagLabsTS {
         this.priceOfFirstProductOnProductsPage().should('be.visible').then(element => 
             cy.log(element.text()));
         super.waitForSeconds(5);
-        this.selectSortProductsLabel().select('Name (A to Z)');
+        this.selectSortProductsLabel().select(option);
         this.nameOfFirstProductOnProductsPage().should('be.visible').then(element => 
             cy.log(element.text()));
         this.priceOfFirstProductOnProductsPage().should('be.visible').then(element => 

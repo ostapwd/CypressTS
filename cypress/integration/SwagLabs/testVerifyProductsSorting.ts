@@ -12,12 +12,12 @@ describe('Verify the sort drop-down list on the product page', () => {
     });
         it('Verify the sort drop-down list is shown on the screen', () => {
             productsPage
-                .selectSortVerify()
+                .selectSortVerify('Name (A to Z)')
         });
 
         it('Verify the sort drop-down list', () => {
             productsPage
-                .selectSortLabelVerify()
+                .selectSortLabelVerify('Name (A to Z)')
         });
             
     after('Logout of the App', () => {
