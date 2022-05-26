@@ -1,32 +1,31 @@
 import BasePage from "./BasePageSwaglabs";
 
-export class ProductPageSwaglabs extends BasePage{
+export class ProductPageSwaglabs extends BasePage {
 
     private addToChartButtons() { return cy.get("[id*='add-to-cart']"); }
     private inventoryItemNames() { return cy.get(".inventory_item_name"); }
     private selectedProductsNumber() { return cy.get(".shopping_cart_badge"); }
-    //private menu(){return cy.xpath("//*[@id='react-burger-menu-btn']")}
     private filterSelect() { return cy.get(".product_sort_container"); }
 
     private productsLabel() { return  cy.get("div .title"); }
     private addToCard() { return cy.get("#add-to-cart-sauce-labs-backpack"); }
     private shoppingCartContainer() { return cy.get('a[class="shopping_cart_link"]'); }
-    private burgerButton() { return cy.xpath("//div[@class='bm-burger-button']"); }
-    private allItemsButton() { return  cy.xpath("//a[@id='inventory_sidebar_link']"); }
-    private removeFromTheCard() { return cy.contains("Remove"); }
     private shoppingCardLable() { return cy.get("div .header_secondary_container"); }
     private addToCardAll() { return cy.xpath("//button[@class='btn btn_primary btn_small btn_inventory']"); }
-    private remoutProductFromTheContainer() { return cy.get("button[name='remove-sauce-labs-backpack']"); }
-    private buttonContinueShopping () { return cy.xpath("//button[@id='continue-shopping']"); }
-    private allProdactsInThePage () {return cy.get(".inventory_item_name"); }
-    private productsInCartList() { return cy.get('.cart_item'); }
-    private allChosedProducts() { return cy.get('.cart_quantity'); }
-    private removeAllProductsFromTheCart () { return cy.xpath('//button[@class="btn btn_secondary btn_small cart_button"]'); }
-    private qualityOfItemsInTheCart() { return cy.xpath('//span[@class="shopping_cart_badge"]'); }
-    private productLinkSouseLabs() { return cy.get('a[href="#"][id="item_4_title_link"]'); }
+    private allProductsInThePage () {return cy.get(".inventory_item_name"); }
+    private allChoosedProducts() { return cy.get('.cart_quantity'); }
+
+    private productLinkSouseLabsBackpack() { return cy.get('a[href="#"][id="item_4_title_link"]'); }
+    private productLinkSauceLabsBikeLight() { return cy.get('a[href="#"][id="item_0_title_link"]'); }
+    private productLinkSauceLabsBoltTShirt() { return cy.get('a[href="#"][id="item_1_title_link"]'); }
+    private productLinkSauceLabsFleeceJacket() { return cy.get('a[href="#"][id="item_5_title_link"]'); }
+    private productLinkSauceLabsOnesie() { return cy.get('a[href="#"][id="item_2_title_link"]'); }
+    private productLinkTestAllTheThingsTShirtRed() { return cy.get('a[href="#"][id="item_3_title_link"]'); }
+    private buttonContinueShopping() { return cy.xpath('//button[@id="back-to-products"]'); }
+    
 
 
-    public puroductLabelChecking() {
+    public productLabelChecking() {
         this.productsLabel().should("contain", "Products");
         return this;
     }
@@ -39,22 +38,6 @@ export class ProductPageSwaglabs extends BasePage{
     public clickOnTheShoppingCartContainer() {
         this.shoppingCartContainer().click();
         return this;
-    }
-
-    public clickOnTheBurgerButton() {
-        this.burgerButton(). click();
-        return this;
-    }
-
-    public clickOnTheAllItemsButton() {
-        this.allItemsButton().click();
-        return this;
-    }
-
-    public removeItemFromTheCard() {
-        this.removeFromTheCard().each(item => {
-            cy.log(item.text()).click()
-        })
     }
 
     public shoppingCardLableShouldContainText() {
@@ -70,33 +53,6 @@ export class ProductPageSwaglabs extends BasePage{
             return this;
     }
 
-    public removeOneProductFromTheContainer() {
-        this.remoutProductFromTheContainer().click();
-        return this;
-    }
-    
-    public clickOnTheButtonContinueShopping() {
-        this.buttonContinueShopping().click();
-        return this;
-    }
-
-    public allChoosedProductsShouldContainNumber() {
-        this.allChosedProducts().should("contain", "1");
-        return this;
-    }
-
-    public qualityOfItemsInTheCartMustBee() {
-        this.qualityOfItemsInTheCart().then(element => {
-            expect(element.text()).to.be.equal('6');
-        });
-        return this;
-    }
-
-    public removeFromCardAllProducts() {
-        this.removeAllProductsFromTheCart().each(item =>{ item.click();
-            });
-            return this;
-    }
 
     public logAllProducts() {
         this.inventoryItemNames().each(item => {
@@ -106,60 +62,42 @@ export class ProductPageSwaglabs extends BasePage{
         return this;
     }
 
-    public verifyThatNumbersOfSelectedProductsEquals(number) {
-        this.qualityOfItemsInTheCart().then(element => {
-            expect(element.text()).to.be.equal (number) 
-            })
-            return this;
-    }
-
     public productLinkSouseLabsCheck() {
-        this.productLinkSouseLabs().click();
+        this.productLinkSouseLabsBackpack().click();
+        return this;
+    }
+
+    public clickButtonBackToProducts() {
+        this.buttonContinueShopping().click();
+        return this;
+    }
+
+    public clickProductLinkSauceLabsBikeLight() {
+        this.productLinkSauceLabsBikeLight().click();
+        return this;
+    }
+
+    public clickProductLinkSauceLabsBoltTShirt() {
+        this.productLinkSauceLabsBoltTShirt().click();
         return this;
     }
 
 
 
-
-
-
-
-   /* 
-
-
-    public addToChartAllProducts() {
-        this.addToChartButtons().each(item => {
-            item.click();
-            super.waitForSeconds(1);
-        });
+    public clickProductLinkSauceLabsFleeceJacket() {
+        this.productLinkSauceLabsFleeceJacket().click();
         return this;
     }
-
-    public verifyThatNumberOfSelectedProductsEqualsTo(number){
-        this.selectedProductsNumber().then(element => {
-            expect(element.text()).to.be.equal(number);
-        });
+    public clickProductLinkSauceLabsOnesie() {
+        this.productLinkSauceLabsOnesie().click();
+        return this;
     }
-
-   /* public propertyValue() { 
-        this.propertyValueOfContent.then($els => {
-            let win = $els[0].ownerDocument.defaultView;
-            const after = win.getComputedStyle($els[0], 'after');
-            const contentValue = after.getPropertyValue('content');
-            expect(contentValue).to.eq('""');
-            
-         }); 
-         return this;
-    }*/
-
-    /*logAllProducts() {this.allProdactsInThePage.each(item =>
-        cy.log(item.text()) );
+    public clickProductLinkTestAllTheThingsTShirtRed() {
+        this.productLinkTestAllTheThingsTShirtRed().click();
         return this;
     }
 
 
-            verifyThatNumbersOfSelectedProductsEquals(number) {
-                this.CualityOfItemsInTheCart.then(element => {expect(element.text()).to.be.equal (number) })
-            }*/
+
 }         
             export default new ProductPageSwaglabs();

@@ -3,7 +3,7 @@ import {ProductPageSwaglabs} from "./productPageSwaglabs";
 
 export class CheckoutPageSwaglabs extends BasePage {
 
-    private checkoutButton() { return  cy.xpath("//button[@data-test='checkout']"); }
+    //private checkoutButton() { return  cy.xpath("//button[@data-test='checkout']"); }
     private checkoutLabel() { return  cy.xpath("//span[@class='title']"); }
     private shopperNameInput() { return  cy.xpath('//input[@id="first-name"]'); }
     private shopperLastNameInput() { return  cy.xpath('//input[@placeholder="Last Name"]'); }
@@ -17,10 +17,10 @@ export class CheckoutPageSwaglabs extends BasePage {
     
     
 
-    public checkoutButtonClick() {
+    /*public checkoutButtonClick() {
         this.checkoutButton().click();
         return this;
-    }
+    }*/
 
     public checkoutLabelShouldContain() {
         this.checkoutLabel().should("contain", "Checkout: Your Information");
