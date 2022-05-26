@@ -10,7 +10,7 @@ export class StorePage extends BasePage {
     }
 
     private get itemPrice(): Cypress.Chainable {
-        return this.baseContainer.find('.inventory_item_price')
+        return this.baseContainer.find('.inventory_item_price');
     }
 
     private get addProduct(): Cypress.Chainable {
@@ -18,7 +18,7 @@ export class StorePage extends BasePage {
     }
 
     private get itemBasket(): Cypress.Chainable {
-        return this.baseContainer.find('#shopping_cart_container')
+        return this.baseContainer.get('a.shopping_cart_link');
     }
 
     public checkHeaderLabel(): this {
