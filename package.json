@@ -1,7 +1,7 @@
 {
   "name": "cypressts",
   "version": "1.0.0",
-  "description": "",
+  "description": "steps:<br /> 1.0. Open web app - https://www.saucedemo.com <br /> Expected result: Home page is opened, content visible, contains correct url. <br /> 1.1. Enter valid user data and login to the site <br /> Expected result: Page is reloaded and user is logged in <br /> 2.2.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/ostapwd/CypressTS#readme",
   "devDependencies": {
-    "cypress": "^9.6.1",
+    "cypress": "^9.7.0",
     "typescript": "^4.6.4"
   }
 }

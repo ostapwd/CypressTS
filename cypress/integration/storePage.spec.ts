@@ -16,8 +16,17 @@ describe('Test Store Page', ()=> {
     it('Check app header', function () {
         storepage
             .checkHeaderLabel()
+    });
+
+    it('Check all items price', function () {
+        storepage
+            .checkItemPrice();
+    });
+
+    it('Add all items and open the basket', function () {
+        storepage
             .selectAllItems()
-            .checkItemBusket();
+            .openItemBasket();
     });
 
 });

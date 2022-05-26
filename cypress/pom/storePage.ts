@@ -9,12 +9,16 @@ export class StorePage extends BasePage {
        return this.baseContainer.find('span.title');
     }
 
+    private get itemPrice(): Cypress.Chainable {
+        return this.baseContainer.find('.inventory_item_price')
+    }
+
     private get addProduct(): Cypress.Chainable {
         return this.baseContainer.get('.btn');
     }
 
-    private get itemBusket(): Cypress.Chainable {
-        return this.baseContainer.find('.shopping_cart_link')
+    private get itemBasket(): Cypress.Chainable {
+        return this.baseContainer.find('#shopping_cart_container')
     }
 
     public checkHeaderLabel(): this {
@@ -26,6 +30,16 @@ export class StorePage extends BasePage {
         return this;
     }
 
+    public checkItemPrice(): this {
+        this.itemPrice
+            .each(($price) => {
+                cy.wrap($price).contains('$');
+            });
+
+        return this;
+
+    };
+
     public selectAllItems(): this {
         this.addProduct
             .each(($button) => {
@@ -34,8 +48,8 @@ export class StorePage extends BasePage {
         return this;
     };
 
-    public checkItemBusket(): void{
-        this.itemBusket
+    public openItemBasket(): void{
+        this.itemBasket
             .click();
     }
 }
