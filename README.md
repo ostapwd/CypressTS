@@ -1,6 +1,6 @@
 # CypressTS
 Steps:<br />
-1.Test Login Page
+1.Test Login Page <br />
 1.0. Open web app - https://www.saucedemo.com <br />
 Expected result: Home page is opened, content visible, contains correct url. <br />
 1.1. Enter valid user data and login to the site <br />
