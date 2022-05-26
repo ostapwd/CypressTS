@@ -1,5 +1,5 @@
 
-import usersForSwaglabs from "../../data/urersForSwaglabs";
+import usersForSwaglabs from "../../data/usersForSwaglabs";
 import {LoginPageSwaglabs} from "../../support/pages/swaglabsPagesTheLastVersion/loginPageSwaglabs";
 import { ProductPageSwaglabs } from "../../support/pages/swaglabsPagesTheLastVersion/productPageSwaglabs";
 
@@ -15,14 +15,14 @@ describe ("Test suite 1 for login (possitive)", function () {
     it("Test 1 (possitive)", function () {
         
         l.loginToTheApp(usersForSwaglabs.standardUser)
-        p.puroductLabelChecking();
+        p.productLabelChecking();
         
     });
 
     it("Test 2 (possitive)", function () {
         
         l.loginToTheApp(usersForSwaglabs.problemUser)
-        p.puroductLabelChecking();
+        p.productLabelChecking();
         
     });
 

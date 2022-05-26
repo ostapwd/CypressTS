@@ -1,26 +1,30 @@
 
-import usersForSwaglabs from "../../data/urersForSwaglabs";
+import usersForSwaglabs from "../../data/usersForSwaglabs";
 import {LoginPageSwaglabs} from "../../support/pages/swaglabsPagesTheLastVersion/loginPageSwaglabs";
 import { ProductPageSwaglabs } from "../../support/pages/swaglabsPagesTheLastVersion/productPageSwaglabs";
+import { YourCardPageSwaglabs } from "../../support/pages/swaglabsPagesTheLastVersion/yourCardPageSwaglabs";
+import { BurgerMenuPageSwaglabs } from "../../support/pages/swaglabsPagesTheLastVersion/burgerMenuPageSwaglabs"
 
 const l = new LoginPageSwaglabs();
 const p = new ProductPageSwaglabs();
+const y = new YourCardPageSwaglabs();
+const b = new BurgerMenuPageSwaglabs();
 
 describe ("Test suite 2", function () {
     beforeEach(function () {
         l.open()
         .loginToTheApp(usersForSwaglabs.standardUser)
-        p.puroductLabelChecking()
+        p.productLabelChecking()
     });
 
      it('Test 1 "Adding/deleting one product to/from the Shopping cart"', function () {
 
         p.addToCardOneProduct()
         .clickOnTheShoppingCartContainer() 
-        .clickOnTheBurgerButton()
+        b.clickOnTheBurgerButton()
         .clickOnTheAllItemsButton()
-        .puroductLabelChecking()
-        .removeItemFromTheCard()
+        p.productLabelChecking()
+        y.removeItemFromTheCard()
         p.clickOnTheShoppingCartContainer()
         .shoppingCardLableShouldContainText()
 
@@ -31,9 +35,9 @@ describe ("Test suite 2", function () {
         p.addToCartAllProducts()
         .clickOnTheShoppingCartContainer()
         .shoppingCardLableShouldContainText()
-        .removeOneProductFromTheContainer()
+        y.removeOneProductFromTheContainer()
         .clickOnTheButtonContinueShopping()
-        .puroductLabelChecking()
+        p.productLabelChecking()
 
     });
     
@@ -43,21 +47,21 @@ describe ("Test suite 2", function () {
         p.addToCartAllProducts()
         .clickOnTheShoppingCartContainer()
         .shoppingCardLableShouldContainText()
-        .allChoosedProductsShouldContainNumber()
+        y.allChoosedProductsShouldContainNumber()
         .qualityOfItemsInTheCartMustBee()
         .removeFromCardAllProducts()
         .clickOnTheButtonContinueShopping()
-        .puroductLabelChecking()
+        p.productLabelChecking()
         
     });
 
     
-       it.only('Test 4 "Reduced test adding/deleting all products to/from the Shopping cart "', function () {
+       it('Test 4 "Reduced test adding/deleting all products to/from the Shopping cart "', function () {
  
         p.addToCartAllProducts()
         .clickOnTheShoppingCartContainer()
         .logAllProducts()
-        .verifyThatNumbersOfSelectedProductsEquals('6')
+        y.verifyThatNumbersOfSelectedProductsEquals('6')
         .removeFromCardAllProducts()
         .clickOnTheButtonContinueShopping()
 
