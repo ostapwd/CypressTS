@@ -2,8 +2,11 @@ import users from "../data/users";
 import {LoginPage} from "../support/pages/loginPage";
 
 describe('Login to the application', () => {
+
+
     let inventoryPage;
     beforeEach(() => {
+        //cy.viewport('iphone-xr');
         inventoryPage = new LoginPage().open().loginToTheApp(users.standardUser);
     });
 

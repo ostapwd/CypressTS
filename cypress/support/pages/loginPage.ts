@@ -19,20 +19,35 @@ export class LoginPage extends BasePage {
     return this;
   }
 
+  public setUsername(login){
+    this.usernameInput().clear().type(login);
+    cy.wait(1000);
+  }
+  public setPassword(password){
+    this.passwordInput().clear().type(password);
+    cy.wait(1000);
+  }
+  public clickLoginButton(){
+    this.loginButton().click();
+    cy.wait(1000);
+  }
+
   public loginToTheApp(user) {
     return this.loginToTheAppWithCreds(user.username, user.password);
   }
 
   public loginToTheAppWithCreds(login, password) {
-    this.usernameInput().clear().type(login);
+    this.setUsername(login);
     cy.wait(1000);
-    this.passwordInput().clear().type(password);
-    cy.wait(5000);
+    this.setPassword(password);
+    cy.wait(3000);
 
-    this.loginButton().click();
+    this.clickLoginButton();
 
     return new InventoryPage();
   }
+
+
 
   public open() {
     this.goto(Cypress.env("UI_HOST"));

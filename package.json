@@ -9,7 +9,7 @@
     "clean": "node clean.js",
     "report": "node report.js",
     "on-chrome": "npx cypress run --browser chrome --headed",
-    "test:cypress": "npm install && npm-run-all build clean on-chrome report --continue-on-error"
+    "test": "npm install && npm-run-all build clean on-chrome report --continue-on-error"
   },
   "author": "",
   "license": "ISC",
