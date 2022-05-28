@@ -2,7 +2,7 @@
   "env": {
     "TAGS": "@smoke",
     "API_HOST": "https://jsonplaceholder.typicode.com",
-    "UI_HOST": "https://www.saucedemo.com/"
+    "BASE_URL": "https://parabank.parasoft.com/parabank"
   },
   "testFiles": "**/*.*",
   "defaultCommandTimeout": 60000,

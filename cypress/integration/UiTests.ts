@@ -1,72 +1,35 @@
-import users from "../data/users";
-import {LoginPage} from "../support/pages/loginPage";
+import customers from "../data/customers";
+import {RegisterPage} from "../support/pages/registerPage";
 
-describe('Login to the application', () => {
-    let inventoryPage;
+describe('Test Register Functionality', () => {
+    let registerPage;
+
     beforeEach(() => {
-        inventoryPage = new LoginPage().open().loginToTheApp(users.standardUser);
+        registerPage = new RegisterPage().open();
+    
     });
 
-    it('Verify a user can login to the application', () => {
-        inventoryPage.waitForPageToBeLoaded().productsLabel().then(label => {
-            expect(label.text()).to.be.equal("Products");
+    it('Verify required fields validation', () => {
+        registerPage.registerCustomer(customers.invalidCustomer).waitForPageToBeLoaded();
+        
+        cy.get("#customer\\.lastName\\.errors").then(span => {
+            expect(span.text()).to.be.equal("Last name is required.");
         });
     });
 
-    it('Verify a user can add products to cart', () => {
-        inventoryPage.waitForPageToBeLoaded().addToCartAllProducts().cartNumberLabel().then(label => {
-            expect(label.text()).to.be.equal("5");
+    it('Verify a customer can register on the site', () => {
+        registerPage.registerCustomer(customers.validCustomer).waitForPageToBeLoaded().welcomeHeader().then(header => {
+            expect(header.text()).to.be.equal(`Welcome ${customers.validCustomer.username}`);
         });
     });
 
-    it('Verify a user can logout form the app', () => {
-        inventoryPage.waitForPageToBeLoaded().menu().logout();
-        new LoginPage().waitForPageToBeLoaded().loginPageLogoLabel().should("be.visible");
-    });
-});
+     it('Verify a customer can not register twice', () => {
+        registerPage.registerCustomer(customers.validCustomer).waitForPageToBeLoaded();
 
-describe('Login functionality', function() {
-    const tests = [
-        {args: ["login1", "Password1"], expected: "Epic sadface: Username and password do not match any user in this service"},
-        {args: ["login2", "Password2"], expected: "Epic sadface: Username and password do not match any user in this service"}
-    ];
-
-    tests.forEach(({args, expected}) => {
-        it(`Test Login functionality for many users`, function() {
-            new LoginPage().open().loginToTheAppWithCreds(args[0], args[1]);
-
-            let page = new LoginPage();
-            page.loginErrorMessage().then(element => {
-                expect(element.text()).to.be.equal(expected);
-            })
+        cy.get("#customer\\.username\\.errors").then(span => {
+            expect(span.text()).to.be.equal("This username already exists.");
         });
-    });
-});
 
-
-it.skip('Verify a user can login to the app', () => {
-    cy.visit("https://www.saucedemo.com/");
-
-    cy.get("#user-name").clear().type("standard_user");
-    cy.get("#password").clear().type("secret_sauce");
-    cy.xpath(".//*[@id = 'login-button']").click();
-
-    cy.get(".app_logo").should("be.visible");
-});
-
-it.skip('Verify a user can login to the app', () => {
-    let user = {
-        username: "standard_user",
-        password: "secret_sauce"
-    }
-
-    new LoginPage().open()
-        .loginToTheApp(user)
-        .inventoryPageLogoLabel().should("be.visible");
-});
-
-it.skip('Verify a user can login to the app', () => {
-    new LoginPage().open()
-        .loginToTheApp(users.standardUser)
-        .inventoryPageLogoLabel().should("be.visible");
+        });  
+  
 });
