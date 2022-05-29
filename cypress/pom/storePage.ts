@@ -18,7 +18,7 @@ export class StorePage extends BasePage {
     }
 
     private get itemBasket(): Cypress.Chainable {
-        return this.baseContainer.get('a.shopping_cart_link');
+        return this.baseContainer.get('.shopping_cart_link');
     }
 
     public checkHeaderLabel(): this {
@@ -26,7 +26,6 @@ export class StorePage extends BasePage {
             .should('exist')
             .should('be.visible')
             .contains('Products');
-
         return this;
     }
 
@@ -37,7 +36,6 @@ export class StorePage extends BasePage {
             });
 
         return this;
-
     };
 
     public selectAllItems(): this {

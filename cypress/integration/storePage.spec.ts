@@ -15,7 +15,7 @@ describe('Test Store Page', ()=> {
 
     it('Check app header', function () {
         storepage
-            .checkHeaderLabel()
+            .checkHeaderLabel();
     });
 
     it('Check all items price', function () {
@@ -28,6 +28,5 @@ describe('Test Store Page', ()=> {
             .selectAllItems()
             .openItemBasket();
     });
-
 });
 
