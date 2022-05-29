@@ -47,12 +47,21 @@ export class LoginPage extends BasePage {
     return new InventoryPage();
   }
 
-
+  public inputCreds(user) {
+    this.setUsername(user.username);
+    cy.wait(1000);
+    this.setPassword(user.password);
+    cy.wait(1000);
+  }
 
   public open() {
     this.goto(Cypress.env("UI_HOST"));
 
     return this;
+  }
+
+  public passwordPressEnter() {
+    this.passwordInput().type("{enter}");
   }
 
 }

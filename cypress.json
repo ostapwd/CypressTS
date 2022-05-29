@@ -5,11 +5,11 @@
     "UI_HOST": "https://www.saucedemo.com/"
   },
   "testFiles": "**/*.*",
-  "defaultCommandTimeout": 60000,
-  "responseTimeout": 60000,
+  "defaultCommandTimeout": 10000,
+  "responseTimeout": 10000,
   "chromeWebSecurity": false,
   "watchForFileChanges": false,
-  "pageLoadTimeout": 60000,
+  "pageLoadTimeout": 10000,
 
   "reporter": "cypress-mochawesome-reporter",
   "reporterOptions": {
