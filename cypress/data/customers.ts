@@ -30,21 +30,6 @@ class Customers {
     repeatedPassword: "money"
   };
 
-  readonly existingCustomer = {
-    firstName: "oleg",
-    lastName: "pin",
-    addressStreet: "Kaluny",
-    addressCity: "Lviv",
-    addressState: "Lvivska",
-    addressZipCode: "5800",
-    phoneNumber: "0507689111",
-    ssn: "333",
-    username: "customerUsername",
-    password: "money",
-    repeatedPassword: "money"
-  };
-
-
 }
 
 export default new Customers();

@@ -1,12 +1,18 @@
 import customers from "../data/customers";
+import bills from "../data/bills";
+import contacts from "../data/contacts";
+
 import {RegisterPage} from "../support/pages/registerPage";
+import {BillPage} from "../support/pages/billPage";
+import {ContactsPage} from "../support/pages/contactsPage";
+
+
 
 describe('Test Register Functionality', () => {
     let registerPage;
 
     beforeEach(() => {
         registerPage = new RegisterPage().open();
-    
     });
 
     it('Verify required fields validation', () => {
@@ -29,7 +35,54 @@ describe('Test Register Functionality', () => {
         cy.get("#customer\\.username\\.errors").then(span => {
             expect(span.text()).to.be.equal("This username already exists.");
         });
+    });  
+});
 
-        });  
+describe('Test Bill Payment', () => {
+    let billPage;
+
+    beforeEach(() => {
+        new RegisterPage().open().registerCustomer(customers.validCustomer).waitForPageToBeLoaded().billPayLink().click();
+        billPage = new BillPage();
+    });
+
+    it('Verify a customer can register on the site', () => {
+        billPage.payBill(bills.validBill).waitForPageToBeLoaded().completeHeader().then(header => {
+            expect(header.text()).to.be.equal("Bill Payment Complete");
+        });
+    });
+
+    it('Verify required fields validation', () => {
+        billPage.payBill(bills.invalidBill).waitForPageToBeLoaded();
+        
+        cy.get("[ng-show*='!validationModel\\.address']").then(span => {
+            expect(span.text()).to.be.equal("Address is required.");
+        });
+    });
   
+});
+
+
+describe('Test Contact form', () => {
+    let contactsPage
+
+    beforeEach(() => { 
+        contactsPage = new ContactsPage().open();
+    
+    });
+
+    it.skip('Verify a customer can send mail to support', () => {
+
+        contactsPage.mailSupport(contacts.validContacts).waitForPageToBeLoaded().completeHeader().then(header => {
+            expect(header.text()).to.be.equal("Customer Care");
+        });
+    });
+
+    it('Verify required fields validation', () => {
+        contactsPage.mailSupport(contacts.invalidContacts).waitForPageToBeLoaded();
+        
+        cy.get("#email\\.errors").then(span => {
+            expect(span.text()).to.be.equal("Email is required.");
+        });
+    });
 });

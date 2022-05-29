@@ -6,7 +6,7 @@ export class RegisterPage extends BasePage {
     super();
   }
 
-  public registerButton() { return cy.get("#customerForm"); }
+  public registerButton() { return cy.get(".form2"); }
 
   public waitForPageToBeLoaded() {
     super.waitForPageToBeLoaded();
