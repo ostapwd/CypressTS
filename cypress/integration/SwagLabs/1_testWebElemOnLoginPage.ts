@@ -9,9 +9,8 @@ describe('Test suite to test web elements on the login page', () => {
     });
     
         it.only('Verify the URL of the login page', () => {
-
             new LoginPageSwagLabsTS()
-                .getUrlPage()
+                .getUrlPage(urlsPagesSwagLabs.loginPageUrl)
         });
 
         it('Verify the logo App is displayed on the main page', () => {

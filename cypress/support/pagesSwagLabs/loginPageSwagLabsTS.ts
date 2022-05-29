@@ -28,15 +28,6 @@ export class LoginPageSwagLabsTS extends basePageSwagLabsTS {
             return this;
     }
 
-    public verifyUrlPage(url: string){
-       return super.getUrlPage() 
-    }
-
-  
-    // public getUrlPage(){
-    //     return super.urlPage()
-    // }
-
     public getLogoApp(){
         return this.logoApp();
     }

@@ -13,8 +13,9 @@ export default abstract class basePageSwagLabsTS{
             return this
     }
 
-    public getUrlPage(){
-        return this.urlPage()
+    public getUrlPage(url){
+        this.urlPage().should('eq', url.url)
+            return this
     }
 
     public getPageLabel(){

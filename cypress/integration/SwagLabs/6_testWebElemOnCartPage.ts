@@ -25,11 +25,10 @@ describe('Test suite to test web elements on the cart page', () => {
                 }); 
             productsPage
                 .openShoppingCart()
+                .getUrlPage(urlsPagesSwagLabs.shoppingPageUrl)
                 .getPageLabel().should('be.visible').then(element => {
                     expect(element.text()).to.be.equal('Your Cart');
                 }); 
-            productsPage
-                .urlPageVerify(urlsPagesSwagLabs.shoppingPageUrl)
         });
         
         it('Verify products are displayed on the shopping cart page', () => {
@@ -44,8 +43,7 @@ describe('Test suite to test web elements on the cart page', () => {
                 }); 
             productsPage
                 .openShoppingCart()
-            shoppingCartPage
-                .urlPageVerify(urlsPagesSwagLabs.shoppingPageUrl)
+                .getUrlPage(urlsPagesSwagLabs.shoppingPageUrl)
                 .quantityOfSelectedProductsInCart()
                 .logAllProductsInCart()
                 .getPageLabel().should('be.visible').then(element => {

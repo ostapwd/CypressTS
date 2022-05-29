@@ -22,7 +22,7 @@ describe('Test suite to test web elements on the checkout complete page', () => 
                 .inputCheckoutInfo(users.standardUser)
                 .clickOpenCheckoutStepTwoPage()
                 .clickOpenCheckoutCompletePage()
-                .urlPageVerify(urlsPagesSwagLabs.checkoutCompletePageUrl)
+                .getUrlPage(urlsPagesSwagLabs.checkoutCompletePageUrl)
         });
 
         it('Verify the elements is displayed on the Checkout Complete page', () => {

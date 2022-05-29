@@ -9,7 +9,6 @@ export class ProductPageSwagLabsTS extends basePageSwagLabsTS {
     private menu() { return cy.get("#react-burger-menu-btn"); }
     private logoutButton() { return cy.get("#logout_sidebar_link"); }
     public shoppingCartLink() { return cy.get(".shopping_cart_link"); }
-    public urlProductsPage() { return cy.url(); }   
     public selectFilterProductsLabel() {return cy.xpath("//select[@data-test='product_sort_container']")}
     public nameOfFirstProductOnProductsPage() {return cy.xpath("(//*[@class='inventory_item_name'])[1]")}
     public priceOfFirstProductOnProductsPage() {return cy.xpath("(//*[@class='inventory_item_price'])[1]")}
@@ -58,11 +57,6 @@ export class ProductPageSwagLabsTS extends basePageSwagLabsTS {
         this.logoutButton().click();
             return this
     } 
-
-    public urlPageVerify(link){
-        this.urlProductsPage().should('eq', link.url);
-            return this
-    }
 
     public getShoppingCartLabel(){
         return this.shoppingCartLink()

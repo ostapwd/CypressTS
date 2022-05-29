@@ -22,7 +22,7 @@ describe('Test suite to test web elements on the checkout two step page', () => 
                 .clickOpenCheckoutStepOnePage()
                 .inputCheckoutInfo(users.standardUser)
                 .clickOpenCheckoutStepTwoPage()
-                .urlPageVerify(urlsPagesSwagLabs.checkoutStepTwoPageUrl)
+                .getUrlPage(urlsPagesSwagLabs.checkoutStepTwoPageUrl)
                 .getPageLabel().should('be.visible').then(element => {
                     expect(element.text()).to.be.equal('Checkout: Overview');
                     }); 

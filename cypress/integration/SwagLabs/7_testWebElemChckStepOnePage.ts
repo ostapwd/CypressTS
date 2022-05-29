@@ -24,7 +24,7 @@ describe('Test suite to test web elements on the checkout one step page', () => 
                 .addToCartAllproducts()
                 .openShoppingCart()
                 .clickOpenCheckoutStepOnePage()
-                .urlPageVerify(urlsPagesSwagLabs.checkoutStepOnePageUrl)
+                .getUrlPage(urlsPagesSwagLabs.checkoutStepOnePageUrl)
                 .getPageLabel().should('be.visible').then(element => {
                     expect(element.text()).to.be.equal('Checkout: Your Information');
                     }); 

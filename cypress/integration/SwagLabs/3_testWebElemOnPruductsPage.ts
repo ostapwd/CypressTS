@@ -14,7 +14,7 @@ describe('Test suite to test web elements on the products page', () => {
 
         it('Verify the URL of the products page is displayed in the browser address bar', () => {
             productsPage
-                .urlPageVerify(urlsPagesSwagLabs.productsPageUrl)
+                .getUrlPage(urlsPagesSwagLabs.productsPageUrl)
         });
         
         it('Verify a user can login to the aplication', () => {
