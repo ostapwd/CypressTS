@@ -5,7 +5,7 @@
     "eslint-config-google": "^0.14.0",
     "prettier": "2.5.1"
   },
-  "name": "lesson14hw",
+  "name": "tsybulskyi",
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {

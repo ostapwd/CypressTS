@@ -8,6 +8,10 @@ import {
   ERROR_BORDER_COLOR_REQUIRE,
 } from "../fixtures/automation-practice-form.data.js";
 
+Cypress.on('uncaught:exception', (err, runnable) => {
+  return false
+})
+
 describe("Student Registration form cheking:", function () {
   beforeEach(() => {
     cy.visit("/automation-practice-form");

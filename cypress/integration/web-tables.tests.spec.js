@@ -3,6 +3,10 @@ import * as SELECTORS from "./../page-object/web-tables.selectors.json";
 import { WebTablesPage } from "../models/web-tables.page.js";
 const webTablesPage = new WebTablesPage();
 
+Cypress.on('uncaught:exception', (err, runnable) => {
+  return false
+})
+
 describe("Web tables cheking:", function () {
   beforeEach(() => {
     cy.visit("/webtables");

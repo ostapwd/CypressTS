@@ -3,6 +3,11 @@ import * as SELECTORS from "../page-object/text-box.selectors.json";
 import { TestBoxPage } from "../models/text-box.page.js";
 const textBoxPage = new TestBoxPage();
 
+Cypress.on('uncaught:exception', (err, runnable) => {
+  return false
+})
+
+
 describe("Test form cheking:", function () {
   beforeEach(() => {
     cy.visit("/text-box");
