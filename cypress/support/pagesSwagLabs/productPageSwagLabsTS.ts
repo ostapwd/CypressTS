@@ -5,13 +5,12 @@ export class ProductPageSwagLabsTS extends basePageSwagLabsTS {
     private addToCartButtons() { return cy.get("[id*='add-to-cart']"); }
     private deleteFromCartButtons() { return cy.get("[id*='remove']"); }
     private inventoryItemsNames() { return cy.get(".inventory_item_name"); }
-    private selectedProductsNumber() { return cy.get("#shopping_cart_container .shopping_cart_badge"); }
+    private quantityProductsInCart() { return cy.get("#shopping_cart_container .shopping_cart_badge"); }
     private menu() { return cy.get("#react-burger-menu-btn"); }
     private logoutButton() { return cy.get("#logout_sidebar_link"); }
-    public productsLabel() { return cy.get("#header_container .title"); }
     public shoppingCartLink() { return cy.get(".shopping_cart_link"); }
     public urlProductsPage() { return cy.url(); }   
-    public selectSortProductsLabel() {return cy.xpath("//select[@data-test='product_sort_container']")}
+    public selectFilterProductsLabel() {return cy.xpath("//select[@data-test='product_sort_container']")}
     public nameOfFirstProductOnProductsPage() {return cy.xpath("(//*[@class='inventory_item_name'])[1]")}
     public priceOfFirstProductOnProductsPage() {return cy.xpath("(//*[@class='inventory_item_price'])[1]")}
     
@@ -20,13 +19,8 @@ export class ProductPageSwagLabsTS extends basePageSwagLabsTS {
             return new shoppingCartSwagLabs()
     }
 
-    public logAllProducts(){
-        this.inventoryItemsNames().each(item => {
-            cy.log(item.text())
-        });
-
-        super.waitForSeconds(1)
-            return this
+    public getLogAllProducts(){
+        return this.inventoryItemsNames()
     }
 
     public addToCartAllproducts(){
@@ -45,29 +39,23 @@ export class ProductPageSwagLabsTS extends basePageSwagLabsTS {
             return this
     }
 
-    public selectedProductsNumberVerify(number){
-        this.selectedProductsNumber().then( element => {
-            expect(element.text()).to.be.equal(number);
-        }); 
-            return this
+    public getQuantityProductsInCart(){
+       return this.quantityProductsInCart()
     }
 
-    public selectedProductsNumberHiddenVerify(number){
-        this.shoppingCartLink().then( element => {
-            expect(element.text()).to.be.equal(number);
-        }); 
-            return this
+    public getQuantityProductsInEmptyCart(){
+       return this.shoppingCartLink()
     }
 
     public openBurgerMenu() {
-        this.menu().should('be.visible').click()
+        this.menu().click()
         this.waitForSeconds(1)
             return this
     };
 
     public logoutOfTheApp() {
         this.openBurgerMenu();
-        this.logoutButton().should('be.visible').click();
+        this.logoutButton().click();
             return this
     } 
 
@@ -76,47 +64,24 @@ export class ProductPageSwagLabsTS extends basePageSwagLabsTS {
             return this
     }
 
-    public productsLabelVerify(){
-        this.productsLabel().should('be.visible').then((element) => {
-            expect(element.text()).to.be.equal('Products')
-        })
-            return this
+    public getShoppingCartLabel(){
+        return this.shoppingCartLink()
     }
 
-    public shoppingCartLabelVerify(){
-        this.shoppingCartLink().should('be.visible');
-            return this
+    public getSelectFilter(option: string){
+       return this.selectFilterProductsLabel()
     }
 
-    public selectSortVerify(option: string){
-        this.selectSortProductsLabel().should('be.visible');
-        this.selectSortProductsLabel().select(option)
-            return this
+    public getSelectFilterByIndex(index: number){
+       this.selectFilterProductsLabel().select(index)
+       return this
     }
 
-    public selectSortByIndex(index: number){
-        this.selectSortProductsLabel().select(index)
-            return this
+    public getFirstProductName(){
+       return this.nameOfFirstProductOnProductsPage()
     }
 
-    public selectSortLabelVerify(){
-        this.selectSortProductsLabel().should('be.visible');
-        this.nameOfFirstProductOnProductsPage().should('be.visible').then(element => 
-            cy.log(element.text()));
-        this.priceOfFirstProductOnProductsPage().should('be.visible').then(element => 
-            cy.log(element.text()));
-        this.nameOfFirstProductOnProductsPage().should('be.visible').then(element => 
-            cy.log(element.text()));
-        this.priceOfFirstProductOnProductsPage().should('be.visible').then(element => 
-            cy.log(element.text()));
-        this.nameOfFirstProductOnProductsPage().should('be.visible').then(element => 
-            cy.log(element.text()));
-        this.priceOfFirstProductOnProductsPage().should('be.visible').then(element => 
-            cy.log(element.text()));
-        this.nameOfFirstProductOnProductsPage().should('be.visible').then(element => 
-            cy.log(element.text()));
-        this.priceOfFirstProductOnProductsPage().should('be.visible').then(element => 
-            cy.log(element.text()));
-            return this
-    }
+    public getFirstProductPrice(){
+        return this.priceOfFirstProductOnProductsPage()
+     }
 }

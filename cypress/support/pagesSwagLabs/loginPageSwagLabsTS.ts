@@ -5,7 +5,6 @@ export class LoginPageSwagLabsTS extends basePageSwagLabsTS {
     private usernameInput() { return cy.get("#user-name"); }
     private passwordInput() { return cy.get("#password"); }
     private loginButton() { return cy.get("input[data-test='login-button']"); }
-    public  urlPage() { return cy.url(); }
     public  logoApp() {return cy.get(".login_logo");}
     public  errorMessageLoginToTheApp() {return cy.xpath("//*[@data-test='error']");}
     public  errorMessageColor() {return cy.get(".error-message-container.error");}
@@ -15,60 +14,43 @@ export class LoginPageSwagLabsTS extends basePageSwagLabsTS {
         this.waitForSeconds(1);
         this.passwordInput().clear().type(user.password);
         this.waitForSeconds(1);
-        this.loginButton().click(); 
-            return new ProductPageSwagLabsTS()
+        return this
+    }
+
+    public clickOnButtonLogin(){
+        this.loginButton().click()  
+        return new ProductPageSwagLabsTS()
     }
 
     public open() {
-        super.goto('https://www.saucedemo.com/');
+        super.goto(Cypress.env("UI_HOST"));
         this.waitForSeconds(1)
             return this;
     }
 
-    // public verifyUrlPage(url){
-    //     super.urlPage(url.url)
-    //         return this
+    public verifyUrlPage(url: string){
+       return super.getUrlPage() 
+    }
+
+  
+    // public getUrlPage(){
+    //     return super.urlPage()
     // }
 
-
-    public urlPageVerify(link){
-        this.urlPage().should('eq', link.url)
-            return this
+    public getLogoApp(){
+        return this.logoApp();
     }
 
-    public logoAppVerify(){
-        this.logoApp().should('be.visible')
-            return this
+    public getUsernameInput(){
+        return this.usernameInput();
     }
 
-    public usernameInputVerify(){
-        this.usernameInput().should('be.visible');
-            return this
+    public getPasswordInput(){
+       return this.passwordInput();
     }
 
-    public placeholderUsernameInputVerify(){
-        this.usernameInput().invoke('attr', 'placeholder').should('contain', 'Username');
-            return this
-    }
-
-    public passwordInputVerify(){
-        this.passwordInput().should('be.visible');
-            return this
-    }
-
-    public placeholderPasswordInputVerify(){
-        this.passwordInput().invoke('attr', 'placeholder').should('contain', 'Password');
-            return this
-    }
-
-    public loginButtonVerify(){
-        this.loginButton().invoke('attr', 'value').should('contain', 'Login');
-            return this
-    }
-
-    public colorLoginButtonVerify(){
-        this.loginButton().should('have.css', 'background-color', 'rgb(226, 35, 26)');
-            return this
+    public getButtonLogin(){
+       return this.loginButton();
     }
 
     public emptyPasswordToTheApp(user) {
@@ -76,7 +58,6 @@ export class LoginPageSwagLabsTS extends basePageSwagLabsTS {
         this.waitForSeconds(1);
         this.passwordInput().clear()
         this.waitForSeconds(1);
-        this.loginButton().click(); 
             return this
     }
 
@@ -85,7 +66,6 @@ export class LoginPageSwagLabsTS extends basePageSwagLabsTS {
         this.waitForSeconds(1);
         this.passwordInput().clear().type(user.password);
         this.waitForSeconds(1);
-        this.loginButton().click(); 
             return this
     }
 
@@ -94,7 +74,6 @@ export class LoginPageSwagLabsTS extends basePageSwagLabsTS {
         this.waitForSeconds(1);
         this.passwordInput().clear();
         this.waitForSeconds(1);
-        this.loginButton().click(); 
             return this
     }
 

@@ -1,6 +1,7 @@
 import { checkoutCompletePageSwagLabsTS } from "./checkoutCompletePageSwagLabsTS";
+import basePageSwagLabsTS from './basePageSwagLabsTS';
 
-export class checkoutStepTwoPageSwagLabsTS{
+export class checkoutStepTwoPageSwagLabsTS extends basePageSwagLabsTS{
     private summaryTotalLabel() { return cy.get(".summary_total_label"); }
     private urlCheckTwoStepPage() { return cy.url(); }
     public checkTwoStepPageLabel() { return cy.get("#header_container .title"); }
@@ -12,33 +13,15 @@ export class checkoutStepTwoPageSwagLabsTS{
             return this
     }
 
-    public checkTwoStepPageLabelVerify(){
-        this.checkTwoStepPageLabel().should('be.visible').then((element) => {
-            expect(element.text()).to.be.equal('Checkout: Overview')
-        })
-            return this
+    public getSummaryTotalLabel(){
+       return this.summaryTotalLabel()
     }
 
-    public summaryTotalLabelVerify(){
-        this.summaryTotalLabel().should('be.visible').then((element) => {
-            expect(element.text()).to.be.equal('Total: $140.34')
-        })
-            return this
+    public getFinishButton(){
+        return this.finishButton()
     }
 
-    public finishButtonVerify(){
-        this.finishButton().should('be.visible').should('contain', 'Finish')
-            return this
-    }
-
-    public cancelButtonVerify(){
-        this.cancelButton().should('be.visible').then((element) => {
-            expect(element.text()).to.be.equal('Cancel')
-        })
-            return this
-    }
-
-    public openCheckoutCompletePage(){
+    public clickOpenCheckoutCompletePage(){
         this.finishButton().should('be.visible').click()
             return new checkoutCompletePageSwagLabsTS()
    }

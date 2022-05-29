@@ -11,33 +11,53 @@ const shoppingCartPage = new shoppingCartSwagLabs();
 describe('Test suite to test web elements on the cart page', () => {
     beforeEach('Login to the App', () => {
         cy.log('Start')
-        loginPage.open().loginToTheApp(users.standardUser)
+        loginPage.open().loginToTheApp(users.standardUser).clickOnButtonLogin()
     });
         it('Verify a user can open to the cart page', () => {
             productsPage
-                .logAllProducts()
+                .getLogAllProducts().each(item => {
+                    cy.log(item.text())
+                });
+            productsPage
                 .addToCartAllproducts()
-                .selectedProductsNumberVerify('6')
+                .getQuantityProductsInCart().then( element => {
+                    expect(element.text()).to.be.equal('6');
+                }); 
+            productsPage
                 .openShoppingCart()
+                .getPageLabel().should('be.visible').then(element => {
+                    expect(element.text()).to.be.equal('Your Cart');
+                }); 
+            productsPage
                 .urlPageVerify(urlsPagesSwagLabs.shoppingPageUrl)
         });
+        
         it('Verify products are displayed on the shopping cart page', () => {
             productsPage
                 .addToCartAllproducts()
-                .logAllProducts()
-                .selectedProductsNumberVerify('6')
+                .getLogAllProducts().each(item => {
+                    cy.log(item.text())
+                });
+            productsPage
+                .getQuantityProductsInCart().then( element => {
+                    expect(element.text()).to.be.equal('6');
+                }); 
+            productsPage
                 .openShoppingCart()
             shoppingCartPage
-            .urlPageVerify(urlsPagesSwagLabs.shoppingPageUrl)
+                .urlPageVerify(urlsPagesSwagLabs.shoppingPageUrl)
                 .quantityOfSelectedProductsInCart()
                 .logAllProductsInCart()
-                .shoppingCartLabelVerify()
-                .inventoryItemsPriceInCart()
-                .checkoutButtonVerify()
+                .getPageLabel().should('be.visible').then(element => {
+                    expect(element.text()).to.be.equal('Your Cart');
+                }); 
+            shoppingCartPage
+                .getCheckoutButton().should('be.visible').should('contain', 'Checkout')
         });
         
     afterEach('Logout of the App', () => {
         productsPage
+            .waitForSeconds(1)
             .logoutOfTheApp()
     })
 });

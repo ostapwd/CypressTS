@@ -1,5 +1,8 @@
 export default abstract class basePageSwagLabsTS{
-
+    
+    public urlPage() {return cy.url();}
+    public productsLabel() { return cy.get("#header_container .title"); }
+   
     public waitForSeconds(secondsToWait :number) {
         cy.wait(secondsToWait * 1000);
             return this
@@ -10,9 +13,11 @@ export default abstract class basePageSwagLabsTS{
             return this
     }
 
-    // protected urlPage(urls){
-    //     cy.url().should('eq', urls);
-        
-    //     return this
-    // }
+    public getUrlPage(){
+        return this.urlPage()
+    }
+
+    public getPageLabel(){
+        return this.productsLabel()
+    }  
 }

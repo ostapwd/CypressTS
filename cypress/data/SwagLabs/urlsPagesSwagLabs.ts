@@ -23,4 +23,4 @@ class UrlsPagesSwagLabs {
         url: 'https://www.saucedemo.com/checkout-complete.html'
     };
 }
-export default new UrlsPagesSwagLabs()
+export default new UrlsPagesSwagLabs();

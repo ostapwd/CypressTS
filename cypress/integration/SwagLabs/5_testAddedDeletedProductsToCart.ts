@@ -9,27 +9,41 @@ describe('Test suite added and deleted products to shopping cart', () => {
   
     beforeEach('Login to the App', () => {
         cy.log('Start')
-        loginPage.open().loginToTheApp(users.standardUser)
+        loginPage.open().loginToTheApp(users.standardUser).clickOnButtonLogin()
     });
 
         it('Verify a user added products to shopping cart', () => {
             productsPage
-                .logAllProducts()
                 .addToCartAllproducts()
-                .selectedProductsNumberVerify('6')
+                .getLogAllProducts().each(item => {
+                    cy.log(item.text())
+                });
+            productsPage
+                .getQuantityProductsInCart().then( element => {
+                    expect(element.text()).to.be.equal('6');
+                }); 
         });
 
         it('Verify a user deleted products from shopping cart', () => {
             productsPage
-                .logAllProducts()
+                .getLogAllProducts().each(item => {
+                    cy.log(item.text())
+                });
+            productsPage
                 .addToCartAllproducts()
-                .selectedProductsNumberVerify('6')
+                .getQuantityProductsInCart().then( element => {
+                    expect(element.text()).to.be.equal('6');
+                });
+            productsPage 
                 .deleteFromCartAllproducts()
-                .selectedProductsNumberHiddenVerify('')
+                .getQuantityProductsInEmptyCart().then( element => {
+                    expect(element.text()).to.be.equal('');
+                }); 
         });
         
     afterEach('Logout of the App', () => {
         productsPage
+            .waitForSeconds(1)
             .logoutOfTheApp()
     })
 });

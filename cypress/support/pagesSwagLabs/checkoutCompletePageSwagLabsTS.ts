@@ -1,4 +1,6 @@
-export class checkoutCompletePageSwagLabsTS{
+import basePageSwagLabsTS from './basePageSwagLabsTS';
+
+export class checkoutCompletePageSwagLabsTS extends basePageSwagLabsTS{
     public infoCheckoutCompleteLabel() { return cy.get("#checkout_complete_container .complete-header"); }
     private urlCheckCompletePage() { return cy.url(); }
     public checkCompletePageLabel() { return cy.get("#header_container .title"); }
@@ -11,19 +13,19 @@ export class checkoutCompletePageSwagLabsTS{
             return this
     }
 
-    public infoCheckoutCompletePageLabelVerify(){
-        this.checkCompletePageLabel().should('be.visible').then((element) => {
-            expect(element.text()).to.be.equal('Checkout: Complete!')
-        })
-        return this
+    public getInfoCheckoutComplete(){
+       return this.checkCompletePageLabel()
     }
 
-    public imageCompletePageVerify(){
-        this.imageCompletePage().should('be.visible')
-        return this
+    public getImageComplete(){
+       return this.imageCompletePage()
     }
 
-    public returnToProductsPage(){
-        this.backHomeButton().should('be.visible').click()
+    public getBackHomeButton(){
+       return this.backHomeButton()
     }
+
+    public clickBackHomeButton(){
+        return this.backHomeButton()
+     }
 }

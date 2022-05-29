@@ -1,67 +1,77 @@
 import errorsLoginMessage from "../../data/SwagLabs/errorsLoginMessage";
-import urlsPagesSwagLabs from "../../data/SwagLabs/urlsPagesSwagLabs";
 import users from "../../data/SwagLabs/users";
 import { LoginPageSwagLabsTS } from "../../support/pagesSwagLabs/loginPageSwagLabsTS";
-import { ProductPageSwagLabsTS } from "../../support/pagesSwagLabs/productPageSwagLabsTS";
+
+
+let loginPage = new LoginPageSwagLabsTS();
 
 describe('Test suite verified a user login into the application', () => {
     beforeEach('Login to the App', () => {
         cy.log('Start')
-        new LoginPageSwagLabsTS().open()
+        loginPage.open()
     });
         it('Verify a user can login into the application (positive login)', () => {
             new LoginPageSwagLabsTS()
-                .urlPageVerify(urlsPagesSwagLabs.loginPageUrl)
-                .usernameInputVerify()
                 .loginToTheApp(users.standardUser)
-            new ProductPageSwagLabsTS()
-                .urlPageVerify(urlsPagesSwagLabs.productsPageUrl)
-                .productsLabelVerify()
+                .clickOnButtonLogin()
+                .getPageLabel().should('be.visible').then((element) => {
+                    expect(element.text()).to.be.equal('Products')
+                })
         });
 
         it('Verify a user can login into the application (negative credentials)', () => {
-            new LoginPageSwagLabsTS()
+            loginPage
                 .loginToTheApp(users.noRegisterUser)
-            new LoginPageSwagLabsTS()
+                .clickOnButtonLogin()
+            loginPage
                 .errorMessageVerify(errorsLoginMessage.nagativeCredentialsUser)
         })
 
         it('Verify a user can login into the application (locked Out User)', () => {
-            new LoginPageSwagLabsTS()
+            loginPage
                 .loginToTheApp(users.lockedOutUser)
-                new LoginPageSwagLabsTS()
+                .clickOnButtonLogin()
+            loginPage
                 .errorMessageVerify(errorsLoginMessage.lockedOutUser)
         })
 
         it('Verify a user can login into the application (empty Password field)', () => {
-            new LoginPageSwagLabsTS()
+            loginPage
                 .emptyPasswordToTheApp(users.standardUser)
+                .clickOnButtonLogin()
+            loginPage
                 .errorMessageVerify(errorsLoginMessage.emptyPasswordFieldUser)
         })
 
         it('Verify a user can login into the application (empty Username field)', () => {
-            new LoginPageSwagLabsTS()
+            loginPage
                 .emptyUsernameToTheApp(users.standardUser)
+                .clickOnButtonLogin()
+            loginPage
                 .errorMessageVerify(errorsLoginMessage.emptyUsernameFieldUser)
         })
 
         it('Verify a user can login into the application (empty field)', () => {
-            new LoginPageSwagLabsTS()
+            loginPage
                 .emptyFieldsToTheApp()
+                .clickOnButtonLogin()
+            loginPage
                 .errorMessageVerify(errorsLoginMessage.emptyFieldsUser)
         })
 
         it('Verify a user can login into the application (wrong username user)', () => {
-            new LoginPageSwagLabsTS()
+            loginPage
                 .loginToTheApp(users.wrongUsernameUser)
-            new LoginPageSwagLabsTS()
+                .clickOnButtonLogin()
+            loginPage
                 .errorMessageVerify(errorsLoginMessage.nagativeCredentialsUser)
         })
 
         it('Verify a user can login into the application (wrong password user)', () => {
-            new LoginPageSwagLabsTS()
+            loginPage
                 .loginToTheApp(users.wrongPasswordUser)
-            new LoginPageSwagLabsTS()
+                .clickOnButtonLogin()
+            loginPage
                 .errorMessageVerify(errorsLoginMessage.nagativeCredentialsUser)
         })
 

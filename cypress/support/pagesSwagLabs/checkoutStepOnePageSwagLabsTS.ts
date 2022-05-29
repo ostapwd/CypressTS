@@ -1,5 +1,6 @@
 import basePageSwagLabsTS from './basePageSwagLabsTS';
 import { checkoutStepTwoPageSwagLabsTS } from './checkoutStepTwoPageSwagLabsTS';
+
 export class checkoutStepOnePageSwagLabsTS extends basePageSwagLabsTS{
 
     private formCheckOneStepPage() { return cy.get(".checkout_info"); }
@@ -16,41 +17,26 @@ export class checkoutStepOnePageSwagLabsTS extends basePageSwagLabsTS{
             return this
     }
 
-    public checkOneStepPageLabelVerify(){
-        this.checkOneStepPageLabel().should('be.visible').then((element) => {
-            expect(element.text()).to.be.equal('Checkout: Your Information')
-        })
-            return this
+    public getFormCheckOneStepPage(){
+        return this.formCheckOneStepPage()
     }
 
-    public formCheckOneStepPageVerify(){
-        this.formCheckOneStepPage().should('be.visible')
-            return this
+    public getContinueButton(){
+        return this.continueButton()
     }
 
-    public continueButtonVerify(){
-        this.continueButton().should('be.visible').should('have.attr', 'type').and('eq','submit')
-            return this
+    public getCancelButton(){
+         return this.cancelButton()
     }
 
-    public cancelButtonVerify(){
-        this.cancelButton().should('be.visible').then((element) => {
-            expect(element.text()).to.be.equal('Cancel')
-        })
-            return this
-    }
-
-    public fillFormCheckoutStepOnePage(user){
+    public inputCheckoutInfo(user){
         this.firstNameInput().clear().type(user.firstName)
         this.lastNameInput().clear().type(user.lastName)
         this.postalCodeInput().clear().type(user.postalCode)
             return this
     }
 
-    public openCheckoutStepTwoPage(user){
-        this.firstNameInput().clear().type(user.firstName)
-        this.lastNameInput().clear().type(user.lastName)
-        this.postalCodeInput().clear().type(user.postalCode)
+    public clickOpenCheckoutStepTwoPage(){
         this.continueButton().click()
             return new checkoutStepTwoPageSwagLabsTS()
     }

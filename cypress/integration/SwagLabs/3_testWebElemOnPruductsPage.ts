@@ -3,32 +3,40 @@ import users from '../../data/SwagLabs/users';
 import { LoginPageSwagLabsTS } from '../../support/pagesSwagLabs/loginPageSwagLabsTS';
 import { ProductPageSwagLabsTS } from '../../support/pagesSwagLabs/productPageSwagLabsTS';
 
-const loginPage = new LoginPageSwagLabsTS();
-const productsPage = new ProductPageSwagLabsTS();
+let loginPage = new LoginPageSwagLabsTS();
+let productsPage = new ProductPageSwagLabsTS; 
 
 describe('Test suite to test web elements on the products page', () => {
-    before('Opened the Products page', () => {
+    beforeEach('Opened the Products page', () => {
         cy.log('Start')
-        loginPage.open().loginToTheApp(users.standardUser);
+        loginPage.open().loginToTheApp(users.standardUser).clickOnButtonLogin();
     });
+
         it('Verify the URL of the products page is displayed in the browser address bar', () => {
-            productsPage.urlPageVerify(urlsPagesSwagLabs.productsPageUrl)
+            productsPage
+                .urlPageVerify(urlsPagesSwagLabs.productsPageUrl)
         });
         
         it('Verify a user can login to the aplication', () => {
-            productsPage.productsLabelVerify();
+            productsPage
+                .getPageLabel().should('be.visible').then(element => {
+                    expect(element.text()).to.be.equal('Products');
+                }); 
         });
 
         it('Verify the cart is displayed on the products page', () => {
-            productsPage.shoppingCartLabelVerify()
+            productsPage
+                .getShoppingCartLabel().should('be.visible');
         });
 
         it('Verify the select is displayed on the products page', () => {
-            productsPage.selectSortLabelVerify()
+            productsPage
+                .getSelectFilterByIndex(1)
         });
     
-    after('Logout of the App', () => {
+    afterEach('Logout of the App', () => {
         productsPage
+            .waitForSeconds(1)
             .logoutOfTheApp()
     })
 });

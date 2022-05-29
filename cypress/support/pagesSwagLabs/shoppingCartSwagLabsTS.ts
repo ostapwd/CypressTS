@@ -7,7 +7,6 @@ export class shoppingCartSwagLabs extends basePageSwagLabsTS{
     private selectedProductQuantityInCart() { return cy.get(".cart_quantity"); }
     private urlCart() { return cy.url(); }
     public shoppingCartLabel() { return cy.get("#header_container .title"); }
-    public inventoryItemsPrice() {return cy.get(".inventory_item_price") }
     private checkoutButton() { return cy.get("#checkout"); }
 
     public logAllProductsInCart() {
@@ -33,26 +32,11 @@ export class shoppingCartSwagLabs extends basePageSwagLabsTS{
             return this
     }
 
-    public shoppingCartLabelVerify(){
-        this.shoppingCartLabel().should('be.visible').then((element) => {
-            expect(element.text()).to.be.equal('Your Cart')
-        })
-          return this
+    public getCheckoutButton(){
+        return this.checkoutButton()
     }
 
-    public inventoryItemsPriceInCart(){
-        this.inventoryItemsPrice().each(item => {
-            expect(item.text()).contains('$')
-        })
-         return this
-    }
-
-    public checkoutButtonVerify(){
-        this.checkoutButton().should('be.visible').should('contain', 'Checkout')
-            return this
-    }
-
-    public openCheckoutStepOnePage(){
+    public clickOpenCheckoutStepOnePage(){
         this.checkoutButton().click()
             return new checkoutStepOnePageSwagLabsTS()
     }
