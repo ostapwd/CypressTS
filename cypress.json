@@ -1,6 +1,21 @@
 {
-    "chromeWebSecurity": false,
-    "watchForFileChanges": false,
-    "pageLoadTimeout": 6000,
-    "defaultCommandTimeout": 6000
+  "env": {
+    "API_HOST": "https://jsonplaceholder.typicode.com",
+    "TAGS": "@smoke"
+  },
+  "testFiles": "**/*.*",
+  "defaultCommandTimeout": 60000,
+  "responseTimeout": 60000,
+  "chromeWebSecurity": false,
+  "watchForFileChanges": false,
+  "pageLoadTimeout": 60000,
+
+  "reporter": "cypress-mochawesome-reporter",
+  "reporterOptions": {
+    "reportDir": "cypress/reports",
+    "charts": true,
+    "reportPageTitle": "My Test Suite",
+    "embeddedScreenshots": true,
+    "inlineAssets": true
+  }
 }

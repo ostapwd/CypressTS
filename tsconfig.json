@@ -99,6 +99,5 @@
       // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
       "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
     },
-    "include": ["**/*.ts", "../node_modules/cypress", "node_modules/cypress-xpath"],
-    "exclude": ["pom/*.login_pageTS.ts"]
+    "include": ["**/*.ts", "../node_modules/cypress", "node_modules/cypress-xpath"]
   }
