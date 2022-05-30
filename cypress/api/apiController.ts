@@ -9,11 +9,11 @@ class ApiController{
         })
     }
 
-    createToDo(user){
+    createToDo(todo){
         return cy.request({
             method: "POST",
             url: "https://jsonplaceholder.typicode.com/todos",
-            body: user
+            body: todo
         })
         .then((response) => {cy.log(JSON.stringify(response, null, 2))
         })
