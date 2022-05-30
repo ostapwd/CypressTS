@@ -10,7 +10,7 @@
 	
 	"reporter": "cypress-mochawesome-reporter",
 	"reporterOptions": {
-		"reportDir": "cypress/report",
+		"reportDir": "cypress/reports",
 		"charts": true,
 		"reportPageTitle": "Test Suite Vitalik-taf",
 		"embeddedScreenshots": true,
