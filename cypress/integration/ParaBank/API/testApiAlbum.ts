@@ -1,10 +1,12 @@
 import apiController3Album from "../../../api/apiController3Album";
 
-
 describe("Albums API tests", () => {
     it("GET albums test", () => {
         apiController3Album.getAlbums().then( response => {
             expect(response.status).to.be.equal(200);
+
+            let result = validate(response.body, getAlbumsSchema);
+            expect(result.valid, result.errors.toString()).to.be.true
         });
     });
 
