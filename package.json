@@ -4,8 +4,10 @@
   "description": "test_1",
   "main": "index.js",
   "scripts": {
+    "cy:open": "cypress open",
+    "build": "tsc",
     "on-chrome": "npx cypress run --browser chrome --headed",
-    "test": "npm install && npm-run-all on-chrome --continue-on-error"
+    "test:cypress": "npm install && npm-run-all on-chrome --continue-on-error"
   },
   "repository": {
     "type": "git",
