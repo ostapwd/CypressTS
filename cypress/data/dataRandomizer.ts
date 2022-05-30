@@ -3,7 +3,7 @@ export class Random {
     let charsUserName =
       'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_0123456789'
     let userName = ''
-    for (let ii = 0; ii < 7; ii++) {
+    for (let i = 0; i < 7; i++) {
       userName +=
         charsUserName[Math.floor(Math.random() * charsUserName.length)]
     }
