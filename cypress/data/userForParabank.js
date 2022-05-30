@@ -8,7 +8,7 @@ class User{
         addressZipCode: "777",
         phone: "+380",
         ssn: "2",
-        username: "liliyavaryvoda28",
+        username: "liliyavaryvoda31",
         password: "liliyavaryvoda",
         confirmPassword: "liliyavaryvoda"
     }
