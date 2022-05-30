@@ -6,6 +6,14 @@
 	"chromeWebSecurity": false,
 	"watchForFileChanges": false,
 	"pageLoadTimeout": 60000,
-	"defaultCommandTimeout": 10000
+	"defaultCommandTimeout": 10000,
 	
+	"reporter": "cypress-mochawesome-reporter",
+	"reporterOptions": {
+		"reportDir": "cypress/report",
+		"charts": true,
+		"reportPageTitle": "Test Suite Vitalik-taf",
+		"embeddedScreenshots": true,
+		"inlineAssets": true
+	}
 }
