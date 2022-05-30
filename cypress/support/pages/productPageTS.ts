@@ -1,5 +1,5 @@
 export class ProductPageTS {
-  private productName() {
+  public productName() {
     return cy.get('#item_5_title_link > div')
   }
   private productsLabel() {
@@ -35,15 +35,8 @@ export class ProductPageTS {
   private checkoutFinishBtn() {
     return cy.get('#finish')
   }
-  private purchaseValidation() {
+  public purchaseValidation() {
     return cy.get('#checkout_complete_container > img')
-  }
-
-  public productNameVerification() {
-    this.productName().then((elment) => {
-      expect(elment.text()).to.equal('Sauce Labs Fleece Jacket')
-    })
-    return this
   }
 
   public productsLabelVerification() {
@@ -84,11 +77,6 @@ export class ProductPageTS {
     this.checkoutContinueBtn().click()
     this.checkoutFinishBtn().click()
 
-    return this
-  }
-
-  public validationPurchase() {
-    this.purchaseValidation().should('be.visible')
     return this
   }
 }

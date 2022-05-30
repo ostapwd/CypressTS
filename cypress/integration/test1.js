@@ -1,5 +1,4 @@
 import users from "../data/users";
-import loginPage from "../support/pages/loginPage";
 import { LoginPageTS } from "../support/pages/loginPageTS"
 
 describe('SwagLabs test suite', function() {
@@ -13,19 +12,21 @@ describe('SwagLabs test suite', function() {
 
         loginPageTS
             .loginToTheApp(users.problemUser)
-            .productNameVerification();
-
+            .productName().then((elment) => {
+                expect(elment.text()).to.equal('Sauce Labs Fleece Jacket')
+            });
     });
-
 
     it('wrong pass login ', function() {
 
         loginPageTS
             .loginToTheApp(users.wrongPassUser);
         loginPageTS
-            .wrongPassValidate();
+            .wrongPassVerify().should(
+                'have.text',
+                'Epic sadface: Username and password do not match any user in this service',
+            );
     });
-
 
     it('should buy items', function() {
 
@@ -37,6 +38,6 @@ describe('SwagLabs test suite', function() {
             .deleteItems()
             .checkoutConfirm()
             .confirmationCheckout('Yurii', 'Nah', '12345')
-            .validationPurchase();
+            .purchaseValidation().should('be.visible');
     });
 });

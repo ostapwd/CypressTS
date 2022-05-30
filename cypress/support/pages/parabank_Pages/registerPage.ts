@@ -10,7 +10,7 @@ export class RegisterPage {
   private registerButton() {
     return cy.get('[colspan="2"] > .button')
   }
-  private registerValidation() {
+  public registerValidation() {
     return cy.get('#rightPanel > p')
   }
 
@@ -21,13 +21,5 @@ export class RegisterPage {
 
     this.registerButton().click()
     return this
-  }
-
-  public registerValidationApp() {
-    this.registerValidation().should(
-      'have.text',
-      'Your account was created successfully. You are now logged in.',
-    )
-    return Random
   }
 }

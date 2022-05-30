@@ -17,7 +17,13 @@ describe('ParaBank test suite', function () {
   })
 
   it('should register', function () {
-    registerPage.registerApp(randomName).registerValidationApp()
+    registerPage
+      .registerApp(randomName)
+      .registerValidation()
+      .should(
+        'have.text',
+        'Your account was created successfully. You are now logged in.',
+      )
   })
 
   it('should logIn and open new acc', function () {
@@ -25,6 +31,10 @@ describe('ParaBank test suite', function () {
       .loginApp(randomName, randomName)
       .loginValidation()
       .should('have.text', `Welcome ${randomName} ${randomName}`)
-    accfunds.openNewAccApp().transferFundsApp()
+    accfunds
+      .openNewAccApp()
+      .verifyNewAcc()
+      .should('have.text', 'Congratulations, your account is now open.')
+    accfunds.transferFundsApp()
   })
 })

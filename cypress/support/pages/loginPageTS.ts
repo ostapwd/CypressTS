@@ -10,7 +10,7 @@ export class LoginPageTS {
   private loginButton() {
     return cy.get('#login-button')
   }
-  private wrongPassVerify() {
+  public wrongPassVerify() {
     return cy.get('[data-test ="error"]')
   }
 
@@ -21,15 +21,6 @@ export class LoginPageTS {
     this.loginButton().click()
 
     return new ProductPageTS()
-  }
-
-  public wrongPassValidate() {
-    this.wrongPassVerify().should(
-      'have.text',
-      'Epic sadface: Username and password do not match any user in this service',
-    )
-
-    return this
   }
 
   public open() {

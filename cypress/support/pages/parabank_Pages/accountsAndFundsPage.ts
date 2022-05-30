@@ -6,7 +6,7 @@ export class AccFundsPage {
     return cy.get('form.ng-pristine > div > .button')
   }
 
-  private verifyNewAcc() {
+  public verifyNewAcc() {
     return cy.get('#rightPanel > div > div > p:nth-child(2)')
   }
 
@@ -30,10 +30,7 @@ export class AccFundsPage {
     this.openNewAcc().click()
     cy.wait(1000)
     this.openAccButton().click()
-    this.verifyNewAcc().should(
-      'have.text',
-      'Congratulations, your account is now open.',
-    )
+
     return this
   }
 
