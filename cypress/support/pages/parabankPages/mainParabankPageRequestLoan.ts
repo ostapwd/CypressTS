@@ -1,15 +1,15 @@
 
 
 
-export class MainParabankPageRequestLoans  {
-  
-    private linkOpenRequestLoans() { return cy.get('a[href="/parabank/requestloan.htm"]');}
+export class MainParabankPageRequestLoans {
+
+    private linkOpenRequestLoans() { return cy.get('a[href="/parabank/requestloan.htm"]'); }
     private checkIfWeAreInTheNededPage() { return cy.xpath('//h1[@class="title"]'); }
     private tableApplyForALoanFirstInput() { return cy.get('table[class="form2"] input[ng-model="loanRequest.amount"]'); }
     private tableApplyForALoanSecondInput() { return cy.get('table[class="form2"] input[id="downPayment"]'); }
     private clickOnTheButtonFromAccount() { return cy.get('select[id="fromAccountId"]'); }
-    private buttonApllyNow() { return cy.get('input[type="submit"]');}
-    private confirmationThetWeAreOnThePageWhatWeNeded() { return cy.xpath('//h1[class="title"]');}
+    private buttonApllyNow() { return cy.get('input[type="submit"]'); }
+    private confirmationThetWeAreOnThePageWhatWeNeded() { return cy.xpath('//h1[class="title"]'); }
 
 
     public linkOpenRequestLoansClick() {
@@ -18,7 +18,7 @@ export class MainParabankPageRequestLoans  {
         return this;
     }
 
-    public toFillTableApplyForALoan(index) {     
+    public toFillTableApplyForALoan(index) {
         this.tableApplyForALoanFirstInput().type(index.loanAmount);
         this.tableApplyForALoanSecondInput().type(index.downPayment);
         return this;
@@ -35,10 +35,10 @@ export class MainParabankPageRequestLoans  {
     };
 
     public confirmationThetWeAreOnTheNededPage() {
-     this.confirmationThetWeAreOnThePageWhatWeNeded().should('contain', "Loan Request Processed");
-     return this;
+        this.confirmationThetWeAreOnThePageWhatWeNeded().should('contain', "Loan Request Processed");
+        return this;
     };
- 
+
 }
 
 export default new MainParabankPageRequestLoans()

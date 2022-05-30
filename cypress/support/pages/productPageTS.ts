@@ -1,6 +1,6 @@
 import BasePage from "./BasePage";
 
-export class ProductPageTS extends BasePage{
+export class ProductPageTS extends BasePage {
 
     private addToChartButtons() { return cy.get("[id*='add-to-cart']"); }
     private inventoryItemNames() { return cy.get(".inventory_item_name"); }
@@ -9,19 +9,19 @@ export class ProductPageTS extends BasePage{
     private filterSelect() { return cy.get(".product_sort_container"); }
 
 
-    public filterByText(option: string){
+    public filterByText(option: string) {
         this.filterSelect().select(option);
 
         return this;
     }
 
-    public filterByIndex(index: number){
+    public filterByIndex(index: number) {
         this.filterSelect().select(index);
 
         return this;
     }
 
-    public logAllProducts(){
+    public logAllProducts() {
         this.inventoryItemNames().each(item => {
             cy.log(item.text())
         });
@@ -40,7 +40,7 @@ export class ProductPageTS extends BasePage{
         return this;
     }
 
-    public verifyThatNumberOfSelectedProductsEqualsTo(number){
+    public verifyThatNumberOfSelectedProductsEqualsTo(number) {
         this.selectedProductsNumber().then(element => {
             expect(element.text()).to.be.equal(number);
         });

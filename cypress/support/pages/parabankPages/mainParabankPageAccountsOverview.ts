@@ -1,28 +1,30 @@
 
-export class MainParabankPageAccountOverview  {
-  
-    private linkAccountOverview() { return cy.get('a[href="/parabank/overview.htm"]');}
+export class MainParabankPageAccountOverview {
+
+    private linkAccountOverview() { return cy.get('a[href="/parabank/overview.htm"]'); }
     private enterToAccount() { return cy.xpath('//a[@class="ng-binding"]'); }
     private mustCheckIfWeAreInTheCorrectPage() { return cy.xpath('//h1[@class="title"]'); }
     private chooseMonth() { return cy.xpath('//select[@id="month"]'); }
     private chooseTransactionType() { return cy.xpath('//select[@id="transactionType"]'); }
-    public buttonGoFromAccountActivity() { return cy.get('[value="Go"]')
-            .get('input', { includeShadowDom: true }).type(' ', {force: true}); }
+    public buttonGoFromAccountActivity() {
+        return cy.get('[value="Go"]')
+            .get('input', { includeShadowDom: true }).type(' ', { force: true });
+    }
     private transactionsTable() { return cy.get('tbody').find('td'); }
-    private checkingTransactionsTableRows() { return  cy.get('tbody > tr'); }
-    private responseOfThePageAccountActivity() { return cy.xpath('//p[@ng-if="transactions.length <= 0"]')}
-   
+    private checkingTransactionsTableRows() { return cy.get('tbody > tr'); }
+    private responseOfThePageAccountActivity() { return cy.xpath('//p[@ng-if="transactions.length <= 0"]') }
+
 
     public responseOfThePageAboutAccountActivity() {
         this.responseOfThePageAccountActivity().should('contain', 'No transactions found.');
         return this;
     }
 
-   public checkingThatTheFillsTransactionsTableAreNotEmpty(text) {
+    public checkingThatTheFillsTransactionsTableAreNotEmpty(text) {
         this.transactionsTable().then(tableRow => {
             cy.wrap(tableRow).find('[class="ng-binding"]').type(text)
-          })
-            return this;    
+        })
+        return this;
     };
 
     public weMustCheckIfWeAreInTheCorrectPage() {
@@ -42,12 +44,12 @@ export class MainParabankPageAccountOverview  {
     public checkingIfThereAreEnoughtInputsInTransactionsTable() {
         this.checkingTransactionsTableRows().then(($lis) => {
             expect($lis, '2 items').to.have.length(7)
-      })
-            return this;
+        })
+        return this;
     };
 
-    public  enterToAccountToSeeMoreDetails() {
-        this. enterToAccount().click();
+    public enterToAccountToSeeMoreDetails() {
+        this.enterToAccount().click();
         return this;
     }
 
@@ -55,12 +57,11 @@ export class MainParabankPageAccountOverview  {
         this.linkAccountOverview().click();
         return this;
     }
-    
+
 }
 
-    
 
 
-export default new MainParabankPageAccountOverview() 
 
-  
+export default new MainParabankPageAccountOverview()
+

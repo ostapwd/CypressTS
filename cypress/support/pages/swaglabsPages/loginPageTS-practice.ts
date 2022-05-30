@@ -3,13 +3,13 @@ import BasePage from "./basePage-practice";
 
 
 export class LoginPageTs extends BasePage {
-  
+
     public usernameInput() { return cy.xpath('//*[@id="user-name"]'); }
     private passwordInput() { return cy.get("input[name='password']"); }
     public loginButton() { return cy.get("input[data-test='login-button']"); }
     public wrongPassword() { return cy.get("h3[data-test='error']"); }
 
-  
+
 
     public loginToTheApp(user) {
         this.usernameInput().type(user.username);
@@ -19,8 +19,8 @@ export class LoginPageTs extends BasePage {
 
         this.loginButton().click();
 
-     return new ProductPageTs;
-      
+        return new ProductPageTs;
+
     }
 
     public open() {

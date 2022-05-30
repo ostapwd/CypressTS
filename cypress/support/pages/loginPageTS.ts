@@ -1,13 +1,13 @@
-import {ProductPageTS} from "./productPageTS";
+import { ProductPageTS } from "./productPageTS";
 import BasePage from "./BasePage";
 
-export class LoginPageTS extends BasePage{
+export class LoginPageTS extends BasePage {
 
     private usernameInput() { return cy.get("#user-name"); }
     private passwordInput() { return cy.get("#password"); }
     private loginButton() { return cy.get("#login-button"); }
 
-    public DoSomething(p1 :number, p2 :number) :string {
+    public DoSomething(p1: number, p2: number): string {
         let rez = p1 + p2;
 
         return rez.toString();

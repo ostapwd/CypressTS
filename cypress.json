@@ -1,11 +1,23 @@
 {
 	"env": {
+		"TAGS": "@smoke",
 		"API_HOST": "https://jsonplaceholder.typicode.com",
 		"UI_HOST": "https://www.saucedemo.com/"
 	},
+	"testFiles": "**/*.*",
 	"chromeWebSecurity": false,
 	"watchForFileChanges": false,
-	"pageLoadTimeout": 60000,
-	"defaultCommandTimeout": 10000
+	
+	
+	
+	"reporter": "cypress-mochawesome-reporter",
+  	"reporterOptions": {
+    "reportDir": "reports",
+    "charts": true,
+    "reportPageTitle": "My Test Suite",
+    "embeddedScreenshots": true,
+    "inlineAssets": true
+
+}
 
 }

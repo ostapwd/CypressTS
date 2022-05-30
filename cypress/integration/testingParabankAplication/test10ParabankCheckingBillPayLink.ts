@@ -1,24 +1,22 @@
 import usersParabank from "../../data/registrationUsersParabank";
-import {MainParabankPageLoginRegister} from "../../support/pages/parabankPages/mainParabankPageLoginRegister";
+import { MainParabankPageLoginRegister } from "../../support/pages/parabankPages/mainParabankPageLoginRegister";
 import { MainParabankPageBillPay } from "../../support/pages/parabankPages/mainParabankPageBillPay";
-import  payeeInformationUsers  from "../../data/payeeInformationUsersParabank";
+import payeeInformationUsers from "../../data/payeeInformationUsersParabank";
 
-const l = new MainParabankPageLoginRegister();
-const b = new MainParabankPageBillPay();
 
-describe ("Test for Parabank to check Bill Pey Service", function () {
+describe("Test for Parabank to check Bill Pey Service", function () {
     beforeEach('login to the app', () => {
-        l.open()
+        new MainParabankPageLoginRegister().open()
     })
 
     it("Test 1 Checking Bill Pey Service", () => {
-        l.registerToTheApp(usersParabank.someUser)
-        .buttonRegister()
-        b.clickOnTheLinkBillPay()
-        .checkingHowManyInputsThereAreInTheBillyPay() 
-        .newPageOfBillPayShouldContain()
-        .fillAllInputsToEnterPayeeInformation(payeeInformationUsers.oneUser)
-        .checkingBillPaymentComplete()
-       
+        new MainParabankPageLoginRegister().registerToTheApp(usersParabank.someUser)
+            .clickOnTheButtonRegister()
+        new MainParabankPageBillPay().clickOnTheLinkBillPay()
+            .checkingHowManyInputsThereAreInTheBillyPay()
+            .newPageOfBillPayShouldContain()
+            .fillAllInputsToEnterPayeeInformation(payeeInformationUsers.oneUser)
+            .checkingBillPaymentComplete()
+
     });
 })

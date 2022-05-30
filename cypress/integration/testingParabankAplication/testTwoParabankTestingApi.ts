@@ -1,31 +1,31 @@
 
 import { should } from "chai";
 import usersParabank from "../../data/registrationUsersParabank";
-import {MainParabankPageLoginRegister} from "../../support/pages/parabankPages/mainParabankPageLoginRegister";
+import { MainParabankPageLoginRegister } from "../../support/pages/parabankPages/mainParabankPageLoginRegister";
 
 const l = new MainParabankPageLoginRegister();
 
-describe ("Second test suite for Parabank", function () {
+describe("Second test suite for Parabank", function () {
     beforeEach('login to the app', () => {
-         l.open()
+        l.open()
         //.loginToTheApp(usersParabank.login);
     })
     it("Sending GET request", () => {
-        
+
         cy.request("https://parabank.parasoft.com/parabank/index.htm")
-        .then((response)=> {
-            console.log(response);
-           //expect(response.body).to.have.property('code', 200);
-        })
-        
+            .then((response) => {
+                console.log(response);
+                //expect(response.body).to.have.property('code', 200);
+            })
+
     })
-   
-      /*it(“Test GET Request”, () => {
-        cy.request(“https://parabank.parasoft.com/parabank/index.htm”)
-             .then((response) => {
-                    expect(response.body).to.have.property('code', 200);
-        })
-  })*/
+
+    /*it(“Test GET Request”, () => {
+      cy.request(“https://parabank.parasoft.com/parabank/index.htm”)
+           .then((response) => {
+                  expect(response.body).to.have.property('code', 200);
+      })
+})*/
 
     /*it("Verify correct request and response", () => {
         
@@ -43,13 +43,13 @@ describe ("Second test suite for Parabank", function () {
         cy.log("after Each");
         });*/
 
-        it("Verify correct request and response", () => {
-            cy.server()
-            cy.route("POST", "**/register.htm").as('postRegister')
+    it("Verify correct request and response", () => {
+        cy.server()
+        cy.route("POST", "**/register.htm").as('postRegister')
 
-            l.registerToTheApp(usersParabank.standardUser);
-            cy.wait('@postRegister')
-        })
-
-
+        l.registerToTheApp(usersParabank.standardUser);
+        cy.wait('@postRegister')
     })
+
+
+})

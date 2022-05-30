@@ -1,8 +1,8 @@
-import {ProductPageSwaglabs} from "./productPageSwaglabs";
+import { ProductPageSwaglabs } from "./productPageSwaglabs";
 import BasePage from "./BasePageSwaglabs";
 
 
-export class LoginPageSwaglabs extends BasePage{
+export class LoginPageSwaglabs extends BasePage {
 
     private usernameInput() { return cy.xpath('//*[@id="user-name"]'); }
     private passwordInput() { return cy.get("input[name='password']"); }
@@ -18,47 +18,53 @@ export class LoginPageSwaglabs extends BasePage{
         return new ProductPageSwaglabs();
     };
 
-    public wrongPasswordChecking() {
-         this.wrongPassword()
-        .should("contain", "Epic sadface: Username and password do not match any user in this service");
+    public checkThatItWasWrittenWrongPasswordInTheInput() {
+        return this.wrongPassword()
     };
 
     public loginToTheAppWithoutPassword(user) {
         this.usernameInput().type(user.username);
         super.waitForSeconds(3);
         this.loginButton().click();
-        return this;
+        return this
     };
 
     public errorWhenWeWantToLoginWithoutPassword() {
-        this.wrongPassword().should("contain", "Epic sadface: Password is required");
-        return this;
+        return this.wrongPassword()
     };
 
-    public loginToTheAppWithoutUserName(user) {
+    public loginToTheAppWithoutUserNameAndClick(user) {
         this.passwordInput().type(user.password);
         super.waitForSeconds(3);
         this.loginButton().click();
-        return this;
+        return this
     };
 
     public errorWhenWeWantToLoginWithoutUserName() {
-        this.wrongPassword().should("contain", "Epic sadface: Username is required");
-        return this;
+        return this.wrongPassword()
     };
 
     public errorWhenWeWantToLoginWithLockedOutUser() {
-        this.wrongPassword().should("contain", "Epic sadface: Sorry, this user has been locked out.");
-        return this;
+        return this.wrongPassword()
     };
 
+    public usernameInputForLogin(login) {
+        this.usernameInput().clear().type(login);
+    };
 
+    public passwordInputForLogin(password) {
+        this.passwordInput().clear().type(password);
+        return this
+    };
+
+    public clickLoginButton() {
+        this.loginButton().click();
+    };
 
     public open() {
         super.goto("https://www.saucedemo.com/");
-
         return this;
-    }
+    };
 
 }
 

@@ -1,6 +1,6 @@
 export default abstract class BasePageParabank {
 
-    protected waitForSeconds(secondsToWait :number) {
+    protected waitForSeconds(secondsToWait: number) {
         cy.wait(secondsToWait * 1000);
 
         return this;

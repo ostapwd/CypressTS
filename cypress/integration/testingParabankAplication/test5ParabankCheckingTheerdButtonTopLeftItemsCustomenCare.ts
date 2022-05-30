@@ -1,34 +1,34 @@
 import contactUsers from "../../data/contactUsersParabank";
-import {MainParabankPageLoginRegister} from "../../support/pages/parabankPages/mainParabankPageLoginRegister";
+import { MainParabankPageLoginRegister } from "../../support/pages/parabankPages/mainParabankPageLoginRegister";
 import { MainParabankPageLeftMenu } from "../../support/pages/parabankPages/mainParabankPageHeaderPanelTopLeftMenu";
-import {MainParabankPageContact} from "../../support/pages/parabankPages/mainParabankPageHeaderPanelContact"
+import { MainParabankPageContact } from "../../support/pages/parabankPages/mainParabankPageHeaderPanelContact"
 
 
-const l = new MainParabankPageLoginRegister();
-const c = new MainParabankPageContact();
+const loginRegisterPage = new MainParabankPageLoginRegister();
+const contactPage = new MainParabankPageContact();
 
 
-describe ("Fifth test suite for Parabank", function () {
+describe("Fifth test suite for Parabank", function () {
     beforeEach('login to the app', () => {
-        l.open()
+        loginRegisterPage.open()
     })
 
     it("Test 1 Send message to the customer care with all requirements", () => {
-    c.customerCare(contactUsers.standardUser)
+        contactPage.customerCare(contactUsers.standardUser)
     })
 
     it("Test 2 Send message to the customer care without all requirements", () => {
-        c.forgotInputAllFillsCustomerCare(contactUsers.forgotUser)
+        contactPage.forgotInputAllFillsCustomerCare(contactUsers.forgotUser)
     })
 
 
     it("Test 3 Check data entry requirements if all inputs are empty", () => {
-        c.forgotInputAllFillsCustomerCare(contactUsers.forgotUser)
-        .responseInTheTableWhenTheAllInputsAreNotFilledInCustomerCare() 
+        contactPage.forgotInputAllFillsCustomerCare(contactUsers.forgotUser)
+            .responseInTheTableWhenTheAllInputsAreNotFilledInCustomerCare()
 
-     })
+    })
 
-     afterEach(function () {
+    afterEach(function () {
         cy.log("after Each");
     });
 

@@ -1,8 +1,8 @@
 
 
-export class MainParabankPageContact  {
-  
-    private buttonContactLeftMenu() { return cy.xpath('//li[@class="contact"]');}
+export class MainParabankPageContact {
+
+    private buttonContactLeftMenu() { return cy.xpath('//li[@class="contact"]'); }
     private contactUserNameInput() { return cy.get('table[class="form2"] input[id="name"]'); }
     private contactUserEmailInput() { return cy.get('table[class="form2"] input[name="email"]'); }
     private contactUserPhoneInput() { return cy.get('table[class="form2"] input[name="phone"]'); }
@@ -17,26 +17,26 @@ export class MainParabankPageContact  {
     private titleOfThePageWhenItIsClicked() { return cy.xpath('//h1[@class="title"]'); }
 
 
-    public customerCareClick() {     
+    public customerCareClick() {
         this.buttonContactLeftMenu().click();
         this.titleOfThePageWhenItIsClicked()
-        .should ('contain', 'Customer Care');
+            .should('contain', 'Customer Care');
         return this;
 
     };
 
-    public customerCare(user) {     
+    public customerCare(user) {
         this.buttonContactLeftMenu().click();
         this.contactUserNameInput().type(user.name);
         this.contactUserEmailInput().type(user.email);
         this.contactUserPhoneInput().type(user.phone);
         this.contactUserMessageInput().type(user.message);
         this.buttonSendToCustomerCare().click();
-        this.thanksForMessageCustomerCare().should('contain', `Thank you ${user.name}`); 
+        this.thanksForMessageCustomerCare().should('contain', `Thank you ${user.name}`);
         return this;
     };
 
-    public forgotInputAllFillsCustomerCare(user) {     
+    public forgotInputAllFillsCustomerCare(user) {
         this.buttonContactLeftMenu().click();
         this.buttonSendToCustomerCare().click();
         return this;
@@ -47,10 +47,10 @@ export class MainParabankPageContact  {
         this.areNotFiledCustomerCareName().should('contain', 'Name is required.');
         this.areNotFiledCustomerCareEmail().should('contain', 'Email is required.');
         this.areNotFiledCustomerCarePhone().should('contain', 'Phone is required.');
-        this.areNotFiledCustomerCareMessage().should('contain', 'Message is required.') ; 
+        this.areNotFiledCustomerCareMessage().should('contain', 'Message is required.');
         return this;
-        };
-    
+    };
+
 }
 
 export default new MainParabankPageContact()
