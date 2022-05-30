@@ -35,23 +35,8 @@ export class ProductsPageTS extends BasePage{
         return this
     }
 
-    public sortByNamefromAtoZ(){
-        this.productSortContainer().select('Name (A to Z)')
-        return this
-    }
-
-    public sortByNamefromZtoA(){
-        this.productSortContainer().select('Name (Z to A)')
-        return this
-    }
-
-    public sortByPriceFromLowToHigh(){
-        this.productSortContainer().select('Price (low to high)')
-        return this
-    }
-
-    public sortByPriceFromHightoLow(){
-        this.productSortContainer().select('Price (high to low)')
+    public filterFromDropdown(option){
+        this.productSortContainer().select(option)
         return this
     }
 }

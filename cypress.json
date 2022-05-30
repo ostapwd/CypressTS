@@ -1,4 +1,8 @@
-{"chromeWebSecurity" : false,
+{"env": {
+    "UI_URL":"https://www.saucedemo.com/"
+},
+
+"chromeWebSecurity" : false,
 "watchForFileChanges" : false,
 "pageLoadTimeout" : 60000,
 "defaultCommandTimeout" : 60000}

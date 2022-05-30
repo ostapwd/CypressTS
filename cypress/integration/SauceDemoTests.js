@@ -1,6 +1,6 @@
-import {LoginPageTS} from "../support/pages/loginPageTS"
-import {sideMenuPageTS} from "../support/pages/sideMenuPageTS"
-import {CartPageTS} from "../support/pages/CartPageTS"
+import {LoginPageTS} from "../support/pages/SauceDemoPages/loginPageTS"
+import {sideMenuPageTS} from "../support/pages/SauceDemoPages/sideMenuPageTS"
+import {CartPageTS} from "../support/pages/SauceDemoPages/CartPageTS"
 import users from "../data/users"
 
 describe ('Test suit : testing basic functionality', function(){
@@ -28,21 +28,23 @@ describe ('Test suit : testing basic functionality', function(){
         new LoginPageTS().open()
         .loginToTheApp(users.standardUser)
         new sideMenuPageTS().openSideMenu().logOut()
+        cy.url().should('eq', Cypress.env('UI_URL'))
     })
 
     it ('Test case : open About section from side menu', function(){
         new LoginPageTS().open()
         .loginToTheApp(users.standardUser)
         new sideMenuPageTS().openSideMenu().openAbout()
+        cy.url().should('eq', 'https://saucelabs.com/')
     })
 
-    it('Test case : sort items by name and price', function(){
+    it ('Test case : sort items by name and price', function(){
         new LoginPageTS().open()
         .loginToTheApp(users.standardUser)
-        .sortByNamefromAtoZ()
-        .sortByNamefromZtoA()
-        .sortByPriceFromLowToHigh()
-        .sortByPriceFromHightoLow()
+        .filterFromDropdown('Name (A to Z)')
+        .filterFromDropdown('Name (Z to A)')
+        .filterFromDropdown('Price (low to high)')
+        .filterFromDropdown('Price (high to low)')
     })
 
     it('Test case : remove all items from cart', function(){

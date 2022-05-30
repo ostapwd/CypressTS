@@ -7,7 +7,7 @@ export default abstract class BasePage {
     }
 
     protected goto(url) {
-        cy.visit(url, { failOnStatusCode: false });
+        cy.visit(Cypress.env('UI_URL'));
 
         return this;
     }

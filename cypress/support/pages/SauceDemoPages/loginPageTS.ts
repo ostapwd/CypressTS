@@ -9,7 +9,7 @@ export class LoginPageTS extends BasePage{
     private errorMessage() {return cy.get("h3[data-test='error']")}
 
     public open() {
-        this.goto("https://www.saucedemo.com/");
+        this.goto('url');
         return this;
     }
 
@@ -30,7 +30,7 @@ export class LoginPageTS extends BasePage{
         return this
     }
 
-    public checkErrorMessage(errorMsg){
+    public checkErrorMessage(errorMsg: string){
         this.errorMessage().should('contain', errorMsg)
         return this
     }

@@ -15,13 +15,11 @@ export class sideMenuPageTS extends BasePage{
 
     public logOut(){
         this.sideMenuLogOut().click()
-        cy.url().should('eq', 'https://www.saucedemo.com/')
         return this
     }
 
     public openAbout(){
         this.sideMenuAbout().click()
-        cy.url().should('eq', 'https://saucelabs.com/')
         return this
     }
 }
