@@ -1,6 +1,5 @@
 **/node_modules/**
 package-lock.json
-.idea
 cypress/api/**/*.js
 cypress/data/**/*.js
 cypress/integration/**/*.js
