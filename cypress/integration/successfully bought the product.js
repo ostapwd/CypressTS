@@ -1,24 +1,22 @@
-import loginPage from "../support/pages/loginPage";
+import loginPageTs from "../support/pages/loginPageTs"
 import registrationPage from "../support/pages/registrationPage";
 import users from "../data/users";
 
 
 describe(" Log in", function(){
     it("google", function(){
-        loginPage.open()
-        loginPage.loginUser(users.standardUser)
-        loginPage.addToCard.click() ;       
-        loginPage.shoppingCard.click()
-        loginPage.checkOut.click()         
+        loginPageTs.open()
+        loginPageTs.loginUser(users.standardUser)
+        loginPageTs.addToCard().click()        
+        loginPageTs.shoppingCard().click()
+        loginPageTs.checkOut().click()         
         registrationPage.registrationUser('Paraniak','Nataliia','79491')
         registrationPage.continueEnd.click()
         registrationPage.finishEnd.click()
-        //cy.get('#continue').click()
-        //cy.get('#finish').click()
     });
     it("choose the two cheapest products", function(){
-        loginPage.open()
-        loginPage.loginUser(users.standardUser)
+        loginPageTs.open()
+        loginPageTs.loginUser(users.standardUser)
 
         cy.get('.product_sort_container').select('Price (low to high)')
         cy.get('#add-to-cart-sauce-labs-onesie').click()

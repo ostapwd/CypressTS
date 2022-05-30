@@ -1,7 +1,14 @@
 **/node_modules/**
 package-lock.json
 .idea
-cypress/reports/**/*.*
+cypress/api/**/*.js
+cypress/data/**/*.js
+cypress/integration/**/*.js
+cypress/support/pages/**/*.js
+cypress/support/webElements/**/*.js
+cypress/utilities/**/*.js
+reports/**/*.*
 cypress/screenshots/**/*.*
+cypress/test-results/
 **/videos/*
-
+build
