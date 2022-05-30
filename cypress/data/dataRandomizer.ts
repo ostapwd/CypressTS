@@ -1,7 +1,7 @@
 export class Random {
   public randomUserName() {
     let charsUserName =
-      'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_0123456789'
+      'abcdefghijklmnopqrstuvwxyz-ABCDEFGHIJKLMNOPQRSTUVWXYZ_0123456789'
     let userName = ''
     for (let i = 0; i < 7; i++) {
       userName +=
