@@ -4,28 +4,25 @@ import users from "../data/users";
 
 
 describe(" Log in", function(){
-    it("google", function(){
+    it("buy product", function(){
         loginPageTs.open()
         loginPageTs.loginUser(users.standardUser)
-        loginPageTs.addToCard().click()        
-        loginPageTs.shoppingCard().click()
+        loginPageTs.addProduct().click()        
+        loginPageTs.goToCart().click()
         loginPageTs.checkOut().click()         
         registrationPage.registrationUser('Paraniak','Nataliia','79491')
-        registrationPage.continueEnd.click()
+        registrationPage.toOrder.click()
         registrationPage.finishEnd.click()
     });
-    it("choose the two cheapest products", function(){
+    it("choose the cheapest products", function(){
         loginPageTs.open()
         loginPageTs.loginUser(users.standardUser)
-
         cy.get('.product_sort_container').select('Price (low to high)')
-        cy.get('#add-to-cart-sauce-labs-onesie').click()
-        cy.get('.shopping_cart_link').click()
-        cy.get('#checkout').click()
+        loginPageTs.addProduct().click() 
+        loginPageTs.goToCart().click()
+        loginPageTs.checkOut().click() 
         registrationPage.registrationUser('Paraniak','Nataliia','79491')
-        cy.wait(1000)
-        cy.get('#continue').click()
-        cy.wait(1000)
-        cy.get('#finish').click()
+        registrationPage.toOrder.click()
+        registrationPage.finishEnd.click()
 });
 })
