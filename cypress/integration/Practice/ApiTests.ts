@@ -1,4 +1,4 @@
-import apiController2 from "../api/apiController2";
+import apiController2 from "../../api/apiController2";
 
 describe("Comments API tests", () => {
     it("GET comments test", () => {
