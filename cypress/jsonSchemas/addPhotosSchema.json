@@ -2,16 +2,10 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
-    "postId": {
+    "albumId": {
       "type": "integer"
     },
-    "name": {
-      "type": "string"
-    },
-    "email": {
-      "type": "string"
-    },
-    "body": {
+    "title": {
       "type": "string"
     },
     "id": {
@@ -19,10 +13,7 @@
     }
   },
   "required": [
-    "postId",
-    "name",
-    "email",
-    "body",
-    "id"
+    "albumId",
+    "title"
   ]
 }

@@ -15,7 +15,7 @@
   "reporterOptions": {
     "reportDir": "reports",
     "charts": true,
-    "reportPageTitle": "My Test Suite",
+    "reportPageTitle": "First Test Suite",
     "embeddedScreenshots": true,
     "inlineAssets": true
   }
