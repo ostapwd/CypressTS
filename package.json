@@ -35,5 +35,8 @@
       "filePrefix": "",
       "fileSuffix": ".cucumber"
     }
+  },
+  "devDependencies": {
+    "cypress-axe": "^0.14.0"
   }
 }

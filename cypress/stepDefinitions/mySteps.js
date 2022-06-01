@@ -11,7 +11,7 @@ When(/^user login to the application$/, function () {
     new loginPageTs.loginUser(users.standardUser);
 });
 When(/^user add product$/, function () {
-    new loginPageTs.addProduct()
+    new loginPageTs.addProduct.click()
 });
 When(/^user go to cart$/, function () {
    new loginPageTs.goToCart()
