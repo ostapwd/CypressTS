@@ -25,7 +25,7 @@ export class MainParabankPageContact {
 
     };
 
-    public customerCare(user) {
+    public fillTheInputsOfACustomerCare(user) {
         this.buttonContactLeftMenu().click();
         this.contactUserNameInput().type(user.name);
         this.contactUserEmailInput().type(user.email);

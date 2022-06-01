@@ -26,10 +26,10 @@ require('cypress-xpath');
       }
     })
   }*/
- /*Cypress.on('uncaught:exception', (err, runnable) => {
+ Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from failing the test
     return false;
-  });*/
+  });
   /*Cypress.Cookies.debug(true, { verbose: false })*/
   // Import commands.js using ES2015 syntax:
 

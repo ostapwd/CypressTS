@@ -1,8 +1,8 @@
-import { LoginPageSwaglabs } from "../cypress/support/pages/swaglabsPagesTheLastVersion/loginPageSwaglabs";
-import { ProductPageSwaglabs } from "../cypress/support/pages/swaglabsPagesTheLastVersion/productPageSwaglabs";
+import { LoginPageSwaglabs } from "../cypress/support/pages/swaglabsPages/loginPageSwaglabs";
+import { ProductPageSwaglabs } from "../cypress/support/pages/swaglabsPages/productPageSwaglabs";
 import usersForSwaglabs from "../cypress/data/usersForSwaglabs";
-import { YourCardPageSwaglabs } from "../cypress/support/pages/swaglabsPagesTheLastVersion/yourCardPageSwaglabs";
-import { ContainerPageSwaglabs } from "../cypress/support/pages/swaglabsPagesTheLastVersion/containerPageSwaglabs";
+import { YourCardPageSwaglabs } from "../cypress/support/pages/swaglabsPages/yourCardPageSwaglabs";
+import { ContainerPageSwaglabs } from "../cypress/support/pages/swaglabsPages/containerPageSwaglabs";
 import { When } from "cucumber"
 import { Then } from "cucumber"
 import { Given } from "cucumber"

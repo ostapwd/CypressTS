@@ -6,14 +6,22 @@ export class MainParabankPageHome {
     private aboutUsUrlButtonButtonSituatedOnTheRight() { return cy.url().should('include', 'parabank/index.htm'); }
     private ifWeAreInTheCorrectPage() { return cy.xpath('//li[@class="captionone"]'); }
 
-    public homeTopLeftMenuHeaderPanel() {
-        this.buttonContactLeftHome().click()
-        this.clickingOnTheButtonAboutUsGoToTheTabHome()
-        this.aboutUsUrlButtonButtonSituatedOnTheRight()
-        this.ifWeAreInTheCorrectPage()
-            .should('contain', 'ATM Services')
-        return this;
+    public theTextIfWeAreInTheCorrectPage() {
+        return this.ifWeAreInTheCorrectPage()
     };
+
+    public clickOnIconHome() {
+        return this.buttonContactLeftHome().click()
+        
+    };
+    public clickingOnTheButtonAboutUsToGoToTheTabHome() {
+      return this.clickingOnTheButtonAboutUsGoToTheTabHome()
+       
+    };
+    public aboutUsUrlButtonButtonSituatedOnTheRightShouldInclude() {
+        return this. aboutUsUrlButtonButtonSituatedOnTheRight()
+         
+      };
 
 }
 

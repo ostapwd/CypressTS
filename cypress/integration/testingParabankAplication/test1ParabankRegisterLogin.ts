@@ -6,15 +6,15 @@ const loginRegister = new MainParabankPageLoginRegister();
 describe("First test suite for Parabank ", function () {
     beforeEach('login to the app', () => {
         loginRegister.open()
-        .theTextOnThePageAfterClickCustomerLogin()
+            .theTextOnThePageAfterClickCustomerLoginMustContain()
     })
     it("Test 1 'Register to the app'", function () {
         loginRegister.clickOnTheButtonToRegisterToTheApp()
         loginRegister.confirmationThatWeAreOnSelectedRegisterPage().should("contain", "Signing up is easy!")
-        loginRegister.registerToTheApp(usersParabank.secondUser)
+        loginRegister.registerToTheApp(usersParabank.standardUser)
             .clickOnTheButtonRegister()
             .getWelcomeForCustomerCareHaveLoginedMessage()
-            .should('contain', `Welcome ${usersParabank.secondUser.firstName}`);
+            .should('contain', `Welcome ${usersParabank.standardUser.firstName}`);
     })
 
     it("Test 2 'Login to the app'", function () {
@@ -88,14 +88,9 @@ describe("First test suite for Parabank ", function () {
                     cy.wrap(tableColums).eq(6).should('contain', 'Social Security Number is required.');
                 })
             })
-        })
-            it.only("Test 5 'Checking if the inputs of register have enought inputs '", function () {
-                loginRegister.clickOnTheButtonRegister()
-               .checkingIfThereAreEnoughtInputsOfRegistration().then(($lis) => {
-                    expect($lis, '3 items').to.have.length(13)
-                })
-
     })
+
+
     afterEach(function () {
         cy.log("after Each");
     });

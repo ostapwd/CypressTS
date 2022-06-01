@@ -10,12 +10,17 @@ describe("Test for Parabank to check Bill Pey Service", function () {
     })
 
     it("Test 1 Checking Bill Pey Service", () => {
-        new MainParabankPageLoginRegister().registerToTheApp(usersParabank.someUser)
+        new MainParabankPageLoginRegister().clickOnTheButtonToRegisterToTheApp()
+        new MainParabankPageLoginRegister().confirmationThatWeAreOnSelectedRegisterPage()
+            .should("contain", "Signing up is easy!")
+        new MainParabankPageLoginRegister().registerToTheApp(usersParabank.registerUser)
             .clickOnTheButtonRegister()
         new MainParabankPageBillPay().clickOnTheLinkBillPay()
-            .checkingHowManyInputsThereAreInTheBillyPay()
-            .newPageOfBillPayShouldContain()
-            .fillAllInputsToEnterPayeeInformation(payeeInformationUsers.oneUser)
+            .checkingHowManyInputsThereAreInTheBillyPay().then(($lis) => {
+                expect($lis, '3 items').to.have.length(34)
+            })
+        new MainParabankPageBillPay().newPageOfBillPayShouldContain().should("contain", "Bill Payment Service")
+        new MainParabankPageBillPay().fillAllInputsToEnterPayeeInformation(payeeInformationUsers.oneUser)
             .checkingBillPaymentComplete()
 
     });

@@ -6,10 +6,7 @@ export class MainParabankPageAccountOverview {
     private mustCheckIfWeAreInTheCorrectPage() { return cy.xpath('//h1[@class="title"]'); }
     private chooseMonth() { return cy.xpath('//select[@id="month"]'); }
     private chooseTransactionType() { return cy.xpath('//select[@id="transactionType"]'); }
-    public buttonGoFromAccountActivity() {
-        return cy.get('[value="Go"]')
-            .get('input', { includeShadowDom: true }).type(' ', { force: true });
-    }
+    public buttonGoFromAccountActivity() {return cy.get('[value="Go"]').get('input', { includeShadowDom: true }).type(' ', { force: true }); }
     private transactionsTable() { return cy.get('tbody').find('td'); }
     private checkingTransactionsTableRows() { return cy.get('tbody > tr'); }
     private responseOfThePageAccountActivity() { return cy.xpath('//p[@ng-if="transactions.length <= 0"]') }
@@ -59,8 +56,6 @@ export class MainParabankPageAccountOverview {
     }
 
 }
-
-
 
 
 export default new MainParabankPageAccountOverview()

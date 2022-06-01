@@ -12,7 +12,7 @@ export class MainParabankPageLoginRegister extends BasePageParabank {
     private fillInputsToRegisterUser() { return cy.get('tbody').find('td'); }
     private checkingIfTheInputsOfRegisterHaveEnoughtInputs() { return cy.get('tbody > tr'); }
     private clickButtonRegister() { return cy.get('input[class="button"]').contains('Register'); }
-    public theTextOnThePageAfterClickCustomerLogin() { return cy.get('div[id="leftPanel"]').contains('Customer Login'); }
+    private theTextOnThePageAfterClickCustomerLogin() { return cy.get('div[id="leftPanel"]'); }
     private loginButtonForgot() { return cy.contains('Log In'); }
     private forgotLoginInfo() { return cy.contains('Forgot login info?'); }
     private checkIfItIsCustomerLookup() { return cy.get('h1[class="title"]'); }
@@ -34,7 +34,7 @@ export class MainParabankPageLoginRegister extends BasePageParabank {
     private customerSsnToRegister() { return cy.get('tbody').find('td').find('input[id="customer.ssn"]'); }
     private customerUserNameToRegister() { return cy.get('tbody').find('td').find('input[id="customer.username"]'); }
     private customerPasswordToRegister() { return cy.get('tbody').find('td').find('input[id="customer.password"]'); }
-    private customerRepeatedPasswordToRegister() { return cy.get('tbody').find('td').find('input[id="customer.password"]'); }
+    private customerRepeatedPasswordToRegister() { return cy.get('tbody').find('td').find('input[id="repeatedPassword"]'); }
 
     public clickOnTheButtonToRegisterToTheApp() {
         return this.clickRegister().click();
@@ -56,7 +56,6 @@ export class MainParabankPageLoginRegister extends BasePageParabank {
         this.customerUserNameToRegister().type(user.username)
         this.customerPasswordToRegister().type(user.password)
         this.customerRepeatedPasswordToRegister().type(user.repeatedPassword)
-
         return this;
     };
 
@@ -143,6 +142,11 @@ export class MainParabankPageLoginRegister extends BasePageParabank {
     public responseIfTheAllInputAreRequired() {
         return this.responseWhenTheAllInputsAreNotFilled()
     };
+
+    public theTextOnThePageAfterClickCustomerLoginMustContain(){
+    this.theTextOnThePageAfterClickCustomerLogin().contains('Customer Login');
+    return this
+    }
 
     public open() {
         super.goto("https://parabank.parasoft.com/parabank/index.htm");

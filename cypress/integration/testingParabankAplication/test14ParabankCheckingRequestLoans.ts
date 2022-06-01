@@ -12,7 +12,7 @@ const requestLoansPage = new MainParabankPageRequestLoans();
 describe("Test for Parabank, Request Loans", function () {
     beforeEach('login to the app', () => {
         loginRegistePage.open()
-            .loginToTheApp(loginUsersParabank.login);
+        loginRegistePage.loginToTheApp(loginUsersParabank.login);
 
     });
 

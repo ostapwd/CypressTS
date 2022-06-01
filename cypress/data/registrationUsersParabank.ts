@@ -14,6 +14,20 @@ class UsersParabank {
         repeatedPassword: 'Mariia'
     };
 
+    firstdUser = {
+        firstName: 'Mariia',
+        lastName: 'Mariia',
+        addressStreet: 'Mariia',
+        addressCity: 'Mariia',
+        addressState: 'Mariia',
+        addressZipCode: 'Mariia',
+        phoneNumber: 'Mariia',
+        ssn: 'Mariia',
+        username: 'Mari',
+        password: 'Mariia',
+        repeatedPassword: 'Mariia'
+    };
+
     secondUser = {
         firstName: 'M',
         lastName: 'M',
@@ -23,23 +37,23 @@ class UsersParabank {
         addressZipCode: 'M',
         phoneNumber: 'M',
         ssn: 'M',
-        username: 'Maxfffdi',
-        password: 'Mfseeeedwedwd',
-        repeatedPassword: 'M'
+        username: 'Maxii',
+        password: 'Mfseeededwedwd',
+        repeatedPassword: 'Mfseeededwedwd'
     };
 
     thirdUser = {
-        firstName: 'lM',
-        lastName: 'lM',
-        addressStreet: 'lM',
-        addressCity: 'lM',
-        addressState: 'lM',
-        addressZipCode: 'lM',
-        phoneNumber: 'lM',
-        ssn: 'lM',
-        username: 'gfsddsfi',
-        password: 'lM',
-        repeatedPassword: 'lM'
+        firstName: 'Merys',
+        lastName: 'Merys',
+        addressStreet: 'Merys',
+        addressCity: 'Merys',
+        addressState: 'Merys',
+        addressZipCode: 'Merys',
+        phoneNumber: 'Merys',
+        ssn: 'Merys',
+        username: 'Meryryssry',
+        password: 'Merys',
+        repeatedPassword: 'Merys'
     };
 
     fourthUser = {
@@ -51,7 +65,7 @@ class UsersParabank {
         addressZipCode: 'oM',
         phoneNumber: 'oM',
         ssn: 'ovM',
-        username: 'dfl',
+        username: 'dfdddl',
         password: 'oM',
         repeatedPassword: 'oM'
     };
@@ -65,7 +79,7 @@ class UsersParabank {
         addressZipCode: 'street',
         phoneNumber: 'street',
         ssn: 'street',
-        username: 'strdeedt',
+        username: 'strdeedtyeee',
         password: 'street',
         repeatedPassword: 'street'
     };
@@ -84,11 +98,20 @@ class UsersParabank {
         repeatedPassword: 'city'
     };
 
-
-    login = {
-        username: 'Maria',
-        password: 'Mariia'
+    registerUser = {
+        firstName: 'city',
+        lastName: 'street',
+        addressStreet: 'street',
+        addressCity: 'street',
+        addressState: 'street',
+        addressZipCode: 'street',
+        phoneNumber: 'street',
+        ssn: 'street',
+        username: 'citlyddekulkjk',
+        password: 'city',
+        repeatedPassword: 'city'
     };
+
 
     forgotInformation = {
         firstName: 'Nastya',

@@ -3,35 +3,41 @@ class LoginUsersParabank {
     standardUser = {
 
         username: 'Mariia',
-        password: 'Mariia',
+        password: 'Mariia'
       
+    };
+
+    firstdUser = {
+        
+        username: 'Mari',
+        password: 'Mariia'
     };
 
     secondUser = {
      
-        username: 'Maxi',
-        password: 'M',
+        ssn: 'M',
+        username: 'Maxii'
       
     };
 
     thirdUser = {
       
-        username: 'gfsddsfi',
-        password: 'vM',
+        username: 'Meryryssry',
+        password: 'Merys'
      
     };
 
     fourthUser = {
       
-        username: 'dfl',
-        password: 'vM',
+        username: 'dfdddl',
+        password: 'oM'
        
     };
 
     onlyUser = {
        
-        username: 'strdeedt',
-        password: 'street',
+        username: 'strdeedtyeee',
+        password: 'street'
         
     };
 
@@ -40,6 +46,12 @@ class LoginUsersParabank {
         username: 'citlyddekulkjk',
         password: 'city'
         
+    };
+
+    registerUser = {
+        
+        username: 'citlyddekulkjk',
+        password: 'city'
     };
 
 

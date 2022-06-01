@@ -18,16 +18,23 @@ describe("Sixth test suite for Parabank", function () {
     })
 
     it("Test 1 Checking the button 'Home' after user has registered", () => {
+        loginRegisterPage.clickOnTheButtonToRegisterToTheApp()
+        loginRegisterPage.confirmationThatWeAreOnSelectedRegisterPage()
+            .should("contain", "Signing up is easy!")
         loginRegisterPage.registerToTheApp(usersParabank.secondUser)
-        homePage.homeTopLeftMenuHeaderPanel()
+        homePage.clickOnIconHome()
+        loginRegisterPage.theTextOnThePageAfterClickCustomerLoginMustContain();
     })
 
     it("Test 2 Checking the button 'About Us' if it has a correct page title after click on it", () => {
-        aboutUsPage.aboutUsTopLeftMenuHeaderPanel()
+        aboutUsPage.clickAboutUsTopLeftMenuHeaderPanel()
+            .clickingOnTheButtonAboutUsGoToTheTabAboutUsShouldContain().should('contain', 'ParaSoft Demo Website')
+        homePage.aboutUsUrlButtonButtonSituatedOnTheRightShouldInclude()
+        homePage.theTextIfWeAreInTheCorrectPage()
     })
 
     it("Test 3 Send message to the customer care with all requirements", () => {
-        contactPage.customerCare(contactUsers.standardUser)
+        contactPage.fillTheInputsOfACustomerCare(contactUsers.standardUser)
     })
 
     it("Test 4 Send message to the customer care without all requirements", () => {
@@ -37,14 +44,12 @@ describe("Sixth test suite for Parabank", function () {
     it("Test 5 Check data entry requirements if all inputs are empty", () => {
         contactPage.forgotInputAllFillsCustomerCare(contactUsers.forgotUser)
             .responseInTheTableWhenTheAllInputsAreNotFilledInCustomerCare()
-
     })
 
     it("Test 6 Click on the buttons one by one ", () => {
-        homePage.homeTopLeftMenuHeaderPanel()
-        aboutUsPage.aboutUsTopLeftMenuHeaderPanel()
+        homePage.clickOnIconHome()
+        aboutUsPage.clickAboutUsTopLeftMenuHeaderPanel()
         contactPage.customerCareClick()
-
     })
 
     afterEach(function () {

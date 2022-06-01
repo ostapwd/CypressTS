@@ -11,7 +11,8 @@ const transferFundsPage = new MainParabankPageTransferFunds();
 describe("Test for Parabank, Transfer Funds", function () {
     beforeEach('login to the app', () => {
         loginRegisterPage.open()
-            .registerToTheApp(usersParabank.thirdUser)
+        .clickOnTheButtonToRegisterToTheApp()
+        loginRegisterPage.registerToTheApp(usersParabank.thirdUser)
             .clickOnTheButtonRegister();
     });
 

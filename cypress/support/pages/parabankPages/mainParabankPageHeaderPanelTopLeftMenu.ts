@@ -13,62 +13,43 @@ export class MainParabankPageLeftMenu {
     private aboutUsUrl() { return cy.url().should('include', 'about.htm'); }
     private menuServicesUrl() { return cy.url().should('include', 'services.htm'); }
     private menuAdminUrl() { return cy.url().should('include', 'admin.htm'); }
-    private solutionsUrl() { return cy.url().should('include', ' solutions.htm'); }
+    private solutionsUrl() { return cy.url().should('include', 'solutions.htm'); }
     private cursorPointer() { return cy.get('a').should('have.css', 'cursor').and('include', 'pointer'); }
 
 
-    public AllItemsWithTheCursorPointer() {
+    public viewAllItemsWithTheCursorPointer() {
         this.cursorPointer()
         return this;
-    }
+    };
 
     public leftMenuSolutionsElementCheckingWrongCssProperty() {
-        this.leftMenuSolutions()
-            .should('have.css', 'background')
-            .and('include', 'rgb(255, 255, 255) url("https://parabank.parasoft.com/parabank/images/bullet-hover.gif")')
-        return this
+        return this.leftMenuSolutions()
     };
 
     public leftMenuSolutionsElementCheckingCssProperty() {
-        this.leftMenuSolutions()
-            .should('have.css', 'background')
-            .and('include', 'rgb(255, 255, 255) url("https://parabank.parasoft.com/parabank/images/bullet-normal.gif")')
-        return this
+        return this.leftMenuSolutions()
     };
 
     public leftMenuAboutUsElementCheckingCssProperty() {
-        this.leftMenuAboutUs()
-            .should('have.css', 'background')
-            .and('include', 'rgb(255, 255, 255) url("https://parabank.parasoft.com/parabank/images/bullet-normal.gif")')
-        return this
+        return this.leftMenuAboutUs()
     };
 
     public leftMenuServicesElementCheckingCssProperty() {
-        this.leftMenuServices()
-            .should('have.css', 'background')
-            .and('include', 'rgb(255, 255, 255) url("https://parabank.parasoft.com/parabank/images/bullet-normal.gif")')
-        return this
+        return this.leftMenuServices()    
     };
 
     public leftMenuProductsElementCheckingCssProperty() {
-        this.leftMenuProducts()
-            .should('have.css', 'background')
-            .and('include', 'rgb(255, 255, 255) url("https://parabank.parasoft.com/parabank/images/bullet-normal.gif")')
-        return this
+        return this.leftMenuProducts()
     };
 
     public leftMenuLocationsElementCheckingCssProperty() {
-        this.leftMenuLocations()
-            .should('have.css', 'background')
-            .and('include', 'rgb(255, 255, 255) url("https://parabank.parasoft.com/parabank/images/bullet-normal.gif")')
-        return this
+        return this.leftMenuLocations()
+            
     };
 
     public leftMenuAdminsElementCheckingCssProperty() {
-        this.leftMenuAdminPage()
-            .should('have.css', 'background')
-            .and('include', 'rgb(255, 255, 255) url("https://parabank.parasoft.com/parabank/images/bullet-normal.gif")')
-        return this
+        return this.leftMenuAdminPage()
+            
     };
 
     public leftMenuElementSolutionGoToAnotherPageClick() {

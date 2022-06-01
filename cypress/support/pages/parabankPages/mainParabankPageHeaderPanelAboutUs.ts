@@ -8,13 +8,18 @@ export class MainParabankPageAboutUs {
     private aboutUsUrlButtonSecondButtonSituatedOnTheRight() { return cy.url().should('include', 'about.htm'); }
 
 
-    public aboutUsTopLeftMenuHeaderPanel() {
+    public clickAboutUsTopLeftMenuHeaderPanel() {
         this.buttonContactLeftAboutUs().click()
-        this.clickingOnTheButtonAboutUsGoToTheTabAboutUs()
-            .should('contain', 'ParaSoft Demo Website');
-        this.aboutUsUrlButtonSecondButtonSituatedOnTheRight()
-        return this;
+       return this;
     };
+    public clickingOnTheButtonAboutUsGoToTheTabAboutUsShouldContain() {
+        return this.clickingOnTheButtonAboutUsGoToTheTabAboutUs()
+        
+     };
+     public clickAboutUsUrlButtonSecondButtonSituatedOnTheRight() {
+        return this.aboutUsUrlButtonSecondButtonSituatedOnTheRight()
+        
+     };
 
 }
 

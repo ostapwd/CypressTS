@@ -16,4 +16,4 @@ cypress/test-results/
 **/videos/*
 **/build/**
 cypress/reports/**/*.*
-
+.vscode

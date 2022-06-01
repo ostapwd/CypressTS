@@ -22,8 +22,8 @@ export class MainParabankPageBillPay {
     }
 
     public newPageOfBillPayShouldContain() {
-        this.newPageOfBillPay().should("contain", "Bill Payment Service");
-        return this;
+        return this.newPageOfBillPay()
+        
     }
 
     public buttonRegisterOnlyUser() {
@@ -33,10 +33,7 @@ export class MainParabankPageBillPay {
     }
 
     public checkingHowManyInputsThereAreInTheBillyPay() {
-        this.checkingHowManyInputsInTheBillyPay().then(($lis) => {
-            expect($lis, '3 items').to.have.length(34)
-        })
-        return this;
+      return this.checkingHowManyInputsInTheBillyPay()
     }
 
     public fillAllInputsToEnterPayeeInformation(user) {
