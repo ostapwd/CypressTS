@@ -8,15 +8,12 @@ Cypress.on('uncaught:exception', (err, runnable) => {
   })
 
 
-Given(/^user navigates to the application$/, function () {
+Given(/^new user in system and he navigates to the application$/, function () {
     new StartRegistration().visitApp()
 });
 
-When(/^user choose Insurance Project item$/, function () {
+When(/^user choose Insurance Project item and click to this item$/, function () {
     new StartRegistration().goToInsuranceRegistration()
-});
-
-And(/^click it$/, function () {
     new StartRegistration().registrationButton()
 });
 
@@ -26,15 +23,15 @@ Then(/^user navigates to the registration form page$/, function () {
 
 
 
-Given(/^registration form$/, function () {
+Given(/^registration form and verify user$/, function () {
     new FillRegisterForm().registrationFormContainer().should('have.attr', 'enctype', 'multipart/form-data')
 });
 
-Then(/^user should select title$/, function () {
+Then(/^user select title$/, function () {
     new FillRegisterForm().selectUserTitle().select('Lord')
 });
 
-And(/^fill general data$/, function () {
+And(/^fill general user data$/, function () {
     new FillRegisterForm().inputUserData(users.insurance_register_form_data)
 });
 
@@ -44,23 +41,16 @@ Then(/^user should fill information about birthday$/, function () {
     new FillRegisterForm().userDayOfBirth().select('14')
 });
 
-And(/^user should check licence type$/, function () {
+And(/^check licence type, licence period, and occupation$/, function () {
     new FillRegisterForm().licenceType().should('have.value', 'Full')
-});
-
-
-And(/^licence period$/, function () {
     new FillRegisterForm().licencePeriod().select(2).should('have.value', '3')
-});
-
-Then(/^user should choose occupation$/, function () {
     new FillRegisterForm().occupation().select('Engineer').should('be.visible')
 });
 
-And(/^press create button$/, function () {
+Then(/^user press create button$/, function () {
     new FillRegisterForm().createFormButton()
 });
 
-Then(/^user should navigates to the Login Page$/, function () {
+And(/^navigates to the Login Page$/, function () {
     cy.url().should('eq', 'https://demo.guru99.com/insurance/v1/index.php')
 });
