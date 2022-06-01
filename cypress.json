@@ -1,4 +1,17 @@
 {
-    "chromeWebSecurity": false,
-    "watchForFileChanges": false
+  "env": {
+    "API_HOST": "https://jsonplaceholder.typicode.com",
+    "UI_HOST": "https://www.saucedemo.com/"
+  },
+  "chromeWebSecurity": false,
+  "watchForFileChanges": false,
+  "reporter": "cypress-mochawesome-reporter",
+  "reporterOptions": {
+    "reportDir": "cypress/reports",
+    "charts": true,
+    "reportPageTitle": "My Test Suite",
+    "embeddedScreenshots": true,
+    "inlineAssets": true
+  },
+  "video": true
 }

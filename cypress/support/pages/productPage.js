@@ -21,6 +21,8 @@ class ProductPage {
     get selector() { return cy.get(".product_sort_container"); }
     
     get cartLink() { return cy.get('.shopping_cart_link'); }
+
+
     openMenu() {
         this.menu.click();
         this.menuArrea.should('be.visible');
@@ -108,6 +110,26 @@ class ProductPage {
         this.prise.each(item => {
             cy.log(item.text())
         });
+        return this;
+    }
+
+    nameAndPrise() {
+        let arr =[];
+        this.inventoryItemNames.then(function(text1){
+            for(let i=0; i < 6; i++){
+                arr.push(text1[i].innerText)
+            }
+           return arr;
+        })
+       this.prise.then(function(text1){
+            for(let i=0; i < 6; i++){
+               arr[i] += ': ' + text1[i].innerText
+            }
+        })
+        for(let i=0; i < 6; i++){
+            cy.log(arr[i])
+         }
+  
         return this;
     }
     checkSotialIcons() {

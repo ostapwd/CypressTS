@@ -1,4 +1,4 @@
-import apiController from "../api/apiController";
+import apiController from "../build/api/apiController2";
 
 describe('Test suite API', function () {
     it('Create a new user and then delete it', async function () {

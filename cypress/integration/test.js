@@ -6,6 +6,7 @@ import purchasePage from "../support/pages/purchasePage";
 
 
 describe('saucedemo1', function () {
+
     it('Test 1: main - add some products / check number of products / remove', function () {
         loginPage.open()
                 .loginToTheApp(users.standardUser)
@@ -14,8 +15,9 @@ describe('saucedemo1', function () {
                 .verifyThatNumberOfSelectedProductsEqualsTo(3)
                 .removeToChartAllProducts()
                 .verityfyThatNamberExist()
-                .allNames()
-                .allPrise()
+              //  .allNames()
+               // .allPrise()
+
                 .wait()
         
     })
@@ -53,7 +55,10 @@ describe('saucedemo1', function () {
         purchasePage.goShoping()
         productPage.makePurchase()
         productPage.verifyThatNumberOfSelectedProductsEqualsTo(3)
-        purchasePage.continueBuy(names.first)       
+        purchasePage.continueBuy(names.first)
+                    .getAllPrise()
+                    //.finish()
+
     })
 
     it('Test 6: bad pasword', function () {
