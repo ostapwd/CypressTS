@@ -6,9 +6,7 @@ import {RegisterPage} from "../support/pages/registerPage";
 import {BillPage} from "../support/pages/billPage";
 import {ContactsPage} from "../support/pages/contactsPage";
 
-
-
-describe('Test Register Functionality', () => {
+describe('Customer Registration Tests', () => {
     let registerPage;
 
     beforeEach(() => {
@@ -38,7 +36,7 @@ describe('Test Register Functionality', () => {
     });  
 });
 
-describe('Test Bill Payment', () => {
+describe('Bill Payments Test', () => {
     let billPage;
 
     beforeEach(() => {
@@ -62,8 +60,7 @@ describe('Test Bill Payment', () => {
   
 });
 
-
-describe('Test Contact form', () => {
+describe('Customer Support Tests', () => {
     let contactsPage
 
     beforeEach(() => { 

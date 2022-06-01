@@ -1,36 +1,25 @@
 import { Given, Then, When } from 'cypress-cucumber-preprocessor/steps';
 
-import {LoginPage} from "../support/pages/loginPage";
-import users from "../data/customers";
-import {CustomerPage} from "../support/pages/customerPage";
+import customers from "../data/customers";
+import bills from "../data/bills";
+import contacts from "../data/contacts";
 
-let loginPage;
-Given(/^Existing user navigates to the app$/, function () {
-    loginPage = new LoginPage().open();
+import {RegisterPage} from "../support/pages/registerPage";
+import {BillPage} from "../support/pages/billPage";
+import {ContactsPage} from "../support/pages/contactsPage";
+
+let registerPage;
+
+Given(/^A customer navigates to the registration page$/, function () {
+    registerPage = new RegisterPage().open();
 });
-When(/^They provide correct credentials$/, function () {
-    loginPage.loginToTheApp(users.standardUser);
+
+When(/^They provide correct registration details$/, function () {
+    registerPage.registerCustomer(customers.validCustomer).waitForPageToBeLoaded();
 });
-When(/^They add all products to the cart$/, function () {
-    new CustomerPage().addToCartAllProducts()
-});
-Then(/^All products should be in the cart$/, function () {
-    new CustomerPage().cartNumberLabel().then(label => {
-        expect(label.text()).to.be.equal("5");
+
+Then(/^New customer is successfully registered$/, function () {
+    registerPage.registerCustomer(customers.validCustomer).waitForPageToBeLoaded().welcomeHeader().then(header => {
+        expect(header.text()).to.be.equal(`Welcome ${customers.validCustomer.username}`);
     });
-});
-
-When(/^They provide login (.*)$/, function (username: string) {
-    loginPage.setUsername(username);
-});
-When(/^They provide password (.*)$/, function (password) {
-    loginPage.setPassword(password);
-});
-When(/^Click on Login button$/, function () {
-    loginPage.clickLoginButton();
-});
-Then(/^An error message should appear (.*)$/, function (errorMessage) {
-    loginPage.loginErrorMessage().then(element => {
-        expect(element.text()).to.be.equal(errorMessage);
-    })
 });
