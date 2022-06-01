@@ -4,7 +4,7 @@
     "API_HOST": "https://jsonplaceholder.typicode.com",
     "BASE_URL": "https://parabank.parasoft.com/parabank"
   },
-  "testFiles": "*.ts",
+  "testFiles": "**/*.*",
   "defaultCommandTimeout": 60000,
   "responseTimeout": 60000,
   "chromeWebSecurity": false,
