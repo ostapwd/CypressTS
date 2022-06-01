@@ -7,7 +7,7 @@ describe(" Log in", function(){
     it("buy product", function(){
         loginPageTs.open()
         loginPageTs.loginUser(users.standardUser)
-        loginPageTs.addProduct().click()        
+        loginPageTs.addProduct().click()       
         loginPageTs.goToCart().click()
         loginPageTs.checkOut().click()         
         registrationPage.registrationUser('Paraniak','Nataliia','79491')
