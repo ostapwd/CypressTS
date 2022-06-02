@@ -9,20 +9,22 @@ export class MainParabankPageOpenNewAccount {
     private numberOfAccount() { return cy.get('select[id="fromAccountId"]'); }
     private openNewAccount() { return cy.get('input[value="Open New Account"]'); }
     public shadowInputButtonOpenNewAccount() {
-return cy.get('[ng-submit="submit()"]').get('input', { includeShadowDom: true }).type(' ', { force: true });}
+        return cy.get('[ng-submit="submit()"]').get('input', { includeShadowDom: true }).type(' ', { force: true });
+    }
     private resultsOfOpeningTheAccount() { return cy.get('h1[class="title"]'); }
     private newAccountNumberClick() { return cy.get('a[class="ng-binding"]'); }
     private accountActivity() { return cy.get('form[ng-submit="submit()"]'); }
     private chooseMonth() { return cy.xpath('//select[@id="month"]'); }
     private chooseTypeOfActivity() { return cy.xpath('//select[@id="transactionType"]'); }
     public buttonGoFromAccountActivity() {
-        return cy.get('[type="submit"]').get('input', { includeShadowDom: true }).type(' ', { force: true });}
+        return cy.get('[type="submit"]').get('input', { includeShadowDom: true }).type(' ', { force: true });
+    }
     private resultOfClickingOnTheButtonGo() { return cy.xpath('//p[@ng-if="transactions.length <= 0"]'); }
     private openNewAccountAndSelectAllMonthAndTransaction() { return cy.get('[class="ng-binding"]'); }
     private fundsTransferReceived() { return cy.get('a[class="ng-binding"]'); }
     private ifWeAreInTheCorrectPage() { return cy.get('[class="title"]'); }
 
-    
+
     public checkifWeAreInTheCorrectPage() {
         this.ifWeAreInTheCorrectPage().should('contain', 'Transaction Details');
         return this;

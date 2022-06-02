@@ -3,11 +3,11 @@ import getAlbumSchema from "../jsonSchemas/getPostSchema.json";
 import addAlbumSchema from "../jsonSchemas/addPostSchema.json";
 import editAlbumSchema from "../jsonSchemas/editPostSchema.json";
 
-import {validate} from "jsonschema";
+import { validate } from "jsonschema";
 
 describe("Comments API tests", () => {
     it("GET comments test", () => {
-        apiController.getAlbums().then( response => {
+        apiController.getAlbums().then(response => {
             expect(response.status).to.be.equal(200);
 
             let result = validate(response.body, getAlbumSchema);
@@ -21,7 +21,7 @@ describe("Comments API tests", () => {
             "userId": 1,
             "id": "Test post name",
             "title": "Test post body"
-           
+
         }
 
         it("POST a new comment", () => {
@@ -29,9 +29,9 @@ describe("Comments API tests", () => {
                 "userId": 1,
                 "id": "Test post name",
                 "title": "name",
-                "body":"Test post body" 
+                "body": "Test post body"
             }
-            apiController.addAlbums(newAlbum).then( response => {
+            apiController.addAlbums(newAlbum).then(response => {
                 expect(response.status).to.be.equal(201);
 
                 let result = validate(response.body, addAlbumSchema);
@@ -43,9 +43,9 @@ describe("Comments API tests", () => {
         });
 
         it("Verify a new comment exists in the application", () => {
-            apiController.getAlbums().then( response => {
+            apiController.getAlbums().then(response => {
                 expect(response.status).to.be.equal(200);
-           
+
             });
         });
     });
@@ -54,9 +54,9 @@ describe("Comments API tests", () => {
         let updatedAlbum = {
             "userId": 1,
             "id": "Test post name is name",
-            "title": "Test post body is body" 
+            "title": "Test post body is body"
         }
-        apiController.editAlbums(1, updatedAlbum).then( response => {
+        apiController.editAlbums(1, updatedAlbum).then(response => {
             expect(response.status).to.be.equal(200);
 
             let result = validate(response.body, editAlbumSchema);
@@ -68,7 +68,7 @@ describe("Comments API tests", () => {
     });
 
     it("DELETE comment test", () => {
-        apiController.deleteAlbums(1).then( response => {
+        apiController.deleteAlbums(1).then(response => {
             expect(response.status).to.be.equal(200);
         });
     });

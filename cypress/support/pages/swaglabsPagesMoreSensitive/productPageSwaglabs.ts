@@ -7,12 +7,12 @@ export class ProductPageSwaglabs extends BasePage {
     private selectedProductsNumber() { return cy.get(".shopping_cart_badge"); }
     private filterSelect() { return cy.get(".product_sort_container"); }
 
-    private productsLabel() { return  cy.get("div .title"); }
+    private productsLabel() { return cy.get("div .title"); }
     private addToCard() { return cy.get("#add-to-cart-sauce-labs-backpack"); }
     private shoppingCartContainer() { return cy.get('a[class="shopping_cart_link"]'); }
     private shoppingCardLable() { return cy.get("div .header_secondary_container"); }
     private addToCardAll() { return cy.xpath("//button[@class='btn btn_primary btn_small btn_inventory']"); }
-    private allProductsInThePage () {return cy.get(".inventory_item_name"); }
+    private allProductsInThePage() { return cy.get(".inventory_item_name"); }
     private allChoosedProducts() { return cy.get('.cart_quantity'); }
 
     private productLinkSouseLabsBackpack() { return cy.get('a[href="#"][id="item_4_title_link"]'); }
@@ -22,7 +22,7 @@ export class ProductPageSwaglabs extends BasePage {
     private productLinkSauceLabsOnesie() { return cy.get('a[href="#"][id="item_2_title_link"]'); }
     private productLinkTestAllTheThingsTShirtRed() { return cy.get('a[href="#"][id="item_3_title_link"]'); }
     private buttonContinueShopping() { return cy.xpath('//button[@id="back-to-products"]'); }
-    
+
 
 
     public productLabelChecking() {
@@ -50,7 +50,7 @@ export class ProductPageSwaglabs extends BasePage {
         this.addToCardAll().each(item => {
             item.click();
         });
-            return this;
+        return this;
     }
 
 
@@ -82,8 +82,6 @@ export class ProductPageSwaglabs extends BasePage {
         return this;
     }
 
-
-
     public clickProductLinkSauceLabsFleeceJacket() {
         this.productLinkSauceLabsFleeceJacket().click();
         return this;
@@ -99,5 +97,5 @@ export class ProductPageSwaglabs extends BasePage {
 
 
 
-}         
-            export default new ProductPageSwaglabs();
+}
+export default new ProductPageSwaglabs();

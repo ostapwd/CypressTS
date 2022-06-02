@@ -19,7 +19,6 @@ export class ProductPageSwaglabs extends BasePage {
     private buttonContinueShopping() { return cy.xpath('//button[@id="back-to-products"]'); }
 
 
-
     public addToCardOneProductandClick() {
         this.addToCard().click();
         super.waitForSeconds(3);

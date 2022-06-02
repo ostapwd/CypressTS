@@ -3,11 +3,11 @@ import getPostSchema from "../jsonSchemas/getPostSchema.json";
 import addPostSchema from "../jsonSchemas/addPostSchema.json";
 import editPostSchema from "../jsonSchemas/editPostSchema.json";
 
-import {validate} from "jsonschema";
+import { validate } from "jsonschema";
 
 describe("Comments API tests", () => {
     it("GET comments test", () => {
-        apiController.getPosts().then( response => {
+        apiController.getPosts().then(response => {
             expect(response.status).to.be.equal(200);
 
             let result = validate(response.body, getPostSchema);
@@ -19,10 +19,10 @@ describe("Comments API tests", () => {
 
         let newPost = {
             "userId": 1,
-    "id": "Test post name",
-    "title": "name",
-    "body":"Test post body"
-           
+            "id": "Test post name",
+            "title": "name",
+            "body": "Test post body"
+
         }
 
         it("POST a new comment", () => {
@@ -30,9 +30,9 @@ describe("Comments API tests", () => {
                 "userId": 1,
                 "id": "Test post name",
                 "title": "name",
-                "body":"Test post body" 
+                "body": "Test post body"
             }
-            apiController.addPosts(newPost).then( response => {
+            apiController.addPosts(newPost).then(response => {
                 expect(response.status).to.be.equal(201);
 
                 let result = validate(response.body, addPostSchema);
@@ -44,7 +44,7 @@ describe("Comments API tests", () => {
         });
 
         it("Verify a new comment exists in the application", () => {
-            apiController.getPosts().then( response => {
+            apiController.getPosts().then(response => {
                 expect(response.status).to.be.equal(200);
 
             });
@@ -56,9 +56,9 @@ describe("Comments API tests", () => {
             "userId": 1,
             "id": "Test post the last name",
             "title": " Test name",
-            "body":"Test the last post body" 
+            "body": "Test the last post body"
         }
-        apiController.editPosts(1, updatedPost).then( response => {
+        apiController.editPosts(1, updatedPost).then(response => {
             expect(response.status).to.be.equal(200);
 
             let result = validate(response.body, editPostSchema);
@@ -70,7 +70,7 @@ describe("Comments API tests", () => {
     });
 
     it("DELETE comment test", () => {
-        apiController.deletePosts(1).then( response => {
+        apiController.deletePosts(1).then(response => {
             expect(response.status).to.be.equal(200);
         });
     });

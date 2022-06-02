@@ -23,28 +23,17 @@ describe('Test suite 2 API', function () {
             .then(json => console.log(json))
     })
 
-
 })
 describe('Test suite 2 API', function () {
-    beforeEach('Users API', () => cy.request('http://jsonplaceholder.typicode.com/users').as('users'))
-    it('GET', () => {
-        cy.get('@users').its('status').should('be.equal', 200);
-        cy.get('@users').its('body').should('have.length', 10);
-        fetch('http://jsonplaceholder.typicode.com/todos')
-            .then(response => response.json())
-            .then(json => console.log(json))
-    })
 
-
-
-    it('Get all user posts', () => {
+    it('Get response status code 200 ', () => {
         cy.request('https://jsonplaceholder.typicode.com/posts')
             .then((response) => {
                 expect(response.status).to.equal(200);
             })
     })
 
-    it('Get all user posts', () => {
+    it('Get/verificate all user posts have userId, id, title, body', () => {
         cy.request('https://jsonplaceholder.typicode.com/posts')
             .then((response) => {
                 let first_response_object = Object.keys(response.body[0]);
@@ -80,7 +69,6 @@ describe('Test suite 3 API', function () {
         })
     })
 
-    
 
     it('Delete the newly added post', () => {
         cy.request('DELETE', 'https://jsonplaceholder.typicode.com/posts/' + newId).then((response) => {
@@ -94,6 +82,7 @@ describe('Test suite 3 API', function () {
         })
     })
 })
+
 describe('Test suite 4 API', function () {
     it('Verify how many users are registreted', () => {
         cy.request('https://jsonplaceholder.typicode.com/comments').as('comments')
@@ -108,14 +97,10 @@ describe('Test suite 4 API', function () {
 
 describe('Test suite 5 API', function () {
     beforeEach('Users API', () => cy.request('http://jsonplaceholder.typicode.com/users').as('users'))
-    it('GET', () => {
+    it('GET if there are 10 users', () => {
         cy.get('@users').its('status').should('be.equal', 200);
         cy.get('@users').its('body').should('have.length', 10);
-        fetch('http://jsonplaceholder.typicode.com/todos')
-            .then(response => response.json())
-            .then(json => console.log(json))
     })
-
 
 
     it('Verify if some users exist', () => {

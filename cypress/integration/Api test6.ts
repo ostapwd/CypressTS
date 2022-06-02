@@ -3,11 +3,11 @@ import getPhotosSchema from "../jsonSchemas/getPostSchema.json";
 import addPhotosSchema from "../jsonSchemas/addPostSchema.json";
 import editPhotosSchema from "../jsonSchemas/editPostSchema.json";
 
-import {validate} from "jsonschema";
+import { validate } from "jsonschema";
 
 describe("Comments API tests", () => {
     it("GET comments test", () => {
-        apiController.getPhotos().then( response => {
+        apiController.getPhotos().then(response => {
             expect(response.status).to.be.equal(200);
 
             let result = validate(response.body, getPhotosSchema);
@@ -23,7 +23,7 @@ describe("Comments API tests", () => {
             "title": "accusamus beatae ",
             "url": "https://via.placeholder.com",
             "thumbnailUrl": "https://via.placeholder.com"
-           
+
         }
 
         it("POST a new comment", () => {
@@ -31,9 +31,9 @@ describe("Comments API tests", () => {
                 "userId": 1,
                 "id": "Test post name",
                 "title": "name",
-                "body":"Test post body" 
+                "body": "Test post body"
             }
-            apiController.addPhotos(newPhoto).then( response => {
+            apiController.addPhotos(newPhoto).then(response => {
                 expect(response.status).to.be.equal(201);
 
                 let result = validate(response.body, addPhotosSchema);
@@ -45,7 +45,7 @@ describe("Comments API tests", () => {
         });
 
         it("Verify a new comment exists in the application", () => {
-            apiController.getPhotos().then( response => {
+            apiController.getPhotos().then(response => {
                 expect(response.status).to.be.equal(200);
             });
         });
@@ -59,7 +59,7 @@ describe("Comments API tests", () => {
             "url": "https://via.placeholder.com.123",
             "thumbnailUrl": "https://via.placeholder.com.123"
         }
-        apiController.editPhotos(1, updatedPhoto).then( response => {
+        apiController.editPhotos(1, updatedPhoto).then(response => {
             expect(response.status).to.be.equal(200);
 
             let result = validate(response.body, editPhotosSchema);
@@ -71,7 +71,7 @@ describe("Comments API tests", () => {
     });
 
     it("DELETE comment test", () => {
-        apiController.deletePhotos(1).then( response => {
+        apiController.deletePhotos(1).then(response => {
             expect(response.status).to.be.equal(200);
         });
     });

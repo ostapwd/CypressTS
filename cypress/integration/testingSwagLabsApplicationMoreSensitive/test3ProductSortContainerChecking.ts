@@ -60,7 +60,7 @@ describe("Test suite 3", function () {
 
         });
 
-        it.only('Test 6 "Check if the product container works properly (places the filter well)" ', function () {
+        it('Test 6 "Check if the product container works properly (places the filter well)" ', function () {
                 container.productSortContainerCheckingQuantity()
                         .filterByText("Name (A to Z)")
                 let aToZ = ['$29.99', '$9.99', '$15.99', '$49.99', '$7.99', '$15.99']

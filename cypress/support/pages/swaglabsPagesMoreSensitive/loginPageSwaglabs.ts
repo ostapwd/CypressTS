@@ -1,8 +1,8 @@
-import {ProductPageSwaglabs} from "./productPageSwaglabs";
+import { ProductPageSwaglabs } from "./productPageSwaglabs";
 import BasePage from "./BasePageSwaglabs";
 
 
-export class LoginPageSwaglabs extends BasePage{
+export class LoginPageSwaglabs extends BasePage {
 
     private usernameInput() { return cy.xpath('//*[@id="user-name"]'); }
     private passwordInput() { return cy.get("input[name='password']"); }
@@ -19,8 +19,8 @@ export class LoginPageSwaglabs extends BasePage{
     };
 
     public wrongPasswordChecking() {
-         this.wrongPassword()
-        .should("contain", "Epic sadface: Username and password do not match any user in this service");
+        this.wrongPassword()
+            .should("contain", "Epic sadface: Username and password do not match any user in this service");
     };
 
     public loginToTheAppWithoutPassword(user) {

@@ -3,10 +3,10 @@ class ApiController {
 
     getPosts() {
         return cy.request({
-                method: "GET",
-                url: Cypress.env("API_HOST") + "/posts",
-                failOnStatusCode: false
-            })
+            method: "GET",
+            url: Cypress.env("API_HOST") + "/posts",
+            failOnStatusCode: false
+        })
             .then((response) => {
                 cy.log(JSON.stringify(response, null, 2));
             });
@@ -51,7 +51,7 @@ class ApiController {
     }
 
 
-    
+
 
     deletePost(postId: number) {
         return cy

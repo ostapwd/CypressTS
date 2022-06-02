@@ -5,9 +5,9 @@ class ApiController {
             method: "GET",
             url: "https://jsonplaceholder.typicode.com/posts"
         })
-        .then((response) => {
-            cy.log(JSON.stringify(response, null, 2));
-        });
+            .then((response) => {
+                cy.log(JSON.stringify(response, null, 2));
+            });
     }
 
     createUser(user) {
@@ -16,9 +16,9 @@ class ApiController {
             url: "https://jsonplaceholder.typicode.com/posts",
             body: user
         })
-        .then((response) => {
-            cy.log(JSON.stringify(response, null, 2));
-        });
+            .then((response) => {
+                cy.log(JSON.stringify(response, null, 2));
+            });
     }
 
     deleteUser(id: string) {
@@ -26,9 +26,9 @@ class ApiController {
             method: "DELETE",
             url: "https://jsonplaceholder.typicode.com/posts" + id
         })
-        .then((response) => {
-            cy.log(JSON.stringify(response, null, 2));
-        });
+            .then((response) => {
+                cy.log(JSON.stringify(response, null, 2));
+            });
     }
 
 }

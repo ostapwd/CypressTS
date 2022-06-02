@@ -4,10 +4,10 @@ class ApiController {
 
     getPosts() {
         return cy.request({
-                method: "GET",
-                url: "https://jsonplaceholder.typicode.com/posts",
-                failOnStatusCode: false
-            })
+            method: "GET",
+            url: "https://jsonplaceholder.typicode.com/posts",
+            failOnStatusCode: false
+        })
             .then((response) => {
                 apiUtility.logResponse(response);
             });

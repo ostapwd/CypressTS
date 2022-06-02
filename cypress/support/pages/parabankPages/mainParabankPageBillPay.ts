@@ -23,7 +23,7 @@ export class MainParabankPageBillPay {
 
     public newPageOfBillPayShouldContain() {
         return this.newPageOfBillPay()
-        
+
     }
 
     public buttonRegisterOnlyUser() {
@@ -33,7 +33,7 @@ export class MainParabankPageBillPay {
     }
 
     public checkingHowManyInputsThereAreInTheBillyPay() {
-      return this.checkingHowManyInputsInTheBillyPay()
+        return this.checkingHowManyInputsInTheBillyPay()
     }
 
     public fillAllInputsToEnterPayeeInformation(user) {

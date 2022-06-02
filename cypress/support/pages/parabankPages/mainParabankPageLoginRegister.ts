@@ -143,9 +143,9 @@ export class MainParabankPageLoginRegister extends BasePageParabank {
         return this.responseWhenTheAllInputsAreNotFilled()
     };
 
-    public theTextOnThePageAfterClickCustomerLoginMustContain(){
-    this.theTextOnThePageAfterClickCustomerLogin().contains('Customer Login');
-    return this
+    public theTextOnThePageAfterClickCustomerLoginMustContain() {
+        this.theTextOnThePageAfterClickCustomerLogin().contains('Customer Login');
+        return this
     }
 
     public open() {

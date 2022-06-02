@@ -7,7 +7,7 @@ import { MainParabankPageLoginRegister } from "../../support/pages/parabankPages
 describe("Test for Parabank, Accounts Overview", function () {
     beforeEach('login to the app', () => {
         new MainParabankPageLoginRegister().open()
-        .clickOnTheButtonToRegisterToTheApp()
+            .clickOnTheButtonToRegisterToTheApp()
         new MainParabankPageLoginRegister().confirmationThatWeAreOnSelectedRegisterPage()
             .should("contain", "Signing up is easy!")
         new MainParabankPageLoginRegister().registerToTheApp(usersParabank.fourthUser)
@@ -22,7 +22,7 @@ describe("Test for Parabank, Accounts Overview", function () {
             .chooseMonthAccountOverview('All')
             .chooseTransactionTypeClick('All')
             .buttonGoFromAccountActivity()
-            new MainParabankPageAccountOverview().checkingIfThereAreEnoughtInputsInTransactionsTable()
+        new MainParabankPageAccountOverview().checkingIfThereAreEnoughtInputsInTransactionsTable()
             .responseOfThePageAboutAccountActivity()
     })
 

@@ -5,7 +5,7 @@ import { MainParabankPageLoginRegister } from "../../support/pages/parabankPages
 
 describe("Test suite for Parabank, how to Open New Account", function () {
 
-    it("Test 1 to Open New Account in Parabank selected month April and Debt transaction", () => {
+    it("Test 1 to Open New Account in Parabank selected month April and Debt transaction (negative)", () => {
         new MainParabankPageLoginRegister().open()
             .clickOnTheButtonToRegisterToTheApp()
         new MainParabankPageLoginRegister().confirmationThatWeAreOnSelectedRegisterPage()
@@ -26,7 +26,7 @@ describe("Test suite for Parabank, how to Open New Account", function () {
         new MainParabankPageOpenNewAccount().theResultOfClickingOnTheButtonGo()
     })
 
-    it("Test 2 to Open New Account in Parabank selected All month and All transaction", () => {
+    it("Test 2 to Open New Account in Parabank selected All month and All transaction (positive)", () => {
         new MainParabankPageLoginRegister().open()
             .clickOnTheButtonToRegisterToTheApp()
         new MainParabankPageLoginRegister().confirmationThatWeAreOnSelectedRegisterPage()

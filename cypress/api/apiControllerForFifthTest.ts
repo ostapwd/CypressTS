@@ -4,10 +4,10 @@ class ApiController {
 
     getAlbums() {
         return cy.request({
-                method: "GET",
-                url: "https://jsonplaceholder.typicode.com/albums",
-                failOnStatusCode: false
-            })
+            method: "GET",
+            url: "https://jsonplaceholder.typicode.com/albums",
+            failOnStatusCode: false
+        })
             .then((response) => {
                 apiUtility.logResponse(response);
             });

@@ -1,48 +1,48 @@
 import { MainParabankPageOpenNewAccount } from "../../support/pages/parabankPagesMoreSensitive/mainParabankPageOpenNewAccount";
 import usersParabank from "../../data/registrationUsersParabank";
-import {MainParabankPageLoginRegister} from "../../support/pages/parabankPagesMoreSensitive/mainParabankPageLoginRegister";
+import { MainParabankPageLoginRegister } from "../../support/pages/parabankPagesMoreSensitive/mainParabankPageLoginRegister";
 
 const openNewAccount = new MainParabankPageOpenNewAccount();
 const loginRegister = new MainParabankPageLoginRegister();
 
-describe ("Test suite for Parabank, how to Open New Account", function () {
-    
-    it("Test 1 to Open New Account in Parabank selected month April and Debt transaction", () => {
+describe("Test suite for Parabank, how to Open New Account", function () {
+
+    it("Test 1 to Open New Account in Parabank selected month April and Debt transaction (negative)", () => {
         loginRegister.open()
-        .registerToTheApp(usersParabank.thirdUser)
-        .buttonRegister();
+            .registerToTheApp(usersParabank.thirdUser)
+            .buttonRegisterClick();
         openNewAccount.clickOnTheLinkOpenNewAccount()
-        .whatTypeOfAccountWeWantToOpen()
-        .filterByTextTypeOfAccount("SAVINGS")
-        .filterByIndexNumberOfAccount(0)
-        .shadowInputButtonOpenNewAccount()
+            .whatTypeOfAccountWeWantToOpen()
+            .filterByTextTypeOfAccount("SAVINGS")
+            .filterByIndexNumberOfAccount(0)
+            .shadowInputButtonOpenNewAccount()
         openNewAccount.watchResultsOfOpeningTheAccount()
-        .clickOnNewAccountNumber()
-        .showAccountActivity()
-        .actuallyPeriodChooseMonth('April')
-        .clickOnChooseTypeOfActivity('Debit')
-        .buttonGoFromAccountActivity()
+            .clickOnNewAccountNumber()
+            .showAccountActivity()
+            .actuallyPeriodChooseMonth('April')
+            .clickOnChooseTypeOfActivity('Debit')
+            .buttonGoFromAccountActivity()
         openNewAccount.theResultOfClickingOnTheButtonGo()
     })
 
-    it("Test 2 to Open New Account in Parabank selected All month and All transaction", () => {
+    it("Test 2 to Open New Account in Parabank selected All month and All transaction (positive)", () => {
         loginRegister.open()
-        .registerToTheApp(usersParabank.onlyUser)
-        .buttonRegister();
+            .registerToTheApp(usersParabank.onlyUser)
+            .buttonRegisterClick();
         openNewAccount.clickOnTheLinkOpenNewAccount()
-        .whatTypeOfAccountWeWantToOpen()
-        .filterByTextTypeOfAccount("SAVINGS")
-        .filterByIndexNumberOfAccount(0)
-        .shadowInputButtonOpenNewAccount()
+            .whatTypeOfAccountWeWantToOpen()
+            .filterByTextTypeOfAccount("SAVINGS")
+            .filterByIndexNumberOfAccount(0)
+            .shadowInputButtonOpenNewAccount()
         openNewAccount.watchResultsOfOpeningTheAccount()
-        .clickOnNewAccountNumber()
-        .showAccountActivity()
-        .actuallyPeriodChooseMonth('All')
-        .clickOnChooseTypeOfActivity('All')
-        .buttonGoFromAccountActivity()
+            .clickOnNewAccountNumber()
+            .showAccountActivity()
+            .actuallyPeriodChooseMonth('All')
+            .clickOnChooseTypeOfActivity('All')
+            .buttonGoFromAccountActivity()
         openNewAccount.openNewAccountAndSelectAllMonthAndTransactions()
-        .fundsTransferReceivedClick()
-        .checkifWeAreInTheCorrectPage()
+            .fundsTransferReceivedClick()
+            .checkifWeAreInTheCorrectPage()
     })
 
 

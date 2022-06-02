@@ -35,7 +35,7 @@ export class MainParabankPageLeftMenu {
     };
 
     public leftMenuServicesElementCheckingCssProperty() {
-        return this.leftMenuServices()    
+        return this.leftMenuServices()
     };
 
     public leftMenuProductsElementCheckingCssProperty() {
@@ -44,12 +44,12 @@ export class MainParabankPageLeftMenu {
 
     public leftMenuLocationsElementCheckingCssProperty() {
         return this.leftMenuLocations()
-            
+
     };
 
     public leftMenuAdminsElementCheckingCssProperty() {
         return this.leftMenuAdminPage()
-            
+
     };
 
     public leftMenuElementSolutionGoToAnotherPageClick() {

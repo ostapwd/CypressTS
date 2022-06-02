@@ -1,6 +1,6 @@
 export default abstract class BasePage {
 
-    public waitForSeconds(secondsToWait :number) {
+    public waitForSeconds(secondsToWait: number) {
         cy.wait(secondsToWait * 1000);
 
         return this;
