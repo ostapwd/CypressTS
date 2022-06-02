@@ -4,21 +4,7 @@ class Users {
         password: 'secret_sauce'
     }
 
-    locked_out_user = {
-        username: 'locked_out_user',
-        password: 'secret_sauce'
-    }
-
-    problem_user = {
-        username: 'problem_user',
-        password: 'secret_sauce'
-    }
-
-    performance_glitch_user = {
-        username: 'performance_glitch_user',
-        password: 'secret_sauce'
-    }
-
+    
     checkout_data = {
         first_name: 'Danylo',
         last_name: 'Andriushko',
@@ -26,8 +12,8 @@ class Users {
     }
 
     insurance_register_form_data = {
-        first_name: 'Danylo',
-        sur_name: 'Andriushko',
+        firstName: 'Danylo',
+        surName: 'Andriushko',
         phone: '+380974043913',
         street: 'Chervonoi Kaliny',
         city: 'Lviv',

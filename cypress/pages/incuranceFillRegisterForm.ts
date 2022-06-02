@@ -63,8 +63,8 @@ export class FillRegisterForm {
     }    
 
     public inputUserData(users){
-     this.getFirstName().type(users.first_name)
-     this.getSurName().type(users.sur_name)
+     this.getFirstName().type(users.firstName)
+     this.getSurName().type(users.surName)
      this.getPhone().type(users.phone)
      this.getStreet().type(users.street) 
      this.getCity().type(users.city)

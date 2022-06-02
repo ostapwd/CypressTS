@@ -13,6 +13,7 @@ class ApiController {
             });
     }
 
+
     getAlbum(albumId: number) {
         return cy
             .request({
@@ -24,6 +25,7 @@ class ApiController {
                 apiUtility.logResponse(response);
             });
     }
+
 
     addAlbum(album: object) {
         return cy
@@ -38,6 +40,7 @@ class ApiController {
             });
     }
 
+
     editAlbum(albumId: number, album: object) {
         return cy
             .request({
@@ -50,6 +53,7 @@ class ApiController {
                 apiUtility.logResponse(response);
             });
     }
+
 
     deleteAlbum(albumId: number) {
         return cy

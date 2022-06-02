@@ -6,6 +6,7 @@ import editAlbumSchema from "../jsonSchemas/editAlbumSchema.json";
 import {validate} from "jsonschema";
 
 describe("Albums API test", () => {
+
     it("GET album test", () => {
         apiController.getAlbums().then( response => {
             expect(response.status).to.be.equal(200);

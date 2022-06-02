@@ -8,9 +8,6 @@
       "title": {
         "type": "string"
       },
-      "body": {
-        "type": "string"
-      },
       "id": {
         "type": "integer"
       }
