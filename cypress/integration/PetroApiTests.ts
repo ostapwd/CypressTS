@@ -35,17 +35,18 @@ describe("Status API tests", () => {
         }
         apiController.postStatus(statusObj).then(response => {
             expect(response.status).to.be.equal(201);
-            let result = validate(response.body, getStatusSchema);
-            expect(result.valid, result.errors.toString()).to.be.true;
-            expect(response.body.version).to.deep.equal(statusObj.version);
-            expect(response.body.status).to.deep.equal(statusObj.status);
+            validateResponse(response)
         });
         apiController.getStatus().then(response => {
             expect(response.status).to.be.equal(200);
+            validateResponse(response);
+        });
+
+        function validateResponse(response) {
             let result = validate(response.body, getStatusSchema);
             expect(result.valid, result.errors.toString()).to.be.true;
             expect(response.body.version).to.deep.equal(statusObj.version);
             expect(response.body.status).to.deep.equal(statusObj.status);
-        });
+        }
     });
 })
