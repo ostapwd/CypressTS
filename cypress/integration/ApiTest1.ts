@@ -1,4 +1,4 @@
-describe('Test suite 2 API', function () {
+describe('Test suite 1 API', function () {
 
     it('Get todos response', () => {
         cy.request('http://jsonplaceholder.typicode.com/todos')
@@ -45,7 +45,6 @@ describe('Test suite 2 API', function () {
             expect(todos[3].id).to.exist
         })
     })
-
 })
 
 
@@ -127,8 +126,6 @@ describe('Test suite 3 API', function () {
             expect(response.status).to.eq(404)
         })
     })
-
-
 })
 
 
@@ -154,6 +151,8 @@ describe('Test suite 4 API', function () {
                 }
             })
     })
+    
+
     it('Verify if some coments exist', () => {
         cy.request('https://jsonplaceholder.typicode.com/comments').then((response) => {
             cy.writeFile('cypress/fixtures/comments.json', response.body)
@@ -198,7 +197,6 @@ describe('Test suite 5 API', function () {
         cy.request('https://jsonplaceholder.typicode.com/users').then((response) => {
             cy.writeFile('cypress/fixtures/users.json', response.body)
         })
-
     })
 
 })

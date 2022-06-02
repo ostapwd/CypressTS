@@ -1,12 +1,12 @@
-import apiController from "../api/apiControllerForFifthTest";
+import apiController from "../api/apiControllerForThirdTest";
 import getAlbumSchema from "../jsonSchemas/getPostSchema.json";
 import addAlbumSchema from "../jsonSchemas/addPostSchema.json";
 import editAlbumSchema from "../jsonSchemas/editPostSchema.json";
 
 import { validate } from "jsonschema";
 
-describe("Comments API tests", () => {
-    it("GET comments test", () => {
+describe("Albums API tests", () => {
+    it("GET Albums test", () => {
         apiController.getAlbums().then(response => {
             expect(response.status).to.be.equal(200);
 
@@ -15,7 +15,7 @@ describe("Comments API tests", () => {
         });
     });
 
-    describe("POST comment API tests", () => {
+    describe("POST Album API tests", () => {
 
         let newAlbum = {
             "userId": 1,
@@ -24,7 +24,7 @@ describe("Comments API tests", () => {
 
         }
 
-        it("POST a new comment", () => {
+        it("POST a new Album", () => {
             let newAlbum = {
                 "userId": 1,
                 "id": "Test post name",
@@ -42,7 +42,7 @@ describe("Comments API tests", () => {
             });
         });
 
-        it("Verify a new comment exists in the application", () => {
+        it("Verify a new Album exists in the application", () => {
             apiController.getAlbums().then(response => {
                 expect(response.status).to.be.equal(200);
 
@@ -50,7 +50,7 @@ describe("Comments API tests", () => {
         });
     });
 
-    it("PUT comment test", () => {
+    it("PUT Album test", () => {
         let updatedAlbum = {
             "userId": 1,
             "id": "Test post name is name",
@@ -67,7 +67,7 @@ describe("Comments API tests", () => {
         });
     });
 
-    it("DELETE comment test", () => {
+    it("DELETE Album test", () => {
         apiController.deleteAlbums(1).then(response => {
             expect(response.status).to.be.equal(200);
         });
