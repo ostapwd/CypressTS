@@ -6,15 +6,25 @@ class LoginPageTs{
     public goToCart(){return cy.get('.shopping_cart_link')}
     public checkOut(){return cy.get('#checkout')}
 
- public loginUser(user){
-     this.userNameInput().type(user.username)
+    public getcheckOut() {
+        this.checkOut().click();
+        return this;
+    };
+    
+
+    public loginUser(user){
+    this.userNameInput().type(user.username)
      this.passwordInput().type(user.password)
-     this.buttonCkick().click()
-     return this
-}
+      this.buttonCkick().click()
+      return this
+  }
+   
+
 public open(){
     cy.visit('https://www.saucedemo.com/');
     return this;
 }  
+
 }
+
 export default new LoginPageTs()

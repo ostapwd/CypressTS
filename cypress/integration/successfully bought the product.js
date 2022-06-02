@@ -9,7 +9,7 @@ describe(" Log in", function(){
         loginPageTs.loginUser(users.standardUser)
         loginPageTs.addProduct().click()       
         loginPageTs.goToCart().click()
-        loginPageTs.checkOut().click()         
+        loginPageTs.checkOut().click()       
         registrationPage.registrationUser('Paraniak','Nataliia','79491')
         registrationPage.toOrder.click()
         registrationPage.finishEnd.click()
