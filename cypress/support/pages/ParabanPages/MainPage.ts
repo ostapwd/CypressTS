@@ -6,6 +6,8 @@ export class MainPage extends BasePage{
         return cy.get("#leftPanel > ul > li:nth-child(1) > a")
     }
 
+    private updateContactInfo() {return cy.get("#leftPanel > ul > li:nth-child(6) > a")}
+
     private accountType() { return cy.get('#type'); }
 
     private numberofFunds(){return cy.get("#fromAccountId")}
@@ -36,5 +38,10 @@ export class MainPage extends BasePage{
 
     public clickNewAccountID(){
         this.newAccountID().click()
+    }
+
+    public clickUpdateContactInfo(){
+        this.updateContactInfo().click()
+        return this
     }
 }
