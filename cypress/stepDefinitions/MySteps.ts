@@ -3,10 +3,12 @@ import { Given, Then, When } from 'cypress-cucumber-preprocessor/steps';
 import {LoginPage} from "../support/pages/loginPage";
 import users from "../data/users";
 import {InventoryPage} from "../support/pages/inventoryPage";
+import {Singleton} from "../support/Singleton";
 
 let loginPage;
 Given(/^Existing user navigates to the app$/, function () {
     loginPage = new LoginPage().open();
+    LoginPage.DoSm()
 });
 When(/^They provide correct credentials$/, function () {
     loginPage.loginToTheApp(users.standardUser);

@@ -12,6 +12,9 @@ export class LoginPage extends BasePage {
   public loginErrorMessage() { return cy.get(".error-message-container > h3"); }
   public loginPageLogoLabel() { return cy.get(".login_logo"); }
 
+  public static DoSm(){
+  }
+
   public waitForPageToBeLoaded() {
     super.waitForPageToBeLoaded();
     this.loginPageLogoLabel().should("be.visible");

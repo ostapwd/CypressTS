@@ -1,8 +1,45 @@
 import users from "../data/users";
 import {LoginPage} from "../support/pages/loginPage";
+import {Singleton} from "../support/Singleton";
+import {CarBuilder} from "../support/CarBuilder";
+
+describe.only('Design Patterns', () => {
+    it('Singleton', () => {
+        const s1 = Singleton.getInstance();
+        const s2 = Singleton.getInstance();
+
+        s1.getName();
+        s2.getName();
+    });
+    it('Builder', () => {
+        const car1 = new CarBuilder()
+            .withColor("red")
+            .withBoxGear("auto")
+            .withEnginePower("150")
+            .withModel("bmw")
+            .build();
+
+        cy.log(JSON.stringify(car1, null, 2));
+
+        const car2 = new CarBuilder()
+            .withColor("green")
+            .withModel("audi")
+            .build();
+
+        cy.log(JSON.stringify(car2, null, 2));
+    });
+    it.only('Intercept', () => {
+        cy.intercept('GET', '/users',{
+            statusCode: 200,
+            fixture: 'users.json'
+        });
+
+        cy.visit("https://jsonplaceholder.typicode.com/");
+        cy.get("table [href*='users']").click();
+    });
+});
 
 describe('Login to the application', () => {
-
 
     let inventoryPage;
     beforeEach(() => {
