@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "stage": {
+          "type": "string"
+        },
+        "documentMediaTypes": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "Id": {
+                  "type": "string"
+                },
+                "Title": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Id",
+                "Title"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "Id": {
+                  "type": "string"
+                },
+                "Title": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Id",
+                "Title"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "stage",
+        "documentMediaTypes"
+      ]
+    }
+  },
+  "required": [
+    "version",
+    "status",
+    "data"
+  ]
+}
