@@ -36,12 +36,12 @@ describe('Customer Registration Tests', () => {
     });  
 });
 
-describe.only('Bill Payments Test', () => {
+describe('Bill Payments Test', () => {
     let billPage;
 
     it('Verify a customer can register on the site', () => {
 
-        new RegisterPage().open().registerCustomer(customers.validCustomer_1).waitForPageToBeLoaded().billPayLink().click();
+        new RegisterPage().open().registerCustomer(customers.validCustomer_3).waitForPageToBeLoaded().billPayLink().click();
         billPage = new BillPage();
 
         billPage.payBill(bills.validBill).waitForPageToBeLoaded().completeHeader().then(header => {
@@ -71,9 +71,9 @@ describe('Customer Support Tests', () => {
     
     });
 
-    it.skip('Verify a customer can send mail to support', () => {
+    it('Verify a customer can send mail to support', () => {
 
-        contactsPage.mailSupport(contacts.validContacts).waitForPageToBeLoaded().completeHeader().then(header => {
+        contactsPage.mailSupport(contacts.validContacts).waitForPageToBeLoaded().completeHeaderMail().then(header => {
             expect(header.text()).to.be.equal("Customer Care");
         });
     });

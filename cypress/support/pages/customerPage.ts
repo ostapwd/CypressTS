@@ -11,6 +11,8 @@ export class CustomerPage extends BasePage {
   public welcomeHeader() { return cy.get("h1.title"); }
 
   public completeHeader() { return cy.get("div[ng-app=BillPayApp] > div[ng-show=showResult] > h1.title"); }
+
+  public completeHeaderMail() { return cy.get(".title"); }
   
   public billPayLink() { return cy.get("a[href^='/parabank/billpay.htm']"); }
 
