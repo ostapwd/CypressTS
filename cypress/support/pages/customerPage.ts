@@ -12,7 +12,7 @@ export class CustomerPage extends BasePage {
 
   public completeHeader() { return cy.get("div[ng-app=BillPayApp] > div[ng-show=showResult] > h1.title"); }
   
-  public billPayLink() { return cy.xpath("//*[text()='Bill Pay']"); }
+  public billPayLink() { return cy.get("a[href^='/parabank/billpay.htm']"); }
 
   public contactButton() { return cy.get("a[href^='contact.htm']"); }
 

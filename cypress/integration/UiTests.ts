@@ -22,13 +22,13 @@ describe('Customer Registration Tests', () => {
     });
 
     it('Verify a customer can register on the site', () => {
-        registerPage.registerCustomer(customers.validCustomer).waitForPageToBeLoaded().welcomeHeader().then(header => {
-            expect(header.text()).to.be.equal(`Welcome ${customers.validCustomer.username}`);
+        registerPage.registerCustomer(customers.validCustomer_1).waitForPageToBeLoaded().welcomeHeader().then(header => {
+            expect(header.text()).to.be.equal(`Welcome ${customers.validCustomer_1.username}`);
         });
     });
 
      it('Verify a customer can not register twice', () => {
-        registerPage.registerCustomer(customers.validCustomer).waitForPageToBeLoaded();
+        registerPage.registerCustomer(customers.validCustomer_1).waitForPageToBeLoaded();
 
         cy.get("#customer\\.username\\.errors").then(span => {
             expect(span.text()).to.be.equal("This username already exists.");
@@ -36,22 +36,25 @@ describe('Customer Registration Tests', () => {
     });  
 });
 
-describe('Bill Payments Test', () => {
+describe.only('Bill Payments Test', () => {
     let billPage;
 
-    beforeEach(() => {
-        new RegisterPage().open().registerCustomer(customers.validCustomer).waitForPageToBeLoaded().billPayLink().click();
-        billPage = new BillPage();
-    });
-
     it('Verify a customer can register on the site', () => {
+
+        new RegisterPage().open().registerCustomer(customers.validCustomer_1).waitForPageToBeLoaded().billPayLink().click();
+        billPage = new BillPage();
+
         billPage.payBill(bills.validBill).waitForPageToBeLoaded().completeHeader().then(header => {
             expect(header.text()).to.be.equal("Bill Payment Complete");
         });
     });
 
     it('Verify required fields validation', () => {
-        billPage.payBill(bills.invalidBill).waitForPageToBeLoaded();
+
+        new RegisterPage().open().registerCustomer(customers.validCustomer_2).waitForPageToBeLoaded().billPayLink().click();
+        billPage = new BillPage();
+
+        billPage.payBill(bills.validBill).waitForPageToBeLoaded();
         
         cy.get("[ng-show*='!validationModel\\.address']").then(span => {
             expect(span.text()).to.be.equal("Address is required.");
