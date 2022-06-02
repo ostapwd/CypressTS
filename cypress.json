@@ -1,5 +1,6 @@
 {"env": {
-    "UI_URL":"https://www.saucedemo.com/"
+    "UI_URL":"https://www.saucedemo.com/",
+    "API_HOST" : "https://jsonplaceholder.typicode.com"
 },
 
 "chromeWebSecurity" : false,

@@ -1,6 +1,7 @@
 import {LoginPageTS} from "../support/pages/SauceDemoPages/loginPageTS"
 import {sideMenuPageTS} from "../support/pages/SauceDemoPages/sideMenuPageTS"
 import {CartPageTS} from "../support/pages/SauceDemoPages/CartPageTS"
+import {checkoutPage} from "../support/pages/SauceDemoPages/checkoutPage"
 import users from "../data/users"
 
 describe ('Test suit : testing basic functionality', function(){
@@ -47,7 +48,7 @@ describe ('Test suit : testing basic functionality', function(){
         .filterFromDropdown('Price (high to low)')
     })
 
-    it('Test case : remove all items from cart', function(){
+    it ('Test case : remove all items from cart', function(){
         new LoginPageTS().open()
         .loginToTheApp(users.standardUser)
         .addAllProductsToCart()
@@ -55,5 +56,19 @@ describe ('Test suit : testing basic functionality', function(){
         new CartPageTS()
         .removeAllItemsFromCart()
     })
+
+    it ('Test case : make a purchase', function(){
+        new LoginPageTS().open()
+        .loginToTheApp(users.standardUser)
+        .addAllProductsToCart()
+        .openCart()
+        new checkoutPage()
+        .clickCheckout()
+        .clickContinue(users.userForCheckout)
+        .clickFinish()
+        cy.get(".complete-header").should('have.text', 'THANK YOU FOR YOUR ORDER')
+        new checkoutPage().clickBackHome()
+    })
+
 })
 

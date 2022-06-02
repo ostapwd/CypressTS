@@ -29,6 +29,12 @@ class Users {
         username: "performance_glitch_user",
         password: "secret_sauce!"
     };
+
+    userForCheckout= {
+        firstName: "user",
+        lastName : "user",
+        zipCode: "2"
+    }
 }
 
 export default new Users();

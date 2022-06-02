@@ -3,14 +3,14 @@ import {BasePage} from "./BasePage";
 export class MainPage extends BasePage{
 
     private openNewAccount(){
-        return cy.contains('Open New Account')
+        return cy.get("#leftPanel > ul > li:nth-child(1) > a")
     }
 
-    private accountType() { return cy.get('select[ng-model="types.selectedOption"]'); }
+    private accountType() { return cy.get('#type'); }
 
-    private amountForOpeningAccount() { return cy.get("#fromAccountId"); }
-
-    private openNewAccountBTN(){return cy.get('input[value="Open New Account"]')}
+    private numberofFunds(){return cy.get("#fromAccountId")}
+    
+    private openNewAccountBTN(){return cy.get("input[value = 'Open New Account']")}
 
     private newAccountID() { return cy.get("#newAccountId")}
 
@@ -24,10 +24,10 @@ export class MainPage extends BasePage{
         return this;
     };
 
-    public selectAmountForOpening(){
-        this.amountForOpeningAccount().select(0)
-        return this
-    }
+    public selectAccountFunds() {
+        this.numberofFunds().select(0)
+        return this;
+    };
 
     public clickOpenNewAccountBTN(){
         this.openNewAccountBTN().click()
