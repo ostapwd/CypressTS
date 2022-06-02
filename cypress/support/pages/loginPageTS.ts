@@ -7,18 +7,11 @@ export class LoginPageTS extends BasePage{
     private passwordInput() { return cy.get("#password"); }
     private loginButton() { return cy.get("#login-button"); }
 
-    public DoSomething(p1 :number, p2 :number) :string {
-        let rez = p1 + p2;
+    public loginToTheApp(users) {
+        this.usernameInput().type(users.username);
+        this.passwordInput().type(users.password);
 
-        return rez.toString();
-    }
-
-
-    public loginToTheApp(user) {
-        this.usernameInput().type(user.username);
-        this.passwordInput().type(user.password);
-
-        super.waitForSeconds(3);
+        super.waitForSeconds(2);
 
         this.loginButton().click();
 
@@ -32,3 +25,4 @@ export class LoginPageTS extends BasePage{
     }
 
 }
+export default new LoginPageTS();

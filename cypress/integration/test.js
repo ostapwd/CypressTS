@@ -1,9 +1,8 @@
 import loginPage from "../support/pages/loginPage";
-import users from "../data/users";
-import names from "../data/names";
 import productPage from "../support/pages/productPage";
 import purchasePage from "../support/pages/purchasePage";
-
+import users from "../data/users";
+import names from "../data/names";
 
 describe('saucedemo1', function () {
 
