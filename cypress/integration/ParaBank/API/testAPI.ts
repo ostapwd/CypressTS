@@ -10,7 +10,7 @@ describe ("Second test suite for Parabank", () => {
         }).then((response) => {
             cy.log(JSON.stringify(response, null, 2));
             expect(response.status).to.be.equal(200);
-            cy.getCookie('session_id').then((c) => {
+            cy.getCookie('JSESSIONID').then((c) => {
                 cookie = c
             })
         });
@@ -19,9 +19,9 @@ describe ("Second test suite for Parabank", () => {
             method: "POST",
             url: "https://parabank.parasoft.com/parabank/register.htm",
             form: true,
-            // headers: {
-            //     'my-token-x': cookie.value,
-            //   },
+            headers: {
+                'my-token-x': cookie,
+              },
             body:{
                 "customer.firstName": "re",
                 "customer.lastName": "re",
@@ -37,6 +37,7 @@ describe ("Second test suite for Parabank", () => {
             }
         }).then((response) => {
             cy.log(JSON.stringify(response, null, 2));
+            expect(response.status).to.be.equal(200);
         });
     })
    

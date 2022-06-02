@@ -14,7 +14,7 @@ export class LoginPageParabank extends BasePageParabank  {
     
 
     public open(){
-        super.goto('https://parabank.parasoft.com/parabank/index.htm')
+        super.goto('Cypress.env("UI_HOST_Parabank")')
         this.waitForSeconds(3)
             return this
     }

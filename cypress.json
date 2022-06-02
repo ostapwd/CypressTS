@@ -1,14 +1,15 @@
 {
 	"env": {
 		"API_HOST": "https://jsonplaceholder.typicode.com",
-		"UI_HOST": "https://www.saucedemo.com/"
+		"UI_HOST": "https://www.saucedemo.com/",
+		"UI_HOST_Parabank": "https://parabank.parasoft.com/parabank/index.htm"
 	},
 	"chromeWebSecurity": false,
 	"watchForFileChanges": false,
 	"pageLoadTimeout": 60000,
 	"defaultCommandTimeout": 10000,
 	
-	"testFiles": "**/*.feature",
+	"testFiles": "**/*.ts",
 	"reporter": "cypress-mochawesome-reporter",
 	"reporterOptions": {
 		"reportDir": "cypress/reports",
