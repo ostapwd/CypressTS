@@ -27,10 +27,21 @@ describe('Test suite for login', function () {
     cy.log('Main before');
   });
 
-  describe('Test suite for login (positive)', function () {
-    it('Test1 (positive login)', function () {
-      cy.visit('https://www.saucedemo.com/');
+  beforeEach(function () {
+    cy.log('main before each');
+    cy.visit('https://www.saucedemo.com/');
+  });
 
+  describe('Test suite for login (positive)', function () {
+    before(function () {
+      cy.log('Internal before');
+    });
+
+    beforeEach(function () {
+      cy.log('before each');
+    });
+
+    it('Test1 (positive login)', function () {
       cy.get('#user-name').type('standard_user');
 
       cy.get('#password').type('secret_sauce');
@@ -41,8 +52,6 @@ describe('Test suite for login', function () {
     });
 
     it('Test2 positive login', function () {
-      cy.visit('https://www.saucedemo.com/');
-
       cy.get('#user-name').type('standard_user');
 
       cy.get('#password').type('secret_sauce');
@@ -51,22 +60,45 @@ describe('Test suite for login', function () {
 
       cy.get('span.title').should('contain', 'Products');
     });
+
+    afterEach(function () {
+      cy.log('after each');
+    });
+
+    after(function () {
+      cy.log('Internal after');
+    });
   });
 
   describe('Test suite for login (negative)', function () {
-    it('Test 3 (negative login)', function () {
-      cy.visit('https://www.saucedemo.com/');
+    beforeEach(function () {
+      cy.log('before each');
 
       cy.get('#user-name').type('standard_user');
+    });
 
+    it('Test 3 (negative login)', function () {
       cy.get('#password').type('secret_sauce111');
+      cy.get('#login-button').click();
+      cy.get("h3[data-test = 'error']").should(
+        'contain',
+        'Epic sadface: Username and password do not match any user in this service'
+      );
+    });
+
+    it('Test 4 (negative login)', function () {
+      //cy.get('#password').type('secret_sauce111');
 
       cy.get('#login-button').click();
 
       cy.get("h3[data-test = 'error']").should(
         'contain',
-        'Epic sadface: Username and password do not match any user in this service'
+        'Epic sadface: Password is required'
       );
+    });
+
+    after(function () {
+      cy.log('Internal after');
     });
   });
 
