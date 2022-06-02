@@ -35,6 +35,9 @@ describe('ParaBank test suite', function () {
       .openNewAccApp()
       .verifyNewAcc()
       .should('have.text', 'Congratulations, your account is now open.')
-    accfunds.transferFundsApp()
+    accfunds
+      .transferFundsApp()
+      .transferComplete()
+      .should('have.text', 'Transfer Complete!')
   })
 })

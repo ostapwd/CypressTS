@@ -26,6 +26,10 @@ export class AccFundsPage {
     return cy.get(':nth-child(4) > .button')
   }
 
+  public transferComplete() {
+    return cy.get('.title')
+  }
+
   public openNewAccApp() {
     this.openNewAcc().click()
     cy.wait(1000)
