@@ -3,9 +3,8 @@ import { ProductPageSwaglabs } from "../cypress/support/pages/swaglabsPages/prod
 import usersForSwaglabs from "../cypress/data/usersForSwaglabs";
 import { YourCardPageSwaglabs } from "../cypress/support/pages/swaglabsPages/yourCardPageSwaglabs";
 import { ContainerPageSwaglabs } from "../cypress/support/pages/swaglabsPages/containerPageSwaglabs";
-import { When } from "cucumber"
-import { Then } from "cucumber"
-import { Given } from "cucumber"
+import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
+
 
 
 const loginPage = new LoginPageSwaglabs();
@@ -13,7 +12,7 @@ const productPage = new ProductPageSwaglabs();
 const yourCard = new YourCardPageSwaglabs();
 const containerPage = new ContainerPageSwaglabs();
 
-Given(/^Existing user navigates to the app$/, () => {
+Given(/^Existing user navigates to the app$/,  function () {
     loginPage.open();
 });
 

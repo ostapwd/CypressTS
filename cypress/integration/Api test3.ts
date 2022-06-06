@@ -1,74 +1,75 @@
 import apiController from "../api/apiControllerForThirdTest";
-import getAlbumSchema from "../jsonSchemas/getPostSchema.json";
-import addAlbumSchema from "../jsonSchemas/addPostSchema.json";
-import editAlbumSchema from "../jsonSchemas/editPostSchema.json";
+import getPhotosSchema from "../jsonSchemas/getPhotosSchema.json";
+import addPhotosSchema from "../jsonSchemas/addPhotosSchema .json";
+import editPhotosSchema from "../jsonSchemas/editPhotosSchema.json";
 
 import { validate } from "jsonschema";
 
-describe("Albums API tests", () => {
-    it("GET Albums test", () => {
-        apiController.getAlbums().then(response => {
+describe("Photos API tests", () => {
+    it("GET Photos test", () => {
+        apiController.getPhotos().then(response => {
             expect(response.status).to.be.equal(200);
 
-            let result = validate(response.body, getAlbumSchema);
+            let result = validate(response.body, getPhotosSchema);
             expect(result.valid, result.errors.toString()).to.be.false;
         });
     });
 
-    describe("POST Album API tests", () => {
+    describe("POST Photo API tests", () => {
 
-        let newAlbum = {
-            "userId": 1,
-            "id": "Test post name",
-            "title": "Test post body"
+        let newPhoto = {
+            "albumId": 1,
+            "title": "accusamus beatae ",
+            "url": "https://via.placeholder.com",
+            "thumbnailUrl": "https://via.placeholder.com"
 
         }
 
-        it("POST a new Album", () => {
-            let newAlbum = {
-                "userId": 1,
-                "id": "Test post name",
-                "title": "name",
-                "body": "Test post body"
+        it("POST a new Photo", () => {
+            newPhoto = {
+                "albumId": 1,
+                "title": "accusamus beatae ",
+                "url": "https://via.placeholder1.com",
+                "thumbnailUrl": "https://via.placeholder1.com"
             }
-            apiController.addAlbums(newAlbum).then(response => {
+            apiController.addPhotos(newPhoto).then(response => {
                 expect(response.status).to.be.equal(201);
 
-                let result = validate(response.body, addAlbumSchema);
+                let result = validate(response.body, addPhotosSchema);
                 expect(result.valid, result.errors.toString()).to.be.true;
 
-                newAlbum["id"] = response.body.id;
-                expect(response.body).to.deep.equal(newAlbum);
+                newPhoto["id"] = response.body.id;
+                expect(response.body).to.deep.equal(newPhoto);
             });
         });
 
-        it("Verify a new Album exists in the application", () => {
-            apiController.getAlbums().then(response => {
+        it("Verify a new Photo exists in the application", () => {
+            apiController.getPhotos().then(response => {
                 expect(response.status).to.be.equal(200);
-
             });
         });
     });
 
-    it("PUT Album test", () => {
-        let updatedAlbum = {
-            "userId": 1,
-            "id": "Test post name is name",
-            "title": "Test post body is body"
+    it("PUT Photo test", () => {
+        let updatedPhoto = {
+            "albumId": 1,
+            "title": "accusamus ",
+            "url": "https://via.placeholder.com.123",
+            "thumbnailUrl": "https://via.placeholder.com.123"
         }
-        apiController.editAlbums(1, updatedAlbum).then(response => {
+        apiController.editPhotos(1, updatedPhoto).then(response => {
             expect(response.status).to.be.equal(200);
 
-            let result = validate(response.body, editAlbumSchema);
-            expect(result.valid, result.errors.toString()).to.be.false;
+            let result = validate(response.body, editPhotosSchema);
+            expect(result.valid, result.errors.toString()).to.be.true;
 
-            updatedAlbum["id"] = response.body.id;
-            expect(response.body).to.deep.equal(updatedAlbum);
+            updatedPhoto["id"] = response.body.id;
+            expect(response.body).to.deep.equal(updatedPhoto);
         });
     });
 
-    it("DELETE Album test", () => {
-        apiController.deleteAlbums(1).then(response => {
+    it("DELETE Photo test", () => {
+        apiController.deletePhotos(1).then(response => {
             expect(response.status).to.be.equal(200);
         });
     });

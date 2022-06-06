@@ -1,76 +1,70 @@
 import apiController from "../api/apiControllerForSecondTest";
-import getPostSchema from "../jsonSchemas/getPostSchema.json";
-import addPostSchema from "../jsonSchemas/addPostSchema.json";
-import editPostSchema from "../jsonSchemas/editPostSchema.json";
+import getAlbumSchema from "../jsonSchemas/getAlbumSchema.json";
+import addAlbumSchema from "../jsonSchemas/addAlbumSchema.json";
+import editAlbumSchema from "../jsonSchemas/editAlbumSchema.json";
 
 import { validate } from "jsonschema";
 
-describe("Posts API tests", () => {
-    it("GET Posts test", () => {
-        apiController.getPosts().then(response => {
+describe("Albums API tests", () => {
+    it("GET Albums test", () => {
+        apiController.getAlbums().then(response => {
             expect(response.status).to.be.equal(200);
 
-            let result = validate(response.body, getPostSchema);
-            expect(result.valid, result.errors.toString()).to.be.true;
+            let result = validate(response.body, getAlbumSchema);
+            expect(result.valid, result.errors.toString()).to.be.false;
         });
     });
 
-    describe("POST Posts API tests", () => {
+    describe("POST Album API tests", () => {
 
-        let newPost = {
+        let newAlbum = {
             "userId": 1,
-            "id": "Test post name",
-            "title": "name",
-            "body": "Test post body"
+            "title": "Test post body"
 
         }
 
-        it("POST a new Post", () => {
-            let newPost = {
+        it("POST a new Album", () => {
+            newAlbum = {
                 "userId": 1,
-                "id": "Test post name",
-                "title": "name",
-                "body": "Test post body"
+                "title": "Test post body"
             }
-            apiController.addPosts(newPost).then(response => {
+            apiController.addAlbums(newAlbum).then(response => {
                 expect(response.status).to.be.equal(201);
 
-                let result = validate(response.body, addPostSchema);
+                let result = validate(response.body, addAlbumSchema);
                 expect(result.valid, result.errors.toString()).to.be.true;
 
-                newPost["id"] = response.body.id;
-                expect(response.body).to.deep.equal(newPost);
+                newAlbum["id"] = response.body.id;
+                expect(response.body).to.deep.equal(newAlbum);
             });
         });
 
-        it("Verify a new Post exists in the application", () => {
-            apiController.getPosts().then(response => {
+        it("Verify a new Album exists in the application", () => {
+            apiController.getAlbums().then(response => {
                 expect(response.status).to.be.equal(200);
 
             });
         });
     });
 
-    it("PUT Post test", () => {
-        let updatedPost = {
+    it("PUT Album test", () => {
+        let updatedAlbum = {
             "userId": 1,
-            "id": "Test post the last name",
-            "title": " Test name",
-            "body": "Test the last post body"
+            "title": "Test post body new"
         }
-        apiController.editPosts(1, updatedPost).then(response => {
+        apiController.editAlbums(1, updatedAlbum).then(response => {
             expect(response.status).to.be.equal(200);
 
-            let result = validate(response.body, editPostSchema);
+            let result = validate(response.body, editAlbumSchema);
             expect(result.valid, result.errors.toString()).to.be.true;
 
-            updatedPost["id"] = response.body.id;
-            expect(response.body).to.deep.equal(updatedPost);
+            updatedAlbum["id"] = response.body.id;
+            expect(response.body).to.deep.equal(updatedAlbum);
         });
     });
 
-    it("DELETE Post test", () => {
-        apiController.deletePosts(1).then(response => {
+    it("DELETE Album test", () => {
+        apiController.deleteAlbums(1).then(response => {
             expect(response.status).to.be.equal(200);
         });
     });

@@ -5,25 +5,24 @@
       {
         "type": "object",
         "properties": {
-          "postId": {
+          "albumId": {
             "type": "integer"
           },
           "id": {
             "type": "integer"
           },
-          "name": {
+          "title": {
             "type": "string"
           },
-          "email": {
+          "url": {
             "type": "string"
           },
-          "body": {
+          "thumbnailUrl": {
             "type": "string"
           }
         },
         "required": [
           "albumId",
-          "id",
           "title",
           "url",
           "thumbnailUrl"

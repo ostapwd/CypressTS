@@ -1,5 +1,5 @@
-Feature: test Application Swaglabs
-    The feature contains the set of testing scenarios to Swaglabs-Application
+
+Feature: test Application Swaglabs. The feature contains the set of testing scenarios to Swaglabs-Application
 
 @smoke
     Scenario Outline: Verify that a user can login to the app

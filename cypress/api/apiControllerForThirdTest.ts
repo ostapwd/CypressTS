@@ -2,7 +2,7 @@ import apiUtility from "../utilities/apiUtility";
 
 class ApiController {
 
-    getAlbums() {
+    getPhotos() {
         return cy.request({
             method: "GET",
             url: "https://jsonplaceholder.typicode.com/albums",
@@ -13,11 +13,11 @@ class ApiController {
             });
     }
 
-    getAlbum(albumId: number) {
+    getPhoto(photoId: number) {
         return cy
             .request({
                 method: "GET",
-                url: Cypress.env("API_HOST") + "/albums/" + albumId,
+                url: Cypress.env("API_HOST") + "/albums/" + photoId,
                 failOnStatusCode: false
             })
             .then((response) => {
@@ -25,37 +25,37 @@ class ApiController {
             });
     }
 
-    addAlbums(album: object) {
+    addPhotos(photo: object) {
         return cy
             .request({
                 method: "POST",
-                url: Cypress.env("API_HOST") + "/albums",
+                url: Cypress.env("API_HOST") + "/photos",
                 failOnStatusCode: false,
-                body: album
+                body: photo
             })
             .then((response) => {
                 apiUtility.logResponse(response);
             });
     }
 
-    editAlbums(albumId: number, album: object) {
+    editPhotos(photoId: number, photo: object) {
         return cy
             .request({
                 method: "PUT",
-                url: Cypress.env("API_HOST") + "/albums/" + albumId,
+                url: Cypress.env("API_HOST") + "/albums/" + photoId,
                 failOnStatusCode: false,
-                body: album
+                body: photo
             })
             .then((response) => {
                 apiUtility.logResponse(response);
             });
     }
 
-    deleteAlbums(albumId: number) {
+    deletePhotos(photoId: number) {
         return cy
             .request({
                 method: "DELETE",
-                url: Cypress.env("API_HOST") + "/albums/" + albumId,
+                url: Cypress.env("API_HOST") + "/albums/" + photoId,
                 failOnStatusCode: false
             })
             .then((response) => {

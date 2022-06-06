@@ -2,25 +2,24 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
     "properties": {
-      "postId": {
+      "albumId": {
         "type": "integer"
-      },
-      "name": {
-        "type": "string"
-      },
-      "email": {
-        "type": "string"
-      },
-      "body": {
-        "type": "string"
       },
       "id": {
         "type": "integer"
+      },
+      "title": {
+        "type": "string"
+      },
+      "url": {
+        "type": "string"
+      },
+      "thumbnailUrl": {
+        "type": "string"
       }
     },
     "required": [
       "albumId",
-      "id",
       "title",
       "url",
       "thumbnailUrl"

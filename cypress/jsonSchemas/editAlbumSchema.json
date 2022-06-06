@@ -2,25 +2,19 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
     "properties": {
-      "postId": {
+      "userId": {
         "type": "integer"
-      },
-      "name": {
-        "type": "string"
-      },
-      "email": {
-        "type": "string"
-      },
-      "body": {
-        "type": "string"
       },
       "id": {
         "type": "integer"
+      },
+      "title": {
+        "type": "string"
       }
+    
     },
     "required": [
         "userId",
-        "id",
         "title"
     ]
   }

@@ -2,10 +2,10 @@ import apiUtility from "../utilities/apiUtility";
 
 class ApiController {
 
-    getPhotos() {
+    getPosts() {
         return cy.request({
             method: "GET",
-            url: "https://jsonplaceholder.typicode.com/albums",
+            url: "https://jsonplaceholder.typicode.com/posts",
             failOnStatusCode: false
         })
             .then((response) => {
@@ -13,11 +13,11 @@ class ApiController {
             });
     }
 
-    getPhoto(photoId: number) {
+    getPost(commentId: number) {
         return cy
             .request({
                 method: "GET",
-                url: Cypress.env("API_HOST") + "/albums/" + photoId,
+                url: Cypress.env("API_HOST") + "/posts/" + commentId,
                 failOnStatusCode: false
             })
             .then((response) => {
@@ -25,37 +25,37 @@ class ApiController {
             });
     }
 
-    addPhotos(photo: object) {
+    addPosts(post: object) {
         return cy
             .request({
                 method: "POST",
-                url: Cypress.env("API_HOST") + "/photos",
+                url: Cypress.env("API_HOST") + "/posts",
                 failOnStatusCode: false,
-                body: photo
+                body: post
             })
             .then((response) => {
                 apiUtility.logResponse(response);
             });
     }
 
-    editPhotos(photoId: number, photo: object) {
+    editPosts(postId: number, post: object) {
         return cy
             .request({
                 method: "PUT",
-                url: Cypress.env("API_HOST") + "/albums/" + photoId,
+                url: Cypress.env("API_HOST") + "/posts/" + postId,
                 failOnStatusCode: false,
-                body: photo
+                body: post
             })
             .then((response) => {
                 apiUtility.logResponse(response);
             });
     }
 
-    deletePhotos(photoId: number) {
+    deletePosts(postId: number) {
         return cy
             .request({
                 method: "DELETE",
-                url: Cypress.env("API_HOST") + "/albums/" + photoId,
+                url: Cypress.env("API_HOST") + "/posts/" + postId,
                 failOnStatusCode: false
             })
             .then((response) => {
