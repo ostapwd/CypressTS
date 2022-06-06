@@ -1,7 +1,7 @@
 Feature: test Application Swaglabs
     The feature contains the set of testing scenarios to Swaglabs-Application
 
-
+@smoke
     Scenario Outline: Verify that a user can login to the app
         Given Existing user navigates to the app
         When They provide login <login>
@@ -12,7 +12,7 @@ Feature: test Application Swaglabs
             | login         | password     | message  |
             | standard_user | secret_sauce | Products |
 
-
+@smoke
     Scenario Outline: Verify that a user can't login to the app
         Given Existing user navigates to the app
         When They provide login <login>
@@ -23,7 +23,7 @@ Feature: test Application Swaglabs
             | login         | password     | errorMessage |
             | standard_user | secret_sauce | Products     |
 
-
+@smoke
     Scenario: Verify that a user can add products to a cart
         Given Existing user navigates to the app
         When They provide correct credentials
@@ -31,7 +31,7 @@ Feature: test Application Swaglabs
         When They click on the cart container
         Then All products should be in the cart
 
-
+@smoke
     Scenario: Verify that a user can add all products to the cart and delete one item
         Given Existing user navigates to the app
         When They provide correct credentials
@@ -42,7 +42,7 @@ Feature: test Application Swaglabs
         When They click on the button continue shopping
         Then The page contain a text
 
-
+@smoke
     Scenario: Verify that a user can select Price (low to high) and chack it praces
         Given Existing user navigates to the app
         When They provide correct credentials

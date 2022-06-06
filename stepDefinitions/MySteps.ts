@@ -17,8 +17,8 @@ Given(/^Existing user navigates to the app$/, () => {
     loginPage.open();
 });
 
-When(/^They provide login <login>$/, function (username: string) {
-    loginPage.usernameInputForLogin(username)
+When(/^They provide login <login>$/, function (login) {
+    loginPage.usernameInputForLogin(login)
 });
 
 When(/^They provide password <password>$/, function (password) {
