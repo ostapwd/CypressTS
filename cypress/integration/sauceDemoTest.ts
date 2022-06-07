@@ -1,9 +1,9 @@
 import users from "../data/users"
-import {SauceDemoLoginPage} from "../pages/sauceDemoLoginPage"
-import {BasePage} from "../pages/basePage"
-import {ProductsPage} from "../pages/sauceDemoProductsPage"
-import {ProductsCart} from "../pages/sauceDemoProductsCart"
-import {CheckoutForm} from "../pages/sauceDemoCheckoutForm"
+import {SauceDemoLoginPage} from "../support/pages/sauceDemoLoginPage"
+import {BasePage} from "../support/pages/basePage"
+import {ProductsPage} from "../support/pages/sauceDemoProductsPage"
+import {ProductsCart} from "../support/pages/sauceDemoProductsCart"
+import {CheckoutForm} from "../support/pages/sauceDemoCheckoutForm"
 
 
 

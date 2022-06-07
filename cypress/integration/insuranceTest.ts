@@ -1,8 +1,8 @@
-import {StartRegistration} from "../pages/insuranceStartRegisterPage"
-import {FillRegisterForm} from "../pages/incuranceFillRegisterForm"
-import {BasePage} from "../pages/basePage"
-import {LoginPageInsurance} from "../pages/insuranceLoginPage"
-import {BrokerInsuranceWebPage} from "../pages/insuranceBrokerInsuranceWebPage"
+import {StartRegistration} from "../support/pages/insuranceStartRegisterPage"
+import {FillRegisterForm} from "../support/pages/incuranceFillRegisterForm"
+import {BasePage} from "../support/pages/basePage"
+import {LoginPageInsurance} from "../support/pages/insuranceLoginPage"
+import {BrokerInsuranceWebPage} from "../support/pages/insuranceBrokerInsuranceWebPage"
 import users from "../data/users"
 import { expect } from "chai"
 

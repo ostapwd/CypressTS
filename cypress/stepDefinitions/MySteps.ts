@@ -1,8 +1,8 @@
 import { Given, When, And, Then } from 'cypress-cucumber-preprocessor/steps';
-import {StartRegistration} from "../pages/insuranceStartRegisterPage"
-import {FillRegisterForm} from "../pages/incuranceFillRegisterForm"
-import {LoginPageInsurance} from "../pages/insuranceLoginPage"
-import {BrokerInsuranceWebPage} from "../pages/insuranceBrokerInsuranceWebPage"
+import {StartRegistration} from "../support/pages/insuranceStartRegisterPage"
+import {FillRegisterForm} from "../support/pages/incuranceFillRegisterForm"
+import {LoginPageInsurance} from "../support/pages/insuranceLoginPage"
+import {BrokerInsuranceWebPage} from "../support/pages/insuranceBrokerInsuranceWebPage"
 import users from "../data/users"
 
 Cypress.on('uncaught:exception', (err, runnable) => {
