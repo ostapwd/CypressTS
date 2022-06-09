@@ -6,8 +6,7 @@ export class LoginPageSwagLabsTS extends basePageSwagLabsTS {
     private passwordInput() { return cy.get("#password"); }
     private loginButton() { return cy.get("input[data-test='login-button']"); }
     public  logoApp() {return cy.get(".login_logo");}
-    public  errorMessageLoginToTheApp() {return cy.xpath("//*[@data-test='error']");}
-    public  errorMessageColor() {return cy.get(".error-message-container.error");}
+    public  errorMessage() {return cy.get(".error-message-container.error");}
     
     public loginToTheApp(user) {
         this.usernameInput().clear().type(user.username);
@@ -60,19 +59,7 @@ export class LoginPageSwagLabsTS extends basePageSwagLabsTS {
             return this
     }
 
-    public emptyFieldsToTheApp() {
-        this.usernameInput().clear();
-        this.waitForSeconds(1);
-        this.passwordInput().clear();
-        this.waitForSeconds(1);
-            return this
-    }
-
-    public errorMessageVerify(error){
-        this.errorMessageLoginToTheApp().should('be.visible').then((element) => {
-            expect(element.text()).to.be.equal(error.message);
-        this.errorMessageColor().should('have.css', 'background-color', 'rgb(226, 35, 26)')
-        });
-            return this
+    public getErrorMessageLoginToTheApp(){
+       return  this.errorMessage()
     }
 }

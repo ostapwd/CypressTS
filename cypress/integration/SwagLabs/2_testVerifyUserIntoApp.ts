@@ -14,8 +14,10 @@ describe('Test suite verified a user login into the application', () => {
             new LoginPageSwagLabsTS()
                 .loginToTheApp(users.standardUser)
                 .clickOnButtonLogin()
-                .getPageLabel().should('be.visible').then((element) => {
-                    expect(element.text()).to.be.equal('Products')
+                .getPageLabel()
+                    .should('be.visible')
+                    .then((element) => {
+                        expect(element.text()).to.be.equal('Products')
                 })
         });
 
@@ -24,7 +26,10 @@ describe('Test suite verified a user login into the application', () => {
                 .loginToTheApp(users.noRegisterUser)
                 .clickOnButtonLogin()
             loginPage
-                .errorMessageVerify(errorsLoginMessage.nagativeCredentialsUser)
+                .getErrorMessageLoginToTheApp()
+                    .should('have.css', 'background-color', 'rgb(226, 35, 26)')
+                    .then((element) => {
+                        expect(element.text()).to.be.equal(errorsLoginMessage.nagativeCredentialsUser.message)});
         })
 
         it('Verify a user can login into the application (locked Out User)', () => {
@@ -32,7 +37,10 @@ describe('Test suite verified a user login into the application', () => {
                 .loginToTheApp(users.lockedOutUser)
                 .clickOnButtonLogin()
             loginPage
-                .errorMessageVerify(errorsLoginMessage.lockedOutUser)
+                .getErrorMessageLoginToTheApp()
+                    .should('have.css', 'background-color', 'rgb(226, 35, 26)')
+                    .then((element) => {
+                        expect(element.text()).to.be.equal(errorsLoginMessage.lockedOutUser.message)});
         })
 
         it('Verify a user can login into the application (empty Password field)', () => {
@@ -40,7 +48,10 @@ describe('Test suite verified a user login into the application', () => {
                 .emptyPasswordToTheApp(users.standardUser)
                 .clickOnButtonLogin()
             loginPage
-                .errorMessageVerify(errorsLoginMessage.emptyPasswordFieldUser)
+                .getErrorMessageLoginToTheApp()
+                    .should('have.css', 'background-color', 'rgb(226, 35, 26)')
+                    .then((element) => {
+                        expect(element.text()).to.be.equal(errorsLoginMessage.emptyPasswordFieldUser.message)});
         })
 
         it('Verify a user can login into the application (empty Username field)', () => {
@@ -48,15 +59,20 @@ describe('Test suite verified a user login into the application', () => {
                 .emptyUsernameToTheApp(users.standardUser)
                 .clickOnButtonLogin()
             loginPage
-                .errorMessageVerify(errorsLoginMessage.emptyUsernameFieldUser)
+                .getErrorMessageLoginToTheApp()
+                    .should('have.css', 'background-color', 'rgb(226, 35, 26)')
+                    .then((element) => {
+                        expect(element.text()).to.be.equal(errorsLoginMessage.emptyUsernameFieldUser.message)});
         })
 
-        it('Verify a user can login into the application (empty field)', () => {
+        it('Verify a user can login into the application (empty fields)', () => {
             loginPage
-                .emptyFieldsToTheApp()
                 .clickOnButtonLogin()
             loginPage
-                .errorMessageVerify(errorsLoginMessage.emptyFieldsUser)
+            .getErrorMessageLoginToTheApp()
+                .should('have.css', 'background-color', 'rgb(226, 35, 26)')
+                .then((element) => {
+                    expect(element.text()).to.be.equal(errorsLoginMessage.emptyFieldsUser.message)});
         })
 
         it('Verify a user can login into the application (wrong username user)', () => {
@@ -64,7 +80,10 @@ describe('Test suite verified a user login into the application', () => {
                 .loginToTheApp(users.wrongUsernameUser)
                 .clickOnButtonLogin()
             loginPage
-                .errorMessageVerify(errorsLoginMessage.nagativeCredentialsUser)
+            .getErrorMessageLoginToTheApp()
+                .should('have.css', 'background-color', 'rgb(226, 35, 26)')
+                .then((element) => {
+                    expect(element.text()).to.be.equal(errorsLoginMessage.nagativeCredentialsUser.message)});
         })
 
         it('Verify a user can login into the application (wrong password user)', () => {
@@ -72,7 +91,10 @@ describe('Test suite verified a user login into the application', () => {
                 .loginToTheApp(users.wrongPasswordUser)
                 .clickOnButtonLogin()
             loginPage
-                .errorMessageVerify(errorsLoginMessage.nagativeCredentialsUser)
+                .getErrorMessageLoginToTheApp()
+                    .should('have.css', 'background-color', 'rgb(226, 35, 26)')
+                    .then((element) => {
+                        expect(element.text()).to.be.equal(errorsLoginMessage.nagativeCredentialsUser.message)});
         })
 
     afterEach(() => {
