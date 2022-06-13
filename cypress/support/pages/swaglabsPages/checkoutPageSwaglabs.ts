@@ -13,7 +13,8 @@ export class CheckoutPageSwaglabs {
     private checkoutComplete() { return cy.xpath("//span[@class='title']"); }
     private buttonBackHome() { return cy.xpath('//button[@name="back-to-products"]'); }
     private buttonCancel() { return cy.get("button[class='btn btn_secondary back btn_medium cart_cancel_link']"); }
-
+    private buttonClickCheckout() { return cy.get('.btn btn_action btn_medium checkout_button') }
+    private buttonCheckoutClickOnIt() { return cy.xpath('//button[@class="btn btn_action btn_medium checkout_button"]') }
 
     public checkoutLabelShouldContainInThePageCheckout() {
         return this.checkoutLabel();
@@ -53,6 +54,16 @@ export class CheckoutPageSwaglabs {
         this.buttonCancel().click();
         return this;
     };
+
+    public buttonClickOnCheckoutButton() {
+        this.buttonClickCheckout()
+        return this;
+    }
+
+    public buttonCheckoutAndClickOnIt() {
+        this.buttonCheckoutClickOnIt().click()
+        return this;
+    }
 
 }
 

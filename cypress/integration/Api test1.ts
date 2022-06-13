@@ -50,6 +50,7 @@ describe("Posts API tests", () => {
     });
 
     it("PUT Post test", () => {
+      
         let updatedPost = {
             "userId": 1,
             "title": " Test name",
