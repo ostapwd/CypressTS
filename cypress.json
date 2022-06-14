@@ -1,6 +1,7 @@
 {
   "env": {
-    "API_HOST": "https://jsonplaceholder.typicode.com",
+    "API_HOST1": "https://jsonplaceholder.typicode.com",
+    "API_HOST2":"https://demo.guru99.com/",
     "TAGS": "@smoke"
   },
   "testFiles": "**/*.*",

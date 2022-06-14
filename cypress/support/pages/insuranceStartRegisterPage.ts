@@ -5,7 +5,7 @@ export class StartRegistration extends BasePage{
     private getStartRegistration(){ return cy.xpath('/html/body/div[3]/a')}
 
     public visitApp() {
-        super.goto("https://demo.guru99.com/")
+        super.goto(Cypress.env("API_HOST2"))
         return this
     }
 

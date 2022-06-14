@@ -5,7 +5,7 @@ class ApiController {
     getAlbums() {
         return cy.request({
                 method: "GET",
-                url: "http://jsonplaceholder.typicode.com/albums",
+                url: Cypress.env("API_HOST1") + "/albums/",
                 failOnStatusCode: false
             })
             .then((response) => {
@@ -18,7 +18,7 @@ class ApiController {
         return cy
             .request({
                 method: "GET",
-                url: Cypress.env("API_HOST") + "/albums/" + albumId,
+                url: Cypress.env("API_HOST1") + "/albums/" + albumId,
                 failOnStatusCode: false
             })
             .then((response) => {
@@ -31,7 +31,7 @@ class ApiController {
         return cy
             .request({
                 method: "POST",
-                url: Cypress.env("API_HOST") + "/albums",
+                url: Cypress.env("API_HOST1") + "/albums",
                 failOnStatusCode: false,
                 body: album
             })
@@ -45,7 +45,7 @@ class ApiController {
         return cy
             .request({
                 method: "PUT",
-                url: Cypress.env("API_HOST") + "/albums/" + albumId,
+                url: Cypress.env("API_HOST1") + "/albums/" + albumId,
                 failOnStatusCode: false,
                 body: album
             })
@@ -59,7 +59,7 @@ class ApiController {
         return cy
             .request({
                 method: "DELETE",
-                url: Cypress.env("API_HOST") + "/albums/" + albumId,
+                url: Cypress.env("API_HOST1") + "/albums/" + albumId,
                 failOnStatusCode: false
             })
             .then((response) => {
