@@ -1,5 +1,6 @@
 {
 	"env": {
+    "TAGS": "@smoke",
 		"API_HOST": "https://jsonplaceholder.typicode.com",
 		"UI_HOST": "https://www.saucedemo.com/",
 		"UI_HOST_Parabank": "https://parabank.parasoft.com/parabank/index.htm"
@@ -9,10 +10,10 @@
 	"pageLoadTimeout": 60000,
 	"defaultCommandTimeout": 10000,
 	
-	"testFiles": "**/*.ts",
+	"testFiles": "**/*.*",
 	"reporter": "cypress-mochawesome-reporter",
 	"reporterOptions": {
-		"reportDir": "cypress/reports",
+		"reportDir": "reports",
 		"charts": true,
 		"reportPageTitle": "Test Suite Vitalik-taf",
 		"embeddedScreenshots": true,

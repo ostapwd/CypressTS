@@ -1,36 +1,66 @@
+import apiUtility from "../utilities/apiUtility";
+
 class ApiController {
 
-    getUsers() {
+    getComments() {
         return cy.request({
-            method: "GET",
-            url: "http://localhost:8080/api/v1/users"
-        })
-        .then((response) => {
-            cy.log(JSON.stringify(response, null, 2));
-        });
+                method: "GET",
+                url: "https://jsonplaceholder.typicode.com/comments",
+                failOnStatusCode: false
+            })
+            .then((response) => {
+                apiUtility.logResponse(response);
+            });
     }
 
-    createUser(user) {
-        return cy.request({
-            method: "POST",
-            url: "http://localhost:8080/api/v1/users",
-            body: user
-        })
-        .then((response) => {
-            cy.log(JSON.stringify(response, null, 2));
-        });
+    getComment(commentId: number) {
+        return cy
+            .request({
+                method: "GET",
+                url: Cypress.env("API_HOST") + "/comments/" + commentId,
+                failOnStatusCode: false
+            })
+            .then((response) => {
+                apiUtility.logResponse(response);
+            });
     }
 
-    deleteUser(id: string) {
-        return cy.request({
-            method: "DELETE",
-            url: "http://localhost:8080/api/v1/users/" + id
-        })
-        .then((response) => {
-            cy.log(JSON.stringify(response, null, 2));
-        });
+    addComment(comment: object) {
+        return cy
+            .request({
+                method: "POST",
+                url: Cypress.env("API_HOST") + "/comments",
+                failOnStatusCode: false,
+                body: comment
+            })
+            .then((response) => {
+                apiUtility.logResponse(response);
+            });
     }
 
+    editComment(commentId: number, comment: object) {
+        return cy
+            .request({
+                method: "PUT",
+                url: Cypress.env("API_HOST") + "/comments/" + commentId,
+                failOnStatusCode: false,
+                body: comment
+            })
+            .then((response) => {
+                apiUtility.logResponse(response);
+            });
+    }
+
+    deleteComment(commentId: number) {
+        return cy
+            .request({
+                method: "DELETE",
+                url: Cypress.env("API_HOST") + "/comments/" + commentId,
+                failOnStatusCode: false
+            })
+            .then((response) => {
+                apiUtility.logResponse(response);
+            });
+    }
 }
-
 export default new ApiController();

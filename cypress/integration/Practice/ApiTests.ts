@@ -1,9 +1,21 @@
+<<<<<<< HEAD:cypress/integration/Practice/ApiTests.ts
 import apiController2 from "../../api/apiController2";
+=======
+import apiController from "../api/apiController";
+import getCommentsSchema from "../jsonSchemas/getCommentsSchema.json";
+import addCommentSchema from "../jsonSchemas/addCommentSchema.json";
+import editCommentSchema from "../jsonSchemas/editCommentSchema.json";
+
+import {validate} from "jsonschema";
+>>>>>>> 6a4224fc1b5c9f7c0cba37ceed42883ea265c075:cypress/integration/ApiTests.ts
 
 describe("Comments API tests", () => {
     it("GET comments test", () => {
-        apiController2.getComments().then( response => {
+        apiController.getComments().then( response => {
             expect(response.status).to.be.equal(200);
+
+            let result = validate(response.body, getCommentsSchema);
+            expect(result.valid, result.errors.toString()).to.be.true;
         });
     });
 
@@ -17,8 +29,17 @@ describe("Comments API tests", () => {
         }
 
         it("POST a new comment", () => {
-            apiController2.addComment(newComment).then( response => {
+            let newComment = {
+                "postId": 1,
+                "name": "Test comment name",
+                "email": "testemail@gmail.com",
+                "body": "Test comment body"
+            }
+            apiController.addComment(newComment).then( response => {
                 expect(response.status).to.be.equal(201);
+
+                let result = validate(response.body, addCommentSchema);
+                expect(result.valid, result.errors.toString()).to.be.true;
 
                 newComment["id"] = response.body.id;
                 expect(response.body).to.deep.equal(newComment);
@@ -26,9 +47,9 @@ describe("Comments API tests", () => {
         });
 
         it("Verify a new comment exists in the application", () => {
-            apiController2.getComments().then( response => {
+            apiController.getComments().then( response => {
                 expect(response.status).to.be.equal(200);
-                expect(response.body).to.deep.include(newComment);
+                //expect(response.body).to.deep.include(newComment);
             });
         });
     });
@@ -40,8 +61,11 @@ describe("Comments API tests", () => {
             "email": "testemail@gmail.com",
             "body": "Test updated comment body"
         }
-        apiController2.editComment(1, updatedComment).then( response => {
+        apiController.editComment(1, updatedComment).then( response => {
             expect(response.status).to.be.equal(200);
+
+            let result = validate(response.body, editCommentSchema);
+            expect(result.valid, result.errors.toString()).to.be.true;
 
             updatedComment["id"] = response.body.id;
             expect(response.body).to.deep.equal(updatedComment);
@@ -49,7 +73,7 @@ describe("Comments API tests", () => {
     });
 
     it("DELETE comment test", () => {
-        apiController2.deleteComment(1).then( response => {
+        apiController.deleteComment(1).then( response => {
             expect(response.status).to.be.equal(200);
         });
     });
