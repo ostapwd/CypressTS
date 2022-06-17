@@ -1,6 +1,7 @@
 import apiController3Album from "../../../api/apiController3Album";
-import getAlbumsSchema from "../../../jsonSchemas/getAlbumsSchema.json"
-import { validate } from "jsonschema"
+import getAlbumsSchema from "../../../jsonSchemas/getAlbumsSchema.json";
+import { validate } from "jsonschema";
+
 
 describe("Albums API tests", () => {
     it("GET albums test", () => {

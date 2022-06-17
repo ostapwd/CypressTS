@@ -1,4 +1,4 @@
-import {validate} from "jsonschema";
+import { validate } from "jsonschema";
 
 class JsonUtility {
 
