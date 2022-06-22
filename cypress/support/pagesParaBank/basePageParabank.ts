@@ -71,24 +71,24 @@ export class BasePageParabank {
        return this.adminPageLink()
     }
 
+    public getRightButtonMenu(){
+       return this.rightButtonMenu()
+    }
 
-    // public getRightButtonMenu(){
-    //    return this.rightButtonMenu()
-    // }
+    public getHomeButton(){
+       return this.homeButton()
+    }
 
-    // public returnAccountsServicesPage(){
-    //     this.homeButton().should('be.visible').click()
-    //     return this
-    // }
+    public clickHomeButton(){
+        return this.getHomeButton().click()
+    }
 
-    // public openAboutUsPage(){
-    //     this.aboutUsButton().should('be.visible').click()
-    //     return new AboutUsPageParabank()
-    // }
+    public getAboutUsButton(){
+       return this.aboutUsButton()
+    }
 
-    // public openContactPage(){
-    //     this.contactButton().should('contain', 'contact').click()
-    //     return new ContactPageParabank()
-    // }
+    public getContactButton(){
+        return this.contactButton()
+    }
 
 }

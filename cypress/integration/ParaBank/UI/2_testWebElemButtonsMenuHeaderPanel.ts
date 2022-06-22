@@ -1,19 +1,13 @@
-import urlsPagesParabank from "../../../data/ParaBank/urlsPagesParabank";
-import { AboutUsPageParabank } from "../../../support/pagesParaBank/aboutUsPageParabank";
-import { AdminPageParabank } from "../../../support/pagesParaBank/adminPageParabank";
 import { BasePageParabank } from "../../../support/pagesParaBank/basePageParabank";
-import { LocationsPageParabank } from "../../../support/pagesParaBank/locationsPageParabank";
-import { ProductsPageParabank } from "../../../support/pagesParaBank/productsPageParabank";
-import { ServicesPageParabank } from "../../../support/pagesParaBank/servicesPageParabank";
+import { AboutUsPageParabank } from "../../../support/pagesParaBank/aboutUsPageParabank";
+import urlsPagesParabank from "../../../data/ParaBank/urlsPagesParabank";
+import { ContactPageParabank } from "../../../support/pagesParaBank/contactPageParabank";
 
 const basePage = new BasePageParabank();
 const aboutUsPage = new AboutUsPageParabank();
-const servicesPage = new ServicesPageParabank();
-const productsPage = new ProductsPageParabank();
-const locationsPage = new LocationsPageParabank();
-const adminPage = new AdminPageParabank();
+const contactPage = new ContactPageParabank();
 
-describe('Test suite to verify the left menu of the header panel', () => {
+describe('Test suite to verify the buttons menu of the header panel', () => {
     before('Opened the Main page', () => {
         basePage.openApi();
     });
@@ -28,5 +22,44 @@ describe('Test suite to verify the left menu of the header panel', () => {
                 .each((item, index) => {
                     expect(Cypress.$(item).attr('href')).to.contain(links[index])
                 })
+    });
+
+    it('Test a user can go to the AboutUs page after clicking on the AboutUs button', () => {
+        basePage
+            .getAboutUsButton()
+                .should('be.visible')
+                .and('have.attr', 'href')
+                .and('contain', 'about.htm')
+        aboutUsPage
+            .clickButtonAboutUsPage()
+            .urlVerify(urlsPagesParabank.aboutUsPageUrl)
+            .getPageLabel()
+                .should('contain','ParaSoft Demo Website')
+    });
+
+    it('Test a user can go to the Contact page after clicking on the Contact button', () => {
+        basePage
+            .getContactButton()
+                .should('be.visible')
+                .and('have.attr', 'href')
+                .and('contain', 'contact.htm')
+        contactPage
+            .clickButtonContactPage()
+            .urlVerify(urlsPagesParabank.contactPageUrl)
+            .getPageLabel()
+                .should('contain','Customer Care')
+    });
+
+    it('Test a user can go to the Home page after clicking on the Home button', () => {
+        basePage
+            .getHomeButton()
+                .should('be.visible')
+                .and('have.attr', 'href')
+                .and('contain', 'index.htm')
+        basePage
+            .clickHomeButton()
+        basePage
+            .urlVerify(urlsPagesParabank.loginPageUrl)
+          
     });
 });

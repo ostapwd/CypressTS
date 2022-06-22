@@ -23,6 +23,10 @@ class UrlsPagesParabank{
         url: 'https://parabank.parasoft.com/parabank/admin.htm'
     };
 
+    contactPageUrl = {
+        url: 'https://parabank.parasoft.com/parabank/contact.htm'
+    };
+
     lookupPageUrl = {
         url: 'https://parabank.parasoft.com/parabank/lookup.htm'
     };

@@ -3,7 +3,7 @@ import { BasePageParabank } from "./basePageParabank"
 export class ProductsPageParabank extends BasePageParabank{
     
     public clickOpenProductsPage(){
-        super.productsLink().click()
+        super.getProductsLink().click()
         return new ProductsPageParabank()
     }
 }
