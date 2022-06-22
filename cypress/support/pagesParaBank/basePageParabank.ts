@@ -20,8 +20,9 @@ export class BasePageParabank {
     public homeButton() { return cy.get(".home a[href*='/parabank/index.htm']"); }
     public aboutUsButton() { return cy.get(".aboutus a[href*='about.htm']"); }
     public contactButton() { return cy.get(".contact a[href*='contact.htm']"); }
+    private pageLabel() { return cy.get("#rightPanel h1.title"); }
    
-    protected waitForSeconds(secondsToWait :number) {
+    public waitForSeconds(secondsToWait :number) {
         cy.wait(secondsToWait * 1000);  
             return this
     }
@@ -31,8 +32,8 @@ export class BasePageParabank {
          return this
     }
 
-    protected urlVerify(url) {
-        cy.url().should('contain',url);
+    public urlVerify(url) {
+        cy.url().should('contain',url.url);
          return this;
     }
 
@@ -46,48 +47,48 @@ export class BasePageParabank {
        return this.leftMenu()
     }
 
-    public getRightButtonMenu(){
-       return this.rightButtonMenu()
+    public getAboutUsLink(){
+       return this.aboutUsLink()
     }
 
-    public returnAccountsServicesPage(){
-        this.homeButton().should('be.visible').click()
-        return this
+    public getPageLabel(){
+        return this.pageLabel()
     }
 
-    public openAboutUsPage(){
-        this.aboutUsButton().should('be.visible').click()
-        return new AboutUsPageParabank()
+    public getServicesLink(){
+        return this.servicesLink()
     }
 
-    public openContactPage(){
-        this.contactButton().should('contain', 'contact').click()
-        return new ContactPageParabank()
+    public getProductsLink(){
+       return this.productsLink()
     }
 
-    public openAboutUsLinkMenu(){
-        this.aboutUsLink().should('contain', 'About Us').click()
-        return new AboutUsPageParabank()
+    public getLocationsLink(){
+        return this.locationsLink()
     }
 
-    public openServicesLinkMenu(){
-        this.servicesLink().should('contain', 'Services').click()
-        return this
+    public getAdminPageLink(){
+       return this.adminPageLink()
     }
 
-    public openProductsLinkMenu(){
-        this.productsLink().should('contain', 'Products').click()
-        return this
-    }
 
-    public openLocationsLinkMenu(){
-        this.locationsLink().should('contain', 'Locations')
-        return this
-    }
+    // public getRightButtonMenu(){
+    //    return this.rightButtonMenu()
+    // }
 
-    public openAdminPageLinkMenu(){
-        this.adminPageLink().should('contain', 'Admin Page').click()
-        return this
-    }
+    // public returnAccountsServicesPage(){
+    //     this.homeButton().should('be.visible').click()
+    //     return this
+    // }
+
+    // public openAboutUsPage(){
+    //     this.aboutUsButton().should('be.visible').click()
+    //     return new AboutUsPageParabank()
+    // }
+
+    // public openContactPage(){
+    //     this.contactButton().should('contain', 'contact').click()
+    //     return new ContactPageParabank()
+    // }
 
 }
