@@ -13,7 +13,7 @@ const productsPage = new ProductsPageParabank();
 const locationsPage = new LocationsPageParabank();
 const adminPage = new AdminPageParabank();
 
-describe('Test suite to verify the header panel', () => {
+describe('Test suite to verify the left menu of the header panel', () => {
     before('Opened the Main page', () => {
         basePage.openApi();
     });
