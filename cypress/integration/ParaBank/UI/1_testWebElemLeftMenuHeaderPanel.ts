@@ -17,7 +17,7 @@ describe('Test suite to verify the left menu of the header panel', () => {
     beforeEach('Opened the Main page', () => {
         basePage.openApi();
     });
-    it('Verify the names of the menu items in the left menu on the main API page ', () => {
+    it('Verify the names of the menu items in the left menu on the main App page ', () => {
         const nameItems = ['Solutions', 'About Us', 'Services', 'Products', 'Locations', 'Admin Page']
         basePage.getLeftMenu()
             .find('li')
@@ -89,7 +89,7 @@ describe('Test suite to verify the left menu of the header panel', () => {
                 .should('contain','Administration')
     });
 
-    it('Verify the button menu on the main API page', () => {
+    it('Verify the button menu on the main App page', () => {
         const links = ['index.htm', 'about.htm', 'contact.htm']
         basePage
             .getRightButtonMenu()

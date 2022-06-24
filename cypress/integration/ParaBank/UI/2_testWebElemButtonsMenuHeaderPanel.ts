@@ -12,7 +12,7 @@ describe('Test suite to verify the buttons menu of the header panel', () => {
         basePage.openApi();
     });
    
-    it('Verify the button menu on the main API page', () => {
+    it('Verify the button menu on the main App page', () => {
         const links = ['index.htm', 'about.htm', 'contact.htm']
         basePage
             .getRightButtonMenu()

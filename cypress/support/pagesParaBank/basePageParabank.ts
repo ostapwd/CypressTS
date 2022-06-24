@@ -20,7 +20,9 @@ export class BasePageParabank {
     public homeButton() { return cy.get(".home a[href*='/parabank/index.htm']"); }
     public aboutUsButton() { return cy.get(".aboutus a[href*='about.htm']"); }
     public contactButton() { return cy.get(".contact a[href*='contact.htm']"); }
-    private pageLabel() { return cy.get("#rightPanel h1.title"); }
+    public pageLabel() { return cy.get("#rightPanel h1.title"); }
+    public registerUserLink() { return cy.get("a[href*='register.htm']"); }
+    public logOutrUserLink() { return cy.get("a[href*='logout.htm']"); }
    
     public waitForSeconds(secondsToWait :number) {
         cy.wait(secondsToWait * 1000);  
@@ -89,6 +91,10 @@ export class BasePageParabank {
 
     public getContactButton(){
         return this.contactButton()
+    }
+
+    public getRegisterLink(){
+       return this.registerUserLink()
     }
 
 }
