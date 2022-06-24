@@ -1,5 +1,7 @@
+import loginPage from '../support/pages/loginPage';
+
 describe('Test suite', function () {
-  it('Test1', function () {
+  it('Test 1', function () {
     cy.visit('https://www.saucedemo.com/');
     //cy.wait(2000);
 
@@ -29,7 +31,7 @@ describe('Test suite for login', function () {
 
   beforeEach(function () {
     cy.log('main before each');
-    cy.visit('https://www.saucedemo.com/');
+    loginPage.open();
   });
 
   describe('Test suite for login (positive)', function () {
@@ -42,21 +44,24 @@ describe('Test suite for login', function () {
     });
 
     it('Test1 (positive login)', function () {
-      cy.get('#user-name').type('standard_user');
+      loginPage.loginToTheApp('standard_user', 'secret_sauce');
+      /* cy.get('#user-name').type('standard_user');
 
       cy.get('#password').type('secret_sauce');
 
       cy.get('#login-button').click();
-
+ */
       cy.get('span.title').should('contain', 'Products');
     });
 
     it('Test2 positive login', function () {
-      cy.get('#user-name').type('standard_user');
+      loginPage.loginToTheApp('standard_user', 'secret_sauce');
+
+      /* cy.get('#user-name').type('standard_user');
 
       cy.get('#password').type('secret_sauce');
 
-      cy.get('#login-button').click();
+      cy.get('#login-button').click(); */
 
       cy.get('span.title').should('contain', 'Products');
     });
@@ -74,12 +79,13 @@ describe('Test suite for login', function () {
     beforeEach(function () {
       cy.log('before each');
 
-      cy.get('#user-name').type('standard_user');
+      //cy.get('#user-name').type('standard_user');
     });
 
     it('Test 3 (negative login)', function () {
-      cy.get('#password').type('secret_sauce111');
-      cy.get('#login-button').click();
+      loginPage.loginToTheApp('standard_user', 'problem_user');
+      /* cy.get('#password').type('secret_sauce111');
+      cy.get('#login-button').click(); */
       cy.get("h3[data-test = 'error']").should(
         'contain',
         'Epic sadface: Username and password do not match any user in this service'
@@ -87,13 +93,15 @@ describe('Test suite for login', function () {
     });
 
     it('Test 4 (negative login)', function () {
-      //cy.get('#password').type('secret_sauce111');
+      loginPage.usernameInput.type('standard_user');
+      loginPage.loginButton.click();
+      /* cy.get('#password').type('secret_sauce111');
 
       cy.get('#login-button').click();
-
+ */
       cy.get("h3[data-test = 'error']").should(
         'contain',
-        'Epic sadface: Password is required'
+        'Epic  sadface: Password is required'
       );
     });
 
