@@ -1,25 +1,15 @@
 import urlsPagesParabank from "../../../data/ParaBank/urlsPagesParabank";
-import { AboutUsPageParabank } from "../../../support/pagesParaBank/aboutUsPageParabank";
-import { AdminPageParabank } from "../../../support/pagesParaBank/adminPageParabank";
-import { BasePageParabank } from "../../../support/pagesParaBank/basePageParabank";
-import { LocationsPageParabank } from "../../../support/pagesParaBank/locationsPageParabank";
-import { ProductsPageParabank } from "../../../support/pagesParaBank/productsPageParabank";
-import { ServicesPageParabank } from "../../../support/pagesParaBank/servicesPageParabank";
+import { MainPageParabank } from "../../../support/pagesParaBank/mainPageParabank";
 
-const basePage = new BasePageParabank();
-const aboutUsPage = new AboutUsPageParabank();
-const servicesPage = new ServicesPageParabank();
-const productsPage = new ProductsPageParabank();
-const locationsPage = new LocationsPageParabank();
-const adminPage = new AdminPageParabank();
+const mainPage = new MainPageParabank();
 
 describe('Test suite to verify the left menu of the header panel', () => {
     beforeEach('Opened the Main page', () => {
-        basePage.openApi();
+        mainPage.openApi();
     });
     it('Verify the names of the menu items in the left menu on the main App page ', () => {
         const nameItems = ['Solutions', 'About Us', 'Services', 'Products', 'Locations', 'Admin Page']
-        basePage.getLeftMenu()
+        mainPage.getLeftMenu()
             .find('li')
             .should('be.visible')
             .and('have.length', 6)
@@ -29,61 +19,66 @@ describe('Test suite to verify the left menu of the header panel', () => {
     });
 
     it('Test a user can open the AboutUs page', () => {
-        basePage
+        mainPage
             .getAboutUsLink()
                 .should('contain', 'About Us')
                 .and('have.attr', 'href')
                 .and('contain', 'about.htm')
-        aboutUsPage
+        mainPage
             .clickOpenAboutUsPage()
+        mainPage
             .urlVerify(urlsPagesParabank.aboutUsPageUrl)
             .getPageLabel()
                 .should('contain','ParaSoft Demo Website')
     });
 
     it('Test a user can open the Services page ', () => {
-        basePage
+        mainPage
             .getServicesLink()
                 .should('contain', 'Services')
                 .and('have.attr', 'href')
                 .and('contain', 'services.htm')
-        servicesPage
+        mainPage
             .clickOpenServicesPage()
+        mainPage
             .urlVerify(urlsPagesParabank.servicesPageUrl)
             .getServicesPageLabel()
                 .should('contain','Available Bookstore SOAP services:')
     });
 
     it('Test a user open the Products page', () => {
-        basePage
+        mainPage
             .getProductsLink()
                 .should('contain', 'Products')
                 .and('have.attr', 'href')
                 .and('contain', 'products.jsp')
-        productsPage
+        mainPage
             .clickOpenProductsPage()
+        mainPage
             .urlVerify(urlsPagesParabank.productsPageUrl)
     });
 
     it('Test a user open the Locations page', () => {
-        basePage
+        mainPage
             .getLocationsLink()
                 .should('contain', 'Locations')
                 .and('have.attr', 'href')
                 .and('contain', 'contacts.jsp')
-        locationsPage
+        mainPage
             .clickOpenLocationsPage()
+        mainPage
             .urlVerify(urlsPagesParabank.locationsPageUrl)
     });
 
     it('Test a user open the Admin page', () => {
-        basePage
+        mainPage
             .getAdminPageLink()
                 .should('contain', 'Admin Page')
                 .and('have.attr', 'href')
                 .and('contain', 'admin.htm')
-        adminPage
+        mainPage
             .clickOpenAdminPage()
+        mainPage
             .urlVerify(urlsPagesParabank.adminPageUrl)
             .getPageLabel()
                 .should('contain','Administration')
@@ -91,7 +86,7 @@ describe('Test suite to verify the left menu of the header panel', () => {
 
     it('Verify the button menu on the main App page', () => {
         const links = ['index.htm', 'about.htm', 'contact.htm']
-        basePage
+        mainPage
             .getRightButtonMenu()
                 .should('be.visible')
                 .find('a')

@@ -8,7 +8,7 @@ class UsersParabank{
         addressZipCode: 'Parabank',
         phoneNumber: 'Parabank',
         ssn: 'Parabank',
-        userName: 'gerbank',
+        userName: 'naertybank',
         password: 'Parabank',
         repeatedPassword: 'Parabank'
     };
