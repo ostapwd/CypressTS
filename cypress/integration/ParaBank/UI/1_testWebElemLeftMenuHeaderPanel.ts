@@ -14,7 +14,7 @@ const locationsPage = new LocationsPageParabank();
 const adminPage = new AdminPageParabank();
 
 describe('Test suite to verify the left menu of the header panel', () => {
-    before('Opened the Main page', () => {
+    beforeEach('Opened the Main page', () => {
         basePage.openApi();
     });
     it('Verify the names of the menu items in the left menu on the main API page ', () => {

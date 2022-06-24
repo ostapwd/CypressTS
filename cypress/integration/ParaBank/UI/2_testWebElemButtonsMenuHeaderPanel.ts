@@ -8,7 +8,7 @@ const aboutUsPage = new AboutUsPageParabank();
 const contactPage = new ContactPageParabank();
 
 describe('Test suite to verify the buttons menu of the header panel', () => {
-    before('Opened the Main page', () => {
+    beforeEach('Opened the Main page', () => {
         basePage.openApi();
     });
    
@@ -60,6 +60,5 @@ describe('Test suite to verify the buttons menu of the header panel', () => {
             .clickHomeButton()
         basePage
             .urlVerify(urlsPagesParabank.loginPageUrl)
-          
     });
 });
