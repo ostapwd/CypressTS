@@ -11,6 +11,7 @@ export default abstract class BasePageParabank {
     public usernameRegisterInput() { return cy.get(".input[id='customer.username']"); }
     public passwordRegisterInput() { return cy.get(".input[id='customer.password']"); }
     public repeatedPasswordInput() {return cy.get("#repeatedPassword")};
+   
     public waitForSeconds(secondsToWait :number) {
         cy.wait(secondsToWait * 1000);  
             return this

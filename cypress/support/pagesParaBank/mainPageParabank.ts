@@ -13,10 +13,11 @@ export class MainPageParabank extends BasePageParabank {
     public homeButton() { return cy.get(".home a[href*='/parabank/index.htm']"); }
     public aboutUsButton() { return cy.get(".aboutus a[href*='about.htm']"); }
     public contactButton() { return cy.get(".contact a[href*='contact.htm']"); }
-    public pageLabel() { return cy.get("#rightPanel h1.title"); }
+    public pageLabel() { return cy.get("#rightPanel"); }
     public servicesPageLabel() { return cy.xpath('//*[@id="rightPanel"]/span[1]') }
     public registerUserLink() { return cy.get("a[href*='register.htm']"); }
     public logOutrUserLink() { return cy.get("a[href*='logout.htm']"); }
+    
    
    
     public openApi(){

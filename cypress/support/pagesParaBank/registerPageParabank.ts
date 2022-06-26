@@ -28,5 +28,4 @@ export class RegisterPageParabank extends BasePageParabank{
         this.registerButton().click()
             return new AccountServicesPage()
     }
-
 }

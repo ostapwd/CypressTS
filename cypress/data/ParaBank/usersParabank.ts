@@ -8,6 +8,8 @@ class UsersParabank{
         addressZipCode: 'Parabank',
         phoneNumber: 'Parabank',
         ssn: 'Parabank',
+        email: 'parabank@parabank.com',
+        message: 'Lorem ipsum lorem ipsum',
         userName: 'naertybank',
         password: 'Parabank',
         repeatedPassword: 'Parabank'
