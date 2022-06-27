@@ -1,3 +1,5 @@
+import productPage from './productPage';
+
 class loginPage {
   get usernameInput() {
     return cy.get('#user-name');
@@ -9,11 +11,12 @@ class loginPage {
     return cy.get('#login-button');
   }
 
-  loginToTheApp(username, password) {
-    this.usernameInput.type(username);
-    this.passwordInput.type(password);
+  loginToTheApp(user) {
+    this.usernameInput.type(user.username);
+    this.passwordInput.type(user.password);
 
     this.loginButton.click();
+    return productPage;
   }
 
   open() {

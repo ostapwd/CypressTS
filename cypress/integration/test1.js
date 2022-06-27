@@ -1,37 +1,55 @@
-import loginPage from '../support/pages/loginPage';
-
 describe('Test suite', function () {
   it('Test 1', function () {
     cy.visit('https://www.saucedemo.com/');
-    //cy.wait(2000);
 
-    //cy.get('form > div').click();
+    cy.wait(2000);
 
-    cy.get('#user-name').type('standard_user');
+    //cy.xpath("//form/div").click({ multiple: true });
+
+    cy.wait(2000);
+    cy.get('#user-name', { timeout: 25000 }).type('standard_user').click();
     cy.get('#password').type('secret_sauce');
 
     cy.get('#login-button').click();
-    cy.get('#header_container .title').then((el) => cy.log(el.text()));
 
-    cy.get('#header_container .title').should('contain', 'Products');
+    cy.get('#header_container .title').then((element) =>
+      cy.log(element.text())
+    );
+
+    cy.get('#header_container .title').should('contain', 'Product');
+
+    cy.wait(3000);
     cy.contains('Add to cart').click();
 
-    cy.get('.inventory_item_name').each((item) => cy.log(item.text));
+    cy.wait(2000);
 
-    cy.get("[id*='add-to-cart']").each((item) => item.click());
+    cy.get('.inventory_item_name').each((item) => {
+      cy.log(item.text());
+    });
 
-    cy.get('#react-burger-menu-btn').click();
+    cy.get("[id*='add-to-cart']").each((item) => {
+      item.click();
+    });
+
+    cy.xpath("//*[@id='react-burger-menu-btn']").click();
+  });
+
+  it('Test 1', function () {
+    cy.visit('https://www.google.com/');
+
+    cy.get("[name='q']").type('what is Cypress').blur();
   });
 });
 
-describe('Test suite for login', function () {
+describe.only('Test suite for login', function () {
   before(function () {
     cy.log('Main before');
   });
 
   beforeEach(function () {
     cy.log('main before each');
-    loginPage.open();
+
+    cy.visit('https://www.saucedemo.com/');
   });
 
   describe('Test suite for login (positive)', function () {
@@ -43,25 +61,20 @@ describe('Test suite for login', function () {
       cy.log('before each');
     });
 
-    it('Test1 (positive login)', function () {
-      loginPage.loginToTheApp('standard_user', 'secret_sauce');
-      /* cy.get('#user-name').type('standard_user');
-
+    it('Test 1 (positive login)', function () {
+      cy.get('#user-name').type('standard_user');
       cy.get('#password').type('secret_sauce');
 
       cy.get('#login-button').click();
- */
+
       cy.get('span.title').should('contain', 'Products');
     });
 
-    it('Test2 positive login', function () {
-      loginPage.loginToTheApp('standard_user', 'secret_sauce');
-
-      /* cy.get('#user-name').type('standard_user');
-
+    it('Test 2 (positive login)', function () {
+      cy.get('#user-name').type('standard_user');
       cy.get('#password').type('secret_sauce');
 
-      cy.get('#login-button').click(); */
+      cy.get('#login-button').click();
 
       cy.get('span.title').should('contain', 'Products');
     });
@@ -79,34 +92,27 @@ describe('Test suite for login', function () {
     beforeEach(function () {
       cy.log('before each');
 
-      //cy.get('#user-name').type('standard_user');
+      cy.get('#user-name').type('standard_user');
     });
 
     it('Test 3 (negative login)', function () {
-      loginPage.loginToTheApp('standard_user', 'problem_user');
-      /* cy.get('#password').type('secret_sauce111');
-      cy.get('#login-button').click(); */
-      cy.get("h3[data-test = 'error']").should(
+      cy.get('#password').type('secret_sauce1111');
+
+      cy.get('#login-button').click();
+
+      cy.get("h3[data-test='error']").should(
         'contain',
         'Epic sadface: Username and password do not match any user in this service'
       );
     });
 
     it('Test 4 (negative login)', function () {
-      loginPage.usernameInput.type('standard_user');
-      loginPage.loginButton.click();
-      /* cy.get('#password').type('secret_sauce111');
-
       cy.get('#login-button').click();
- */
-      cy.get("h3[data-test = 'error']").should(
-        'contain',
-        'Epic  sadface: Password is required'
-      );
-    });
 
-    after(function () {
-      cy.log('Internal after');
+      cy.get("h3[data-test='error']").should(
+        'contain',
+        'Epic sadface: Password is required'
+      );
     });
   });
 
