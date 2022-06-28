@@ -11,6 +11,7 @@ export default abstract class BasePageParabank {
     public usernameRegisterInput() { return cy.get(".input[id='customer.username']"); }
     public passwordRegisterInput() { return cy.get(".input[id='customer.password']"); }
     public repeatedPasswordInput() {return cy.get("#repeatedPassword")};
+    public pageLabel() { return cy.get("#rightPanel"); }
    
     public waitForSeconds(secondsToWait :number) {
         cy.wait(secondsToWait * 1000);  
@@ -19,11 +20,15 @@ export default abstract class BasePageParabank {
 
     protected goto(url) {
         cy.visit(url, {failOnStatusCode: false});
-         return this
+            return this
     }
 
     public urlVerify(url) {
         cy.url().should('contain',url.url);
-         return this;
+            return this;
+    }
+
+    public getPageLabel(){
+        return this.pageLabel()
     }
 }

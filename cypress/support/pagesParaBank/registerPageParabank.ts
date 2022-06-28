@@ -1,7 +1,7 @@
-import { AccountServicesPage } from "./accountServicesPage";
-import BasePageParabank from "./basePageParabank";
+import { AccountServicesPageParabank } from "./accountServicesPageParabank";
+import { MainPageParabank } from "./mainPageParabank";
 
-export class RegisterPageParabank extends BasePageParabank{
+export class RegisterPageParabank extends MainPageParabank{
     public registerButton() {return cy.get( "input.button[value='Register']")};
     public successLabel() {return cy.get( "#rightPanel p")};
 
@@ -21,11 +21,11 @@ export class RegisterPageParabank extends BasePageParabank{
     }
 
     public getRegisterButton(){
-       return this.registerButton().click()
+       return this.registerButton()
     }
 
     public clickRegisterButton(){
         this.registerButton().click()
-            return new AccountServicesPage()
+            return new AccountServicesPageParabank()
     }
 }

@@ -6,40 +6,25 @@ import { MainPageParabank } from "../../../support/pagesParaBank/mainPageParaban
 const mainPage = new MainPageParabank();
 const contactPage = new ContactPageParabank();
 
-describe('Test suite to verify send to customer care', () => {
+describe('Test suite to verify send messages to customer care', () => {
     beforeEach('Opened the Main page', () => {
-        mainPage.openApi();
+        mainPage.openApp().clickOnButtonContact();
     });
 
-    it('Verify elements on the contact page', () => {
-        mainPage
-            .clickButtonContactPage()
-            .urlVerify(urlsPagesParabank.contactPageUrl)
-        mainPage
-            .getPageLabel()
-                .should('contain','Customer Care')
-        contactPage
-            .getContactForm()
-                .should('be.visible')
-                .and('contain', 'Name')
-                .and('contain', 'Email')
-                .and('contain', 'Phone')
-                .and('contain', 'Message')
-        contactPage
-            .getButtonContactForm()
-                .should('be.visible')
-                .and('have.value','Send to Customer Care')
-                .and('have.attr', 'type', 'submit')
+    it('Verify that a user is on the contact page', () => {
+        contactPage.urlVerify(urlsPagesParabank.contactPageUrl).getPageLabel().should('contain','Customer Care')
     });
 
-    it('Verify a can user send to customer care', () => {
-        mainPage
-            .clickButtonContactPage()
-            .fillFieldsTheContactForm()
-            .sendContactForm()
-        mainPage
-            .getPageLabel()
-                .should('contain','Customer Care')
-                .and('contain',`Thank you ${usersParabank.newUser.userName}`)
+    it('Verify the contact form', () => {
+        contactPage.getContactForm().should('be.visible').and('contain', 'Name').and('contain', 'Email').and('contain', 'Phone').and('contain', 'Message')
+    });
+
+    it('Verify the send button', () => {
+        contactPage.getButtonContactForm().should('be.visible').and('have.value','Send to Customer Care').and('have.attr', 'type', 'submit')
+    });
+
+    it('Verify a can user send messages to customer care', () => {
+        contactPage.fillFieldsTheContactForm().sendContactForm()
+        mainPage.getPageLabel().should('contain','Customer Care').and('contain',`Thank you ${usersParabank.newUser.userName}`)
     });
 });

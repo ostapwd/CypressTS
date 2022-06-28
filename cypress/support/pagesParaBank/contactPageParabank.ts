@@ -1,7 +1,7 @@
 import usersParabank from "../../data/ParaBank/usersParabank";
-import BasePageParabank from "./basePageParabank"
+import { MainPageParabank } from "./mainPageParabank";
 
-export class ContactPageParabank extends BasePageParabank{
+export class ContactPageParabank extends MainPageParabank{
     private contactForm() { return cy.get('#contactForm'); }
     private buttonContactForm() { return cy.get( ".button[value='Send to Customer Care']"); }
     private userNameContactForm() { return cy.get("#name") };
@@ -28,5 +28,4 @@ export class ContactPageParabank extends BasePageParabank{
         this.messageContactForm().clear().type(usersParabank.newUser.message)
             return this
     }
-  
 }

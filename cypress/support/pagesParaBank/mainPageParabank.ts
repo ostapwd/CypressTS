@@ -1,8 +1,8 @@
+import { AccountServicesPageParabank } from "./accountServicesPageParabank";
 import BasePageParabank from "./basePageParabank"
-import { ContactPageParabank } from "./contactPageParabank"
-import { RegisterPageParabank } from "./registerPageParabank"
 
 export class MainPageParabank extends BasePageParabank {
+  
     public leftMenu() { return cy.get(".leftmenu"); }
     public aboutUsLink() { return cy.get(".leftmenu a[href*='about.htm']"); }
     public servicesLink() { return cy.get(".leftmenu a[href*='services.htm']"); }
@@ -13,14 +13,14 @@ export class MainPageParabank extends BasePageParabank {
     public homeButton() { return cy.get(".home a[href*='/parabank/index.htm']"); }
     public aboutUsButton() { return cy.get(".aboutus a[href*='about.htm']"); }
     public contactButton() { return cy.get(".contact a[href*='contact.htm']"); }
-    public pageLabel() { return cy.get("#rightPanel"); }
     public servicesPageLabel() { return cy.xpath('//*[@id="rightPanel"]/span[1]') }
     public registerUserLink() { return cy.get("a[href*='register.htm']"); }
-    public logOutrUserLink() { return cy.get("a[href*='logout.htm']"); }
-    
+    public usernameInput() { return cy.get(".input[name='username']"); }
+    public passwordInput() { return cy.get(".input[name='password']"); }
+    public loginButton() { return cy.get(".button[value='Log In']"); }
+    public forgotLoginLink() { return cy.get("a[href*='lookup.htm']"); }
    
-   
-    public openApi(){
+    public openApp(){
         super.goto(Cypress.env("UI_HOST_Parabank"))
         super.waitForSeconds(1)
             return this
@@ -34,20 +34,18 @@ export class MainPageParabank extends BasePageParabank {
        return this.aboutUsLink()
     }
 
-    public clickOpenAboutUsPage(){
-        return this.getAboutUsLink().click()
-    }
-
-    public getPageLabel(){
-        return this.pageLabel()
+    public clickOnAboutUsLink(){
+       this.getAboutUsLink().click()
+            return this
     }
 
     public getServicesLink(){
         return this.servicesLink()
     }
 
-    public clickOpenServicesPage(){
-       return this.getServicesLink().click()
+    public clickOnServicesLink(){
+        this.getServicesLink().click()
+            return this
     }
 
     public getServicesPageLabel(){
@@ -58,24 +56,27 @@ export class MainPageParabank extends BasePageParabank {
        return this.productsLink()
     }
 
-    public clickOpenProductsPage(){
-        return this.getProductsLink().click()
+    public clickOnProductsLink(){
+        this.getProductsLink().click()
+            return this
     }
 
     public getLocationsLink(){
         return this.locationsLink()
     }
 
-    public clickOpenLocationsPage(){
-       return this.getLocationsLink().click()
+    public clickOnLocationsLink(){
+        this.getLocationsLink().click()
+            return this
     }
 
     public getAdminPageLink(){
        return this.adminPageLink()
     }
 
-    public clickOpenAdminPage(){
-       return this.getAdminPageLink().click()
+    public clickOnAdminPageLink(){
+        this.getAdminPageLink().click()
+            return this
     }
 
     public getRightButtonMenu(){
@@ -86,25 +87,34 @@ export class MainPageParabank extends BasePageParabank {
        return this.homeButton()
     }
 
-    public clickHomeButton(){
-        return this.getHomeButton().click()
+    public clickOnHomeButton(){
+        this.getHomeButton().click()
+            return this
     }
 
     public getAboutUsButton(){
        return this.aboutUsButton()
     }
 
-    public clickButtonAboutUsPage(){
-        return this.getAboutUsButton().click()
+    public clickOnButtonAboutUs(){
+        this.getAboutUsButton().click()
+            return this
     }
 
     public getContactButton(){
         return this.contactButton()
     }
 
-    public clickButtonContactPage(){
-        this.getContactButton().click()
-        return new ContactPageParabank()
+    public clickOnButtonContact(){
+       return this.getContactButton().click()
+    }
+
+    public getUserNameInput(){
+        return this.usernameInput()
+    }
+
+    public getPasswordInput(){
+        return this.passwordInput()
     }
 
     public getRegisterLink(){
@@ -112,7 +122,29 @@ export class MainPageParabank extends BasePageParabank {
     }
 
     public openRegisterForm(){
-        this.registerUserLink().click()
-            return new RegisterPageParabank()
+       return this.registerUserLink().click()
+    }
+
+    public loginToTheApp(user){
+        this.usernameInput().clear().type(user.userName)
+        this.passwordInput().clear().type(user.password)
+        return this
+    }
+    
+    public getLoginButton(){
+       return this.loginButton()
+    }
+
+    public clickLoginButton(){
+        this.getLoginButton().click()
+        return new AccountServicesPageParabank()
+    }
+
+    public getForgotLoginUserLink(){
+       return this.forgotLoginLink()
+    }
+
+    public clickOnForgotLogin(){
+       return this.forgotLoginLink().click()
     }
 }
