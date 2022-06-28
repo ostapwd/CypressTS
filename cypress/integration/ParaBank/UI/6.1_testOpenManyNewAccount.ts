@@ -1,0 +1,43 @@
+import usersParabank from "../../../data/ParaBank/usersParabank";
+import { AccountServicesPageParabank } from "../../../support/pagesParaBank/accountServicesPageParabank";
+import { MainPageParabank } from "../../../support/pagesParaBank/mainPageParabank";
+import { OpenNewAccountPageParabank } from "../../../support/pagesParaBank/openNewAccountPage";
+
+const mainPage = new MainPageParabank();
+const accountServicesPage = new AccountServicesPageParabank();
+const openNewAccountPage = new OpenNewAccountPageParabank();
+
+describe('Test suite to verify a user can open many new account', () => {
+    beforeEach('Opened the Main page', () => {
+        mainPage.openApp().loginToTheApp(usersParabank.newUser).clickLoginButton();
+    });
+
+        it('Verify a user can open the new account', () => {
+            openNewAccountPage.clickOnLinkOpenNewAccount().selectTypeAccount('0').selectNumberAccount(0).clickOnButtonOpenNewAccount().pageLabel().should('contain','Account Opened!')
+            openNewAccountPage.confirmCreattedNewAccount().then(item => {cy.log(item.text())});
+        });
+
+        it('Verify a user can open the new account', () => {
+            openNewAccountPage.clickOnLinkOpenNewAccount().selectTypeAccount('1').selectNumberAccount(0).clickOnButtonOpenNewAccount().pageLabel().should('contain','Account Opened!')
+            openNewAccountPage.confirmCreattedNewAccount().then(item => {cy.log(item.text())});
+        });
+
+        it('Verify a user can open the new account', () => {
+            openNewAccountPage.clickOnLinkOpenNewAccount().selectTypeAccount('0').selectNumberAccount(0).clickOnButtonOpenNewAccount().pageLabel().should('contain','Account Opened!')
+            openNewAccountPage.confirmCreattedNewAccount().then(item => {cy.log(item.text())});
+        });
+
+        it('Verify a user can open the new account', () => {
+            openNewAccountPage.clickOnLinkOpenNewAccount().selectTypeAccount('1').selectNumberAccount(0).clickOnButtonOpenNewAccount().pageLabel().should('contain','Account Opened!')
+            openNewAccountPage.confirmCreattedNewAccount().then(item => {cy.log(item.text())});
+        });
+
+        it('Verify a user can open the new account', () => {
+            openNewAccountPage.clickOnLinkOpenNewAccount().selectTypeAccount('0').selectNumberAccount(0).clickOnButtonOpenNewAccount().pageLabel().should('contain','Account Opened!')
+            openNewAccountPage.confirmCreattedNewAccount().then(item => {cy.log(item.text())});
+        });
+
+    afterEach('Log out', () => {
+       accountServicesPage.logOutOfTheApp()
+    });
+});

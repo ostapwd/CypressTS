@@ -17,12 +17,13 @@ export class AccountServicesPageParabank extends BasePageParabank{
     }
 
     public clickOnLinkOpenNewAccount(){
-       return this.openNewAccountLink().click();
+        this.openNewAccountLink().click();
+            return this
     }
 
     public clickOnLinkAccountsOverview(){
-       return this.accountsOverviewLink().click();
-            return new AccountsOverwiewPageParabank()
+        this.accountsOverviewLink().click();
+            return this
     }
 
     public clickOnLinkTransfersFound(){
