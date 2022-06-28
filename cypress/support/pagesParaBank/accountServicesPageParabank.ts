@@ -28,6 +28,5 @@ export class AccountServicesPageParabank extends BasePageParabank{
 
     public clickOnLinkTransfersFound(){
        return this.transferfoundsLink().click();
-            return new TransfersFoundPageParabank()
     }
 }

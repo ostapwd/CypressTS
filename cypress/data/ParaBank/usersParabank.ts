@@ -10,7 +10,7 @@ class UsersParabank{
         ssn: 'Parabank',
         email: 'parabank@parabank.com',
         message: 'Lorem ipsum lorem ipsum',
-        userName: 'poiqtrpank',
+        userName: 'pok.l..qpank',
         password: 'Parabank',
         repeatedPassword: 'Parabank'
     };
