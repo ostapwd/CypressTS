@@ -18,7 +18,7 @@ describe('Test suite to verify the buttons menu are working', () => {
     });
 
     it('Test a user can go to the Contact page after clicking on the Contact button', () => {
-        mainPage.waitForSeconds(1).clickOnButtonContact().urlVerify(urlsPagesParabank.contactPageUrl)
-                .getPageLabel().should('contain','Customer Care')
+        mainPage.waitForSeconds(1).clickOnButtonContact()
+        mainPage.urlVerify(urlsPagesParabank.contactPageUrl).getPageLabel().should('contain','Customer Care')
     });
 });

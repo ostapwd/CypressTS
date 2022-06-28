@@ -16,18 +16,17 @@ export class AccountServicesPageParabank extends BasePageParabank{
         return new MainPageParabank()
     }
 
-    public openNewAccountLinkPage(){
-        this.openNewAccountLink().should('contain','Open New Account').click();
-            return new OpenNewAccountsParabank()
+    public clickOnLinkOpenNewAccount(){
+       return this.openNewAccountLink().click();
     }
 
-    public openaAccountsOverviewPage(){
-        this.accountsOverviewLink().should('contain','Accounts Overview').click();
+    public clickOnLinkAccountsOverview(){
+       return this.accountsOverviewLink().click();
             return new AccountsOverwiewPageParabank()
     }
 
-    public openTransfersFoundPage(){
-        this.transferfoundsLink().should('contain','Transfer Funds').click();
+    public clickOnLinkTransfersFound(){
+       return this.transferfoundsLink().click();
             return new TransfersFoundPageParabank()
     }
 }

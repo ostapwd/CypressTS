@@ -24,7 +24,7 @@ describe('Test suite to verify send messages to customer care', () => {
     });
 
     it('Verify a can user send messages to customer care', () => {
-        contactPage.fillFieldsTheContactForm().sendContactForm()
+        contactPage.fillFieldsTheContactForm().clickOnButtonSendContactForm()
         mainPage.getPageLabel().should('contain','Customer Care').and('contain',`Thank you ${usersParabank.newUser.userName}`)
     });
 });

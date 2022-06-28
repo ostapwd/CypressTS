@@ -17,7 +17,7 @@ export class ContactPageParabank extends MainPageParabank{
         return this.buttonContactForm();
     }
 
-    public sendContactForm(){
+    public clickOnButtonSendContactForm(){
         return this.getButtonContactForm().click();
     }
 
