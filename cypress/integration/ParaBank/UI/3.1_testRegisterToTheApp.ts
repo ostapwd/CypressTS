@@ -1,9 +1,11 @@
 import usersParabank from "../../../data/ParaBank/usersParabank";
+import { AccountServicesPageParabank } from "../../../support/pagesParaBank/accountServicesPageParabank";
 import { MainPageParabank } from "../../../support/pagesParaBank/mainPageParabank";
 import { RegisterPageParabank } from "../../../support/pagesParaBank/registerPageParabank";
 
 const mainPage = new MainPageParabank();
 const registerPage = new RegisterPageParabank();
+const accountServicesPage = new AccountServicesPageParabank();
 
 describe('Test suite a user can to register to the App', () => {
     before('Opened the Main page', () => {
@@ -18,4 +20,7 @@ describe('Test suite a user can to register to the App', () => {
                 expect(element.text()).to.be.contains("Your account was created successfully. You are now logged in.")
         });
     });
+    after('Log out', () => {
+        accountServicesPage.logOutOfTheApp()
+     });
 });
