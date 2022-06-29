@@ -18,7 +18,7 @@ describe('Test suite to verify a user can open many new account', () => {
         });
 
         it('Verify a user can open the new account', () => {
-            openNewAccountPage.clickOnLinkOpenNewAccount().selectTypeAccount('1').selectNumberAccount(0).clickOnButtonOpenNewAccount().pageLabel().should('contain','Account Opened!')
+            openNewAccountPage.clickOnLinkOpenNewAccount().selectTypeAccount('0').selectNumberAccount(0).clickOnButtonOpenNewAccount().pageLabel().should('contain','Account Opened!')
             openNewAccountPage.confirmCreattedNewAccount().then(item => {cy.log(item.text())});
         });
 
@@ -28,7 +28,7 @@ describe('Test suite to verify a user can open many new account', () => {
         });
 
         it('Verify a user can open the new account', () => {
-            openNewAccountPage.clickOnLinkOpenNewAccount().selectTypeAccount('1').selectNumberAccount(0).clickOnButtonOpenNewAccount().pageLabel().should('contain','Account Opened!')
+            openNewAccountPage.clickOnLinkOpenNewAccount().selectTypeAccount('0').selectNumberAccount(0).clickOnButtonOpenNewAccount().pageLabel().should('contain','Account Opened!')
             openNewAccountPage.confirmCreattedNewAccount().then(item => {cy.log(item.text())});
         });
 

@@ -25,7 +25,6 @@ export class TransfersFoundPageParabank extends AccountServicesPageParabank{
     }
 
     public clickTransferButton(){
-        this.getTransferButton().click()
-            return this
+        return this.getTransferButton().click()
     }
 }
