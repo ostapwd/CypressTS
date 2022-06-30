@@ -1,4 +1,5 @@
 import { MainPageParabank } from "../../../support/pagesParaBank/mainPageParabank";
+import apiUtility from "../../../utilities/apiUtility";
 
 const mainPage = new MainPageParabank();
 
@@ -31,5 +32,9 @@ describe('Test suite to verify the left menu of the header panel', () => {
 
     it('Verify the Admin page link', () => {
         mainPage.getAdminPageLink().should('contain', 'Admin Page').and('have.attr', 'href').and('contain', 'admin.htm')
+    });
+
+    afterEach('Message', () => {
+       apiUtility.logMessage('Test successful');
     });
 });
