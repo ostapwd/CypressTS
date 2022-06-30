@@ -1,3 +1,5 @@
+import apiUtility from "../utilities/apiUtility";
+
 class ApiController {
 
     getAlbums() {
@@ -7,8 +9,9 @@ class ApiController {
                 failOnStatusCode: false
             })
             .then((response) => {
-                cy.log(JSON.stringify(response, null, 2));
+                apiUtility.logResponse(response)
             });
+           
     }
 
     getAlbum(albumId: number) {
@@ -19,7 +22,7 @@ class ApiController {
                 failOnStatusCode: false
             })
             .then((response) => {
-                cy.log(JSON.stringify(response, null, 2));
+                apiUtility.logResponse(response);
             });
     }
 
@@ -32,7 +35,7 @@ class ApiController {
                 body: album
             })
             .then((response) => {
-                cy.log(JSON.stringify(response, null, 2));
+                apiUtility.logResponse(response);
             });
     }
 
@@ -45,7 +48,7 @@ class ApiController {
                 body: album
             })
             .then((response) => {
-                cy.log(JSON.stringify(response, null, 2));
+                apiUtility.logResponse(response);
             });
     }
 
@@ -57,7 +60,7 @@ class ApiController {
                 failOnStatusCode: false
             })
             .then((response) => {
-                cy.log(JSON.stringify(response, null, 2));
+                apiUtility.logResponse(response);
             });
     }
 }
