@@ -13,7 +13,7 @@ describe("Albums API tests", () => {
         });
     });
 
-    it("POST album API tests", () => {
+    describe("POST album API tests", () => {
 
         let newAlbum = {
             "userId": 1,
