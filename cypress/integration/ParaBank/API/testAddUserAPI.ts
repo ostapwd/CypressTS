@@ -25,9 +25,8 @@ describe ("test suite register to Parabank", () => {
             "customer.password": "re",
             "repeatedPassword": "re"
         }
-            cy.setCookie('JSESSIONID',cookie)
             apiControllerRegister.addUser(user).then((response) => {
-            expect(response.status).to.be.equal(201);
+            expect(response.status).to.be.equal(200);
         })
     })
    
