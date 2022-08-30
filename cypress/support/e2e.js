@@ -15,6 +15,10 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+// import './pages/parabank_Pages/mainPage'
+// import './pages/parabank_Pages/loginPage'
+// import './pages/parabank_Pages/registerPage'
+// import './pages/parabank_Pages/accountsAndFundsPage'
 require('cypress-xpath');
 import 'cypress-mochawesome-reporter/register';
 

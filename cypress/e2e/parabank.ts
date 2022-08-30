@@ -4,11 +4,11 @@ import { Random } from '../data/dataRandomizer'
 import { LoginPage } from '../support/pages/parabank_Pages/loginPage'
 import { AccFundsPage } from '../support/pages/parabank_Pages/accountsAndFundsPage'
 
-const mainPage = new MainPage()
+const mainPage = new MainPage('', '', '')
 const registerPage = new RegisterPage()
+const loginPage = new LoginPage('', '', '', '', '')
 const randomizer = new Random()
 const randomName = randomizer.randomUserName()
-const loginPage = new LoginPage()
 const accfunds = new AccFundsPage()
 
 describe('ParaBank test suite', function () {

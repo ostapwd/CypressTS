@@ -1,9 +1,10 @@
 import { Random } from '../../../data/dataRandomizer'
+import { MainPage } from './mainPage'
 
-export class RegisterPage {
-  private register() {
-    return cy.get('p:nth-child(3) > a')
-  }
+export class RegisterPage extends MainPage {
+  // private register() {
+  //   return cy.get('p:nth-child(3) > a')
+  // }
   private registerData() {
     return cy.get('#customerForm > table > tbody > tr > td > .input')
   }
@@ -15,7 +16,7 @@ export class RegisterPage {
   }
 
   public registerApp(testInputData) {
-    this.register().click()
+    this.reg().click()
 
     this.registerData().each((el) => cy.wrap(el).type(testInputData))
 
