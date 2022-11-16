@@ -1,18 +1,20 @@
 //<reference types="Cypress" />
+
 import loginPage from "../../support/pages/loginPage";
 import productPage from "../../support/pages/productPage";
 
 describe('Test suit 3', () => {
     it.only('Verify user can add all products', ()=>{
-        loginPage.open();
-        loginPage.loginToTheApp('standard_user','secret_sauce');              
-        productPage.productLabel.should('contain','Products')  
+        loginPage.open()
+        .loginToTheApp("standard_user","secret_sauce")
+        .addToCardAllProducts()
+        .verifyQuantityOfproducts('6')
+
+        productPage.productLabel.should('contain','Products') 
         //productPage.logAllProducts()
-        productPage.addToCardAllProducts()
+        //productPage.addToCardAllProducts()
         //productPage.menu.click();
-        productPage.selectedItemsQuantity.then(el=>{
-            expect(el.text()).to.be.eq('6')
-        })
+        
         productPage.selectedItemsQuantity.invoke('text').should("be.eq", "6")
     })
 });

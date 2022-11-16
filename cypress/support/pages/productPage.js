@@ -11,11 +11,19 @@ class ProductPage{
         this.inventoryItemNames.each(el=>{
             cy.log(el.text())
         })
+        return this;
     }
     addToCardAllProducts(){
         this.addToCardButtons.each(el=>{
             el.click()
         })
+        return this;
+    }
+    verifyQuantityOfproducts(number){
+        this.selectedItemsQuantity.then(el=>{
+            expect(el.text()).to.be.eq(number)
+        })
+        
     }
 }
 

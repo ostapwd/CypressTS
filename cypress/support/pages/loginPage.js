@@ -1,3 +1,4 @@
+import productPage from "./productPage"
 
 class LoginPage{
 
@@ -10,10 +11,13 @@ class LoginPage{
         this.passwordInput.type(password)
 
         this.loginButton.click()
+
+        return productPage;
     }
 
     open(){
         cy.visit("https://www.saucedemo.com/")
+        return this;
       
     }
 }
