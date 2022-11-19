@@ -10,8 +10,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.20.2",
+    "@babel/preset-env": "^7.20.2",
+    "@cypress/webpack-preprocessor": "^5.15.5",
+    "babel-loader": "^9.1.0",
     "cypress": "^11.0.0",
+    "cypress-xpath": "^2.0.1",
     "npm-run-all": "^4.1.5",
-    "cypress-xpath": "^2.0.1"
+    "webpack": "^5.75.0"
   }
 }

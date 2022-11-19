@@ -1,12 +1,14 @@
 const { defineConfig } = require('cypress')
+const webpackPreprocessor = require('@cypress/webpack-preprocessor')
 
 module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      on('file:preprocessor', webpackPreprocessor())
     },
     specPattern: "cypress/e2e/**/*.{js,jsx,ts,tsx,feature}"
   },
+  
   
     chromeWebSecurity: false,
     viewportWidth: 1200,
@@ -14,3 +16,4 @@ module.exports = defineConfig({
     //watchForFileChanges: false
   
 })
+

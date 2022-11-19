@@ -1,10 +1,17 @@
-//<reference types="Cypress" />
+/// <reference types="Cypress" />
 
+import { Dog } from "../../support/pages/dog";
 import loginPage from "../../support/pages/loginPage";
 import productPage from "../../support/pages/productPage";
 
 describe('Test suit 3', () => {
     it.only('Verify user can add all products', ()=>{
+
+const dog1 = new Dog('Brovko', 5)
+const dog2 = new Dog('Brovko2', 15);
+dog1.printMyName();
+dog2.printMyName();
+
         loginPage.open()
         .loginToTheApp("standard_user","secret_sauce")
         .addToCardAllProducts()

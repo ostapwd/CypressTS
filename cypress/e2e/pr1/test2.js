@@ -1,4 +1,4 @@
-//<reference types="Cypress" />
+/// <reference types="Cypress" />
 
 import loginPage from "../../support/pages/loginPage";
 
