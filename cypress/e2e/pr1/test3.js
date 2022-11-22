@@ -3,9 +3,15 @@
 import { Dog } from "../../support/pages/dog";
 import loginPage from "../../support/pages/loginPage";
 import productPage from "../../support/pages/productPage";
+import {LoginPageTS} from "../../support/pages/loginPageTS";
 
 describe('Test suit 3', () => {
-    it.only('Verify user can add all products', ()=>{
+    it('Verify user can add all products', ()=>{
+
+    const loginPageTypeScript = new LoginPageTS();
+
+    loginPageTypeScript.open().loginToTheApp("standard_user","secret_sauce")
+
 
 const dog1 = new Dog('Brovko', 5)
 const dog2 = new Dog('Brovko2', 15);
@@ -24,6 +30,14 @@ dog2.printMyName();
         
         productPage.selectedItemsQuantity.invoke('text').should("be.eq", "6")
     })
+
+    it.only('Verify user can add all products1111', ()=>{
+        new LoginPageTS().open()
+        .loginToTheApp("standard_user","secret_sauce")
+        .addToCardAllProducts()
+        .verifyQuantityOfproducts('6')
+    })
+
 });
 
 describe('Test suite for login',()=>{
