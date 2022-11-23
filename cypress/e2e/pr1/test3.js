@@ -32,6 +32,8 @@ dog2.printMyName();
     })
 
     it.only('Verify user can add all products1111', ()=>{
+
+        loginPageTypeScript.waitForSec(3);
         new LoginPageTS().open()
         .loginToTheApp("standard_user","secret_sauce")
         .addToCardAllProducts()

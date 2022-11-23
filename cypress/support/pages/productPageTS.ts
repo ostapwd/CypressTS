@@ -1,5 +1,6 @@
+import BasePage from "./BasePage"
 
-export class ProductPageTS{
+export class ProductPageTS extends BasePage{
 
    // private productLabel() { return cy.get("#header_container .title")}
     private addToCardButtons() {return cy.get("[id*='add-to-cart']")}
@@ -11,11 +12,14 @@ export class ProductPageTS{
         this.inventoryItemNames().each(el=>{
             cy.log(el.text())
         })
+
+        super.waitForSec(1)
         return this;
     }
     public addToCardAllProducts(){
         this.addToCardButtons().each(el=>{
             el.click()
+            this.waitForSec(1)
         })
         return this;
     }
