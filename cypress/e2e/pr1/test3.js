@@ -18,7 +18,7 @@ const dog2 = new Dog('Brovko2', 15);
 dog1.printMyName();
 dog2.printMyName();
 
-        loginPage.open()
+        LoginPageTS.open()
         .loginToTheApp("standard_user","secret_sauce")
         .addToCardAllProducts()
         .verifyQuantityOfproducts('6')
@@ -33,7 +33,6 @@ dog2.printMyName();
 
     it.only('Verify user can add all products1111', ()=>{
 
-        loginPageTypeScript.waitForSec(3);
         new LoginPageTS().open()
         .loginToTheApp("standard_user","secret_sauce")
         .addToCardAllProducts()
