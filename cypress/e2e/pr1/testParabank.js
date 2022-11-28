@@ -1,3 +1,4 @@
+import {RegisterParabank} from "../../support/pages/registerParabank"
 
 describe('Parabank test suit  1', () => {
 
@@ -5,9 +6,7 @@ describe('Parabank test suit  1', () => {
     beforeEach(()=>{
         cy.visit("https://parabank.parasoft.com/parabank/index.htm")
     })
-    it('Verify user can register', () => {
-
-        
+    it('Verify user can register', () => {       
                
         cy.contains('Register').click();
         cy.get(".title").should('contain','Signing up is easy!')
@@ -32,6 +31,16 @@ describe('Parabank test suit  1', () => {
         cy.get('[name="username"]').type(user1)
         cy.get('[name="password"]').type(user1)
         cy.get('[value="Log In"]').click();
+
+    })
+    it.only('Verify user can register via POM', ()=>{
+
+        const registerUserParabank = new RegisterParabank()
+
+        cy.contains('Register').click();
+        cy.get(".title").should('contain','Signing up is easy!')
+        registerUserParabank.registerToApp('user1')
+        cy.get('#rightPanel p').should('contain', 'Your account was created successfully. You are now logged in.')
 
     })
 });

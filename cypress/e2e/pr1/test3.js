@@ -98,7 +98,7 @@ afterEach(() => {
             //cy.get("#user-name").type('standard_user');
         });
 
-        it('Test3 (negative login)', ()=>{
+        it.only('Test3 (negative login)', ()=>{
             
             loginPage.loginToTheApp('standard_user','problem_user');
             //cy.get("#password").type('secret_sauce1');
