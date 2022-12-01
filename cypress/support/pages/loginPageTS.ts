@@ -1,4 +1,4 @@
-import BasePage from "./BasePage"
+/* import BasePage from "./BasePage"
 import {ProductPageTS} from "./productPageTS"
 
 export class LoginPageTS extends BasePage{
@@ -19,8 +19,8 @@ export class LoginPageTS extends BasePage{
     }
 
     public open(){
-        this.goto("https://www.saucedemo.com/")
+        cy.visit("https://www.saucedemo.com/")
         return this;
       
     }
-}
+} */
