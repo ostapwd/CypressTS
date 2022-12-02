@@ -1,8 +1,6 @@
-
-export class RegisterParabankJS {
-    get registerButton() {return cy.contains('Register')};
-
-    get firstName() { return cy.get("[name='customer.firstName']") };
+class RegisterParabank {
+    get registerButton() { return cy.contains('Register') };
+    get firstName() { return cy.get("[name='customer.firstName']") }
     get lastName() { return cy.get('[name="customer.lastName"]') };
     get castomerStreet() { return cy.get('[name="customer.address.street"]') }
     get castomerCity() { return cy.get('[name="customer.address.city"]') }
@@ -13,34 +11,35 @@ export class RegisterParabankJS {
     get userName() { return cy.get('[name="customer.username"]') }
     get userPassword() { return cy.get('[name="customer.password"]') }
     get repeatedPassword() { return cy.get('[name="repeatedPassword"]') }
-    get registerButton() { return cy.get('[value="Register"]') }
+    get registerButton() { return cy.xpath('//a[text()="Register"]') }
     get usernameInput() { return cy.get("#user-name") }
     get passwordInput() { return cy.get("#password") }
     get loginButton() { return cy.get("#login-button") }
+    get registerButton2() {return cy.get('#rightPanel .button')}
 
-    registerToApp(userCreds) {
-        this.firstName().type(userCreds)
-        this.lastName().type(userCreds)
-        this.castomerStreet().type(userCreds)
-        this.castomerCity().type(userCreds)
-        this.castomerState().type(userCreds)
-        this.castomerZip().type(userCreds)
-        this.castomerPhone().type(userCreds)
-        this.castomerSSN().type(userCreds)
-        this.userName().type(userCreds)
-        this.userPassword().type(userCreds)
-        this.repeatedPassword().type(userCreds)
-        this.registerButton().click()
-        
+    registerToTheApp(creds) {
+        this.firstName.type(creds)
+        this.lastName.type(creds)
+        this.castomerStreet.type(creds)
+        this.castomerCity.type(creds)
+        this.castomerState.type(creds)
+        this.castomerZip.type(creds)
+        this.castomerPhone.type(creds)
+        this.castomerSSN.type(creds)
+        this.userName.type(creds)
+        this.userPassword.type(creds)
+        this.repeatedPassword.type(creds)
+        this.registerButton2.click()
     }
-
     open(){
         cy.visit("https://parabank.parasoft.com/parabank/index.htm")
         return this;
-      
     }
-    clickRegister(){
-        this.registerButton().click();
+    clickRegisterButton(){
+        this.registerButton.click();
         return this;
     }
+
 }
+
+export default new RegisterParabank()
