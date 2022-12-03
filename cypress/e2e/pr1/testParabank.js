@@ -1,6 +1,7 @@
 //import {RegisterParabank} from "../../support/pages/registerParabank"
 import registerParabank from  "../../support/pages/registerParaPOM"
 import loginParabank from "../../support/pages/loginParaPOM"
+import {LoginParabankTS} from "../../support/pages/loginParaPomTS"
 
 describe('Parabank test suit  1', () => {
 
@@ -47,9 +48,14 @@ describe('Parabank test suit  1', () => {
 
     })
 
-    it.only('Positive login', ()=>{
+    it.skip('Positive login', ()=>{
         loginParabank.loginToTheApp(user2)
         cy.get('.smallText').should('have.text',`Welcome ${user2} ${user2}`)
         cy.get('h1.title').should('contain','Accounts Overview')
+    })
+
+    it.only('Positive login Typscript',()=>{
+        const loginPageParabankTS = new LoginParabankTS();
+        loginPageParabankTS.open().loginToTheApp(user2);
     })
 });
