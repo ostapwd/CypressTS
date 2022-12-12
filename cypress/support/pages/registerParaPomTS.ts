@@ -1,4 +1,5 @@
-export class RegisterParabank{
+export class RegisterParabankTS{
+    
     private firstName() {return cy.get("[name='customer.firstName']")};
     private lastName() {return cy.get('[name="customer.lastName"]')};
     private castomerStreet() {return cy.get('[name="customer.address.street"]')}
@@ -10,7 +11,9 @@ export class RegisterParabank{
     private userName() {return cy.get('[name="customer.username"]')}
     private userPassword() {return cy.get('[name="customer.password"]')}
     private repeatedPassword() {return cy.get('[name="repeatedPassword"]')}
-    private registerButton(){return cy.get('[value="Register"]')}
+    private registerButton() { return cy.xpath('//a[text()="Register"]') }
+    //private registerButton(){return cy.get('[value="Register"]')}
+    private registerButton2() {return cy.get('#rightPanel .button')}
 
     public registerToApp(userCreds:string){
           this.firstName().type(userCreds)
@@ -24,7 +27,17 @@ export class RegisterParabank{
           this.userName().type(userCreds)
           this.userPassword().type(userCreds)
           this.repeatedPassword().type(userCreds)
-          this.registerButton().click()
+          this.registerButton2().click()
 
+    }
+
+    clickRegisterButton(){
+        this.registerButton().click();
+        return this;
+    }
+
+    public open(){
+        cy.visit("https://parabank.parasoft.com/parabank/index.htm")
+        return this;
     }
 }
