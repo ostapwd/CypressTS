@@ -1,33 +1,43 @@
 import BasePage from "./BasePage"
 
-export class ProductPageTS extends BasePage{
+export class ProductPageTS extends BasePage {
 
-   // private productLabel() { return cy.get("#header_container .title")}
-    private addToCardButtons() {return cy.get("[id*='add-to-cart']")}
-    private inventoryItemNames() {return  cy.get(".inventory_item_name")}
-   // private menu(){return cy.xpath("//*[@id='react-burger-menu-btn']")}
-   private selectedItemsQuantity(){ return cy.get(".shopping_cart_badge")}
+    // private productLabel() { return cy.get("#header_container .title")}
+    private addToCardButtons() { return cy.get("[id*='add-to-cart']") }
+    private inventoryItemNames() { return cy.get(".inventory_item_name") }
+    // private menu(){return cy.xpath("//*[@id='react-burger-menu-btn']")}
+    private selectedItemsQuantity() { return cy.get(".shopping_cart_badge") }
+    private filterSelect() { return cy.get(".product_sort_container") }
 
-   public logAllProducts(){
-        this.inventoryItemNames().each(el=>{
+
+    public filterByText(option: string) {
+        this.filterSelect().select(option)
+        return this;
+    }
+    public filterByIndex(index: number) {
+        this.filterSelect().select(index)
+    }
+
+    public logAllProducts() {
+        this.inventoryItemNames().each(el => {
             cy.log(el.text())
         })
 
         super.waitForSec(1)
         return this;
     }
-    public addToCardAllProducts(){
-        this.addToCardButtons().each(el=>{
+    public addToCardAllProducts() {
+        this.addToCardButtons().each(el => {
             el.click()
             this.waitForSec(1)
         })
         return this;
     }
-    public verifyQuantityOfproducts(number: number){
-        this.selectedItemsQuantity().then(el=>{
+    public verifyQuantityOfproducts(number: number) {
+        this.selectedItemsQuantity().then(el => {
             expect(el.text()).to.be.eq(number)
         })
-        
+
     }
 }
 

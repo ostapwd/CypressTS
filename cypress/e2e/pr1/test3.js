@@ -4,9 +4,11 @@ import { Dog } from "../../support/pages/dog";
 import loginPage from "../../support/pages/loginPage";
 import productPage from "../../support/pages/productPage";
 import { LoginPageTS } from "../../support/pages/loginPageTS";
+import { ProductPageTS } from "../../support/pages/productPageTS";
+import urls from "../../data/urls";
 
 describe('Test suit 3', () => {
-    it.only('Verify user can add all products', () => {
+    it('Verify user can add all products', () => {
 
         const loginPageTypeScript = new LoginPageTS();
 
@@ -33,10 +35,17 @@ describe('Test suit 3', () => {
 
     it('Verify user can add all products1111', () => {
 
-        loginPage.open()
+        loginPageTypeScript.open(urls.getAppUrl())
             .loginToTheApp("standard_user", "secret_sauce")
             .addToCardAllProducts()
             .verifyQuantityOfproducts('6')
+    })
+
+    it.only('Select dropdown', () => {
+
+        new LoginPageTS().open(urls.getAppUrl()).loginToTheApp("standard_user", "secret_sauce").filterByText("Price (high to low)").waitForSec(1).filterByIndex(1);
+          
+            
     })
 
 });

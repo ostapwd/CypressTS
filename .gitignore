@@ -3,6 +3,6 @@ package-lock.json
 .idea
 cypress/reports/**/*.*
 cypress/screenshots/**/*.*
-**/videos/*
+**/videos/**
 **/build/**
 
