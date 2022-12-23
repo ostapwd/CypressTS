@@ -8,12 +8,12 @@ module.exports = defineConfig({
     },
     specPattern: "cypress/e2e/**/*.{js,jsx,ts,tsx,feature}"
   },
-  
-  
-    chromeWebSecurity: false,
-    viewportWidth: 1200,
+
+ 
+  chromeWebSecurity: false,
+  viewportWidth: 1200,
   viewportHeight: 800
-    //watchForFileChanges: false
-  
+  //watchForFileChanges: false
+
 })
 
